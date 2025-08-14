@@ -36,7 +36,8 @@
 <link rel="stylesheet"href="assests/css/style.css">
 <link rel="stylesheet"href="/app/themes/img/public/styles/print.css?id=3862f905b361387ca2ea09d913e7b011" type="text/css" media="print">
 <script type="text/javascript" src="/app/plugins/wpo365-login/apps/dist/pintra-redirect.js?ver=34.2" id="pintraredirectjs-js" async></script>
-<script type="text/javascript" src="/wp/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
+<!-- Ensure jQuery is loaded from local assets before script.js -->
+<script src="assests/js/jquery-3.7.1.min.js"></script>
 <link rel="https://api.w.org/" href="/wp-json/" /><link rel="alternate" title="JSON" type="application/json" href="/wp-json/wp/v2/pages/73" /><meta name="generator" content="WordPress 6.7.2" />
 <link rel='shortlink' href='/?p=73' />
 <link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.img.com%2FBlogs%2Fdigital" />
@@ -117,7 +118,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
     </style>
 
-    </head>
+  <!-- Load main script after jQuery -->
+  <script src="assests/js/script.js"></script>
+  </head>
     
     <body class="page-template-default page page-id-73 page-parent page-child parent-pageid-67 wp-embed-responsive page-digital">
     <!-- Preloader -->
