@@ -952,7 +952,7 @@
     const select = document.getElementById('reportSelect');
     const reportContent = document.getElementById('reportContent');
 
-    fetch('/faqs.json')
+  fetch('faqs.json')
       .then(res => res.json())
       .then(data => {
         data.forEach((item, index) => {
