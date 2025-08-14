@@ -1,0 +1,1786 @@
+<!doctype html>
+<html lang="en-GB">
+
+<head>
+  <meta name="google-site-verification" content="DmkkXmEReFOHRjDhLZ9u8TltSY1rmhurIp7LwU5baOQ" />
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome 7.0.0 Local -->
+  <link rel="stylesheet" href="fontawesome-free-7.0.0-web (1)/fontawesome-free-7.0.0-web/css/all.min.css">
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="assests/css/bootstrap.min.css">
+  <!-- Magnific Popup -->
+  <link rel="stylesheet" href="assests/css/magnific-popup.min.css">
+  <!-- Animate -->
+  <link rel="stylesheet" href="assests/css/animate.min.css">
+  <!-- Slick -->
+  <link rel="stylesheet" href="assests/css/slick.min.css">
+  <!-- Main Style -->
+  <link rel="stylesheet" href="assests/css/style.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Font Awesome 7.0.0 Local -->
+<link rel="stylesheet" href="fontawesome-free-7.0.0-web (1)/fontawesome-free-7.0.0-web/css/all.min.css">
+<style>
+  #preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #000;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      transition: opacity 0.5s ease-out;
+  }
+  
+  .preloader-logo {
+      width: 150px;
+      margin-bottom: 30px;
+      animation: pulse 2s infinite;
+  }
+  
+  .loader {
+      width: 50px;
+      height: 50px;
+      border: 5px solid #f3f3f3;
+      border-top: 5px solid #fdd301;
+      border-radius: 50%;
+      animation: spin 1s linear 2;
+      animation-fill-mode: forwards;
+  }
+  
+  @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(720deg); } /* 2 full rotations = 720 degrees */
+  }
+  
+  @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+  }
+</style>
+  
+  <style>
+    img:is([sizes="auto" i], [sizes^="auto," i]) {
+      contain-intrinsic-size: 3000px 1500px
+    }
+
+    #onetrust-banner-sdk {
+      display: none;
+    }
+
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    select {
+      max-width: 300px;
+      padding: 10px 12px;
+      font-size: 1rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      margin-bottom: 30px;
+      background-color: white;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    #reportContent {
+      width: 100%;
+      max-width: 900px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .report-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 19px 20px;
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .report-item:hover {
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    }
+
+    .report-item a {
+      text-decoration: none;
+      color: #007bff;
+      font-weight: 500;
+      font-size: 16px;
+      word-break: break-word;
+    }
+
+    .download-icon {
+      width: 22px;
+      height: 22px;
+      fill: #555;
+      transition: fill 0.3s ease;
+    }
+
+    .report-item:hover .download-icon {
+      fill: #007bff;
+    }
+
+    @media screen and (min-width: 600px) {
+      .reports {
+        display: grid;
+        justify-items: center;
+        gap: 10px;
+        align-content: center;
+        margin: 14px 0px;
+      }
+    }
+
+    @media screen and (max-width: 600px) {
+      .reports {
+        padding: 0px 10px;
+        gap: 10px;
+        display: grid;
+        margin: 14px 0px;
+      }
+    }
+
+    .header .navbar-nav>.menu-item {
+      margin: 0;
+      transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+      transform: translate(0, 20%);
+      opacity: 1 !important;
+    }
+
+    table th,
+    table td {
+      padding: 15px;
+      line-height: 1.5;
+      vertical-align: top;
+      border: 1px solid rgba(128, 128, 128, 0.5019607843);
+    }
+
+    @media screen and (min-width: 600px) {
+      .accordion {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+    }
+
+    @media screen and (max-width: 600px) {
+      table {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow-x: scroll;
+      }
+
+      table tbody {
+        width: 90%
+      }
+    }
+
+    p {
+      text-align: center;
+    }
+    .hero-section {
+      display: inline-grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 4rem;
+      padding: 8rem 5%;
+      background-color: #fdf2e9;
+      width:100%;
+      justify-items: center;
+      min-height: 60vh;
+      overflow: hidden;
+    }
+
+    .hero-text {
+      /* opacity: 0; */
+      transform: translateY(50px);
+      transition: all 1s ease;
+    }
+
+    .hero-text h1 {
+      font-size: 3.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .hero-text p {
+      font-size: 1.2rem;
+      margin-bottom: 2.5rem;
+      color: #555;
+    }
+
+    .hero-text .btn {
+     
+      background-color: #e67e22;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 30px;
+      font-size: 1rem;
+      transition: background 0.3s;
+    }
+
+    .hero-text .btn:hover {
+      background-color: #cf711f;
+    }
+
+    .hero-img {
+      /* opacity: 0; */
+      transform: translateY(50px);
+      transition: all 1s ease;
+      text-align: center;
+    }
+
+    .hero-img img {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 16px;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero-section {
+        grid-template-columns: 1fr;
+        padding: 6rem 5%;
+        text-align: center;
+      }
+
+      .hero-text h1 {
+        font-size: 2.8rem;
+      }
+
+      .hero-text p {
+        font-size: 1.1rem;
+      }
+
+      .hero-text .btn {
+        font-size: 1rem;
+      }
+
+      .hero-img img {
+        width: 80%;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero-text h1 {
+        font-size: 2.2rem;
+      }
+
+      .hero-text p {
+        font-size: 1rem;
+      }
+
+      .hero-img img {
+        width: 100%;
+      }
+    }
+
+    .visible {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+    }
+    @media (min-width: 768px) {
+    h1{
+        letter-spacing: -.1875rem;
+        line-height: 62px !important;
+    }
+}
+
+.btn-f{
+  display: flex;
+  gap:10px;
+}
+  </style>
+
+  <!-- This site is optimized with the Yoast SEO plugin v24.6 - https://yoast.com/wordpress/plugins/seo/ -->
+  <title>Investor - Colab Platforms</title>
+  <meta name="description" content="Investor page - colab sports" />
+  <link rel="canonical" href="https://www.colabplatforms.com/investor" />
+  <meta property="og:locale" content="en_GB" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Investor - Colab Platforms" />
+  <meta property="og:description" content="Investor page - colab sports" />
+  <meta property="og:url" content="https://www.colabplatforms.com/investor" />
+  <meta property="og:site_name" content="Colab Platforms" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@ColabPlatforms" />
+  <script type="application/ld+json"
+    class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://img.staged.cc/services/digital","url":"https://img.staged.cc/services/digital","name":"Digital | IMG","isPartOf":{"@id":"https://www.img.com/#website"},"description":"We are digital experts dedicated to reinventing, building, and commercializing our clients’ digital media businesses.","breadcrumb":{"@id":"https://img.staged.cc/services/digital#breadcrumb"},"inLanguage":"en-GB","potentialAction":[{"@type":"ReadAction","target":["https://img.staged.cc/services/digital"]}]},{"@type":"BreadcrumbList","@id":"https://img.staged.cc/services/digital#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.img.com/"},{"@type":"ListItem","position":2,"name":"Services","item":"https://img.staged.cc/services"},{"@type":"ListItem","position":3,"name":"Digital"}]},{"@type":"WebSite","@id":"https://www.img.com/#website","url":"https://www.img.com/","name":"IMG","description":"Power the worlds passion for sport","publisher":{"@id":"https://www.img.com/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.img.com/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"en-GB"},{"@type":"Organization","@id":"https://www.img.com/#organization","name":"IMG","url":"https://www.img.com/","logo":{"@type":"ImageObject","inLanguage":"en-GB","@id":"https://www.img.com/#/schema/logo/image/","url":"https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/09/img-favicon.png","contentUrl":"https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/09/img-favicon.png","width":512,"height":512,"caption":"IMG"},"image":{"@id":"https://www.img.com/#/schema/logo/image/"},"sameAs":["https://x.com/IMG","https://www.linkedin.com/company/4471","https://www.instagram.com/img/"]}]}</script>
+  <!-- / Yoast SEO plugin. -->
+
+  <link rel="stylesheet" href="https://unpkg.com/lenis@1.2.3/dist/lenis.css">
+  <link rel="stylesheet" href="/app/themes/img/public/styles/digital-trends.css?id=a8b0b7347156afd00cb5d4ca6d6d691d"
+    type="text/css" media="all">
+  <link rel="stylesheet" href="assests/css/app.css"
+    type="text/css" media="all">
+     <link rel="stylesheet" href="assests/css/style.css"  type="text/css" media="all">
+  <link rel="stylesheet" href="/app/themes/img/public/styles/print.css?id=3862f905b361387ca2ea09d913e7b011"
+    type="text/css" media="print">
+  <script type="text/javascript" src="/app/plugins/wpo365-login/apps/dist/pintra-redirect.js?ver=34.2"
+    id="pintraredirectjs-js" async></script>
+  <script type="text/javascript" src="/wp/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
+  <link rel="https://api.w.org/" href="/wp-json/" />
+  <link rel="alternate" title="JSON" type="application/json" href="/wp-json/wp/v2/pages/73" />
+  <meta name="generator" content="WordPress 6.7.2" />
+  <link rel='shortlink' href='/?p=73' />
+  <link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed"
+    href="/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.img.com%2Fservices%2Fdigital" />
+  <link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed"
+    href="/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.img.com%2Fservices%2Fdigital&#038;format=xml" />
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-MKC4MCDF');</script>
+  <!-- End Google Tag Manager -->
+  <link rel="icon"
+    href="https://cdn.shopify.com/s/files/1/0653/9830/9053/files/Colab_Cloud_Logo_1-09_1.png?v=1733726989"
+    sizes="32x32" />
+  <link rel="icon"
+    href="https://cdn.shopify.com/s/files/1/0653/9830/9053/files/Colab_Cloud_Logo_1-09_1.png?v=1733726989"
+    sizes="192x192" />
+  <link rel="apple-touch-icon"
+    href="https://cdn.shopify.com/s/files/1/0653/9830/9053/files/Colab_Cloud_Logo_1-09_1.png?v=1733726989" />
+
+</head>
+
+<body
+  class="page-template-default page page-id-73 page-parent page-child parent-pageid-67 wp-embed-responsive page-digital">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MKC4MCDF" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <div id="app">
+
+    <div id="preloader">
+      <div class="preloader-logo">
+          <img src="https://cdn.shopify.com/s/files/1/0653/9830/9053/files/minimal-logo-effect-for-footer-unscreen-ezgif.com-crop_1.gif" alt="Colab Platforms Logo">
+      </div>
+
+  </div>
+  
+     <header class="main-header">
+            <!--Header-Upper-->
+            <div class="header-upper black-120-bg">
+                <div class="container clearfix">
+                    <div class="header-inner rel d-flex align-items-center">
+                        <div class="logo-outer">
+                          <div class="logo"><a href="index.html"><img src="https://cdn.shopify.com/s/files/1/0653/9830/9053/files/minimal-logo-effect-for-footer-unscreen-ezgif.com-crop_1.gif?v=1744289888" alt="Logo" title="Logo" style = "width: 100px;"></a></div>
+                        </div>
+
+                        <div class="nav-outer ms-auto clearfix">
+                            <!-- Main Menu -->
+                            <nav class="main-menu navbar-expand-lg">
+                                <div class="navbar-header py-10">
+                                    <div class="mobile-logo">
+                                        <a href="index.html">
+                                            <img src="https://cdn.shopify.com/s/files/1/0653/9830/9053/files/minimal-logo-effect-for-footer-unscreen-ezgif.com-crop_1.gif?v=1744289888" alt="Logo" title="Logo" style = "width: 100px;">
+                                        </a>
+                                    </div>
+
+                                    <!-- Toggle Button -->
+                                    <button type="button" class="navbar-toggle" data-bs-toggle="collapse"
+                                        data-bs-target=".navbar-collapse">
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                </div>
+
+                                <div class="navbar-collapse collapse clearfix">
+                                    <ul class="navigation clearfix">
+                                       <li ><a href="index.html">Home</a></li>
+                                        <li><a href="about.html">About</a></li>
+                                        <li class="dropdown"><a href="#">Services</a>
+                                            <ul>
+                                                <li><a href="Services.html">Services</a></li>
+                                                <li><a href="Sports technology.html">Sports technology</a></li>
+                                                <li><a href="sports-content.html">Sports Content</a></li>
+                                                <li><a href="Sports-infrastructure.html">Sports Infrastructure</a></li>
+                                                <li><a href="sports-ip.html">Sports Ip</a></li>
+                                                <li><a href="Sports-marketing.html">Sports Marketing</a></li>
+                                                <li><a href="Athelte-management.html">Athelte Management</a></li>
+                                            </ul>
+                                        </li>
+                                        <!-- <li class="dropdown"><a href="#">pages</a>
+                                            <ul>
+                                                <li><a href="404.html">404 Error</a></li>
+                                            </ul>
+                                        </li> -->
+                                        <li><a href="contact.html">Contact</a></li>
+                                          <li><a href="blog.html">Blog</a></li>
+                                          <li><a href="investor.html">Investor</a></li>
+                                          <li><a href="career.html">Career</a></li>
+                                          <li><a href="gallery.html">Gallery</a></li>
+                                    </ul>
+                                </div>
+
+                            </nav>
+                            <!-- Main Menu End-->
+                        </div>
+                        <!-- Search Button -->
+                           
+                    </div>
+                    <form class="search-project search-form mt-96" id="project-search" action="#">
+                        <input type="search" required placeholder="Type to search...">
+                        <button type="submit"><i class="fas fa-magnifying-glass"></i></button>
+                    </form>
+                </div>
+            </div>
+            <!--End Header Upper-->
+        </header>
+    <main class="main">
+
+      <section class="hero -main  ">
+        <div class="hero__bg d-md-none" data-parallax="top" data-parallax-amount="0.1"
+          style="background-image:url(https://cdn.shopify.com/s/files/1/0653/9830/9053/files/2149160929.jpg?v=1743761385);background-position:center">
+        </div>
+        <img id="hero__lottie" class="hero__bg-lottie lh d-none d-md-block"
+          src="https://cdn.shopify.com/s/files/1/0653/9830/9053/files/2149160929.jpg?v=1743761385" alt="About main banner 3"
+  loading="lazy">
+        </img>
+        <div class="container wrap">
+          <div class="row">
+            <div class="col-12 col-md-9 col-lg-10 align-self-end">
+              <div class="hero__content" data-parallax="top" data-parallax-amount="0.25">
+                <span class="kicker-green small">Investor</span>
+                <h1 class="page-title">
+                  <span class="line">
+                    <span class="line-inner" data-aos="fade-up" data-aos-anchor=".hero__content"
+                      data-aos-duration="1300" data-aos-delay="600" data-aos-anchor-placement="bottom-bottom">Investors
+                      Data</span>
+                  </span>
+                  <!-- <span class="line">
+                  <span class="line-inner" data-aos="fade-up" data-aos-anchor=".hero__content" data-aos-duration="1300" data-aos-delay="700" data-aos-anchor-placement="bottom-bottom">you</span>
+                </span>
+                              <span class="line">
+                  <span class="line-inner" data-aos="fade-up" data-aos-anchor=".hero__content" data-aos-duration="1300" data-aos-delay="800" data-aos-anchor-placement="bottom-bottom">power</span>
+                </span>
+                              <span class="line">
+                  <span class="line-inner" data-aos="fade-up" data-aos-anchor=".hero__content" data-aos-duration="1300" data-aos-delay="900" data-aos-anchor-placement="bottom-bottom">your</span>
+                </span>
+                              <span class="line">
+                  <span class="line-inner" data-aos="fade-up" data-aos-anchor=".hero__content" data-aos-duration="1300" data-aos-delay="1000" data-aos-anchor-placement="bottom-bottom">digital</span>
+                </span>
+                              <span class="line">
+                  <span class="line-inner" data-aos="fade-up" data-aos-anchor=".hero__content" data-aos-duration="1300" data-aos-delay="1100" data-aos-anchor-placement="bottom-bottom">future</span>
+                </span> -->
+                </h1>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+
+
+      <!-- <div  class="background-color mega-block   br-1 pt-1 pt-md-3" >
+    <div class="container-fluid px-0">
+    
+          <div class="row ">
+                            <div class="bc-0 col ">
+                                                          <div class="cta-download">
+        <div class="cta-download__bg  d-none d-md-block"
+        style="background-image:url(https://dyl347hiwv3ct.cloudfront.net/app/uploads/2024/11/IMG-Digital-Trends-2025_WESBITE-BANNER-copy.jpg);"
+    ></div>
+            <div class="cta-download__bg d-md-none"
+        style="background-image:url(https://dyl347hiwv3ct.cloudfront.net/app/uploads/2024/11/IMG-Digital-Trends-2025_WESBITE-BANNER-scaled.jpg);"
+    ></div>
+        <div class="container">
+        <div class="row flex-column justify-content-between h-100">
+            <div class="col-12 flex-grow-1">
+                                <span class="kicker-gold-small">reports</span>
+                                                <p class="cta-download__subtitle">
+                    insights with IMG
+                </p>
+                            </div>
+                        <div class="col-12 col-xl-8 flex-grow-0">
+                <p class="mega-font text-white mb-4" lass="line-inner aos-init aos-animate" data-aos="fade-up" data-aos-offset="200" data-aos-duration="1300" data-aos-delay="700">IMG&#039;s Digital Trends Report 2025</p>
+            </div>
+                        <div class="col-12 d-md-flex flex-grow-0">
+                                                                                    <div class="buttons__item">
+                            <a href="https://www.img.com/digital-trends-2025/"
+                                class="btn btn-gold btn-gold-"
+                                                                >view trends</a>
+                        </div>
+                                                                        </div>
+        </div>
+    </div>
+</div>
+                                    </div>
+              </div>
+      </div>
+  </div> -->
+
+  <style>.container {
+    /* display: flex; */
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .box {
+    background: #fff;
+    padding: 20px;
+    flex: 1 1 calc(50% - 20px);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+
+  .circle {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background-color: #ddd;
+    flex-shrink: 0;
+  }
+
+  .text-content {
+    flex: 1;
+  }
+
+  .title {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  @media (max-width: 768px) {
+    .box {
+      flex: 1 1 100%;
+    }
+  }
+  .circle img{
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: top;
+  }
+  
+  </style>
+  <section class="hero-section">
+    <div class="hero-text">
+     <h2 style="text-align: left; font-size: 3.5rem; margin-bottom: 2rem; font-weight: 700; line-height: 1.2; color: #111;">
+    Colab Platforms – A Public Company Powering India’s Sports-Tech Revolution</h2>
+      <p style="text-align: left;">Listed on BSE | BSE Code: 539528 <br>  Building India's first end-to-end sports innovation ecosystem across tech, data, athlete management, e-commerce, and immersive content.
+      </p>
+      <div class="btn-f">
+      <a href="#report" class="btn">View Investor Relations</a>
+      <a href="https://www.screener.in/company/542866/" class="btn" target="_blank"> View Stock Details</a>
+    </div>
+    </div>
+  
+    <div class="hero-img">
+      <img src="https://cdn.shopify.com/s/files/1/0653/9830/9053/files/a-photograph-of-a-futuristic-sports-stad_2wNIVFRmSSCb2q2FS3PuWg_mq95yDUrS6COdFWwJSR7Qg.jpg?v=1746784021" alt="Healthy food delivery">
+    </div>
+  </section>
+
+
+  <div style="margin-top:30px" class="container">
+    <div class="box">
+      <div class="circle">
+        <img  src="https://cdn.shopify.com/s/files/1/0653/9830/9053/files/WhatsApp_Image_2025-05-24_at_1.30.23_PM.jpg?v=1748237778" alt="About main banner 3"
+  loading="lazy"/>
+      </div>
+      <div class="text-content">
+        <div class="title">Puneet Singh Chadhok</div>
+        <div class="content">Managing Director</div>
+        <div style="padding-top:10px" class="content">Puneet Singh Chadhok is a dynamic entrepreneur with diverse business interests spanning real estate, finance, entertainment, sports, and hospitality. As the founder of Clapstem Entertainment, he has produced award-winning films including Jal, a National Award-winning movie, and over 1000 hours of TV and digital content.
+          A passionate sports visionary, Puneet owns the Punjab De Sher team in Celebrity Cricket League and the Australia Champions franchise in the World Championship of Legends (WCL), featuring global cricket icons. With a proven track record of turning innovative ideas into thriving enterprises, Puneet brings strategic foresight, cross-industry expertise, and a collaborative mindset to drive Colab’s mission of transforming the sports ecosystem through technology.</div>
+      </div>
+    </div>
+    <div class="box" style="margin-top: 90px;">
+      <div class="circle">
+        <img  src="https://cdn.shopify.com/s/files/1/0653/9830/9053/files/WhatsApp_Image_2025-05-14_at_12.03.43_PM.jpg?v=1747205268" alt="About main banner 3"
+  loading="lazy"/>
+      </div>
+      <div class="text-content">
+        <div class="title">Amardeep S Reen</div>
+        <div class="content">Executive Director</div>
+        <div style="padding-top:10px" class="content">Amardeep S Reen is a seasoned entrepreneur and philanthropist with over two decades of experience across technology, sports, entertainment, and humanitarian work. A technocrat by training, he has held leadership roles in global tech and consulting firms before transitioning into sports management and film production. He has managed elite sports talent and collaborated with legends across cricket, wrestling, and cinema.
+
+          As CEO of Punjab De Sher (CCL) and Australia Champions (WCL), and co-producer of acclaimed films like Torbaaz, Amardeep continues to bridge the worlds of sport and entertainment. Through his philanthropic initiatives during the COVID-19 pandemic and as founder of ASR Foundation, he has demonstrated a deep commitment to social impact and nation-building.</div>
+      </div>
+    </div>
+  </div>
+ 
+   
+
+      <div id="report" class="reports">
+        <h2>Select Report Type</h2>
+
+        <select id="reportSelect" style = "color:#fff;">
+
+        </select>
+
+        <div id="reportContent">
+
+        </div>
+
+
+      </div>
+
+      <div id="board-and-committee-details-tab" class="accordion" data-title-link="board-and-committee-details-tab">
+        <h5 style="text-align: center;padding-top: 23px;">Composition of Board and KMPs:</h5>
+        <table>
+          <tbody>
+            <tr>
+              <td>
+                <p><strong>Name </strong></p>
+              </td>
+              <td>
+                <p><strong>Designation</strong></p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>Mukesh Jadhav</p>
+              </td>
+              <td>
+                <p>Chairman &amp; Non-executive Director</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>Puneet Singh Chadhok</p>
+              </td>
+              <td>
+                <p>Managing Director</p>
+              </td>
+            </tr>
+            
+            <tr>
+              <td>
+                <p>Amardeep Singh</p>
+              </td>
+              <td>
+                <p>Executive Director</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>Rohit Singh</p>
+              </td>
+              <td>
+                <p>Independent Director</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>Anupriya Sharma</p>
+              </td>
+              <td>
+                <p>Independent Director</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>Chetan Shah</p>
+              </td>
+              <td>
+                <p>Chief Financial Officer</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>Ms. Ritu Jhamb</p>
+              </td>
+              <td>
+                <p>Company Secretary & Compliance Officer</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p>&nbsp;</p>
+        <p>Composition of Audit Committee:</p>
+        <p>&nbsp;</p>
+        <table width="595">
+          <tbody>
+            <tr>
+              <td>
+                <p><strong>Name of Director</strong></p>
+              </td>
+              <td width="340">
+                <p><strong>Designation</strong></p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>Rohit Singh</p>
+              </td>
+              <td width="340">
+                <p>Chairman</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>Anupriya Sharma</p>
+              </td>
+              <td width="340">
+                <p>Member</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>Mukesh Jadhav</p>
+              </td>
+              <td width="340">
+                <p>Member</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p>&nbsp;</p>
+        <p>Composition of Nomination and Remuneration Committee:</p>
+        <p>&nbsp;</p>
+        <table width="595">
+          <tbody>
+            <tr>
+              <td>
+                <p><strong>Name of Director</strong></p>
+              </td>
+              <td width="340">
+                <p><strong>Designation</strong></p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>Rohit Singh</p>
+              </td>
+              <td width="340">
+                <p>Chairman</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>Anupriya Sharma</p>
+              </td>
+              <td width="340">
+                <p>Member</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>Mukesh Jadhav</p>
+              </td>
+              <td width="340">
+                <p>Member</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p>&nbsp;</p>
+        <p>Composition of Stakeholders Relationship Committee:</p>
+        <p>&nbsp;</p>
+        <table width="595">
+          <tbody>
+            <tr>
+              <td>
+                <p><strong>Name of Director</strong></p>
+              </td>
+              <td width="340">
+                <p><strong>Designation</strong></p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>Mukesh Jadhav</p>
+              </td>
+              <td width="340">
+                <p>Chairman</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>Rohit Singh</p>
+              </td>
+              <td width="340">
+                <p>Member</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>Anupriya Sharma</p>
+              </td>
+              <td width="340">
+                <p>Member</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p>&nbsp;</p>
+        <p>Presiding officer for determining materiality of an event or information and person for Grievance Redressal:
+        </p>
+        <p>&nbsp;</p>
+        <table>
+          <tbody>
+            <tr>
+              <td width="134">
+                <p><strong>Name </strong></p>
+              </td>
+              <td width="178">
+                <p><strong>Designation</strong></p>
+              </td>
+              <td width="99">
+                <p><strong>Contact No</strong></p>
+              </td>
+              <td width="190">
+                <p><strong>Email id</strong></p>
+              </td>
+            </tr>
+            <tr>
+              <td width="134">
+                <p>Mukesh Jadhav</p>
+              </td>
+              <td width="178">
+                <p>Director</p>
+              </td>
+              <td width="99">
+                <p>8828865429</p>
+              </td>
+              <td width="190">
+                <p>cs@colabcloud.in</p>
+                <p>&nbsp;</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <table style="margin-top: 30px;">
+          <tbody>
+            <tr>
+              <td>
+                <p><strong>Name of Director</strong></p>
+              </td>
+              <td width="340">
+                <p><strong>Designation</strong></p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <a href="/mukesh-jadhav.html">Mukesh Jadhav</a>
+              </td>
+              <td width="340">
+                <p>Non-executive Director</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <a href="/puneet-singh-chadhok.html">Puneet Singh Chadhok</a>
+              </td>
+              <td width="340">
+                <p>Managing Director</p>
+              </td>
+            </tr>
+            
+
+            <tr>
+              <td>
+                <a href="/rohit-singh.html">Rohit Singh </a>
+              </td>
+              <td width="340">
+                <p>Independent Director</p>
+              </td>
+            </tr>
+
+
+            <tr>
+              <td>
+                <a href="/anupriya-sharma.html">Anupriya Sharma </a>
+              </td>
+              <td width="340">
+                <p>Independent Director</p>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <a href="/amardeep-singh.html">Amardeep Singh </a>
+              </td>
+              <td width="340">
+                <p>Executive Director</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p><br> </p>
+   
+
+
+  </div>
+
+  <p>Registered Office: INNOV8 CP2 44, BACKARY PORTION, REGAL BUILDING, DELHI, INDIA, 110001.</p>
+  <p><b>CIN - L65993DL1989PLC038194</b></p>
+  <p>COLAB PLATFORMS LIMITED <br>
+    (formerly known as Colab Cloud Platforms Limited)
+  </p>
+  <script>
+    const select = document.getElementById('reportSelect');
+    const reportContent = document.getElementById('reportContent');
+
+    fetch('/faqs.json')
+      .then(res => res.json())
+      .then(data => {
+        data.forEach((item, index) => {
+          const option = document.createElement('option');
+          option.value = index;
+          option.textContent = item.header;
+          if (index === 0) option.selected = true;
+          select.appendChild(option);
+        });
+
+        // Add the change event listener
+        select.addEventListener('change', function () {
+          const selectedIndex = this.value;
+          reportContent.innerHTML = '';
+
+          if (selectedIndex === '') return;
+
+          const selectedData = data[selectedIndex].text;
+
+          selectedData.forEach(report => {
+            const div = document.createElement('div');
+            div.classList.add('report-item');
+            div.innerHTML = `
+            <a href="${report.link}" target="_blank">${report.head}</a>
+            <a href="${report.link}" download title="Download">
+              <svg class="download-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M5 20h14v-2H5v2zm7-18v10l5-5 1.41 1.41L12 17 6.59 11.41 8 10l5 5V2z"/>
+              </svg>
+            </a>`;
+            reportContent.appendChild(div);
+          });
+        });
+
+        // ✅ Now trigger the change after listener is set
+        select.dispatchEvent(new Event('change'));
+      })
+      .catch(error => {
+        console.error('Error loading JSON:', error);
+        reportContent.innerHTML = '<p style="color:red;">Failed to load data.</p>';
+      });
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+  <!-- <div  class="background-color mega-block   br-10 pt-6 pt-md-9" >
+    <div class="container wrap">
+          <div class="row">
+        <div class="col-12">
+          <h2 class="container-heading">Our clients</h2>
+        </div>
+      </div>
+    
+          <div class="row ">
+                            <div class="bc-0 col ">
+                                                          <div class="clients-slider -rows">
+    <div class="swiper clients-slider">
+    <div class="swiper-wrapper clients-slider__wrapper">
+                        <div class="swiper-slide">
+            <div class="clients-slider__item ratio-1x1">
+              <div id="889" class="clients-slider__logo d-flex justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="100">
+                <div class="image-plain ">
+  <div class="image-plain__fill ">
+          <img class="lazyload "  height=224 width=224 data-sizes="(max-width: 224px) 100vw, 224px" data-src="" data-srcset="https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/everton-fc-logo.webp 224w, https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/everton-fc-logo-150x150.webp 150w, https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/everton-fc-logo-10x10.webp 10w" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Everton FC logo"/>
+      </div>
+</div>
+              </div>
+            </div>
+          </div>
+                  <div class="swiper-slide">
+            <div class="clients-slider__item ratio-1x1">
+              <div id="893" class="clients-slider__logo d-flex justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="100">
+                <div class="image-plain ">
+  <div class="image-plain__fill ">
+          <img class="lazyload "  height=224 width=224 data-sizes="(max-width: 224px) 100vw, 224px" data-src="" data-srcset="https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/minnesota-vikings-logo.webp 224w, https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/minnesota-vikings-logo-150x150.webp 150w, https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/minnesota-vikings-logo-10x10.webp 10w" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Minnesota Vikings logo"/>
+      </div>
+</div>
+              </div>
+            </div>
+          </div>
+                  <div class="swiper-slide">
+            <div class="clients-slider__item ratio-1x1">
+              <div id="895" class="clients-slider__logo d-flex justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="100">
+                <div class="image-plain ">
+  <div class="image-plain__fill ">
+          <img class="lazyload "  height=224 width=224 data-sizes="(max-width: 224px) 100vw, 224px" data-src="" data-srcset="https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/miami-dolphins-logo.webp 224w, https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/miami-dolphins-logo-150x150.webp 150w, https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/miami-dolphins-logo-10x10.webp 10w" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Miami Dolphins logo"/>
+      </div>
+</div>
+              </div>
+            </div>
+          </div>
+                  <div class="swiper-slide">
+            <div class="clients-slider__item ratio-1x1">
+              <div id="896" class="clients-slider__logo d-flex justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="100">
+                <div class="image-plain ">
+  <div class="image-plain__fill ">
+          <img class="lazyload "  height=224 width=224 data-sizes="(max-width: 224px) 100vw, 224px" data-src="" data-srcset="https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/greenbay-packers-logo.webp 224w, https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/greenbay-packers-logo-150x150.webp 150w, https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/greenbay-packers-logo-10x10.webp 10w" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Greenbay Packers logo"/>
+      </div>
+</div>
+              </div>
+            </div>
+          </div>
+                  <div class="swiper-slide">
+            <div class="clients-slider__item ratio-1x1">
+              <div id="909" class="clients-slider__logo d-flex justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="100">
+                <div class="image-plain ">
+  <div class="image-plain__fill ">
+          <img class="lazyload "  height=224 width=224 data-sizes="(max-width: 224px) 100vw, 224px" data-src="" data-srcset="https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/the-fa-logo.webp 224w, https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/the-fa-logo-150x150.webp 150w, https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/the-fa-logo-10x10.webp 10w" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="The FA logo"/>
+      </div>
+</div>
+              </div>
+            </div>
+          </div>
+                  <div class="swiper-slide">
+            <div class="clients-slider__item ratio-1x1">
+              <div id="910" class="clients-slider__logo d-flex justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="100">
+                <div class="image-plain ">
+  <div class="image-plain__fill ">
+          <img class="lazyload "  height=224 width=224 data-sizes="(max-width: 224px) 100vw, 224px" data-src="" data-srcset="https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/bwf-logo.webp 224w, https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/bwf-logo-150x150.webp 150w, https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/bwf-logo-10x10.webp 10w" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="BWF logo"/>
+      </div>
+</div>
+              </div>
+            </div>
+          </div>
+                  <div class="swiper-slide">
+            <div class="clients-slider__item ratio-1x1">
+              <div id="912" class="clients-slider__logo d-flex justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="100">
+                <div class="image-plain ">
+  <div class="image-plain__fill ">
+          <img class="lazyload "  height=224 width=224 data-sizes="(max-width: 224px) 100vw, 224px" data-src="" data-srcset="https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/nba-logo.webp 224w, https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/nba-logo-150x150.webp 150w, https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/nba-logo-10x10.webp 10w" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="NBA logo"/>
+      </div>
+</div>
+              </div>
+            </div>
+          </div>
+                  <div class="swiper-slide">
+            <div class="clients-slider__item ratio-1x1">
+              <div id="913" class="clients-slider__logo d-flex justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="100">
+                <div class="image-plain ">
+  <div class="image-plain__fill ">
+          <img class="lazyload "  height=224 width=224 data-sizes="(max-width: 224px) 100vw, 224px" data-src="" data-srcset="https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/nhl-logo.webp 224w, https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/nhl-logo-150x150.webp 150w, https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/nhl-logo-10x10.webp 10w" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="NHL logo"/>
+      </div>
+</div>
+              </div>
+            </div>
+          </div>
+                  <div class="swiper-slide">
+            <div class="clients-slider__item ratio-1x1">
+              <div id="914" class="clients-slider__logo d-flex justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="100">
+                <div class="image-plain ">
+  <div class="image-plain__fill ">
+          <img class="lazyload "  height=224 width=224 data-sizes="(max-width: 224px) 100vw, 224px" data-src="" data-srcset="https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/tottenham-hotspur-logo.webp 224w, https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/tottenham-hotspur-logo-150x150.webp 150w, https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/tottenham-hotspur-logo-10x10.webp 10w" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Tottenham Hotspur logo"/>
+      </div>
+</div>
+              </div>
+            </div>
+          </div>
+                  <div class="swiper-slide">
+            <div class="clients-slider__item ratio-1x1">
+              <div id="915" class="clients-slider__logo d-flex justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="100">
+                <div class="image-plain ">
+  <div class="image-plain__fill ">
+          <img class="lazyload "  height=224 width=224 data-sizes="(max-width: 224px) 100vw, 224px" data-src="" data-srcset="https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/red-bull-racing-logo.webp 224w, https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/red-bull-racing-logo-150x150.webp 150w, https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/red-bull-racing-logo-10x10.webp 10w" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Red Bull Racing logo"/>
+      </div>
+</div>
+              </div>
+            </div>
+          </div>
+                  <div class="swiper-slide">
+            <div class="clients-slider__item ratio-1x1">
+              <div id="916" class="clients-slider__logo d-flex justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="100">
+                <div class="image-plain ">
+  <div class="image-plain__fill ">
+          <img class="lazyload "  height=224 width=224 data-sizes="(max-width: 224px) 100vw, 224px" data-src="" data-srcset="https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/fulham-fc-logo.webp 224w, https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/fulham-fc-logo-150x150.webp 150w, https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/fulham-fc-logo-10x10.webp 10w" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="FFC logo"/>
+      </div>
+</div>
+              </div>
+            </div>
+          </div>
+                  <div class="swiper-slide">
+            <div class="clients-slider__item ratio-1x1">
+              <div id="922" class="clients-slider__logo d-flex justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="100">
+                <div class="image-plain ">
+  <div class="image-plain__fill ">
+          <img class="lazyload "  height=224 width=224 data-sizes="(max-width: 224px) 100vw, 224px" data-src="" data-srcset="https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/southampton-fc-logo.webp 224w, https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/southampton-fc-logo-150x150.webp 150w, https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/southampton-fc-logo-10x10.webp 10w" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Southampton FC logo"/>
+      </div>
+</div>
+              </div>
+            </div>
+          </div>
+                  <div class="swiper-slide">
+            <div class="clients-slider__item ratio-1x1">
+              <div id="923" class="clients-slider__logo d-flex justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="100">
+                <div class="image-plain ">
+  <div class="image-plain__fill ">
+          <img class="lazyload "  height=224 width=224 data-sizes="(max-width: 224px) 100vw, 224px" data-src="" data-srcset="https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/skybet-efl-championship-logo.webp 224w, https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/skybet-efl-championship-logo-150x150.webp 150w, https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/skybet-efl-championship-logo-10x10.webp 10w" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Skybet EFL Championship logo"/>
+      </div>
+</div>
+              </div>
+            </div>
+          </div>
+                  <div class="swiper-slide">
+            <div class="clients-slider__item ratio-1x1">
+              <div id="924" class="clients-slider__logo d-flex justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="100">
+                <div class="image-plain ">
+  <div class="image-plain__fill ">
+          <img class="lazyload "  height=224 width=224 data-sizes="(max-width: 224px) 100vw, 224px" data-src="" data-srcset="https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/munster-rugby-logo.webp 224w, https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/munster-rugby-logo-150x150.webp 150w, https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/munster-rugby-logo-10x10.webp 10w" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Munster Rugby logo"/>
+      </div>
+</div>
+              </div>
+            </div>
+          </div>
+                  <div class="swiper-slide">
+            <div class="clients-slider__item ratio-1x1">
+              <div id="925" class="clients-slider__logo d-flex justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="100">
+                <div class="image-plain ">
+  <div class="image-plain__fill ">
+          <img class="lazyload "  height=224 width=224 data-sizes="(max-width: 224px) 100vw, 224px" data-src="" data-srcset="https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/wst-logo.webp 224w, https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/wst-logo-150x150.webp 150w, https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/wst-logo-10x10.webp 10w" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="WST logo"/>
+      </div>
+</div>
+              </div>
+            </div>
+          </div>
+                  <div class="swiper-slide">
+            <div class="clients-slider__item ratio-1x1">
+              <div id="926" class="clients-slider__logo d-flex justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="100">
+                <div class="image-plain ">
+  <div class="image-plain__fill ">
+          <img class="lazyload "  height=224 width=224 data-sizes="(max-width: 224px) 100vw, 224px" data-src="" data-srcset="https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/premier-league-logo.webp 224w, https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/premier-league-logo-150x150.webp 150w, https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/premier-league-logo-10x10.webp 10w" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Premier League logo"/>
+      </div>
+</div>
+              </div>
+            </div>
+          </div>
+                  <div class="swiper-slide">
+            <div class="clients-slider__item ratio-1x1">
+              <div id="927" class="clients-slider__logo d-flex justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="100">
+                <div class="image-plain ">
+  <div class="image-plain__fill ">
+          <img class="lazyload "  height=224 width=224 data-sizes="(max-width: 224px) 100vw, 224px" data-src="" data-srcset="https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/rugby-football-league-logo.webp 224w, https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/rugby-football-league-logo-150x150.webp 150w, https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/rugby-football-league-logo-10x10.webp 10w" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Rugby Football League logo"/>
+      </div>
+</div>
+              </div>
+            </div>
+          </div>
+                  <div class="swiper-slide">
+            <div class="clients-slider__item ratio-1x1">
+              <div id="928" class="clients-slider__logo d-flex justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="100">
+                <div class="image-plain ">
+  <div class="image-plain__fill ">
+          <img class="lazyload "  height=224 width=224 data-sizes="(max-width: 224px) 100vw, 224px" data-src="" data-srcset="https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/brighton-and-hove-albion-logo.webp 224w, https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/brighton-and-hove-albion-logo-150x150.webp 150w, https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/brighton-and-hove-albion-logo-10x10.webp 10w" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Brighton And Hove Albion logo"/>
+      </div>
+</div>
+              </div>
+            </div>
+          </div>
+                  <div class="swiper-slide">
+            <div class="clients-slider__item ratio-1x1">
+              <div id="929" class="clients-slider__logo d-flex justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="100">
+                <div class="image-plain ">
+  <div class="image-plain__fill ">
+          <img class="lazyload "  height=224 width=224 data-sizes="(max-width: 224px) 100vw, 224px" data-src="" data-srcset="https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/leicester-city-logo.webp 224w, https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/leicester-city-logo-150x150.webp 150w, https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/leicester-city-logo-10x10.webp 10w" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Leicester City logo"/>
+      </div>
+</div>
+              </div>
+            </div>
+          </div>
+                  <div class="swiper-slide">
+            <div class="clients-slider__item ratio-1x1">
+              <div id="930" class="clients-slider__logo d-flex justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="100">
+                <div class="image-plain ">
+  <div class="image-plain__fill ">
+          <img class="lazyload "  height=224 width=224 data-sizes="(max-width: 224px) 100vw, 224px" data-src="" data-srcset="https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/r-and-a-logo.webp 224w, https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/r-and-a-logo-150x150.webp 150w, https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/r-and-a-logo-10x10.webp 10w" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="R&amp;amp;A logo"/>
+      </div>
+</div>
+              </div>
+            </div>
+          </div>
+                  <div class="swiper-slide">
+            <div class="clients-slider__item ratio-1x1">
+              <div id="931" class="clients-slider__logo d-flex justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="100">
+                <div class="image-plain ">
+  <div class="image-plain__fill ">
+          <img class="lazyload "  height=224 width=224 data-sizes="(max-width: 224px) 100vw, 224px" data-src="" data-srcset="https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/saudi-pro-league-logo.webp 224w, https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/saudi-pro-league-logo-150x150.webp 150w, https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/saudi-pro-league-logo-10x10.webp 10w" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Saudi Pro League logo"/>
+      </div>
+</div>
+              </div>
+            </div>
+          </div>
+                  </div>
+    <div class="swiper-scrollbar client-slider__scrollbar"></div>
+  </div>
+</div>
+                                    </div>
+              </div>
+      </div>
+  </div> -->
+  <!-- <div  class="background-color mega-block   br-11 pt-6 pt-md-9 pb-6 pb-md-7 " >
+    <div class="container wrap">
+          <div class="row">
+        <div class="col-12">
+          <h2 class="container-heading">Featured in</h2>
+        </div>
+      </div>
+    
+          <div class="row ">
+                            <div class="bc-0 col ">
+                                                          <div class="clients-slider -norows">
+    <div class="swiper clients-slider">
+    <div class="swiper-wrapper clients-slider__wrapper">
+                        <div class="swiper-slide">
+            <div class="clients-slider__item ratio-1x1">
+              <div id="1425" class="clients-slider__logo d-flex justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="100">
+                <div class="image-plain ">
+  <div class="image-plain__fill ">
+          <img class="lazyload "  height=338 width=338 data-sizes="(max-width: 338px) 100vw, 338px" data-src="" data-srcset="https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/WSJ.png 338w, https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/WSJ-300x300.png 300w, https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/WSJ-150x150.png 150w, https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/WSJ-10x10.png 10w" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="WSJ logo"/>
+      </div>
+</div>
+              </div>
+            </div>
+          </div>
+                  <div class="swiper-slide">
+            <div class="clients-slider__item ratio-1x1">
+              <div id="1421" class="clients-slider__logo d-flex justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="100">
+                <div class="image-plain ">
+  <div class="image-plain__fill ">
+          <img class="lazyload "  height=338 width=338 data-sizes="(max-width: 338px) 100vw, 338px" data-src="" data-srcset="https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/Forbes.png 338w, https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/Forbes-300x300.png 300w, https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/Forbes-150x150.png 150w, https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/Forbes-10x10.png 10w" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Forbes logo"/>
+      </div>
+</div>
+              </div>
+            </div>
+          </div>
+                  <div class="swiper-slide">
+            <div class="clients-slider__item ratio-1x1">
+              <div id="1422" class="clients-slider__logo d-flex justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="100">
+                <div class="image-plain ">
+  <div class="image-plain__fill ">
+          <img class="lazyload "  height=338 width=338 data-sizes="(max-width: 338px) 100vw, 338px" data-src="" data-srcset="https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/FT.png 338w, https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/FT-300x300.png 300w, https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/FT-150x150.png 150w, https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/FT-10x10.png 10w" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="FT logo"/>
+      </div>
+</div>
+              </div>
+            </div>
+          </div>
+                  <div class="swiper-slide">
+            <div class="clients-slider__item ratio-1x1">
+              <div id="1423" class="clients-slider__logo d-flex justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="100">
+                <div class="image-plain ">
+  <div class="image-plain__fill ">
+          <img class="lazyload "  height=338 width=338 data-sizes="(max-width: 338px) 100vw, 338px" data-src="" data-srcset="https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/Golf-week.png 338w, https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/Golf-week-300x300.png 300w, https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/Golf-week-150x150.png 150w, https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/Golf-week-10x10.png 10w" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Golf week logo"/>
+      </div>
+</div>
+              </div>
+            </div>
+          </div>
+                  <div class="swiper-slide">
+            <div class="clients-slider__item ratio-1x1">
+              <div id="1424" class="clients-slider__logo d-flex justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="100">
+                <div class="image-plain ">
+  <div class="image-plain__fill ">
+          <img class="lazyload "  height=338 width=338 data-sizes="(max-width: 338px) 100vw, 338px" data-src="" data-srcset="https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/SBJ.png 338w, https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/SBJ-300x300.png 300w, https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/SBJ-150x150.png 150w, https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/08/SBJ-10x10.png 10w" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="SBJ logo"/>
+      </div>
+</div>
+              </div>
+            </div>
+          </div>
+                  </div>
+    <div class="swiper-scrollbar client-slider__scrollbar"></div>
+  </div>
+</div>
+                                    </div>
+              </div>
+      </div>
+  </div> -->
+  <!-- <div  class="background-color mega-block   br-12 pt-0" >
+    <div class="container-fluid px-0">
+    
+          <div class="row ">
+                            <div class="bc-0 col ">
+                                                          <div  class="background-color mega-block   br-12" >
+    <div class="container-fluid px-0">
+    
+          <div class="row ">
+                            <div class="bc-0 col ">
+                                                          <div class="cta-contact -green" data-aos="bg-slide-in">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <h3 class="cta-contact__title h1">Contact our team</h3>
+            </div>
+            <div class="col-11 offset-1 offset-md-0 col-md-6">
+                <div class="cta-contact__content">
+                    <p class="text-para-20">Let’s be social and chat all things digital.</p>
+
+                    <a
+                        class="btn btn-green"
+                        href="/contact-us.html"
+                                            >
+                        get in touch
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+                                    </div>
+              </div>
+      </div>
+  </div>
+                                                </div>
+              </div>
+      </div>
+  </div> -->
+
+  </main>
+
+
+  <style>
+    @media screen and (min-width: 768px) {
+      .img-footer {
+        height: 160px;
+      }
+
+      .footer {
+        position: relative;
+        background-repeat: no-repeat;
+        height: 90vh;
+        background: url(https://cdn.shopify.com/s/files/1/0653/9830/9053/files/ChatGPT_Image_Apr_10_2025_05_22_36_PM_90852651-8241-4083-85f1-2b051928e0ee.png?v=1744373569);
+        background-size: cover;
+        z-index: 0;
+      }
+
+      .txt {
+        color: white;
+        font-size: 5rem;
+        margin-bottom: 30px;
+        letter-spacing: -4px;
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      .txt {
+        color: white;
+        font-size: 3.2rem;
+        margin-bottom: 20px;
+        letter-spacing: -4px;
+      }
+
+      .img-footer {
+        height: 70px;
+      }
+
+      .footer {
+        position: relative;
+        height: 90vh;
+        background: url(https://cdn.shopify.com/s/files/1/0653/9830/9053/files/20250410_1659_Sporty_Concert_Vibes_remix_01jrfq9hsnegrr8zt0j0xh7t2r.jpg?v=1744375103);
+        background-position: center;
+        background-position-y: 15%;
+        background-position-x: 48%;
+        z-index: 0;
+      }
+    }
+  </style>
+
+  <footer class="footer">
+
+    <div style="z-index: 1;
+              position: absolute;
+              bottom: 10%;
+              right: 4%;"> <img class="img-footer"
+        src="https://cdn.shopify.com/s/files/1/0653/9830/9053/files/minimal-logo-effect-for-footer-unscreen-ezgif.com-crop_1.gif?v=1744289888" />
+    </div>
+    <div class="footer__top" style="position: absolute; bottom: 80px;">
+      <div class="container">
+        <div class="row">
+
+
+          <div class="col-12 col-md d-flex " style="justify-content: start !important;
+                            align-items: start;
+                            flex-direction: column;">
+            <h2 class="txt">LET'S CONNECT</h2>
+            <a href="/contact.html" class="btn btn-blue" style="margin-bottom: 20px; background-color: #fdd301;">Contact Us</a>
+            <div class="footer__legal">
+              <div class="menu-legal-links-container">
+                <ul id="menu-legal-links" class="menu">
+                  <li id="menu-item-165" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-165">
+                    <a href="/Service.html">Services</a></li>
+                  <li id="menu-item-46"
+                    class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-46">
+                    <a rel="privacy-policy" href="/investor.html">Investor</a></li>
+                  <li id="menu-item-166" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-166">
+                    <a href="/contact.html">Contact Us</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom" style="position: absolute;bottom: 10px;width: 100%;">
+      <div class="container">
+        <div class="row">
+          <div class="footer__copyright">
+            <div class="col-12">
+              <p>© 2025 Colab Platforms Ltd.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <div class="modal fade move-body global-hubspot__modal global-hubspot-modal-capture" id="global-hubspot-capture"
+    data-form-id="2ecfefc7-e32d-4a38-8592-c1a3729a942c" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+
+    <div class="global-hubspot__modal-dialog modal-dialog-centered modal-dialog modal-dialog-scrollable">
+      <div class="global-hubspot__modal-content modal-content">
+        <div class="global-hubspot__modal-header modal-header">
+          <h2>Digital Trends 2025</h2>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="global-hubspot__modal-body modal-body">
+          <div class="global-hubspot__modal-hubspot">
+            <script charset="utf-8" type="text/javascript" src="//js-eu1.hsforms.net/forms/embed/v2.js"></script>
+            <script>
+              hbspt.forms.create({
+                region: "eu1",
+                portalId: "139587640",
+                formId: "2ecfefc7-e32d-4a38-8592-c1a3729a942c"
+              });
+            </script>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </div>
+
+  <script type="text/javascript" id="vendor.js-js-before">
+/* <![CDATA[ */
+/******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
+/******/ 	var __webpack_modules__ = ({});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+          /******/
+}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			id: moduleId,
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+          /******/
+};
+/******/
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+        /******/
+}
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = __webpack_modules__;
+/******/
+/************************************************************************/
+/******/ 	/* webpack/runtime/chunk loaded */
+/******/ 	(() => {
+/******/ 		var deferred = [];
+/******/ 		__webpack_require__.O = (result, chunkIds, fn, priority) => {
+/******/ 			if (chunkIds) {
+/******/ 				priority = priority || 0;
+/******/ 				for (var i = deferred.length; i > 0 && deferred[i - 1][2] > priority; i--) deferred[i] = deferred[i - 1];
+/******/ 				deferred[i] = [chunkIds, fn, priority];
+/******/ 				return;
+            /******/
+}
+/******/ 			var notFulfilled = Infinity;
+/******/ 			for (var i = 0; i < deferred.length; i++) {
+/******/ 				var chunkIds = deferred[i][0];
+/******/ 				var fn = deferred[i][1];
+/******/ 				var priority = deferred[i][2];
+/******/ 				var fulfilled = true;
+/******/ 				for (var j = 0; j < chunkIds.length; j++) {
+/******/ 					if ((priority & 1 === 0 || notFulfilled >= priority) && Object.keys(__webpack_require__.O).every((key) => (__webpack_require__.O[key](chunkIds[j])))) {
+/******/ 						chunkIds.splice(j--, 1);
+                /******/
+} else {
+/******/ 						fulfilled = false;
+/******/ 						if (priority < notFulfilled) notFulfilled = priority;
+                /******/
+}
+              /******/
+}
+/******/ 				if (fulfilled) {
+/******/ 					deferred.splice(i--, 1)
+/******/ 					var r = fn();
+/******/ 					if (r !== undefined) result = r;
+              /******/
+}
+            /******/
+}
+/******/ 			return result;
+          /******/
+};
+        /******/
+})();
+/******/
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+          /******/
+};
+        /******/
+})();
+/******/
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for (var key in definition) {
+/******/ 				if (__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+              /******/
+}
+            /******/
+}
+          /******/
+};
+        /******/
+})();
+/******/
+/******/ 	/* webpack/runtime/global */
+/******/ 	(() => {
+/******/ 		__webpack_require__.g = (function () {
+/******/ 			if (typeof globalThis === 'object') return globalThis;
+/******/ 			try {
+/******/ 				return this || new Function('return this')();
+            /******/
+} catch (e) {
+/******/ 				if (typeof window === 'object') return window;
+            /******/
+}
+          /******/
+})();
+        /******/
+})();
+/******/
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+        /******/
+})();
+/******/
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if (typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+            /******/
+}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+          /******/
+};
+        /******/
+})();
+/******/
+/******/ 	/* webpack/runtime/jsonp chunk loading */
+/******/ 	(() => {
+/******/ 		// no baseURI
+/******/
+/******/ 		// object to store loaded and loading chunks
+/******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
+/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
+/******/ 		var installedChunks = {
+/******/ 			"/scripts/manifest": 0,
+/******/ 			"styles/print": 0,
+/******/ 			"styles/editor": 0,
+/******/ 			"styles/digital-trends": 0,
+/******/ 			"styles/app": 0
+          /******/
+};
+/******/
+/******/ 		// no chunk on demand loading
+/******/
+/******/ 		// no prefetching
+/******/
+/******/ 		// no preloaded
+/******/
+/******/ 		// no HMR
+/******/
+/******/ 		// no HMR manifest
+/******/
+/******/ 		__webpack_require__.O.j = (chunkId) => (installedChunks[chunkId] === 0);
+/******/
+/******/ 		// install a JSONP callback for chunk loading
+/******/ 		var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
+/******/ 			var chunkIds = data[0];
+/******/ 			var moreModules = data[1];
+/******/ 			var runtime = data[2];
+/******/ 			// add "moreModules" to the modules object,
+/******/ 			// then flag all "chunkIds" as loaded and fire callback
+/******/ 			var moduleId, chunkId, i = 0;
+/******/ 			if (chunkIds.some((id) => (installedChunks[id] !== 0))) {
+/******/ 				for (moduleId in moreModules) {
+/******/ 					if (__webpack_require__.o(moreModules, moduleId)) {
+/******/ 						__webpack_require__.m[moduleId] = moreModules[moduleId];
+                /******/
+}
+              /******/
+}
+/******/ 				if (runtime) var result = runtime(__webpack_require__);
+            /******/
+}
+/******/ 			if (parentChunkLoadingFunction) parentChunkLoadingFunction(data);
+/******/ 			for (; i < chunkIds.length; i++) {
+/******/ 				chunkId = chunkIds[i];
+/******/ 				if (__webpack_require__.o(installedChunks, chunkId) && installedChunks[chunkId]) {
+/******/ 					installedChunks[chunkId][0]();
+              /******/
+}
+/******/ 				installedChunks[chunkId] = 0;
+            /******/
+}
+/******/ 			return __webpack_require__.O(result);
+          /******/
+}
+/******/
+/******/ 		var chunkLoadingGlobal = self["webpackChunkcopia_theme"] = self["webpackChunkcopia_theme"] || [];
+/******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
+/******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
+        /******/
+})();
+/******/
+/******/ 	/* webpack/runtime/nonce */
+/******/ 	(() => {
+/******/ 		__webpack_require__.nc = undefined;
+        /******/
+})();
+      /******/
+      /************************************************************************/
+      /******/
+      /******/
+      /******/
+})()
+      ;
+    //# sourceMappingURL=manifest.js.map
+    /* ]]> */
+  </script>
+  <script type="text/javascript"
+    src="https://www.img.com/app/themes/img/public/scripts/vendor.js?id=d28473c2c626949c4fa40dc1109edcbe"
+    id="vendor.js-js"></script>
+  <script type="text/javascript"
+    src="https://www.img.com/app/themes/img/public/scripts/app.js?id=2dd575cf3749b885775e3ba432c00594"
+    id="app.js-js"></script>
+  <script type="text/javascript"
+    src="https://www.img.com/app/themes/img/public/scripts/acf-map.js?id=79b41f2a7580cb10b3230c687225b334"
+    id="contact-map.js-js"></script>
+  <script src="https://unpkg.com/lenis@1.2.3/dist/lenis.min.js"></script>
+  <script src="script.js"></script>
+  <!-- Add Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script>
+            // Initialize navbar toggler
+            document.addEventListener('DOMContentLoaded', function() {
+                const navbarToggler = document.querySelector('.navbar-toggler');
+                const navbarCollapse = document.querySelector('.navbar-collapse');
+                
+                if (navbarToggler) {
+                    navbarToggler.addEventListener('click', function() {
+                        navbarCollapse.classList.toggle('show');
+                    });
+                }
+            });
+        </script>
+
+<script>
+  // Preloader functionality
+  document.addEventListener('DOMContentLoaded', function() {
+      const preloader = document.getElementById('preloader');
+      
+      // Prevent scrolling while preloader is visible
+      document.body.style.overflow = 'hidden';
+      
+      // Hide preloader after 2 seconds
+      setTimeout(function() {
+          preloader.classList.add('fade-out');
+          
+          // Remove preloader from DOM after fade-out completes
+          setTimeout(function() {
+              preloader.style.display = 'none';
+              // Enable scrolling after preloader is hidden
+              document.body.style.overflow = 'auto';
+          }, 500);
+      }, 2000);
+      
+      // Fallback in case the above doesn't work
+      setTimeout(function() {
+          if (preloader && preloader.style.display !== 'none') {
+              preloader.style.display = 'none';
+              document.body.style.overflow = 'auto';
+          }
+      }, 3000);
+  });
+</script>
+</body>
+
+</html>

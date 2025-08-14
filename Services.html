@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Title -->
+    <title>Services</title>
+    <link rel="shortcut icon"
+    href="https://cdn.shopify.com/s/files/1/0653/9830/9053/files/New_Variation_-_11-3-2025-01_1.png?v=1744091612"
+    type="image/x-icon">
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Font Awesome 7.0.0 Local -->
+<link rel="stylesheet" href="fontawesome-free-7.0.0-web (1)/fontawesome-free-7.0.0-web/css/all.min.css">
+<!-- Bootstrap -->
+<link rel="stylesheet" href="assests/css/bootstrap.min.css">
+<!-- Magnific Popup -->
+<link rel="stylesheet" href="assests/css/magnific-popup.min.css">
+<!-- Animate -->
+<link rel="stylesheet" href="assests/css/animate.min.css">
+<!-- Slick -->
+<link rel="stylesheet" href="assests/css/slick.min.css">
+<!-- Main Style -->
+<link rel="stylesheet" href="assests/css/style.css">
+<style>
+    #preloader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #000;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        transition: opacity 0.5s ease-out;
+    }
+    
+    .preloader-logo {
+        width: 150px;
+        margin-bottom: 30px;
+        animation: pulse 2s infinite;
+    }
+    
+    .loader {
+        width: 50px;
+        height: 50px;
+        border: 5px solid #f3f3f3;
+        border-top: 5px solid #fdd301;
+        border-radius: 50%;
+        animation: spin 1s linear 2;
+        animation-fill-mode: forwards;
+    }
+    
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(720deg); } /* 2 full rotations = 720 degrees */
+    }
+    
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+        100% { transform: scale(1); }
+    }
+</style>
+    <style>
+        /* Filter animation */
+        .item {
+            transition: all 0.3s ease-in-out;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .item.filtered {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Mobile filter styles */
+        @media (max-width: 991.98px) {
+            .project-filter {
+                display: none !important;
+            }
+            
+            #mobile-filter {
+                max-width: 300px;
+                margin: 0 auto 30px;
+                padding: 10px 15px;
+                border-radius: 30px;
+                background-color: #1a1a1a;
+                color: #fff;
+                border: 1px solid #333;
+            }
+            
+            .filter-container {
+                text-align: center;
+                margin-bottom: 30px;
+            }
+        }
+        
+        /* Active filter style */
+        .project-filter .nav-item.current .nav-link {
+            background-color: #ff6b00;
+            color: #fff;
+        }
+    </style>
+<link rel="stylesheet" href="all.min.css">  <!-- First inclusion -->
+
+</head>
+<body>
+    <div class="page-wrapper">
+
+        <!-- Preloader -->
+        <div id="preloader">
+            <div class="preloader-logo">
+                <img src="https://cdn.shopify.com/s/files/1/0653/9830/9053/files/minimal-logo-effect-for-footer-unscreen-ezgif.com-crop_1.gif" alt="Colab Platforms Logo">
+            </div>
+           
+        </div>
+          <header class="main-header">
+            <!--Header-Upper-->
+            <div class="header-upper black-120-bg">
+                <div class="container clearfix">
+                    <div class="header-inner rel d-flex align-items-center">
+                        <div class="logo-outer">
+                          <div class="logo"><a href="index.html"><img src="https://cdn.shopify.com/s/files/1/0653/9830/9053/files/minimal-logo-effect-for-footer-unscreen-ezgif.com-crop_1.gif?v=1744289888" alt="Logo" title="Logo" style = "width: 100px;"></a></div>
+                        </div>
+
+                        <div class="nav-outer ms-auto clearfix">
+                            <!-- Main Menu -->
+                            <nav class="main-menu navbar-expand-lg">
+                                <div class="navbar-header py-10">
+                                    <div class="mobile-logo">
+                                        <a href="index.html">
+                                            <img src="https://cdn.shopify.com/s/files/1/0653/9830/9053/files/minimal-logo-effect-for-footer-unscreen-ezgif.com-crop_1.gif?v=1744289888" alt="Logo" title="Logo" style = "width: 100px;">
+                                        </a>
+                                    </div>
+
+                                    <!-- Toggle Button -->
+                                    <button type="button" class="navbar-toggle" data-bs-toggle="collapse"
+                                        data-bs-target=".navbar-collapse">
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                </div>
+
+                                <div class="navbar-collapse collapse clearfix">
+                                    <ul class="navigation clearfix">
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="about.html">About</a></li>
+                                        <li class="dropdown"><a href="#">Services</a>
+                                            <ul>
+                                                <li><a href="Services.html">Services</a></li>
+                                                <li><a href="Sports technology.html">Sports technology</a></li>
+                                                <li><a href="sports-content.html">Sports Content</a></li>
+                                                <li><a href="Sports-infrastructure.html">Sports Infrastructure</a></li>
+                                                <li><a href="sports-ip.html">Sports Ip</a></li>
+                                                <li><a href="Sports-marketing.html">Sports Marketing</a></li>
+                                                <li><a href="Athelte-management.html">Athelte Management</a></li>
+                                            </ul>
+                                        </li>
+                                        <!-- <li class="dropdown"><a href="#">pages</a>
+                                            <ul>
+                                                <li><a href="404.html">404 Error</a></li>
+                                            </ul>
+                                        </li> -->
+                                        <li><a href="contact.html">Contact</a></li>
+                                        <li><a href="blog.html">Blog</a></li>
+                                        <li><a href="investor.html">Investor</a></li>
+                                        <li><a href="career.html">Career</a></li>
+                                        <li><a href="gallery.html">Gallery</a></li>
+                                    </ul>
+                                </div>
+
+                            </nav>
+                            <!-- Main Menu End-->
+                        </div>
+                        <!-- Search Button -->
+                           
+                    </div>
+                    <form class="search-project search-form mt-96" id="project-search" action="#">
+                        <input type="search" required placeholder="Type to search...">
+                        <button type="submit"><i class="fas fa-magnifying-glass"></i></button>
+                    </form>
+                </div>
+            </div>
+            <!--End Header Upper-->
+        </header>
+
+        <!-- Banner Section Start -->
+        <section class="banner-area py-256" style="background-image: url(https://cdn.shopify.com/s/files/1/0653/9830/9053/files/portrait-person-playing-cricket-sport.jpg?v=1743512642);">
+            <div class="container text-center">
+                <div class="row align-items-center justify-content-between">
+                    <div class="banner-content wow fadeInUp delay-0-2s">
+                        <h1 class="text-white">Services</h1>
+                        <div class="mt-32">
+                            <ul class="breadcrumb wow fadeInUp delay-0-4s">
+                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                <li class="breadcrumb-item">Services</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Banner Section End -->
+
+        <!-- Projects Area start -->
+        <section class="projects-area py-128 black-100-bg">
+            <!-- <div class="container">
+                <div class="filter-container">
+                    <select id="mobile-filter" class="form-select d-lg-none mb-4">
+                        <option value="*">ALL</option>
+                        <option value=".sports-technology">Sports Technology</option>
+                        <option value=".sports-content">Sports Content</option>
+                        <option value=".sports-infrastructure">Sports Infrastructure</option>
+                        <option value=".sports-ip">Sports IP</option>
+                        <option value=".sports-marketing">Sports Marketing</option>
+                        <option value=".athlete-management">Athlete Management</option>
+                    </select>
+                    
+                    <ul class="project-filter tab-style-one justify-content-center nav nav-pills nav-fill mb-96 wow fadeInUp delay-0-4s d-none d-lg-flex">
+                        <li data-filter="*" class="nav-item current">
+                            <a class="nav-link">ALL</a>
+                        </li>
+                        <li class="nav-item" data-filter=".sports-technology">
+                            <a class="nav-link">Sports Technology</a>
+                        </li>
+                        <li class="nav-item" data-filter=".sports-content">
+                            <a class="nav-link">Sports Content</a>
+                        </li>
+                        <li class="nav-item" data-filter=".sports-infrastructure">
+                            <a class="nav-link">Sports Infrastructure</a>
+                        </li>
+                        <li class="nav-item" data-filter=".sports-ip">
+                            <a class="nav-link">Sports IP</a>
+                        </li>
+                        <li class="nav-item" data-filter=".sports-marketing">
+                            <a class="nav-link">Sports Marketing</a>
+                        </li>
+                        <li class="nav-item" data-filter=".athlete-management">
+                            <a class="nav-link">Athlete Management</a>
+                        </li>
+                    </ul>
+                </div>
+            </div> -->
+            <div class="container">
+                <div class="row project-active">
+                    <!-- Sports Technology Section 2 -->
+                    <div class="col-md-12 item sports-technology">
+                        <div class="row detail-images align-items-center mb-64 wow fadeInLeft delay-0-1s">
+                            <div class="carousel slide" id="detailCarousel" data-bs-ride="carousel">
+                                <div class="carousel-buttons">
+                                    <button class="prev" type="button" data-bs-target="#detailCarousel" data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"><i class="fa fa-long-arrow-left"></i></span>
+                                    </button>
+                                    <button class="" type="button" data-bs-target="#detailCarousel" data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"><i class="fa fa-long-arrow-right"></i></span>
+                                    </button>
+                                </div>                        
+                                <div class="row carousel-inner" role="listbox">
+                                    <div class="carousel-item active">
+                                        <img src="https://cdn.shopify.com/s/files/1/0653/9830/9053/files/ChatGPT_Image_Apr_7_2025_06_13_23_PM.png?v=1744030662" alt="project">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="https://cdn.shopify.com/s/files/1/0653/9830/9053/files/2150040510.jpg?v=1744635364" alt="project">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="https://cdn.shopify.com/s/files/1/0653/9830/9053/files/african-man-in-headset-celebrating-victory-in-vide-2024-12-12-03-07-52-utc_456_1.jpg?v=1744437281" alt="project">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="https://content.jdmagicbox.com/v2/comp/pune/u5/020pxx20.xx20.240509180012.y5u5/catalogue/champions-turf-thergaon-pune-sports-clubs-0ja2dkljn2.jpg" alt="project">
+                                    </div>
+                                </div>   
+                                <div class="col-xs-12 carousel-indicators">
+                                    <div class="row carousel-list-images gap-30">
+                                        <div class="col-md-3 col-lg-3 button-img">
+                                            <button type="button" data-bs-target="#detailCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1">
+                                                <img src="https://cdn.shopify.com/s/files/1/0653/9830/9053/files/ChatGPT_Image_Apr_7_2025_06_13_23_PM.png?v=1744030662" alt="project">
+                                            </button>
+                                        </div>
+                                        <div class="col-md-3 col-lg-3 button-img">
+                                            <button type="button" data-bs-target="#detailCarousel" data-bs-slide-to="1" aria-label="Slide 2">
+                                                <img src="https://cdn.shopify.com/s/files/1/0653/9830/9053/files/2150040510.jpg?v=1744635364" alt="project">
+                                            </button>
+                                        </div>
+                                        <div class="col-md-3 col-lg-3 button-img">
+                                            <button type="button" data-bs-target="#detailCarousel" data-bs-slide-to="2" aria-label="Slide 3">
+                                                <img src="https://cdn.shopify.com/s/files/1/0653/9830/9053/files/african-man-in-headset-celebrating-victory-in-vide-2024-12-12-03-07-52-utc_456_1.jpg?v=1744437281" alt="project">
+                                            </button>
+                                        </div>
+                                        <div class="col-md-3 col-lg-3 button-img">
+                                            <button type="button" data-bs-target="#detailCarousel" data-bs-slide-to="3" aria-label="Slide 4">
+                                                <img src="https://content.jdmagicbox.com/v2/comp/pune/u5/020pxx20.xx20.240509180012.y5u5/catalogue/champions-turf-thergaon-pune-sports-clubs-0ja2dkljn2.jpg" alt="project">
+                                            </button>
+                                        </div> 
+                                    </div>              
+                                </div>                              
+                            </div>                          
+                        </div>                   
+                        <!-- <div class="row apartment-content wow fadeInRight delay-0-1s">
+                            <p class="mt-32">“ Thank you for all of the beautiful ideas! We love it! Your interior design ideas are beautiful. We can't wait to complete the rest of the home.” - Olivia</p>                 
+                        </div> -->
+                        <div class="col-md-12 item sports-content">
+                            <div class="row wow fadeInRight delay-0-1s rp-0">
+                                <div class="pros-title text-center">
+                                    <h4>Sports Documentaries</h4>
+                                    <span class="category">Sports Technology</span>
+                                </div>
+                            </div>
+                            <div class="row detail-images align-items-center mb-64 wow fadeInLeft delay-0-1s">
+                                <div class="col-md-6 order-md-2">
+                                    <img src="https://cdn.shopify.com/s/files/1/0653/9830/9053/files/ChatGPT_Image_Apr_7_2025_05_28_33_PM.png?v=1744027934" alt="Sports Documentaries" class="img-fluid">
+                                </div>
+                                <div class="col-md-6 order-md-1">
+                                    <p>Pioneering the integration of advanced technology in sports with VR/AR, AI-driven personalization, and data analytics to elevate performance and fan engagement.</p>
+                                    <a href="Sports technology.html" class="read-more-btn">Read More <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+    
+
+                    <!-- Sports Content Section 2 -->
+                    <div class="col-md-12 item sports-content">
+                        <div class="row wow fadeInRight delay-0-1s rp-0">
+                            <div class="pros-title text-center">
+                                <h4>Sports Documentaries</h4>
+                                <span class="category">SPORTS CONTENT</span>
+                            </div>
+                        </div>
+                        <div class="row detail-images align-items-center mb-64 wow fadeInLeft delay-0-1s">
+                            <div class="col-md-6 order-md-2">
+                                <img src="https://cdn.shopify.com/s/files/1/0653/9830/9053/files/ChatGPT_Image_Apr_7_2025_06_20_29_PM.png?v=1744030469" alt="Sports Documentaries" class="img-fluid">
+                            </div>
+                            <div class="col-md-6 order-md-1">
+                                <p>Streamline league-wide processes and track player, personnel and team activity from day-to-day activities to broad-based planning across the entire season.</p>
+                                <a href="sports-content.html" class="read-more-btn">Read More <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sports Infrastructure Section 1 -->
+                    <div class="col-md-12 item sports-infrastructure">
+                        <div class="row wow fadeInRight delay-0-1s rp-0">
+                            <div class="pros-title text-center">
+                                <h4>Smart Stadium Solutions</h4>
+                                <span class="category">SPORTS INFRASTRUCTURE</span>
+                            </div>
+                        </div>
+                        <div class="row detail-images align-items-center mb-64 wow fadeInLeft delay-0-1s">
+                            <div class="col-md-6">
+                                <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/ChatGPT_Image_Apr_7_2025_05_28_33_PM.png?v=1749454683" alt="Smart Stadium" class="img-fluid">
+                            </div>
+                            <div class="col-md-6">
+                                <p>Building world-class sports facilities with turnkey solutions, from design to execution. We create modern, tech-enabled environments for athletes, schools, communities, and professional franchises, driving grassroots growth and elite performance across India.</p>
+                                <a href="Sports-infrastructure.html" class="read-more-btn">Read More <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sports IP Section 1 -->
+                    <div class="col-md-12 item sports-ip">
+                        <div class="row wow fadeInRight delay-0-1s rp-0">
+                            <div class="pros-title text-center">
+                                <h4>Sports IP Management</h4>
+                                <span class="category">SPORTS IP</span>
+                            </div>
+                        </div>
+                        <div class="row detail-images align-items-center mb-64 wow fadeInLeft delay-0-1s">
+                            <div class="col-md-6 order-md-2">
+                                <img src="https://cdn.shopify.com/s/files/1/0653/9830/9053/files/HRP02551_1.jpg?v=1743684713" alt="Sports IP Management" class="img-fluid">
+                            </div>
+                            <div class="col-md-6 order-md-1">
+                                <p>Exclusive Properties: Design and own leagues, tournaments, and branded sports events.</p>
+                                <a href="sports-ip.html" class="read-more-btn">Read More <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sports Marketing Section 1 -->
+                    <div class="col-md-12 item sports-marketing">
+                        <div class="row wow fadeInRight delay-0-1s rp-0">
+                            <div class="pros-title text-center">
+                                <h4>Digital Marketing Solutions</h4>
+                                <span class="category">SPORTS MARKETING</span>
+                            </div>
+                        </div>
+                        <div class="row detail-images align-items-center mb-64 wow fadeInLeft delay-0-1s">
+                            <div class="col-md-6">
+                                <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/retouched_image.jpg?v=1750844461" alt="Digital Marketing" class="img-fluid">
+                            </div>
+                            <div class="col-md-6">
+                                <p>Maximizing brand partnerships with targeted marketing strategies and fan-centric campaigns, amplifying visibility for athletes, teams, and events.</p>
+                                <a href="Sports-marketing.html" class="read-more-btn">Read More <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Athlete Management Section 1 -->
+                    <div class="col-md-12 item athlete-management">
+                        <div class="row wow fadeInRight delay-0-1s rp-0">
+                            <div class="pros-title text-center">
+                                <h4>Career Development</h4>
+                                <span class="category">ATHLETE MANAGEMENT</span>
+                            </div>
+                        </div>
+                        <div class="row detail-images align-items-center mb-64 wow fadeInLeft delay-0-1s">
+                            <div class="col-md-6 order-md-2">
+                                <img src="https://cdn.shopify.com/s/files/1/0653/9830/9053/files/ChatGPT_Image_Apr_7_2025_05_44_24_PM.png?v=1744029170" alt="Athlete Career Development" class="img-fluid">
+                            </div>
+                            <div class="col-md-6 order-md-1">
+                                <!-- <h5>Beyond the Game</h5> -->
+                                <p>Empowering athletes with right gameplan and kit to manage and grow their careers, secure sponsorships, showcase achievements, and plan for long-term success through data-driven marketing insights and strategic opportunities.</p>
+                                <a href="Athelte-management.html" class="read-more-btn">Read More <i class="fas fa-arrow-right"></i></a>
+                                <!-- <ul class="list-unstyled">
+                                    <li><i class="fas fa-check"></i> Education programs</li>
+                                    <li><i class="fas fa-check"></i> Skills development</li>
+                                    <li><i class="fas fa-check"></i> Career transition support</li>
+                                </ul> -->
+                            </div>
+                        </div>
+                    </div>                 </div>
+                        <!-- <div class="row detail-images video align-items-center wow fadeInLeft delay-0-1s">
+                            <img src="assets/images/projects/img-5.png" alt="project">
+                            <a href="https://www.youtube.com/watch?v=9Y7ma241N8k" class="mfp-iframe video-play"><i class="fab fa-youtube"></i></a>
+                        </div>                    -->
+            
+                    <!-- <div class="col-md-12 item INTERIOR">
+                        <div class="row wow fadeInRight delay-0-1s rp-0">
+                            <div class="pros-title text-center">
+                                <a href="project-details.html"><h4>Mountain House Architecture Design</h4></a>
+                                <span class="category">INTERIOR</span>
+                            </div>                
+                        </div>
+                        <div class="row detail-images video align-items-center wow fadeInLeft delay-0-1s">
+                            <img src="assets/images/projects/img-5.png" alt="project">
+                            <a href="https://www.youtube.com/watch?v=9Y7ma241N8k" class="mfp-iframe video-play"><i class="fab fa-youtube"></i></a>
+                        </div>                   
+                    </div>
+                    <div class="col-md-12 item LANDSCAPE">
+                        <div class="row wow fadeInRight delay-0-1s rp-0">
+                            <div class="pros-title text-center">
+                                <a href="project-details.html"><h4>Modern House And Landscape Design</h4></a>
+                                <span class="category">LANDSCAPE</span>
+                            </div>                
+                        </div>
+                        <div class="row detail-images align-items-center wow fadeInLeft delay-0-1s">
+                            <a href="project-details.html"><img src="assets/images/projects/img-6.png" alt="project"></a>
+                        </div>                   
+                    </div>
+                    <div class="col-md-12 item INTERIOR">
+                        <div class="row wow fadeInRight delay-0-1s rp-0">
+                            <div class="pros-title text-center">
+                                <a href="project-details.html"><h4>Black Elegant Kitchen Design</h4></a>
+                                <span class="category">INTERIOR</span>
+                            </div>                
+                        </div>
+                        <div class="row detail-images gap-30 align-items-center wow fadeInLeft delay-0-1s">
+                            <div class="col-md-6">
+                                <a href="project-details.html"><img src="assets/images/projects/img-7.png" alt="project"></a>
+                            </div>
+                            <div class="col-md-6">
+                                <a href="project-details.html"><img src="assets/images/projects/img-8.png" alt="project"></a>
+                            </div>
+                        </div>                   
+                    </div>                   
+                </div>
+                <div class="col-lg-12">
+                    <ul class="pagination flex-wrap justify-content-center wow fadeInUp delay-0-2s">
+                        <li class="page-item"> <span class="page-link"> Prev </span></li>
+                        <li class="page-item active">
+                            <span class="page-link">
+                                1
+                                <span class="sr-only">(current)</span>
+                            </span>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"> <span class="page-link"> Next </span></li>
+                    </ul>
+                </div> -->
+            </div>  
+        </section> 
+        <!-- Projects Area end -->
+
+        <style>
+            /* Read More Button Styles */
+            .read-more-btn {
+                display: inline-block;
+                margin-top: 20px;
+                padding: 10px 25px;
+                /* background-color: #ff5e14; */
+                color: #fff;
+                text-decoration: none;
+                border-radius: 4px;
+                font-weight: 500;
+                transition: all 0.3s ease;
+                /* border: 1px solid #ff5e14; */
+                text-transform: uppercase;
+                font-size: 14px;
+                letter-spacing: 0.5px;
+                margin-left: 20px;
+            }
+            
+            .read-more-btn:hover {
+                background-color: transparent;
+                /* color: #ff5e14; */
+            }
+            
+            .read-more-btn i {
+                margin-left: 8px;
+                transition: transform 0.3s ease;
+                font-size: 12px;
+            }
+            
+            .read-more-btn:hover i {
+                transform: translateX(5px);
+            }
+            
+            /* Ensure proper spacing for the button */
+            .detail-images .col-md-6 {
+                display: flex;
+                flex-direction: column;
+            }
+            
+            .detail-images p {
+                margin-bottom: 15px;
+                flex-grow: 1;
+                margin-left: 40px;
+            }
+            
+            @media screen and (min-width: 768px) {
+              .img-footer {
+                height: 160px;
+              }
+        
+              .footer {
+                position: relative;
+                background-repeat: no-repeat;
+                height: 90vh;
+                background: url(https://cdn.shopify.com/s/files/1/0653/9830/9053/files/ChatGPT_Image_Apr_10_2025_05_22_36_PM_90852651-8241-4083-85f1-2b051928e0ee.png?v=1744373569);
+                background-size: cover;
+                z-index: 0;
+              }
+        
+              .txt {
+                color: white;
+                font-size: 5rem;
+                margin-bottom: 30px;
+                letter-spacing: -4px;
+              }
+            }
+        
+            @media screen and (max-width: 768px) {
+              .txt {
+                color: white;
+                font-size: 3.2rem;
+                margin-bottom: 20px;
+                letter-spacing: -4px;
+              }
+        
+              .img-footer {
+                height: 70px;
+              }
+        
+              .footer {
+                position: relative;
+                height: 90vh;
+                background: url(https://cdn.shopify.com/s/files/1/0653/9830/9053/files/20250410_1659_Sporty_Concert_Vibes_remix_01jrfq9hsnegrr8zt0j0xh7t2r.jpg?v=1744375103);
+                background-position: center;
+                background-position-y: 15%;
+                background-position-x: 48%;
+                z-index: 0;
+              }
+            }
+                </style>
+                <style>
+                    .mobile-banners {
+                        display: none;
+                    }
+                    @media (max-width: 767px) {
+                        .mobile-banners {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 16px;
+                            padding: 16px;
+                        }
+                        .banner-item {
+                            background: #f5f5f5;
+                            border-radius: 8px;
+                            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+                            padding: 24px;
+                            text-align: center;
+                            font-size: 1.2em;
+                            font-weight: 600;
+                            color: #333;
+                        }
+                    }
+                </style>
+        
+          <footer class="footer">
+        
+            <div style="z-index: 1;
+                      position: absolute;
+                      bottom: 10%;
+                      right: 4%;"> <img class="img-footer"
+                src="https://cdn.shopify.com/s/files/1/0653/9830/9053/files/minimal-logo-effect-for-footer-unscreen-ezgif.com-crop_1.gif?v=1744289888" />
+            </div>
+            <div class="footer__top" style="position: absolute; bottom: 80px;">
+              <div class="container">
+                <div class="row">
+        
+        
+                  <div class="col-12 col-md d-flex " style="justify-content: start !important;
+                                    align-items: start;
+                                    flex-direction: column;">
+                    <h2 class="txt">LET'S CONNECT</h2>
+                    <a href="/contact.html" class="btn btn-blue" style="margin-bottom: 20px; background-color: #fdd301;">Contact Us</a>
+                    <div class="footer__legal">
+                      <div class="menu-legal-links-container">
+                        <ul id="menu-legal-links" class="menu">
+                          <li id="menu-item-165" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-165">
+                            <a href="/Services.html">Services</a></li>
+                          <li id="menu-item-46"
+                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-46">
+                            <a rel="privacy-policy" href="/investor.html">Investor</a></li>
+                          <li id="menu-item-166" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-166">
+                            <a href="/contact.html">Contact Us</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="footer__bottom" style="position: absolute;bottom: 10px;width: 100%;">
+              <div class="container">
+                <div class="row">
+                  <div class="footer__copyright">
+                    <div class="col-12">
+                      <p>© 2025 Colab Platforms Ltd.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </footer>
+        
+        
+        
+        <!-- Scroll Top Button -->
+        <button class="scroll-top scroll-to-target" data-target="html"><span class="fas fa-angle-double-up"></span></button>
+
+    </div>
+    </div>
+    <!--End pagewrapper-->
+    
+    <!-- Filter Functionality -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get all filter elements
+        const filterButtons = document.querySelectorAll('.project-filter .nav-item');
+        const mobileFilter = document.getElementById('mobile-filter');
+        const items = document.querySelectorAll('.item');
+
+        // Function to handle filtering
+        function filterItems(filterValue) {
+            // Remove the dot from filter value
+            const cleanFilterValue = filterValue.replace(/\./g, '').toLowerCase().replace(/\s+/g, '-');
+            
+            // Loop through all items and show/hide based on filter
+            items.forEach(item => {
+                if (filterValue === '*' || item.classList.contains(cleanFilterValue)) {
+                    // Show matching items with animation
+                    item.style.display = 'block';
+                    item.classList.add('filtered');
+                    // Remove animation class after animation completes
+                    setTimeout(() => item.classList.remove('filtered'), 500);
+                } else {
+                    // Hide non-matching items
+                    item.style.display = 'none';
+                }
+            });
+            
+            // Update active state for desktop filter buttons
+            filterButtons.forEach(btn => {
+                const btnFilter = btn.getAttribute('data-filter');
+                const link = btn.querySelector('.nav-link');
+                
+                if (btnFilter === filterValue) {
+                    btn.classList.add('current');
+                    if (link) link.classList.add('active');
+                } else {
+                    btn.classList.remove('current');
+                    if (link) link.classList.remove('active');
+                }
+            });
+            
+            // Update mobile filter dropdown
+            if (mobileFilter) {
+                mobileFilter.value = filterValue;
+            }
+            
+            // Smooth scroll to top when filter changes
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+        
+        // Add click event listeners to filter buttons
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                filterItems(this.getAttribute('data-filter'));
+            });
+        });
+        
+        // Add change event listener to mobile filter
+        if (mobileFilter) {
+            mobileFilter.addEventListener('change', function() {
+                filterItems(this.value);
+            });
+        }
+        
+        // Initialize - show all items by default
+        filterItems('*');
+    });
+    </script>
+    
+    <style>
+    /* Add smooth transition for filtered items */
+    .item {
+        transition: all 0.5s ease-in-out;
+    }
+    
+    .item.filtered {
+        animation: fadeIn 0.5s ease-in-out;
+    }
+    
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    
+    /* Ensure proper spacing between filtered items */
+    .item[style*="display: block"] {
+        margin-bottom: 30px;
+    }
+    
+    /* Style for active filter button */
+    .project-filter .nav-item.current .nav-link {
+        color: #fff;
+        background-color: #ff5e14;
+    }
+    
+    /* Mobile filter styles */
+    #mobile-filter {
+        width: 100%;
+        padding: 10px 15px;
+        border-radius: 5px;
+        border: 1px solid #ddd;
+        margin-bottom: 20px;
+    }
+    
+    @media (max-width: 991px) {
+        .project-filter.tab-style-one {
+            display: none;
+        }
+        #mobile-filter {
+            display: block !important;
+        }
+    }
+    
+    @media (min-width: 992px) {
+        #mobile-filter {
+            display: none !important;
+        }
+    }
+    </style>
+    
+    <!-- Jquery -->
+   <script src="jquery-3.7.1.min.js"></script>
+   <!-- Popper -->
+   <script src="popper.min.js"></script>
+   <!-- Bootstrap -->
+   <script src="bootstrap.min.js"></script>
+   <!-- Appear Js -->
+   <script src="appear.min.js"></script>
+   <!-- Slick -->
+   <script src="slick.min.js"></script>
+   <!-- Magnific Popup -->
+   <script src="jquery.magnific-popup.min.js"></script>
+   <!-- Image Loader -->
+   <script src="imagesloaded.pkgd.min.js"></script>
+   <!-- Isotope -->
+   <script src="isotope.pkgd.min.js"></script>
+   <!--  WOW Animation -->
+   <script src="wow.min.js"></script>
+
+   <!-- Custom script -->
+   <script src="script.js"></script>
+   <script>
+    // Preloader functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const preloader = document.getElementById('preloader');
+        
+        // Prevent scrolling while preloader is visible
+        document.body.style.overflow = 'hidden';
+        
+        // Hide preloader after 2 seconds
+        setTimeout(function() {
+            preloader.classList.add('fade-out');
+            
+            // Remove preloader from DOM after fade-out completes
+            setTimeout(function() {
+                preloader.style.display = 'none';
+                // Enable scrolling after preloader is hidden
+                document.body.style.overflow = 'auto';
+            }, 500);
+        }, 2000);
+        
+        // Fallback in case the above doesn't work
+        setTimeout(function() {
+            if (preloader && preloader.style.display !== 'none') {
+                preloader.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }, 3000);
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,1357 @@
+<!doctype html>
+<html lang="en-GB">
+    <head>
+        <meta name="google-site-verification" content="DmkkXmEReFOHRjDhLZ9u8TltSY1rmhurIp7LwU5baOQ" />
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+	<style>
+  img:is([sizes="auto" i], [sizes^="auto," i]) { contain-intrinsic-size: 3000px 1500px }
+
+        #onetrust-banner-sdk{
+            display: none;
+        }
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.main-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #2d3748;
+    margin-bottom: 40px;
+    letter-spacing: -0.02em;
+}
+
+.filter-section {
+    display: flex;
+    justify-content: center;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-select {
+    appearance: none;
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 12px 40px 12px 16px;
+    font-size: 16px;
+    color: #4a5568;
+    cursor: pointer;
+    min-width: 140px;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 12px center;
+    background-repeat: no-repeat;
+    background-size: 16px;
+}
+
+.dropdown-select:focus {
+    outline: none;
+    border-color: #3182ce;
+    box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.1);
+}
+
+.job-listings {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.job-card {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 24px;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.job-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+.job-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.job-info {
+    flex: 1;
+}
+
+.job-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 8px;
+}
+
+.job-details-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #718096;
+    font-size: 0.95rem;
+}
+
+.job-description-btn {
+    background: none;
+    border: none;
+    color: #3182ce;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.9rem;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.job-description-btn:hover {
+    background-color: #f7fafc;
+    color: #2c5aa0;
+}
+
+.job-description-btn svg {
+    transition: transform 0.2s ease;
+}
+
+.job-description-btn.active svg {
+    transform: rotate(180deg);
+}
+
+.job-description {
+    margin-top: 16px;
+    padding: 16px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    border-left: 4px solid #3182ce;
+    display: none;
+}
+
+.job-description.show {
+    display: block;
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.job-description h4 {
+    color: #2d3748;
+    margin-bottom: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.job-description ul {
+    margin: 8px 0;
+    padding-left: 20px;
+}
+
+.job-description li {
+    margin-bottom: 4px;
+    color: #4a5568;
+}
+
+.apply-btn {
+    background-color: #D04713;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.apply-btn:hover {
+    background-color: #131412;
+    transform: translateY(-1px);
+}
+
+.apply-btn:active {
+    transform: translateY(0);
+}
+
+/* Modal Styles - UPDATED */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    animation: fadeIn 0.3s ease;
+    overflow: hidden; /* Prevent background scrolling */
+}
+
+.modal.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content {
+    background-color: #131412 !important;
+    padding: 32px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 650px;
+    max-height: 90vh;
+    overflow-y: auto; /* Allow scrolling within modal */
+    position: relative;
+    animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.modal-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: white;
+    margin: 0;
+            letter-spacing: 2px;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 44px;
+    cursor: pointer;
+    color: #718096;
+    padding: 4px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.close-btn:hover {
+    background-color: #f7fafc;
+    color: #2d3748;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+    color: white;
+}
+
+.form-input,
+.form-textarea,
+.form-select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.2s ease;
+    box-sizing: border-box;
+}
+
+.form-input:focus,
+.form-textarea:focus,
+.form-select:focus {
+    outline: none;
+    border-color: #3182ce;
+    box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.1);
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.file-upload {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.file-upload-input {
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.file-upload-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px;
+    border: 2px dashed #e2e8f0;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: #4a5568;
+}
+
+.file-upload-label:hover {
+    border-color: #3182ce;
+    background-color: #f0f8ff;
+}
+
+.file-upload-label.has-file {
+    border-color: #38a169;
+    background-color: #f0fff4;
+    color: #38a169;
+}
+
+.submit-btn {
+    width: 100%;
+    background-color: #D04713;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 14px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.submit-btn:hover {
+    background-color: #2c5aa0;
+}
+
+.submit-btn:disabled {
+    background-color: #a0aec0;
+    cursor: not-allowed;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    /* .container {
+        padding: 20px 16px;
+    } */
+    
+    .main-title {
+        font-size: 2.5rem;
+        margin-bottom: 30px;
+    }
+    
+    .header {
+        margin-bottom: 40px;
+    }
+    
+    .job-card {
+        padding: 20px;
+    }
+    
+    .job-card-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+    
+    .apply-btn {
+        align-self: stretch;
+        text-align: center;
+    }
+    
+    .job-details-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    
+    .modal-content {
+        padding: 24px;
+        margin: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 2rem;
+    }
+    
+    .job-card {
+        padding: 16px;
+    }
+    
+    .job-title {
+        font-size: 1.1rem;
+    }
+    
+    .dropdown-select {
+        min-width: 120px;
+        padding: 10px 35px 10px 14px;
+    }
+}
+        
+    </style>
+     <style>
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease-out;
+        }
+        
+        .preloader-logo {
+            width: 150px;
+            margin-bottom: 30px;
+            animation: pulse 2s infinite;
+        }
+        
+        .loader {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #fdd301;
+            border-radius: 50%;
+            animation: spin 1s linear 2;
+            animation-fill-mode: forwards;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(720deg); } /* 2 full rotations = 720 degrees */
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+    </style>
+	
+	<!-- This site is optimized with the Yoast SEO plugin v24.6 - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>Career - Colab Platforms</title>
+	<meta name="description" content="service page - colab sports" />
+	<link rel="canonical" href="https://www.colabplatforms.com/service" />
+	<meta property="og:locale" content="en_GB" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="Service - Colab Platforms" />
+	<meta property="og:description" content="service page - colab sports" />
+	<meta property="og:url" content="https://www.colabplatforms.com/service" />
+	<meta property="og:site_name" content="Colab Platforms" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:site" content="@ColabPlatforms" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://img.staged.cc/services/digital","url":"https://img.staged.cc/services/digital","name":"Digital | IMG","isPartOf":{"@id":"https://www.img.com/#website"},"description":"We are digital experts dedicated to reinventing, building, and commercializing our clients' digital media businesses.","breadcrumb":{"@id":"https://img.staged.cc/services/digital#breadcrumb"},"inLanguage":"en-GB","potentialAction":[{"@type":"ReadAction","target":["https://img.staged.cc/services/digital"]}]},{"@type":"BreadcrumbList","@id":"https://img.staged.cc/services/digital#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.img.com/"},{"@type":"ListItem","position":2,"name":"Services","item":"https://img.staged.cc/services"},{"@type":"ListItem","position":3,"name":"Digital"}]},{"@type":"WebSite","@id":"https://www.img.com/#website","url":"https://www.img.com/","name":"IMG","description":"Power the worlds passion for sport","publisher":{"@id":"https://www.img.com/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.img.com/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"en-GB"},{"@type":"Organization","@id":"https://www.img.com/#organization","name":"IMG","url":"https://www.img.com/","logo":{"@type":"ImageObject","inLanguage":"en-GB","@id":"https://www.img.com/#/schema/logo/image/","url":"https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/09/img-favicon.png","contentUrl":"https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/09/img-favicon.png","width":512,"height":512,"caption":"IMG"},"image":{"@id":"https://www.img.com/#/schema/logo/image/"},"sameAs":["https://x.com/IMG","https://www.linkedin.com/company/4471","https://www.instagram.com/img/"]}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+  <link rel="stylesheet" href="https://unpkg.com/lenis@1.2.3/dist/lenis.css">
+<link rel="stylesheet"href="/app/themes/img/public/styles/digital-trends.css?id=a8b0b7347156afd00cb5d4ca6d6d691d" type="text/css" media="all">
+<link rel="stylesheet"href="assests/css/app.css">
+<link rel="stylesheet"href="assests/css/style.css">
+<link rel="stylesheet"href="/app/themes/img/public/styles/print.css?id=3862f905b361387ca2ea09d913e7b011" type="text/css" media="print">
+<script type="text/javascript" src="/app/plugins/wpo365-login/apps/dist/pintra-redirect.js?ver=34.2" id="pintraredirectjs-js" async></script>
+<script type="text/javascript" src="/wp/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
+<link rel="https://api.w.org/" href="/wp-json/" /><link rel="alternate" title="JSON" type="application/json" href="/wp-json/wp/v2/pages/73" /><meta name="generator" content="WordPress 6.7.2" />
+<link rel='shortlink' href='/?p=73' />
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.img.com%2Fservices%2Fdigital" />
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.img.com%2Fservices%2Fdigital&#038;format=xml" />
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MKC4MCDF');</script>
+<!-- End Google Tag Manager --><link rel="icon" href="https://cdn.shopify.com/s/files/1/0653/9830/9053/files/Colab_Cloud_Logo_1-09_1.png?v=1733726989" sizes="32x32" />
+<link rel="icon" href="https://cdn.shopify.com/s/files/1/0653/9830/9053/files/Colab_Cloud_Logo_1-09_1.png?v=1733726989" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://cdn.shopify.com/s/files/1/0653/9830/9053/files/Colab_Cloud_Logo_1-09_1.png?v=1733726989" />
+
+<!-- EmailJS CDN -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+    </head>
+    
+    <body class="page-template-default page page-id-73 page-parent page-child parent-pageid-67 wp-embed-responsive page-digital">
+        <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MKC4MCDF"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->        
+        <div id="app">
+
+            <div id="preloader">
+                <div class="preloader-logo">
+                    <img src="https://cdn.shopify.com/s/files/1/0653/9830/9053/files/minimal-logo-effect-for-footer-unscreen-ezgif.com-crop_1.gif" alt="Colab Platforms Logo">
+                </div>
+              
+            </div>
+    <!-- Main header -->
+    <header class="main-header">
+        <!--Header-Upper-->
+        <div class="header-upper black-120-bg">
+            <div class="container clearfix">
+                <div class="header-inner rel d-flex align-items-center">
+                    <div class="logo-outer">
+                      <div class="logo"><a href="index.html"><img src="https://cdn.shopify.com/s/files/1/0653/9830/9053/files/minimal-logo-effect-for-footer-unscreen-ezgif.com-crop_1.gif?v=1744289888" alt="Logo" title="Logo" style = "width: 100px;"></a></div>
+                    </div>
+
+                    <div class="nav-outer ms-auto clearfix">
+                        <!-- Main Menu -->
+                        <nav class="main-menu navbar-expand-lg">
+                            <div class="navbar-header py-10">
+                                <div class="mobile-logo">
+                                    <a href="index.html">
+                                        <img src="https://cdn.shopify.com/s/files/1/0653/9830/9053/files/minimal-logo-effect-for-footer-unscreen-ezgif.com-crop_1.gif?v=1744289888" alt="Logo" title="Logo" style = "width: 100px;">
+                                    </a>
+                                </div>
+
+                                <!-- Toggle Button -->
+                                <button type="button" class="navbar-toggle" data-bs-toggle="collapse"
+                                    data-bs-target=".navbar-collapse">
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                            </div>
+
+                            <div class="navbar-collapse collapse clearfix">
+                                <ul class="navigation clearfix">
+                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="about.html">About</a></li>
+                                    <li class="dropdown"><a href="#">Services</a>
+                                        <ul>
+                                            <li><a href="Services.html">Services</a></li>
+                                            <li><a href="Sports technology.html">Sports technology</a></li>
+                                            <li><a href="sports-content.html">Sports Content</a></li>
+                                            <li><a href="Sports-infrastructure.html">Sports Infrastructure</a></li>
+                                            <li><a href="sports-ip.html">Sports Ip</a></li>
+                                            <li><a href="Sports-marketing.html">Sports Marketing</a></li>
+                                            <li><a href="Athelte-management.html">Athelte Management</a></li>
+                                        </ul>
+                                    </li>
+                                    <!-- <li class="dropdown"><a href="#">pages</a>
+                                        <ul>
+                                            <li><a href="404.html">404 Error</a></li>
+                                        </ul>
+                                    </li> -->
+                                    <li><a href="contact.html">Contact</a></li>
+                                    <li><a href="blog.html">Blog</a></li>
+                                    <li><a href="investor.html">Investor</a></li>
+                                    <li><a href="career.html">Career</a></li>
+                                    <li><a href="gallery.html">Gallery</a></li>
+                                </ul>
+                            </div>
+
+                        </nav>
+                        <!-- Main Menu End-->
+                    </div>
+                    <!-- Search Button -->
+                     
+                </div>
+                <form class="search-project search-form mt-96" id="project-search" action="#">
+                    <input type="search" required placeholder="Type to search...">
+                    <button type="submit"><i class="fas fa-magnifying-glass"></i></button>
+                </form>
+            </div>
+        </div>
+        <!--End Header Upper-->
+    </header>
+    <!-- End main header -->
+
+
+<main class="main">
+              
+                  <section class="hero -main  ">
+            <div class="hero__bg d-md-none" data-parallax="top" data-parallax-amount="0.1"
+        style="background-image:url(https://img.freepik.com/premium-photo/businessman-holding-briefcase-travellers-walking-outdoors_18497-50.jpg?uid=R186725298&ga=GA1.1.1002746497.1740224156&semt=ais_hybrid&w=740);background-position:center">
+      </div>
+              <img
+        id="hero__lottie"
+        class="hero__bg-lottie lh d-none d-md-block"
+      src="https://img.freepik.com/premium-photo/businessman-holding-briefcase-travellers-walking-outdoors_18497-50.jpg?uid=R186725298&ga=GA1.1.1002746497.1740224156&semt=ais_hybrid&w=740"
+      alt="About main banner 3"
+  loading="lazy">
+      </img>
+        <div class="container wrap">
+    <div class="row">
+      <div class="col-12 col-md-9 col-lg-10 align-self-end">
+        <div class="hero__content" data-parallax="top" data-parallax-amount="0.25">
+                      <span class="kicker-green small">Careers</span>
+                                <h1 class="page-title">
+                                            <span class="line">
+                  <span class="line-inner" data-aos="fade-up" data-aos-anchor=".hero__content" data-aos-duration="1300" data-aos-delay="600" data-aos-anchor-placement="bottom-bottom">Explore</span>
+                </span>
+                              <span class="line">
+                  <span class="line-inner" data-aos="fade-up" data-aos-anchor=".hero__content" data-aos-duration="1300" data-aos-delay="700" data-aos-anchor-placement="bottom-bottom">The</span>
+                </span>
+                              <span class="line">
+                  <span class="line-inner" data-aos="fade-up" data-aos-anchor=".hero__content" data-aos-duration="1300" data-aos-delay="800" data-aos-anchor-placement="bottom-bottom">opportunities</span>
+                </span>
+                              <span class="line">
+                  <span class="line-inner" data-aos="fade-up" data-aos-anchor=".hero__content" data-aos-duration="1300" data-aos-delay="900" data-aos-anchor-placement="bottom-bottom">at Colab</span>
+                </span>
+                          </h1>
+                                                </div>
+      </div>
+      
+          </div>
+  </div>
+</section>
+
+                        
+  </div>
+                
+               
+          
+     
+
+  </div>
+
+       <!-- career Section -->
+       <div class="container">
+        <header class="headerr">
+           <h2 class="main-title" style="text-align: center; width: 100%; margin: 10 auto; padding-top:15px; color: white; ">Fresh Opportunities</h2>
+        </header>
+
+        <main class="job-listings">
+            <div class="job-card">
+                <div class="job-card-header">
+                    <div class="job-info">
+                        <h3 class="job-title">Accountant (2-4 years of experience) </h3>
+                        <div class="job-details-row">
+                            <span>Location: Goregaon East, Mumbai</span>
+                            <button class="job-description-btn" onclick="toggleJobDescription(this)">
+                                Job Description
+                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <button class="apply-btn" onclick="openApplicationModal('Accountant (2-4 years of experience)')">Apply now</button>
+                </div>
+                <div class="job-description">
+                    <h4>Job Description:</h4>
+                    <p>We're seeking an experienced Accountant to lead accounting teams, oversee financial reporting, and provide strategic financial guidance.</p>
+                    <ul>
+                        <li>Financial Reporting: Prepare and review financial statements, reports, and analyses.</li>
+                        <li>Team Leadership: Supervise and mentor junior accountants.</li>
+                        <li>Accounting Policy: Develop and implement accounting policies and procedures.</li>
+                        <li>Financial Analysis: Conduct financial analysis and provide recommendations.</li>
+                        <li>Compliance: Ensure compliance with accounting standards and regulatory requirements.</li>
+                    </ul>
+                    <h4>Requirements:</h4>
+                    <ul>
+                        <li>Bachelor's degree in Accounting or Finance</li>
+                        <li>Professional certification (CPA, CA, or CMA)</li>
+                        <li>GST/ TDS knowledge required. </li>
+                        <li>Handling Tally independently </li>
+                        <li>Taxation</li>
+                        <li>Finalisation </li>
+                    </ul>
+
+                    <h4>Preffered Skill:</h4>
+                    <ul>
+                        <li>Financial software expertise </li>
+                        <li>Strong analytical and problem-solving skills</li>
+                        <li>Excellent communication and leadership skills </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="job-card">
+                <div class="job-card-header">
+                    <div class="job-info">
+                        <h3 class="job-title">Digital Marketing Executive (1+ Years)</h3>
+                        <div class="job-details-row">
+                            <span>Location: Goregaon East, Mumbai</span>
+                            <button class="job-description-btn" onclick="toggleJobDescription(this)">
+                                Job Description
+                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <button class="apply-btn" onclick="openApplicationModal('Digital Marketing Executive (1+ Years)')">Apply now</button>
+                </div>
+                <div class="job-description">
+                    <h4>Job Description:</h4>
+                    <p>Are you a digital-first thinker who thrives on scaling brands through performance marketing? We're looking for a Digital Marketing Manager to lead our online growth across paid media, quick-commerce platforms, and e-commerce marketplaces.</p>
+                    <h4>What You will do:</h4>
+                    <ul>
+                        <li>Strategize & execute high-performing campaigns across all paid channels – Meta, Google, YouTube, Programmatic, Affiliates, etc.</li>
+                        <li>Optimize ROAS through data-driven decisions and real-time performance tracking.</li>
+                        <li>Drive visibility, traffic, and conversions on Quick-Commerce platforms (e.g., Blinkit, Zepto, Instamart) and E-commerce Marketplaces (e.g., Amazon, Flipkart).</li>
+                        <li>Analyze competitor strategies, market trends, and audience insights to stay ahead of the game.</li>
+                        <li>Build detailed performance reports and campaign analysis dashboards.</li>
+                         <li>Collaborate with creative, product, and sales teams to ensure cohesive digital narratives and promotions.</li>
+                    </ul>
+                    <h4>Skills Required:</h4>
+                    <ul>
+                        <li>Strong command over paid media buying (Meta Ads, Google Ads, Performance Max, etc.)</li>
+                        <li>Deep understanding of quick-commerce ecosystem and how to scale performance within it</li>
+                        <li>Proven experience with e-commerce marketplace operations, ads, and product visibility strategies.</li>
+                        <li>Familiarity with analytics tools like GA4, Google Data Studio, and ad manager dashboards.</li>
+                        <li>Result-oriented mindset with strong analytical & problem-solving skills.</li>
+                    </ul>
+
+                    <h4>Requirements:</h4>
+                    <ul>
+                        <li>1+ years of hands-on digital marketing experience</li>
+                        <li>Prior experience in FMCG, D2C, Q-Commerce, or E-commerce domains is highly preferred</li>
+                        <li>Strong verbal and written communication skills.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="job-card">
+                <div class="job-card-header">
+                    <div class="job-info">
+                        <h3 class="job-title">Graphic Designer (3+ Years)</h3>
+                        <div class="job-details-row">
+                            <span>Location: Goregaon East, Mumbai</span>
+                            <button class="job-description-btn" onclick="toggleJobDescription(this)">
+                                Job Description
+                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <button class="apply-btn" onclick="openApplicationModal('Graphic Designer (3+ Years)')">Apply now</button>
+                </div>
+                <div class="job-description">
+                    <h4>Job Description:</h4>
+                    <p>We’re looking for a passionate and creative Graphic Designer to join our growing team at our Goregaon East office. If you live and breathe design, have an eye for detail, and can deliver high-impact visual content across platforms, we want you on board!</p>
+                    <h4>Key Responsibilities:</h4>
+                    <ul>
+                        <li>Develop visually stunning creatives for digital campaigns, social media, websites, and offline marketing.</li>
+                        <li>Design engaging graphics for Instagram, Facebook, LinkedIn, and YouTube.</li>
+                        <li>Work closely with the marketing and content team to bring brand stories to life.</li>
+                        <li>Create UI mockups, product packaging designs, reels/thumbnails, banners, and more.</li>
+                        <li>Maintain brand consistency while pushing creative boundaries.</li>
+                        <li>Stay updated with design trends and social media aesthetics.</li>
+                    </ul>
+                    <h4>Requirements:</h4>
+                    <ul>
+                        <li>Minimum 3 years of hands-on experience in graphic designing.</li>
+                        <li>Proficiency in tools like Adobe Photoshop, Illustrator, After Effects, Canva, and Figma.</li>
+                        <li>Solid portfolio showcasing work across branding, digital creatives, and motion graphics.</li>
+                        <li>Strong understanding of social media trends, brand aesthetics</li>
+                        
+                    </ul>
+                </div>
+            </div>
+
+        </main>
+    </div>  
+
+    <!-- Application Modal -->
+    <div id="applicationModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="modalJobTitle">Apply for Position</h2>
+                <button class="close-btn" onclick="closeApplicationModal()">&times;</button>
+            </div>
+            <form action="https://formsubmit.co/business@colabplatforms.com" method="POST">
+                <input type="hidden" name="_template" value="box">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_next" value="https://www.colabplatforms.com/thankyou.html">
+                <div class="form-group">
+                    <label class="form-label" for="fullName">Full Name *</label>
+                    <input type="text" id="fullName" name="fullName" class="form-input" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" class="form-input" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="phone">Phone Number *</label>
+                    <input type="tel" id="phone" name="phone" class="form-input" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="experience">Years of Experience *</label>
+                    <select id="experience" name="experience" class="form-select" required>
+                        <option value="">Select experience</option>
+                        <option value="0-1">0-1 years</option>
+                        <option value="1-2">1-2 years</option>
+                        <option value="2-5">2-5 years</option>
+                        <option value="5-10">5-10 years</option>
+                        <option value="10+">10+ years</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="coverLetter">Cover Letter</label>
+                    <textarea id="coverLetter" name="coverLetter" class="form-textarea" placeholder="Tell us why you're interested in this position..."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="resume">Upload Resume/CV *</label>
+                    <div class="file-upload">
+                        <input type="file" id="resume" name="resume" class="file-upload-input" accept=".pdf,.doc,.docx" required onchange="updateFileLabel(this)">
+                        <label for="resume" class="file-upload-label" id="resumeLabel">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M10 1V13M10 1L6 5M10 1L14 5M4 13V17C4 17.5523 4.44772 18 5 18H15C15.5523 18 16 17.5523 16 17V13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            Choose file or drag here
+                        </label>
+                    </div>
+                </div>
+                
+                <button type="submit" class="submit-btn" id="submitBtn">Submit Application</button>
+            </form>
+        </div>
+    </div>
+
+    </main>
+
+            <style>
+              @media screen and (min-width: 768px) {
+                .img-footer{
+            height: 160px;
+              }
+              .footer{
+                position: relative;
+                    background-repeat: no-repeat;
+                    height: 90vh;
+                    background: url(https://cdn.shopify.com/s/files/1/0653/9830/9053/files/ChatGPT_Image_Apr_10_2025_05_22_36_PM_90852651-8241-4083-85f1-2b051928e0ee.png?v=1744373569);
+                    background-size: cover;
+                    z-index: 0;
+              }
+              .txt{
+                color: white;  
+                             font-size: 5rem;
+                             margin-bottom: 30px;
+                             letter-spacing: -4px;
+              }
+              }
+            
+              @media screen and (max-width: 768px) {
+                .txt{
+                color: white;  
+                font-size: 3.2rem;
+                             margin-bottom: 20px;
+                             letter-spacing: -4px;
+              }
+                .img-footer{
+            height: 70px;
+              }
+              .footer{
+                position: relative;
+        height: 90vh;
+        background: url(https://cdn.shopify.com/s/files/1/0653/9830/9053/files/20250410_1659_Sporty_Concert_Vibes_remix_01jrfq9hsnegrr8zt0j0xh7t2r.jpg?v=1744375103);
+        background-position: center;
+        background-position-y: 15%;
+        background-position-x: 48%;
+        z-index: 0;
+              }
+              }
+              
+            </style>
+            
+            <footer class="footer" >
+              
+              <div style="z-index: 1;
+              position: absolute;
+              bottom: 10%;
+              right: 4%;"> <img class="img-footer" src="https://cdn.shopify.com/s/files/1/0653/9830/9053/files/minimal-logo-effect-for-footer-unscreen-ezgif.com-crop_1.gif?v=1744289888" alt="About main banner 3"
+  loading="lazy" /></div>
+                <div class="footer__top" style="position: absolute; bottom: 80px;">
+                    <div class="container">
+                        <div class="row">
+                           
+                         
+                            <div class="col-12 col-md d-flex " style="justify-content: start !important;
+                            align-items: start;
+                            flex-direction: column;">
+                             <h2 class="txt">LET'S CONNECT</h2>
+                             <a  href="/contact.html" class="btn btn-blue" style="margin-bottom: 20px;">Contact Us</a>
+                                                        <div class="footer__legal">
+                                        <div class="menu-legal-links-container"><ul id="menu-legal-links" class="menu">
+            <li id="menu-item-165" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-165"><a href="/Service.html">Services</a></li>
+            <li id="menu-item-46" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-46"><a rel="privacy-policy" href="/investor.html">Investor</a></li>
+            <li id="menu-item-166" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-166"><a href="/contact.html">Contact Us</a></li>
+
+            </ul></div>                        </div>
+                                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer__bottom" style="position: absolute;bottom: 10px;width: 100%;">
+                    <div class="container">
+                        <div class="row">
+                            <div class="footer__copyright">
+                                <div class="col-12">
+                                    <p>© 2025 Colab Platforms Ltd.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </footer>
+<div class="modal fade move-body global-hubspot__modal global-hubspot-modal-capture" id="global-hubspot-capture" data-form-id="2ecfefc7-e32d-4a38-8592-c1a3729a942c" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    
+    <div class="global-hubspot__modal-dialog modal-dialog-centered modal-dialog modal-dialog-scrollable">
+      <div class="global-hubspot__modal-content modal-content">
+        <div class="global-hubspot__modal-header modal-header">
+                      <h2>Digital Trends 2025</h2>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="global-hubspot__modal-body modal-body">
+            <div class="global-hubspot__modal-hubspot">
+              <script charset="utf-8" type="text/javascript" src="//js-eu1.hsforms.net/forms/embed/v2.js"></script>
+              <script>
+                hbspt.forms.create({
+                  region: "eu1",
+                  portalId: "139587640",
+                  formId: "2ecfefc7-e32d-4a38-8592-c1a3729a942c"
+                });
+              </script>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+        </div>
+
+                <script type="text/javascript" id="vendor.js-js-before">
+/* <![CDATA[ */
+/******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
+/******/ 	var __webpack_modules__ = ({});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			id: moduleId,
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = __webpack_modules__;
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/chunk loaded */
+/******/ 	(() => {
+/******/ 		var deferred = [];
+/******/ 		__webpack_require__.O = (result, chunkIds, fn, priority) => {
+/******/ 			if(chunkIds) {
+/******/ 				priority = priority || 0;
+/******/ 				for(var i = deferred.length; i > 0 && deferred[i - 1][2] > priority; i--) deferred[i] = deferred[i - 1];
+/******/ 				deferred[i] = [chunkIds, fn, priority];
+/******/ 				return;
+/******/ 			}
+/******/ 			var notFulfilled = Infinity;
+/******/ 			for (var i = 0; i < deferred.length; i++) {
+/******/ 				var chunkIds = deferred[i][0];
+/******/ 				var fn = deferred[i][1];
+/******/ 				var priority = deferred[i][2];
+/******/ 				var fulfilled = true;
+/******/ 				for (var j = 0; j < chunkIds.length; j++) {
+/******/ 					if ((priority & 1 === 0 || notFulfilled >= priority) && Object.keys(__webpack_require__.O).every((key) => (__webpack_require__.O[key](chunkIds[j])))) {
+/******/ 						chunkIds.splice(j--, 1);
+/******/ 					} else {
+/******/ 						fulfilled = false;
+/******/ 						if(priority < notFulfilled) notFulfilled = priority;
+/******/ 					}
+/******/ 				}
+/******/ 				if(fulfilled) {
+/******/ 					deferred.splice(i--, 1)
+/******/ 					var r = fn();
+/******/ 					if (r !== undefined) result = r;
+/******/ 				}
+/******/ 			}
+/******/ 			return result;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/global */
+/******/ 	(() => {
+/******/ 		__webpack_require__.g = (function() {
+/******/ 			if (typeof globalThis === 'object') return globalThis;
+/******/ 			try {
+/******/ 				return this || new Function('return this')();
+/******/ 			} catch (e) {
+/******/ 				if (typeof window === 'object') return window;
+/******/ 			}
+/******/ 		})();
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/jsonp chunk loading */
+/******/ 	(() => {
+/******/ 		// no baseURI
+/******/ 		
+/******/ 		// object to store loaded and loading chunks
+/******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
+/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
+/******/ 		var installedChunks = {
+/******/ 			"/scripts/manifest": 0,
+/******/ 			"styles/print": 0,
+/******/ 			"styles/editor": 0,
+/******/ 			"styles/digital-trends": 0,
+/******/ 			"styles/app": 0
+/******/ 		};
+/******/ 		
+/******/ 		// no chunk on demand loading
+/******/ 		
+/******/ 		// no prefetching
+/******/ 		
+/******/ 		// no preloaded
+/******/ 		
+/******/ 		// no HMR
+/******/ 		
+/******/ 		// no HMR manifest
+/******/ 		
+/******/ 		__webpack_require__.O.j = (chunkId) => (installedChunks[chunkId] === 0);
+/******/ 		
+/******/ 		// install a JSONP callback for chunk loading
+/******/ 		var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
+/******/ 			var chunkIds = data[0];
+/******/ 			var moreModules = data[1];
+/******/ 			var runtime = data[2];
+/******/ 			// add "moreModules" to the modules object,
+/******/ 			// then flag all "chunkIds" as loaded and fire callback
+/******/ 			var moduleId, chunkId, i = 0;
+/******/ 			if(chunkIds.some((id) => (installedChunks[id] !== 0))) {
+/******/ 				for(moduleId in moreModules) {
+/******/ 					if(__webpack_require__.o(moreModules, moduleId)) {
+/******/ 						__webpack_require__.m[moduleId] = moreModules[moduleId];
+/******/ 					}
+/******/ 				}
+/******/ 				if(runtime) var result = runtime(__webpack_require__);
+/******/ 			}
+/******/ 			if(parentChunkLoadingFunction) parentChunkLoadingFunction(data);
+/******/ 			for(;i < chunkIds.length; i++) {
+/******/ 				chunkId = chunkIds[i];
+/******/ 				if(__webpack_require__.o(installedChunks, chunkId) && installedChunks[chunkId]) {
+/******/ 					installedChunks[chunkId][0]();
+/******/ 				}
+/******/ 				installedChunks[chunkId] = 0;
+/******/ 			}
+/******/ 			return __webpack_require__.O(result);
+/******/ 		}
+/******/ 		
+/******/ 		var chunkLoadingGlobal = self["webpackChunkcopia_theme"] = self["webpackChunkcopia_theme"] || [];
+/******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
+/******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/nonce */
+/******/ 	(() => {
+/******/ 		__webpack_require__.nc = undefined;
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+/******/ 	
+/******/ 	
+/******/ })()
+;
+//# sourceMappingURL=manifest.js.map
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://www.img.com/app/themes/img/public/scripts/vendor.js?id=d28473c2c626949c4fa40dc1109edcbe" id="vendor.js-js"></script>
+<script type="text/javascript" src="https://www.img.com/app/themes/img/public/scripts/app.js?id=2dd575cf3749b885775e3ba432c00594" id="app.js-js"></script>
+<script type="text/javascript" src="https://www.img.com/app/themes/img/public/scripts/acf-map.js?id=79b41f2a7580cb10b3230c687225b334" id="contact-map.js-js"></script>
+
+
+<script src="https://unpkg.com/lenis@1.2.3/dist/lenis.min.js"></script> 
+
+<script>
+// Initialize EmailJS
+(function() {
+    // Replace 'YOUR_PUBLIC_KEY' with your actual EmailJS public key
+    emailjs.init("KOpC2rn4zwzsFHMGD");
+})();
+
+// Job Description Toggle Functionality
+function toggleJobDescription(button) {
+    const jobCard = button.closest('.job-card');
+    const description = jobCard.querySelector('.job-description');
+    const isVisible = description.classList.contains('show');
+    
+    if (isVisible) {
+        description.classList.remove('show');
+        button.classList.remove('active');
+    } else {
+        description.classList.add('show');
+        button.classList.add('active');
+    }
+}
+
+// Modal Functionality
+function openApplicationModal(jobTitle) {
+    const modal = document.getElementById('applicationModal');
+    const modalTitle = document.getElementById('modalJobTitle');
+    modalTitle.textContent = `Apply for ${jobTitle}`;
+    modal.classList.add('show');
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+}
+
+function closeApplicationModal() {
+    const modal = document.getElementById('applicationModal');
+    modal.classList.remove('show');
+    document.body.style.overflow = 'auto'; // Re-enable scrolling when modal is closed
+    
+    // Reset form
+    document.getElementById('applicationForm').reset();
+    updateFileLabel(document.getElementById('resume'));
+}
+
+// File Upload Label Update
+function updateFileLabel(input) {
+    const label = document.getElementById('resumeLabel');
+    const fileName = input.files[0]?.name;
+    
+    if (fileName) {
+        label.innerHTML = `
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16.5 10.5L12 15L7.5 10.5M12 3V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            ${fileName}
+        `;
+        label.classList.add('has-file');
+    } else {
+        label.innerHTML = `
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 1V13M10 1L6 5M10 1L14 5M4 13V17C4 17.5523 4.44772 18 5 18H15C15.5523 18 16 17.5523 16 17V13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Choose file or drag here
+        `;
+        label.classList.remove('has-file');
+    }
+}
+
+// Form Submission with EmailJS
+function submitApplication(event) {
+    event.preventDefault();
+    
+    const submitBtn = document.getElementById('submitBtn');
+    const formData = new FormData(event.target);
+    
+    // Get form values
+    const jobTitle = document.getElementById('modalJobTitle').textContent;
+    const fullName = formData.get('fullName');
+    const email = formData.get('email');
+    const phone = formData.get('phone');
+    const experience = formData.get('experience');
+    const coverLetter = formData.get('coverLetter');
+    
+    // Disable submit button
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Submitting...';
+    
+    // Prepare EmailJS parameters
+    const templateParams = {
+        job_title: jobTitle,
+        from_name: fullName,
+        from_email: email,
+        phone: phone,
+        experience: experience,
+        message: coverLetter || 'Not provided',
+    };
+    
+    // Send email using EmailJS
+    // Replace 'YOUR_SERVICE_ID' and 'YOUR_TEMPLATE_ID' with your actual EmailJS service and template IDs
+    emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+        .then(function(response) {
+            console.log('SUCCESS!', response.status, response.text);
+            alert('Application submitted successfully! We will contact you soon.');
+            
+            // Reset form and close modal
+            closeApplicationModal();
+            
+            // Re-enable submit button
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Submit Application';
+        }, function(error) {
+            console.log('FAILED...', error);
+            alert('Failed to submit application. Please try again later.');
+            
+            // Re-enable submit button
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Submit Application';
+        });
+}
+
+// Close modal when clicking outside
+window.onclick = function(event) {
+    const modal = document.getElementById('applicationModal');
+    if (event.target === modal) {
+        closeApplicationModal();
+    }
+}
+
+// Close modal with Escape key
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        closeApplicationModal();
+    }
+});
+</script>
+
+  <!-- Add Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script>
+            // Initialize navbar toggler
+            document.addEventListener('DOMContentLoaded', function() {
+                const navbarToggler = document.querySelector('.navbar-toggler');
+                const navbarCollapse = document.querySelector('.navbar-collapse');
+                
+                if (navbarToggler) {
+                    navbarToggler.addEventListener('click', function() {
+                        navbarCollapse.classList.toggle('show');
+                    });
+                }
+            });
+        </script>
+<script>
+    // Preloader functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const preloader = document.getElementById('preloader');
+        
+        // Prevent scrolling while preloader is visible
+        document.body.style.overflow = 'hidden';
+        
+        // Hide preloader after 2 seconds
+        setTimeout(function() {
+            preloader.classList.add('fade-out');
+            
+            // Remove preloader from DOM after fade-out completes
+            setTimeout(function() {
+                preloader.style.display = 'none';
+                // Enable scrolling after preloader is hidden
+                document.body.style.overflow = 'auto';
+            }, 500);
+        }, 2000);
+        
+        // Fallback in case the above doesn't work
+        setTimeout(function() {
+            if (preloader && preloader.style.display !== 'none') {
+                preloader.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }, 3000);
+    });
+</script>
+
+    </body>
+</html>
