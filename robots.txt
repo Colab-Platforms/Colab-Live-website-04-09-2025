@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://colab1-three.vercel.app/Sitemap.xml
+Sitemap: https://colab1-three.vercel.app/sitemap.xml
+
