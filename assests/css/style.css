@@ -1023,10 +1023,10 @@ h4,
     text-shadow: 2px 0 var(--black-30);
   }
   h1.text-white, .h1.text-white {
-    text-shadow: 2px 0 var(--heading-color);
+    /* text-shadow: 2px 0 var(--heading-color); */
   }
   h2, .h2 {
-    text-shadow: 2px 0 var(--black-30);
+    /* text-shadow: 2px 0 var(--black-30); */
   }
   .light-mode h2, .light-mode .h2{
     text-shadow: 2px 0 var(--black-90);
@@ -1065,12 +1065,12 @@ h4,
   h1, .h1 {
     line-height: 1.2;
     font-size: 90px;
-    letter-spacing: -3px;
+    /* /* letter-spacing: -3px;*/ */
   }
   h2, .h2 {
     line-height: 1.2;
     font-size: 67px;
-    letter-spacing: -3px;
+    /* /* letter-spacing: -3px;*/ */
   }
   h3, .h3 {
     line-height: 1.2;
@@ -1080,7 +1080,7 @@ h4,
   h4, .h4 {
     line-height: 1.2;
     font-size: 38px;
-    letter-spacing: -2px;
+    /* letter-spacing: -2px; */
   }
   h5, .h5{
     line-height: 1.32;
@@ -1107,7 +1107,7 @@ h4,
   h1, .h1 {
     line-height: 1.2;
     font-size: 67px;
-    letter-spacing: -3px;
+    /* letter-spacing: -3px;*/
   }
   h2, .h2 {
     line-height: 1.2;
@@ -1143,12 +1143,12 @@ h4,
     font-size: 67px;
     line-height: 1.2;
     font-weight: 900;
-    letter-spacing: -3px;
+    /* letter-spacing: -3px;*/
   }
   h1, .h1 {
     line-height: 1.2;
     font-size: 51px;
-    letter-spacing: -3px;
+    /* letter-spacing: -3px;*/
   }
   h2, .h2 {
     line-height: 1.2;
@@ -1161,7 +1161,7 @@ h4,
     font-size: 51px;
     line-height: 1.2;
     font-weight: 900;
-    letter-spacing: -3px;
+    /* letter-spacing: -3px;*/
   }
   h1, .h1 {
     line-height: 1.2;
