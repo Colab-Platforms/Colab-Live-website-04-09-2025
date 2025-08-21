@@ -192,6 +192,120 @@ type="image/x-icon">
         }
     </style>
 
+
+<style>
+    /* Mobile Responsive Styles */
+    @media (max-width: 991.98px) {
+        .col-md-12.col-lg-6 {
+            width: 100% !important;
+            padding: 0 15px !important;
+            margin: 0 !important;
+            flex: 0 0 100% !important;
+            max-width: 100% !important;
+        }
+        
+        .timeline-images {
+            margin: 30px 0;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            padding: 0 15px;
+        }
+        
+        .timeline-images img {
+            width: 100%;
+            height: 180px;
+            border-radius: 8px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .timeline-images img:hover {
+            transform: scale(1.02);
+        }
+        
+        .timeline-content {
+            padding: 0 15px;
+        }
+        
+        .timeline-item {
+            margin-bottom: 40px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-3px);
+        }
+        
+        .wprocess-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .wprocess-title .title {
+            font-size: 1.5rem;
+            color: #fff;
+            margin: 0;
+        }
+    }
+    
+    /* Extra small devices (portrait phones, less than 576px) */
+    @media (max-width: 767.98px) {
+        .timeline-images {
+            grid-template-columns: 1fr;
+        }
+        
+        .timeline-images img {
+            height: 220px;
+        }
+        
+        .wprocess-title .title {
+            font-size: 1.3rem;
+        }
+        
+        .timeline-content .description {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .timeline-item {
+            margin-bottom: 30px;
+            padding: 15px;
+        }
+    }
+    
+    /* Animation for timeline items */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    .timeline-item {
+        animation: fadeInUp 0.6s ease-out forwards;
+    }
+    
+    /* Staggered animation delay */
+    .timeline-item:nth-child(1) { animation-delay: 0.1s; }
+    .timeline-item:nth-child(2) { animation-delay: 0.2s; }
+    .timeline-item:nth-child(3) { animation-delay: 0.3s; }
+    .timeline-item:nth-child(4) { animation-delay: 0.4s; }
+    .timeline-item:nth-child(5) { animation-delay: 0.5s; }
+    .timeline-item:nth-child(6) { animation-delay: 0.6s; }
+    </style>
+
     <!-- Schema.org structured data -->
     <script type="application/ld+json">
     {
@@ -382,8 +496,8 @@ type="image/x-icon">
                                 </div>
                                 <div class="small-img col-6">
                                     <a href="project-details.html">
-                                        <img class="hero-img wow zoomIn"
-                                            src="https://cdn.shopify.com/s/files/1/0653/9830/9053/files/New_Banner_Design.jpg?v=1746249619"
+                                        <img class="hero-img wow zoomIn" style="display: none;"
+                                            src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/Screenshot_2025-08-20_160136.png?v=1755756555"
                                             alt="hero image" title="hero image">
                                     </a>
                                 </div>
@@ -410,7 +524,7 @@ type="image/x-icon">
                                 </div>
                                 <div class="small-img col-6">
                                     <a href="project-details.html">
-                                        <img class="hero-img wow zoomIn"
+                                        <img class="hero-img wow zoomIn" style="display: none;"
                                             src="https://cdn.shopify.com/s/files/1/0653/9830/9053/files/hero_bannner_size.jpg?v=1744461812"
                                             alt="hero image" title="hero image">
                                     </a>
@@ -438,7 +552,7 @@ type="image/x-icon">
                                 </div>
                                 <div class="small-img col-6">
                                     <a href="project-details.html">
-                                        <img class="hero-img wow zoomIn"
+                                        <img class="hero-img wow zoomIn"style="display: none;"
                                             src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/WEB_Banner_For_CP.jpg?v=1751627695"
                                             alt="hero image" title="hero image">
                                     </a>
@@ -466,7 +580,7 @@ type="image/x-icon">
                                 </div>
                                 <div class="small-img col-6">
                                     <a href="project-details.html">
-                                        <img class="hero-img wow zoomIn"
+                                        <img class="hero-img wow zoomIn" style="display: none;"
                                             src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/home_banner_1_aa0cebd2-3034-4adf-b0dd-03d081319faa.jpg?v=1755326593"
                                             alt="hero image" title="hero image">
                                     </a>
@@ -483,128 +597,116 @@ type="image/x-icon">
                 <div class="mobile-banner-inner" >
                     <div class="carousel slide" id="recipeCarousel" data-bs-ride="carousel">
                         <div class="carousel-inner" role="listbox">
-                            <div class="carousel-item active"
-                                style="background-image: url(https://cdn.shopify.com/s/files/1/0653/9830/9053/files/adak_1.jpg?v=1746431276);">
-                                <div class="container pt-64 pb-64" style="height:80vh; background-size:cover; background-position:center;">
-                                    <!-- <p class="text-white category-line category-hero">DESGIN</p>
-                                    <h1 class="col-lg-10 text-white">Interior And Architecture Design From Colab Patform Limited</h1> -->
-                                    <div class="row pt-32" style ="margin-top: 340px;">
-                                        <div class="carousel-buttons col-6" style="display:none;">
-                    
-                                        
-                                            <button class="prev" type="button" data-bs-target="#recipeCarousel"
-                                                data-bs-slide="prev">
-                                                <span class="carousel-control-prev-icon" aria-hidden="true"><i
-                                                        class="fas fa-arrow-left"></i></span>
-                                            </button>
-                                            <button class="" type="button" data-bs-target="#recipeCarousel"
-                                                data-bs-slide="next">
-                                                <span class="carousel-control-next-icon" aria-hidden="true"><i
-                                                        class="fas fa-arrow-right"></i></span>
-                                            </button>
-                                        </div>
-                                        <div class="small-img col-6">
-                                            <a href="project-details.html">
-                                                <img class="hero-img wow zoomIn"
-                                                    src="https://cdn.shopify.com/s/files/1/0653/9830/9053/files/New_Banner_Design.jpg?v=1746249619"
-                                                    alt="hero image" title="hero image">
-                                            </a>
-                                        </div>
-                                    </div>
+                    <div class="carousel-item active"
+                        style="background-image: url(https://cdn.shopify.com/s/files/1/0653/9830/9053/files/adak_1.jpg?v=1746431276);">
+                        <div class="container pt-64 pb-64" style="height:80vh; background-size:cover; background-position:center;">
+                            <div class="row pt-32" style ="margin-top: 340px;">
+                                <div class="carousel-buttons col-6" style="display:none;">
+                                    <button class="prev" type="button" data-bs-target="#recipeCarousel"
+                                        data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"><i
+                                                class="fas fa-arrow-left"></i></span>
+                                    </button>
+                                    <button class="" type="button" data-bs-target="#recipeCarousel"
+                                        data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"><i
+                                                class="fas fa-arrow-right"></i></span>
+                                    </button>
+                                </div>
+                                <div class="small-img col-6">
+                                    <a href="project-details.html">
+                                        <img class="hero-img wow zoomIn"
+                                            src="https://cdn.shopify.com/s/files/1/0653/9830/9053/files/New_Banner_Design.jpg?v=1746249619"
+                                            alt="hero image" title="hero image">
+                                    </a>
                                 </div>
                             </div>
-                             <div class="carousel-item"
-                                style="background-image: url(https://cdn.shopify.com/s/files/1/0653/9830/9053/files/hero_bannner_mobile.jpg?v=1744461813);">
-                                <div class="container pt-64 pb-64" style="height:80vh; background-size:cover; background-position:center;">
-                                    <!-- <p class="text-white category-line category-hero">MODERN</p>
-                                    <h1 class="col-lg-10 text-white">Architecture And Interior Design From Colab Patform Limited</h1> -->
-                                    <div class="row pt-32" style ="margin-top: 340px;">
-                                        <div class="carousel-buttons col-6" style="display:none;">
-                                      
-                                            <button class="prev" type="button" data-bs-target="#recipeCarousel"
-                                                data-bs-slide="prev">
-                                                <span class="carousel-control-prev-icon" aria-hidden="true"><i
-                                                        class="fas fa-arrow-left"></i></span>
-                                            </button>
-                                            <button class="" type="button" data-bs-target="#recipeCarousel"
-                                                data-bs-slide="next">
-                                                <span class="carousel-control-next-icon" aria-hidden="true"><i
-                                                        class="fas fa-arrow-right"></i></span>
-                                            </button>
-                                        </div>
-                                        <div class="small-img col-6">
-                                            <a href="project-details.html">
-                                                <img class="hero-img wow zoomIn"
-                                                src="https://cdn.shopify.com/s/files/1/0653/9830/9053/files/hero_bannner_mobile.jpg?v=1744461813"
-                                                alt="hero image" 
-                                                title="hero image"
-                                                style="display:none;">
-                                           
-                                            </a>
-                                        </div>
-                                    </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item"
+                        style="background-image: url(https://cdn.shopify.com/s/files/1/0653/9830/9053/files/hero_bannner_mobile.jpg?v=1744461813);">
+                        <div class="container pt-64 pb-64" style="height:80vh; background-size:cover; background-position:center;">
+                            <div class="row pt-32" style ="margin-top: 340px;">
+                                <div class="carousel-buttons col-6" style="display:none;">
+                                    <button class="prev" type="button" data-bs-target="#recipeCarousel"
+                                        data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"><i
+                                                class="fas fa-arrow-left"></i></span>
+                                    </button>
+                                    <button class="" type="button" data-bs-target="#recipeCarousel"
+                                        data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"><i
+                                                class="fas fa-arrow-right"></i></span>
+                                    </button>
                                 </div>
-                            </div>
-                            <div class="carousel-item"
-                                style="background-image: url(https://cdn.shopify.com/s/files/1/0636/5226/6115/files/Artboard_1.jpg?v=1751629231);">
-                                <div class="container pt-64 pb-64" style="height:80vh; background-size:cover; background-position:center;">
-                                    <!-- <p class="text-white category-line category-hero">MODERN</p>
-                                    <h1 class="col-lg-10 text-white">Architecture And Interior Design From Colab Patform Limited</h1> -->
-                                    <div class="row pt-32" style ="margin-top: 340px;">
-                                        <div class="carousel-buttons col-6" style="display:none;">      
-                                            <button class="prev" type="button" data-bs-target="#recipeCarousel"
-                                                data-bs-slide="prev">
-                                                <span class="carousel-control-prev-icon" aria-hidden="true"><i
-                                                        class="fas fa-arrow-left"></i></span>
-                                            </button>
-                                            <button class="" type="button" data-bs-target="#recipeCarousel"
-                                                data-bs-slide="next">
-                                                <span class="carousel-control-next-icon" aria-hidden="true"><i
-                                                        class="fas fa-arrow-right"></i></span>
-                                            </button>
-                                        </div>
-                                        <div class="small-img col-6">
-                                            <a href="project-details.html">
-                                                <img class="hero-img wow zoomIn"
-                                                    src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/WEB_Banner_For_CP.jpg?v=1751627695"
-                                                    alt="hero image" title="hero image">
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="carousel-item"
-                            style="background-image: url(https://cdn.shopify.com/s/files/1/0636/5226/6115/files/home_banner_1_aa0cebd2-3034-4adf-b0dd-03d081319faa.jpg?v=1755326593);">
-                            <div class="container pt-64 pb-64" style="height:80vh; background-size:cover; background-position:center;">
-                                <!-- <p class="text-white category-line category-hero">MODERN</p>
-                                <h1 class="col-lg-10 text-white">Architecture And Interior Design From Colab Patform Limited</h1> -->
-                                <div class="row pt-32" style ="margin-top: 340px;">
-                                    <div class="carousel-buttons col-6" style="display:none;">
-                                  
-                                        <button class="prev" type="button" data-bs-target="#recipeCarousel"
-                                            data-bs-slide="prev">
-                                            <span class="carousel-control-prev-icon" aria-hidden="true"><i
-                                                    class="fas fa-arrow-left"></i></span>
-                                        </button>
-                                        <button class="" type="button" data-bs-target="#recipeCarousel"
-                                            data-bs-slide="next">
-                                            <span class="carousel-control-next-icon" aria-hidden="true"><i
-                                                    class="fas fa-arrow-right"></i></span>
-                                        </button>
-                                    </div>
-                                    <div class="small-img col-6">
-                                        <a href="project-details.html">
-                                            <img class="hero-img wow zoomIn"
+                                <div class="small-img col-6">
+                                    <a href="project-details.html">
+                                        <img class="hero-img wow zoomIn"
                                             src="https://cdn.shopify.com/s/files/1/0653/9830/9053/files/hero_bannner_mobile.jpg?v=1744461813"
                                             alt="hero image" 
                                             title="hero image"
                                             style="display:none;">
-                                       
-                                        </a>
-                                    </div>
+                                    </a>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div class="carousel-item"
+                        style="background-image: url(https://cdn.shopify.com/s/files/1/0636/5226/6115/files/Artboard_1.jpg?v=1751629231);">
+                        <div class="container pt-64 pb-64" style="height:80vh; background-size:cover; background-position:center;">
+                            <div class="row pt-32" style ="margin-top: 340px;">
+                                <div class="carousel-buttons col-6" style="display:none;">
+                                    <button class="prev" type="button" data-bs-target="#recipeCarousel"
+                                        data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"><i
+                                                class="fas fa-arrow-left"></i></span>
+                                    </button>
+                                    <button class="" type="button" data-bs-target="#recipeCarousel"
+                                        data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"><i
+                                                class="fas fa-arrow-right"></i></span>
+                                    </button>
+                                </div>
+                                <div class="small-img col-6">
+                                    <a href="project-details.html">
+                                        <img class="hero-img wow zoomIn"
+                                            src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/WEB_Banner_For_CP.jpg?v=1751627695"
+                                            alt="hero image" title="hero image">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="carousel-item"
+                    style="background-image: url(https://cdn.shopify.com/s/files/1/0636/5226/6115/files/home_banner_1_aa0cebd2-3034-4adf-b0dd-03d081319faa.jpg?v=1755326593);">
+                    <div class="container pt-64 pb-64" style="height:80vh; background-size:cover; background-position:center;">
+                        <div class="row pt-32" style ="margin-top: 340px;">
+                            <div class="carousel-buttons col-6" style="display:none;">
+                                <button class="prev" type="button" data-bs-target="#recipeCarousel"
+                                    data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"><i
+                                            class="fas fa-arrow-left"></i></span>
+                                </button>
+                                <button class="" type="button" data-bs-target="#recipeCarousel"
+                                    data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"><i
+                                            class="fas fa-arrow-right"></i></span>
+                                </button>
+                            </div>
+                            <div class="small-img col-6">
+                                <a href="project-details.html">
+                                    <img class="hero-img wow zoomIn"
+                                        src="https://cdn.shopify.com/s/files/1/0653/9830/9053/files/hero_bannner_mobile.jpg?v=1744461813"
+                                        alt="hero image" 
+                                        title="hero image"
+                                        style="display:none;">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                         </div>
                     </div>
                 </div>
@@ -1230,298 +1332,139 @@ From personalized athlete development to large-scale sports management, Colab is
         <!-- Home Services Area end -->
 
         <!-- Interior Services Section Start -->
-        <section class="interior-area black-120-bg py-128 justify-content-center">
-            <div class="container-fluid">
-                <div class="container rel z-1 justify-content-center text-center">
-                    <div class="text-center mb-96 wow fadeInUp delay-0-2s">
-                        <!-- <span class="sub-title mb-16">Services</span> -->
-                        <h2> OUR IP'S </h2>
-                    </div>
+        <section class="interior-area black-120-bg py-128">
+            <div class="container-fluid px-0">
+                <div class="text-center mb-5 wow fadeInUp delay-0-2s">
+                    <h2>OUR IP'S</h2>
                 </div>
-                <div class="container section-heading">
-                    <!-- <div class="nav-fill-left">
-                        <ul class="tab-style-one nav interior-nav nav-pills nav-fill mb-96 wow fadeInUp delay-0-4s">
-                            <li class="nav-item">
-                                <a class="nav-link active" data-bs-toggle="tab" href="#inter-tap1">ALL</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" data-bs-toggle="tab" href="#inter-tap2">HOUSE</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" data-bs-toggle="tab" href="#inter-tap3">VILLA</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" data-bs-toggle="tab" href="#inter-tap4">RESTAURANT</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" data-bs-toggle="tab" href="#inter-tap5">HOTEL</a>
-                            </li>
-                        </ul>
-                    </div> -->
-                </div>
-                <div class="tab-content">
-                    <div class="tab-pane fade show active" id="inter-tap1">
-                        <button class="prev" type="button" data-bs-target="#interiorrecipeCarousel1"
-                            data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"><i
-                                    class="fa fa-long-arrow-left"></i></span>
-                        </button>
-                        <div class="carousel slide interior-nav" id="interiorrecipeCarousel1" data-bs-ride="carousel">
-                            <div class="carousel-inner" role="listbox">
-                                <div class="carousel-item active">
-                                    <div class="col-lg-6 interior-act">
-                                        <a href="about.html"><img class="zoomIn"
-                                                src="https://cdn.shopify.com/s/files/1/0653/9830/9053/files/about_main_banner_2_2.png?v=1748344477" alt="project image"></a>
-                                        <div class="carousel-caption">
-                                            <span class="sub-title mb-16">One Platforms</span>
-                                            <!-- <a href="project-details.html"> -->
-                                                <h4 class="text-black">Many Solutions</h4>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class=" carousel-item">
-                                    <div class="col-lg-6 interior-act">
-                                        <a href="about.html"><img src="https://cdn.shopify.com/s/files/1/0653/9830/9053/files/about_main_banner_3_1.png?v=1748351850"
-                                                alt="project image"></a>
-                                        <div class="carousel-caption">
-                                            <span class="sub-title mb-16">Astralia</span>
-                                            <a href="about.html">
-                                                <h4 class="text-black">Champions</h4>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class=" carousel-item">
-                                    <div class="col-lg-6 interior-act">
-                                        <a href="about.html"><img src="https://cdn.shopify.com/s/files/1/0653/9830/9053/files/about_main_banner_1_58649329-2175-4596-94ee-8c5ad3648c2d.png?v=1748351851"
-                                                alt="project image"></a>
-                                        <div class="carousel-caption">
-                                            <span class="sub-title mb-16">Northen </span>
-                                            <a href="about.html">
-                                                <h4 class="text-black">Challengers</h4>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                
+                <div class="scroll-container" style="overflow: hidden; padding: 40px 0;">
+                    <div class="d-flex" style="gap: 30px;">
+                        <!-- First Image -->
+                        <div class="flex-shrink-0" style="width: 800px; height: 500px;">
+                            <a href="about.html">
+                                <img src="https://cdn.shopify.com/s/files/1/0653/9830/9053/files/about_main_banner_2_2.png?v=1748344477" 
+                                     alt="One Platforms" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
+                            </a>
                         </div>
-                        <button class="next" type="button" data-bs-target="#interiorrecipeCarousel1"
-                            data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"><i
-                                    class="fa fa-long-arrow-right"></i></span>
-                        </button>
-                    </div>
-                    <div class="tab-pane fade show" id="inter-tap2">
-                        <button class="prev" type="button" data-bs-target="#interiorrecipeCarousel2"
-                            data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"><i
-                                    class="fa fa-long-arrow-left"></i></span>
-                        </button>
-                        <div class="carousel slide interior-nav" id="interiorrecipeCarousel2" data-bs-ride="carousel">
-                            <div class="carousel-inner" role="listbox">
-                                <div class="carousel-item active">
-                                    <div class="col-lg-6 interior-act">
-                                        <a href="project-details.html"><img class="zoomIn"
-                                                src="assets/images/interior/item-5.png" alt="project image"></a>
-                                        <div class="carousel-caption">
-                                            <span class="sub-title mb-16">VILLA ROOM</span>
-                                            <a href="project-details.html">
-                                                <h4 class="text-black">Villa Room</h4>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class=" carousel-item">
-                                    <div class="col-lg-6 interior-act">
-                                        <a href="project-details.html"><img src="assets/images/interior/item-2.png"
-                                                alt="project image"></a>
-                                        <div class="carousel-caption">
-                                            <span class="sub-title mb-16">KITCHEN</span>
-                                            <a href="project-details.html">
-                                                <h4 class="text-black">Minimalism Style</h4>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class=" carousel-item">
-                                    <div class="col-lg-6 interior-act">
-                                        <a href="project-details.html"><img src="https://cdn.shopify.com/s/files/1/0653/9830/9053/files/about_main_banner_1_58649329-2175-4596-94ee-8c5ad3648c2d.png?v=1748351851"
-                                                alt="project image"></a>
-                                        <div class="carousel-caption">
-                                            <span class="sub-title mb-16">WORK ROOM</span>
-                                            <a href="project-details.html">
-                                                <h4 class="text-black">Work Room</h4>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        
+                        <!-- Second Image -->
+                        <div class="flex-shrink-0" style="width: 800px; height: 500px;">
+                            <a href="about.html">
+                                <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/IP_s_Australian_Champion.jpg?v=1755685244" 
+                                     alt="Astralia" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
+                            </a>
                         </div>
-                        <button class="next" type="button" data-bs-target="#interiorrecipeCarousel2"
-                            data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"><i
-                                    class="fa fa-long-arrow-right"></i></span>
-                        </button>
-                    </div>
-                    <div class="tab-pane fade show" id="inter-tap3">
-                        <button class="prev" type="button" data-bs-target="#interiorrecipeCarousel3"
-                            data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"><i
-                                    class="fa fa-long-arrow-left"></i></span>
-                        </button>
-                        <div class="carousel slide interior-nav" id="interiorrecipeCarousel3" data-bs-ride="carousel">
-                            <div class="carousel-inner" role="listbox">
-                                <div class="carousel-item active">
-                                    <div class="col-lg-6 interior-act">
-                                        <a href="project-details.html"><img class="zoomIn"
-                                                src="assets/images/interior/item-4.png" alt="project image"></a>
-                                        <div class="carousel-caption">
-                                            <span class="sub-title mb-16">VILLA ROOM</span>
-                                            <a href="project-details.html">
-                                                <h4 class="text-black">Villa Room</h4>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class=" carousel-item">
-                                    <div class="col-lg-6 interior-act">
-                                        <a href="project-details.html"><img src="assets/images/interior/item-2.png"
-                                                alt="project image"></a>
-                                        <div class="carousel-caption">
-                                            <span class="sub-title mb-16">KITCHEN</span>
-                                            <a href="project-details.html">
-                                                <h4 class="text-black">Minimalism Style</h4>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class=" carousel-item">
-                                    <div class="col-lg-6 interior-act">
-                                        <a href="project-details.html"><img src="https://cdn.shopify.com/s/files/1/0653/9830/9053/files/about_main_banner_1_58649329-2175-4596-94ee-8c5ad3648c2d.png?v=1748351851"
-                                                alt="project image"></a>
-                                        <div class="carousel-caption">
-                                            <span class="sub-title mb-16">WORK ROOM</span>
-                                            <a href="project-details.html">
-                                                <h4 class="text-black">Work Room</h4>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        
+                        <!-- Third Image -->
+                        <div class="flex-shrink-0" style="width: 800px; height: 500px;">
+                            <a href="about.html">
+                                <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/IP_s_Northern_Challengers.jpg?v=1755685245" 
+                                     alt="Northern Challengers" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
+                            </a>
                         </div>
-                        <button class="next" type="button" data-bs-target="#interiorrecipeCarousel3"
-                            data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"><i
-                                    class="fa fa-long-arrow-right"></i></span>
-                        </button>
-                    </div>
-                    <div class="tab-pane fade show" id="inter-tap4">
-                        <button class="prev" type="button" data-bs-target="#interiorrecipeCarousel4"
-                            data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"><i
-                                    class="fa fa-long-arrow-left"></i></span>
-                        </button>
-                        <div class="carousel slide interior-nav" id="interiorrecipeCarousel4" data-bs-ride="carousel">
-                            <div class="carousel-inner" role="listbox">
-                                <div class="carousel-item active">
-                                    <div class="col-lg-6 interior-act">
-                                        <a href="project-details.html"><img class="zoomIn"
-                                                src="assets/images/interior/item-6.png" alt="project image"></a>
-                                        <div class="carousel-caption">
-                                            <span class="sub-title mb-16">VILLA ROOM</span>
-                                            <a href="project-details.html">
-                                                <h4 class="text-black">Villa Room</h4>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class=" carousel-item">
-                                    <div class="col-lg-6 interior-act">
-                                        <a href="project-details.html"><img src="assets/images/interior/item-2.png"
-                                                alt="project image"></a>
-                                        <div class="carousel-caption">
-                                            <span class="sub-title mb-16">KITCHEN</span>
-                                            <a href="project-details.html">
-                                                <h4 class="text-black">Minimalism Style</h4>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class=" carousel-item">
-                                    <div class="col-lg-6 interior-act">
-                                        <a href="project-details.html"><img src="https://cdn.shopify.com/s/files/1/0653/9830/9053/files/about_main_banner_1_58649329-2175-4596-94ee-8c5ad3648c2d.png?v=1748351851"
-                                                alt="project image"></a>
-                                        <div class="carousel-caption">
-                                            <span class="sub-title mb-16">WORK ROOM</span>
-                                            <a href="project-details.html">
-                                                <h4 class="text-black">Work Room</h4>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+
+                        <!-- Duplicate images for seamless looping -->
+                        <div class="flex-shrink-0" style="width: 800px; height: 500px;">
+                            <a href="about.html">
+                                <img src="https://cdn.shopify.com/s/files/1/0653/9830/9053/files/about_main_banner_2_2.png?v=1748344477" 
+                                     alt="One Platforms" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
+                            </a>
                         </div>
-                        <button class="next" type="button" data-bs-target="#interiorrecipeCarousel4"
-                            data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"><i
-                                    class="fa fa-long-arrow-right"></i></span>
-                        </button>
-                    </div>
-                    <div class="tab-pane fade show" id="inter-tap5">
-                        <button class="prev" type="button" data-bs-target="#interiorrecipeCarousel5"
-                            data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"><i
-                                    class="fa fa-long-arrow-left"></i></span>
-                        </button>
-                        <div class="carousel slide interior-nav" id="interiorrecipeCarousel5" data-bs-ride="carousel">
-                            <div class="carousel-inner" role="listbox">
-                                <div class="carousel-item active">
-                                    <div class="col-lg-6 interior-act">
-                                        <a href="project-details.html"><img class="zoomIn"
-                                                src="assets/images/interior/item-4.png" alt="project image"></a>
-                                        <div class="carousel-caption">
-                                            <span class="sub-title mb-16">VILLA ROOM</span>
-                                            <a href="project-details.html">
-                                                <h4 class="text-black">Villa Room</h4>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class=" carousel-item">
-                                    <div class="col-lg-6 interior-act">
-                                        <a href="project-details.html"><img src="assets/images/interior/item-2.png"
-                                                alt="project image"></a>
-                                        <div class="carousel-caption">
-                                            <span class="sub-title mb-16">KITCHEN</span>
-                                            <a href="project-details.html">
-                                                <h4 class="text-black">Minimalism Style</h4>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class=" carousel-item">
-                                    <div class="col-lg-6 interior-act">
-                                        <a href="project-details.html"><img src="assets/images/interior/item-5.png"
-                                                alt="project image"></a>
-                                        <div class="carousel-caption">
-                                            <span class="sub-title mb-16">WORK ROOM</span>
-                                            <a href="project-details.html">
-                                                <h4 class="text-black">Work Room</h4>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        
+                        <div class="flex-shrink-0" style="width: 800px; height: 500px;">
+                            <a href="about.html">
+                                <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/IP_s_Australian_Champion.jpg?v=1755685244" 
+                                     alt="Astralia" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
+                            </a>
                         </div>
-                        <button class="next" type="button" data-bs-target="#interiorrecipeCarousel5"
-                            data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"><i
-                                    class="fa fa-long-arrow-right"></i></span>
-                        </button>
                     </div>
                 </div>
             </div>
+            
+            <style>
+                /* Hide scrollbar for Chrome, Safari and Opera */
+                .scroll-container::-webkit-scrollbar {
+                    display: none;
+                }
+                
+                /* Hide scrollbar for IE, Edge and Firefox */
+                .scroll-container {
+                    -ms-overflow-style: none;  /* IE and Edge */
+                    scrollbar-width: none;  /* Firefox */
+                }
+                
+                /* Smooth auto-scroll animation */
+                @keyframes scroll {
+                    0% { transform: translateX(0); }
+                    100% { transform: translateX(calc(-800px * 3 - 90px)); } /* 3 images * width + (gap * 3) */
+                }
+                
+                .scroll-container .d-flex {
+                    animation: scroll 30s linear infinite;
+                    width: max-content;
+                }
+                
+                .scroll-container:hover .d-flex {
+                    animation-play-state: paused;
+                }
+                
+                .scroll-container .d-flex > div {
+                    transition: transform 0.3s ease;
+                }
+                
+                .scroll-container .d-flex > div:hover {
+                    transform: scale(1.02);
+                }
+                /* Mobile Responsive Styles */
+                @media (max-width: 991.98px) {
+                    .col-md-12.col-lg-6 {
+                        width: 100%;
+                        padding: 0 15px;
+                        margin-top: 0 !important; /* Remove any negative margin on mobile */
+                    }
+                    
+                    .timeline-images {
+                        margin-bottom: 30px;
+                        display: flex;
+                        flex-wrap: wrap;
+                        gap: 15px;
+                        justify-content: center;
+                    }
+                    
+                    .timeline-images img {
+                        width: calc(50% - 10px);
+                        height: auto;
+                        border-radius: 8px;
+                        margin-bottom: 15px;
+                        object-fit: cover;
+                    }
+                    
+                    .timeline-content {
+                        padding: 0 15px;
+                    }
+                    
+                    .timeline-item {
+                        margin-bottom: 30px;
+                    }
+                }
+                
+                /* Extra small devices (portrait phones, less than 576px) */
+                @media (max-width: 575.98px) {
+                    .timeline-images img {
+                        width: 100%;
+                    }
+                    
+                    .timeline-content .wprocess-title .title {
+                        font-size: 1.25rem;
+                    }
+                    
+                    .timeline-content .description {
+                        font-size: 0.9rem;
+                        line-height: 1.5;
+                    }
+                }
+            </style>
         </section>
         <!-- Interior Services Section End -->
 
@@ -1536,17 +1479,18 @@ From personalized athlete development to large-scale sports management, Colab is
                         <a class="theme-btn" href="contact.html">Contact Us</a>
                     </div>
                 </div>
-               <div class="row gap-64 align-items-center">
+                <div class="row gap-64 align-items-center">
                     <div class=" col-md-12 col-lg-6">
                         <div class="timeline-images wow fadeInLeft delay-0-2s">
-                            <img src="https://cdn.shopify.com/s/files/1/0653/9830/9053/files/1_2.png?v=1743491415https://cdn.shopify.com/s/files/1/0653/9830/9053/files/1_2.png?v=1743491415" alt="Timeline">
-                            <img src="https://cdn.shopify.com/s/files/1/0653/9830/9053/files/manage_3.png?v=1743501818" alt="Timeline">
-                            <img src="https://cdn.shopify.com/s/files/1/0653/9830/9053/files/2_1.png?v=1743491415" alt="Timeline">
-                            <img src="https://cdn.shopify.com/s/files/1/0653/9830/9053/files/1_2.png?v=1743491415" alt="Timeline">
-                            <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/tech_34.png?v=1749474246" alt="Timeline">
+                            <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/modern-gaming-accessories-and-keyboard-on-desk-2025-03-11-08-44-53-utc.jpg?v=1755758536" alt="Timeline">
+                            <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/man-and-woman-standing-next-to-tennis-rackets-in-h-2025-03-05-21-06-36-utc.jpg?v=1755758245" alt="Timeline">
+                            <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/little-unrecognizable-boy-playing-soccer-2025-02-16-09-26-21-utc.jpg?v=1755690577" alt="Timeline">
+                            <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/professional-training-for-junior-football-team-at-2024-11-26-12-22-17-utc.jpg?v=1755758245" alt="Timeline">
+                            <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/Sports.jpg?v=1755758531" alt="Timeline">
+                            <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/DOERS_Author_Portfolio___Freepik_1.jpg?v=1755758532" alt="Timeline">
                         </div>
                     </div>
-                    <div class=" col-md-12 col-lg-6">
+                    <div class=" col-md-12 col-lg-6" style="margin-top: -190px;">
                         <div class="timeline-content wow fadeInRight delay-0-2s">
                             <div class="timeline-item">
                                 <div class="icon"></div>
@@ -1592,10 +1536,21 @@ From personalized athlete development to large-scale sports management, Colab is
                                 <div class="icon"></div>
                                 <div class="content">
                                     <div class="wprocess-title">
-                                        <span class="h4 title">5. Sports Infrastructure</span>
+                                        <span class="h4 title">5. Sports Marketing</span>
                                         <span class="       "><i class="         "></i></span>
                                     </div>
                                     <p class="description">Sports marketing at Colab goes beyond promotion it's about building meaningful connections between athletes, brands, and fans. We leverage data-driven strategies, influencer engagement, and immersive digital campaigns to amplify visibility, drive fan loyalty, and unlock new revenue streams. Whether it's Field events or global leagues, Colab creates powerful narratives that elevate the reach and impact of every sport.</p>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="icon"></div>
+                                <div class="content">
+                                    <div class="wprocess-title">
+                                        <span class="h4 title">6. Sports Infrastructure</span>
+                                        <span class="       "><i class="         "></i></span>
+                                    </div>
+                                    <p class="description">At Colab, we don't just build facilities, we create ecosystems where athletes, communities, and sports thrive. From high-performance training centers to multi-sport arenas, our infrastructure solutions are designed to inspire excellence and foster engagement.</p>
                                 </div>
                             </div>
                         </div>
