@@ -513,123 +513,139 @@
         </section>
         <!-- Projects Area end -->
 
-        <style>
-            @media screen and (min-width: 768px) {
-              .img-footer {
-                height: 160px;
-              }
-        
-              .footer {
-                position: relative;
-                background-repeat: no-repeat;
-                height: 90vh;
-                background: url(https://cdn.shopify.com/s/files/1/0653/9830/9053/files/ChatGPT_Image_Apr_10_2025_05_22_36_PM_90852651-8241-4083-85f1-2b051928e0ee.png?v=1744373569);
-                background-size: cover;
-                z-index: 0;
-              }
-        
-              .txt {
-                color: white;
-                font-size: 5rem;
-                margin-bottom: 30px;
-                letter-spacing: -4px;
-              }
-            }
-        
-            @media screen and (max-width: 768px) {
-              .txt {
-                color: white;
-                font-size: 3.2rem;
-                margin-bottom: 20px;
-                letter-spacing: -4px;
-              }
-        
-              .img-footer {
-                height: 70px;
-              }
-        
-              .footer {
-                position: relative;
-                height: 90vh;
-                background: url(https://cdn.shopify.com/s/files/1/0653/9830/9053/files/20250410_1659_Sporty_Concert_Vibes_remix_01jrfq9hsnegrr8zt0j0xh7t2r.jpg?v=1744375103);
-                background-position: center;
-                background-position-y: 15%;
-                background-position-x: 48%;
-                z-index: 0;
-              }
-            }
-                </style>
-                <style>
-                    .mobile-banners {
-                        display: none;
-                    }
-                    @media (max-width: 767px) {
+       
+      <style>
+        @media screen and (min-width: 768px) {
+          .img-footer {
+            height: 160px;
+          }
+    
+          .footer {
+            position: relative;
+            height: 90vh;
+            overflow: hidden;
+          }
+    
+          .footer-video {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+          }
+    
+          .txt {
+            color: white;
+            font-size: 5rem;
+            margin-bottom: 30px;
+            letter-spacing: -4px;
+          }
+        }
+    
+        @media screen and (max-width: 768px) {
+          .txt {
+            color: white;
+            font-size: 3.2rem;
+            margin-bottom: 20px;
+            letter-spacing: -4px;
+          }
+    
+          .img-footer {
+            height: 70px;
+          }
+    
+          .footer {
+            position: relative;
+            height: 90vh;
+            overflow: hidden;
+          }
+    
+          .footer-video {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+          }
+        }
+    </style>
+    
+    
+                    <style>
                         .mobile-banners {
-                            display: flex;
-                            flex-direction: column;
-                            gap: 16px;
-                            padding: 16px;
+                            display: none;
                         }
-                        .banner-item {
-                            background: #f5f5f5;
-                            border-radius: 8px;
-                            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-                            padding: 24px;
-                            text-align: center;
-                            font-size: 1.2em;
-                            font-weight: 600;
-                            color: #333;
+                        @media (max-width: 767px) {
+                            .mobile-banners {
+                                display: flex;
+                                flex-direction: column;
+                                gap: 16px;
+                                padding: 16px;
+                            }
+                            .banner-item {
+                                background: #f5f5f5;
+                                border-radius: 8px;
+                                box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+                                padding: 24px;
+                                text-align: center;
+                                font-size: 1.2em;
+                                font-weight: 600;
+                                color: #333;
+                            }
                         }
-                    }
-                </style>
-        
-          <footer class="footer">
-        
-            <div style="z-index: 1;
-                      position: absolute;
-                      bottom: 10%;
-                      right: 4%;"> <img class="img-footer"
-                src="https://cdn.shopify.com/s/files/1/0653/9830/9053/files/minimal-logo-effect-for-footer-unscreen-ezgif.com-crop_1.gif?v=1744289888" />
-            </div>
-            <div class="footer__top" style="position: absolute; bottom: 80px;">
-              <div class="container">
-                <div class="row">
-        
-        
-                  <div class="col-12 col-md d-flex " style="justify-content: start !important;
-                                    align-items: start;
-                                    flex-direction: column;">
-                    <h2 class="txt">LET'S CONNECT</h2>
-                    <a href="/contact-us.html" class="btn btn-blue" style="margin-bottom: 20px; background-color: #fdd301;">Contact Us</a>
-                    <div class="footer__legal">
-                      <div class="menu-legal-links-container">
-                        <ul id="menu-legal-links" class="menu">
-                          <li id="menu-item-165" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-165">
-                            <a href="/service.html">Services</a></li>
-                          <li id="menu-item-46"
-                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-46">
-                            <a rel="privacy-policy" href="/investor.html">Investor</a></li>
-                          <li id="menu-item-166" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-166">
-                            <a href="/contact-us.html">Contact Us</a></li>
-                        </ul>
+                    </style>
+            
+              <footer class="footer">
+            
+                <div style="z-index: 1;
+                          position: absolute;
+                          bottom: 10%;
+                          right: 4%;"> <img class="img-footer"
+                    src="https://cdn.shopify.com/s/files/1/0653/9830/9053/files/minimal-logo-effect-for-footer-unscreen-ezgif.com-crop_1.gif?v=1744289888" />
+                </div>
+                <video autoplay muted loop playsinline class="footer-video">
+                    <source src="https://cdn.shopify.com/videos/c/o/v/10cdcbe34c9648ee9acf46547238664c.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="footer__top" style="position: absolute; bottom: 80px;">
+                  <div class="container">
+                    <div class="row">
+            
+            
+                      <div class="col-12 col-md d-flex " style="justify-content: start !important;
+                                        align-items: start;
+                                        flex-direction: column;">
+                        <h2 class="txt">LET'S CONNECT</h2>
+                        <a href="/contact.html" class="btn btn-blue" style="margin-bottom: 20px; background-color: #fdd301;">Contact Us</a>
+                        <div class="footer__legal">
+                          <div class="menu-legal-links-container">
+                            <ul id="menu-legal-links" class="menu">
+                              <li id="menu-item-165" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-165">
+                                <a href="/Services.html">Services</a></li>
+                              <li id="menu-item-46"
+                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-46">
+                                <a rel="privacy-policy" href="/investor.html">Investor</a></li>
+                              <li id="menu-item-166" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-166">
+                                <a href="/contact.html">Contact Us</a></li>
+                            </ul>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
-            <div class="footer__bottom" style="position: absolute;bottom: 10px;width: 100%;">
-              <div class="container">
-                <div class="row">
-                  <div class="footer__copyright">
-                    <div class="col-12">
-                      <p>© 2025 Colab Platforms Ltd.</p>
+                <div class="footer__bottom" style="position: absolute;bottom: 10px;width: 100%;">
+                  <div class="container">
+                    <div class="row">
+                      <div class="footer__copyright">
+                        <div class="col-12">
+                          <p>© 2025 Colab Platforms Ltd.</p>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
-          </footer>
+              </footer>
         
         
         <!-- Scroll Top Button -->
