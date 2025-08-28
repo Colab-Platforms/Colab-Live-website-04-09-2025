@@ -562,52 +562,63 @@
         </section>
         <!-- Projects Area end -->
 
-        <style>
-            @media screen and (min-width: 768px) {
-              .img-footer {
-                height: 160px;
-              }
-        
-              .footer {
-                position: relative;
-                background-repeat: no-repeat;
-                height: 90vh;
-                background: url(https://cdn.shopify.com/s/files/1/0653/9830/9053/files/ChatGPT_Image_Apr_10_2025_05_22_36_PM_90852651-8241-4083-85f1-2b051928e0ee.png?v=1744373569);
-                background-size: cover;
-                z-index: 0;
-              }
-        
-              .txt {
-                color: white;
-                font-size: 5rem;
-                margin-bottom: 30px;
-                letter-spacing: -4px;
-              }
-            }
-        
-            @media screen and (max-width: 768px) {
-              .txt {
-                color: white;
-                font-size: 3.2rem;
-                margin-bottom: 20px;
-                letter-spacing: -4px;
-              }
-        
-              .img-footer {
-                height: 70px;
-              }
-        
-              .footer {
-                position: relative;
-                height: 90vh;
-                background: url(https://cdn.shopify.com/s/files/1/0653/9830/9053/files/20250410_1659_Sporty_Concert_Vibes_remix_01jrfq9hsnegrr8zt0j0xh7t2r.jpg?v=1744375103);
-                background-position: center;
-                background-position-y: 15%;
-                background-position-x: 48%;
-                z-index: 0;
-              }
-            }
-                </style>
+<style>
+    @media screen and (min-width: 768px) {
+      .img-footer {
+        height: 160px;
+      }
+
+      .footer {
+        position: relative;
+        height: 90vh;
+        overflow: hidden;
+      }
+
+      .footer-video {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+      }
+
+      .txt {
+        color: white;
+        font-size: 5rem;
+        margin-bottom: 30px;
+        letter-spacing: -4px;
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      .txt {
+        color: white;
+        font-size: 3.2rem;
+        margin-bottom: 20px;
+        letter-spacing: -4px;
+      }
+
+      .img-footer {
+        height: 70px;
+      }
+
+      .footer {
+        position: relative;
+        height: 90vh;
+        overflow: hidden;
+      }
+
+      .footer-video {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+      }
+    }
+</style>
+
+
                 <style>
                     .mobile-banners {
                         display: none;
@@ -640,6 +651,10 @@
                       right: 4%;"> <img class="img-footer"
                 src="https://cdn.shopify.com/s/files/1/0653/9830/9053/files/minimal-logo-effect-for-footer-unscreen-ezgif.com-crop_1.gif?v=1744289888" />
             </div>
+            <video autoplay muted loop playsinline class="footer-video">
+                <source src="https://cdn.shopify.com/videos/c/o/v/10cdcbe34c9648ee9acf46547238664c.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
             <div class="footer__top" style="position: absolute; bottom: 80px;">
               <div class="container">
                 <div class="row">
@@ -679,7 +694,6 @@
               </div>
             </div>
           </footer>
-        
         
         <!-- Scroll Top Button -->
         <button class="scroll-top scroll-to-target" data-target="html"><span class="fas fa-angle-double-up"></span></button>
