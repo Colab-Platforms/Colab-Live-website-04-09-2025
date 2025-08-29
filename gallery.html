@@ -82,7 +82,179 @@
     <!-- Main Style -->
     <link rel="stylesheet" href="assests/css/style.css">
     <link rel="stylesheet" href="all.min.css">  <!-- First inclusion -->
-
+ <style>
+     .container {
+            max-width: 80rem;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+      .video-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        @media (min-width: 768px) {
+            .video-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .video-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        .video-card {
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .video-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .video-container {
+            position: relative;
+            height: 20rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .play-button {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            padding: 1.5rem;
+            position: relative;
+            z-index: 10;
+            transition: all 0.3s ease;
+        }
+        
+        .video-card:hover .play-button {
+            transform: scale(1.1);
+            opacity: 0;
+        }
+        
+        .play-icon {
+            width: 3rem;
+            height: 3rem;
+            color: white;
+            margin-left: 0.25rem;
+        }
+        
+        .video-element {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 1;
+        }
+        
+        .video-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: none;
+        }
+        
+        .hidden-video {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+            display: none;
+        }
+        
+        .show-video {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .text-center {
+            text-align: center;
+            margin-top: 90px;
+        }
+        
+        .load-more-btn {
+            color: white;
+            font-weight: bold;
+            padding: 1rem 2rem;
+            border-radius: 9999px;
+            box-shadow: 0 4px 15px rgba(208, 71, 19, 0.3);
+            transform: scale(1);
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            background: linear-gradient(135deg, #D04713, #B8390A);
+        }
+        
+        .load-more-btn:hover {
+            transform: scale(1.05);
+        }
+        
+        .load-more-btn:focus {
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(251, 146, 60, 0.3);
+        }
+        
+        .btn-icon {
+            width: 1.25rem;
+            height: 1.25rem;
+            display: inline-block;
+            margin-right: 0.5rem;
+            vertical-align: middle;
+        }
+        
+        .video-controls {
+            position: absolute;
+            bottom: 1rem;
+            right: 1rem;
+            display: flex;
+            gap: 0.5rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 20;
+        }
+        
+        .video-card:hover .video-controls {
+            opacity: 1;
+        }
+        
+        .control-btn {
+            background: rgba(0, 0, 0, 0.7);
+            border: none;
+            border-radius: 50%;
+            width: 2.5rem;
+            height: 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .control-btn:hover {
+            background: rgba(0, 0, 0, 0.9);
+            transform: scale(1.1);
+        }
+        
+        .control-icon {
+            width: 1rem;
+            height: 1rem;
+            color: white;
+        }
+ </style>
   <style>
         .hero-bg {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -118,7 +290,15 @@
             }
         }
         .bg-slide {
-            transition: opacity 2s ease-in-out;
+            transition: opacity 0.8s ease-in-out;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+
         }
         .social-link {
             transition: all 0.3s ease;
@@ -278,7 +458,7 @@
     <section id="hero" class="min-h-screen flex items-center justify-center relative overflow-hidden bg-black">
         <!-- Background Media Slideshow (Videos and Images) -->
         <div id="backgroundMediaSlideshow" class="absolute inset-0 w-full h-full z-10">
-            <video autoplay muted loop class="w-full h-full object-cover bg-slide opacity-60" style="display: block;">
+            <video autoplay muted loop class="w-full h-full object-cover bg-slide" style="opacity: 0; display: none;">
                 <source src="https://cdn.shopify.com/videos/c/o/v/e5798ec2060a4ea480a92845b167d72d.mp4" type="video/mp4">
             </video>
          <video autoplay muted loop class="w-full h-full object-cover bg-slide opacity-60" style="display: none;">
@@ -304,7 +484,7 @@
             </video>
         </div>
         
-    <div class="absolute inset-0 bg-black bg-opacity-20 z-20"></div>
+   
         <div class="container mx-auto px-4 text-center relative z-30">
             <h2 class="text-5xl md:text-7xl font-bold text-white mb-6 hero-media">
                 Sports Universe
@@ -322,325 +502,386 @@
         </div>
     </section>
 
-    <!-- Videos Section -->
-    <section id="videos" class="py-16 bg-black-900">
-        <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center text-white mb-12">
-                <i class="fas fa-video text-red-600 mr-3"></i>
-                Sports Videos
-            </h2>
+   <section>
+  
+    <div class="container">
+        <!-- Video Grid -->
+        <h2 class="text-4xl font-bold text-center text-white mb-12">
+            <i class="fas fa-videos text-green-600 mr-3" style="margin-top:100px;"></i>
+          Videos Gallery 
+        </h2>
 
-            <!-- Video Filter Buttons -->
-            <div class="flex flex-wrap justify-center gap-4 mb-8">
-                <button onclick="filterVideos('all')" class="px-6 py-3 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-medium transition">
-                    All Videos
-                </button>
-                <button onclick="filterVideos('football')" class="px-6 py-3 rounded-full bg-gray-200 text-gray-700 font-medium transition hover:bg-gray-300">
-                    <i class="fas fa-futbol mr-2"></i>Football
-                </button>
-                <button onclick="filterVideos('basketball')" class="px-6 py-3 rounded-full bg-gray-200 text-gray-700 font-medium transition hover:bg-gray-300">
-                    <i class="fas fa-basketball-ball mr-2"></i>Basketball
-                </button>
-                <button onclick="filterVideos('cricket')" class="px-6 py-3 rounded-full bg-gray-200 text-gray-700 font-medium transition hover:bg-gray-300">
-                    <i class="fas fa-baseball-ball mr-2"></i>Cricket
-                </button>
-                <button onclick="filterVideos('tennis')" class="px-6 py-3 rounded-full bg-gray-200 text-gray-700 font-medium transition hover:bg-gray-300">
-                    <i class="fas fa-table-tennis mr-2"></i>Tennis
-                </button>
-                <button onclick="filterVideos('youtube')" class="px-6 py-3 rounded-full bg-gray-200 text-gray-700 font-medium transition hover:bg-gray-300">
-                    <i class="fab fa-youtube mr-2"></i>YouTube
-                </button>
-            </div>
-
-            <!-- Videos Grid -->
-            <div id="videosGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 mb-8">
-                <!-- Football Video -->
-                <div class="bg-white rounded-xl overflow-hidden shadow-lg cursor-pointer max-w-xs mx-auto transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl" data-category="football" data-type="video" onclick="openFullscreen(this)">
-                    <div class="aspect-[4/3] relative">
-                        <video poster="https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=800&h=600&fit=crop" class="w-full h-full object-cover min-h-[120px] max-h-[160px]">
-                            <source src="https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4" type="video/mp4">
-                        </video>
-                        <div class="absolute top-2 right-2 bg-red-600 text-white px-2 py-1 rounded text-sm">
-                            <i class="fas fa-video mr-1"></i>Video
-                        </div>
-                        <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-0 hover:bg-opacity-30 transition-all duration-300">
-                            <i class="fas fa-expand text-white text-2xl opacity-0 hover:opacity-100 transition-opacity duration-300"></i>
-                        </div>
+        <div id="videoGrid" class="video-grid">
+            <!-- Video Card 1 -->
+            <div class="video-card" onclick="playVideo(1)" onmouseenter="playVideoOnHover(this)" onmouseleave="pauseVideoOnLeave(this)">
+                <div class="video-container">
+                    <div class="video-bg" style="background: linear-gradient(135deg, #D04713, #B8390A);"></div>
+                    <video class="video-element" muted loop preload="metadata" onerror="this.style.display='none'; this.alt='Video failed to load';">
+                        <source src="https://cdn.shopify.com/videos/c/o/v/e5798ec2060a4ea480a92845b167d72d.mp4" type="video/mp4">
+                    </video>
+                    <div class="play-button">
+                        <svg class="play-icon" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
                     </div>
-                    <div class="p-2">
-                        <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">Football</span>
-                    </div>
-                </div>
-
-                <!-- Basketball YouTube Video -->
-                <div class="bg-white rounded-xl overflow-hidden shadow-lg cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl" data-category="basketball" data-type="youtube" onclick="openFullscreen(this)">
-                    <div class="aspect-video relative">
-                        <iframe class="w-full h-full" 
-                                src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-                                frameborder="0" allowfullscreen>
-                        </iframe>
-                        <div class="absolute top-2 right-2 bg-red-600 text-white px-2 py-1 rounded text-sm">
-                            <i class="fab fa-youtube mr-1"></i>YouTube
-                        </div>
-                        <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-0 hover:bg-opacity-30 transition-all duration-300">
-                            <i class="fas fa-expand text-white text-2xl opacity-0 hover:opacity-100 transition-opacity duration-300"></i>
-                        </div>
-                    </div>
-                    <div class="p-4">
-                        <span class="bg-orange-100 text-orange-800 px-2 py-1 rounded-full text-xs">Basketball</span>
-                    </div>
-                </div>
-
-                <!-- Cricket Video -->
-                <div class="bg-white rounded-xl overflow-hidden shadow-lg cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl" data-category="cricket" data-type="video" onclick="openFullscreen(this)">
-                    <div class="aspect-video relative">
-                        <video poster="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=800&h=600&fit=crop" class="w-full h-full object-cover">
-                            <source src="https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_2mb.mp4" type="video/mp4">
-                        </video>
-                        <div class="absolute top-2 right-2 bg-red-600 text-white px-2 py-1 rounded text-sm">
-                            <i class="fas fa-video mr-1"></i>Video
-                        </div>
-                        <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-0 hover:bg-opacity-30 transition-all duration-300">
-                            <i class="fas fa-expand text-white text-2xl opacity-0 hover:opacity-100 transition-opacity duration-300"></i>
-                        </div>
-                    </div>
-                    <div class="p-4">
-                        <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs">Cricket</span>
-                    </div>
-                </div>
-
-                <!-- Tennis YouTube Video -->
-                <div class="bg-white rounded-xl overflow-hidden shadow-lg cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl" data-category="tennis" data-type="youtube" onclick="openFullscreen(this)">
-                    <div class="aspect-video relative">
-                        <iframe class="w-full h-full" 
-                                src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-                                frameborder="0" allowfullscreen>
-                        </iframe>
-                        <div class="absolute top-2 right-2 bg-red-600 text-white px-2 py-1 rounded text-sm">
-                            <i class="fab fa-youtube mr-1"></i>YouTube
-                        </div>
-                        <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-0 hover:bg-opacity-30 transition-all duration-300">
-                            <i class="fas fa-expand text-white text-2xl opacity-0 hover:opacity-100 transition-opacity duration-300"></i>
-                        </div>
-                    </div>
-                    <div class="p-4">
-                        <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded-full text-xs">Tennis</span>
-                    </div>
-                </div>
-
-                <!-- Football YouTube Video -->
-                <div class="media-item card-hover bg-white rounded-xl overflow-hidden shadow-lg cursor-pointer max-w-xs mx-auto" data-category="basketball" data-type="youtube" onclick="openFullscreen(this)">
-                    <div class="aspect-[4/3] relative">
-                        <iframe class="w-full h-full min-h-[120px] max-h-[160px]" 
-                                src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-                                frameborder="0" allowfullscreen></iframe>
-                        <div class="absolute top-2 right-2 bg-red-600 text-white px-2 py-1 rounded text-sm">
-                            <i class="fab fa-youtube mr-1"></i>YouTube
-                        </div>
-                        <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-0 hover:bg-opacity-30 transition-all duration-300">
-                            <i class="fas fa-expand text-white text-2xl opacity-0 hover:opacity-100 transition-opacity duration-300"></i>
-                        </div>
-                    </div>
-                    <div class="p-2">
-                        <span class="bg-orange-100 text-orange-800 px-2 py-1 rounded-full text-xs">Basketball</span>
-                    </div>
-                </div>
-
-                <!-- Basketball Video -->
-                <div class="media-item card-hover bg-white rounded-xl overflow-hidden shadow-lg cursor-pointer" data-category="basketball" data-type="video" onclick="openFullscreen(this)">
-                    <div class="aspect-video relative">
-                        <video poster="https://images.unsplash.com/photo-1546519638-68e109498ffc?w=800&h=600&fit=crop" class="w-full h-full object-cover">
-                            <source src="https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4" type="video/mp4">
-                        </video>
-                        <div class="absolute top-2 right-2 bg-red-600 text-white px-2 py-1 rounded text-sm">
-                            <i class="fas fa-video mr-1"></i>Video
-                        </div>
-                        <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-0 hover:bg-opacity-30 transition-all duration-300">
-                            <i class="fas fa-expand text-white text-2xl opacity-0 hover:opacity-100 transition-opacity duration-300"></i>
-                        </div>
-                    </div>
-                    <div class="p-4">
-                        <span class="bg-orange-100 text-orange-800 px-2 py-1 rounded-full text-xs">Basketball</span>
+                    <div class="video-controls">
+                        <button class="control-btn" onclick="toggleMute(event, this)" title="Mute/Unmute">
+                            <svg class="control-icon mute-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M11 5L6 9H2v6h4l5 4V5z"></path>
+                            </svg>
+                        </button>
+                        <button class="control-btn" onclick="toggleFullscreen(event, this)" title="Fullscreen">
+                            <svg class="control-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"></path>
+                            </svg>
+                        </button>
                     </div>
                 </div>
             </div>
 
-            <!-- Load More Videos Button -->
-            <div class="text-center mt-12">
-                <button onclick="loadMoreVideos()" id="loadMoreVideosBtn" 
-                        class="bg-gradient-to-r from-red-600 to-orange-600 text-white px-8 py-4 rounded-full font-semibold hover:from-red-700 hover:to-orange-700 transition transform hover:scale-105">
-                    <i class="fas fa-plus mr-2"></i>Load More Videos
-                </button>
+            <!-- Video Card 2 -->
+            <div class="video-card" onclick="playVideo(2)" onmouseenter="playVideoOnHover(this)" onmouseleave="pauseVideoOnLeave(this)">
+                <div class="video-container">
+                    <div class="video-bg" style="background: linear-gradient(135deg, #D04713, #B8390A);"></div>
+                    <video class="video-element" muted loop preload="metadata" onerror="this.style.display='none'; this.alt='Video failed to load';">
+                        <source src="https://cdn.shopify.com/videos/c/o/v/9ac5bef4ffab4a09ba3924a1c817f648.mp4" type="video/mp4">
+                    </video>
+                    <div class="play-button">
+                        <svg class="play-icon" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                    </div>
+                    <div class="video-controls">
+                        <button class="control-btn" onclick="toggleMute(event, this)" title="Mute/Unmute">
+                            <svg class="control-icon mute-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M11 5L6 9H2v6h4l5 4V5z"></path>
+                            </svg>
+                        </button>
+                        <button class="control-btn" onclick="toggleFullscreen(event, this)" title="Fullscreen">
+                            <svg class="control-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
             </div>
+
+            <!-- Video Card 3 -->
+            <div class="video-card" onclick="playVideo(3)" onmouseenter="playVideoOnHover(this)" onmouseleave="pauseVideoOnLeave(this)">
+                <div class="video-container">
+                    <div class="video-bg" style="background: linear-gradient(135deg, #D04713, #B8390A);"></div>
+                    <video class="video-element" muted loop preload="metadata" onerror="this.style.display='none'; this.alt='Video failed to load';">
+                        <source src="https://cdn.shopify.com/videos/c/o/v/c74cfe51a92e418fb1c3db5e7bf8cb67.mp4" type="video/mp4">
+                    </video>
+                    <div class="play-button">
+                        <svg class="play-icon" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                    </div>
+                    <div class="video-controls">
+                        <button class="control-btn" onclick="toggleMute(event, this)" title="Mute/Unmute">
+                            <svg class="control-icon mute-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M11 5L6 9H2v6h4l5 4V5z"></path>
+                            </svg>
+                        </button>
+                        <button class="control-btn" onclick="toggleFullscreen(event, this)" title="Fullscreen">
+                            <svg class="control-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video Card 4 -->
+            <div class="video-card" onclick="playVideo(4)" onmouseenter="playVideoOnHover(this)" onmouseleave="pauseVideoOnLeave(this)">
+                <div class="video-container">
+                    <div class="video-bg" style="background: linear-gradient(135deg, #D04713, #B8390A);"></div>
+                    <video class="video-element" muted loop preload="metadata" onerror="this.style.display='none'; this.alt='Video failed to load';">
+                        <source src="https://cdn.shopify.com/videos/c/o/v/63e32d28718a4234b30cda619c068cd2.mp4" type="video/mp4">
+                    </video>
+                    <div class="play-button">
+                        <svg class="play-icon" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                    </div>
+                    <div class="video-controls">
+                        <button class="control-btn" onclick="toggleMute(event, this)" title="Mute/Unmute">
+                            <svg class="control-icon mute-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M11 5L6 9H2v6h4l5 4V5z"></path>
+                            </svg>
+                        </button>
+                        <button class="control-btn" onclick="toggleFullscreen(event, this)" title="Fullscreen">
+                            <svg class="control-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video Card 5 -->
+            <div class="video-card" onclick="playVideo(5)" onmouseenter="playVideoOnHover(this)" onmouseleave="pauseVideoOnLeave(this)">
+                <div class="video-container">
+                    <div class="video-bg" style="background: linear-gradient(135deg, #D04713, #B8390A);"></div>
+                    <video class="video-element" muted loop preload="metadata" onerror="this.style.display='none'; this.alt='Video failed to load';">
+                        <source src=" https://cdn.shopify.com/videos/c/o/v/e9794aae05af4cf0abea3ebbe35cc4bb.mp4" type="video/mp4">
+                    </video>
+                    <div class="play-button">
+                        <svg class="play-icon" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                    </div>
+                    <div class="video-controls">
+                        <button class="control-btn" onclick="toggleMute(event, this)" title="Mute/Unmute">
+                            <svg class="control-icon mute-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M11 5L6 9H2v6h4l5 4V5z"></path>
+                            </svg>
+                        </button>
+                        <button class="control-btn" onclick="toggleFullscreen(event, this)" title="Fullscreen">
+                            <svg class="control-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video Card 6 -->
+            <div class="video-card" onclick="playVideo(6)" onmouseenter="playVideoOnHover(this)" onmouseleave="pauseVideoOnLeave(this)">
+                <div class="video-container">
+                    <div class="video-bg" style="background: linear-gradient(135deg, #D04713, #B8390A);"></div>
+                    <video class="video-element" muted loop preload="metadata" onerror="this.style.display='none'; this.alt='Video failed to load';">
+                        <source src="https://cdn.shopify.com/videos/c/o/v/5295acf8794a4b159f438cd70e6a0d3c.mp4" type="video/mp4">
+                    </video>
+                    <div class="play-button">
+                        <svg class="play-icon" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                    </div>
+                    <div class="video-controls">
+                        <button class="control-btn" onclick="toggleMute(event, this)" title="Mute/Unmute">
+                            <svg class="control-icon mute-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M11 5L6 9H2v6h4l5 4V5z"></path>
+                            </svg>
+                        </button>
+                        <button class="control-btn" onclick="toggleFullscreen(event, this)" title="Fullscreen">
+                            <svg class="control-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hidden Video Card 7 -->
+            <div class="video-card hidden-video" onclick="playVideo(7)" onmouseenter="playVideoOnHover(this)" onmouseleave="pauseVideoOnLeave(this)">
+                <div class="video-container">
+                    <div class="video-bg" style="background: linear-gradient(135deg, #D04713, #B8390A);"></div>
+                    <video class="video-element" muted loop preload="metadata" onerror="this.style.display='none'; this.alt='Video failed to load';">
+                        <source src="https://cdn.shopify.com/videos/c/o/v/c74cfe51a92e418fb1c3db5e7bf8cb67.mp4" type="video/mp4">
+                    </video>
+                    <div class="play-button">
+                        <svg class="play-icon" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                    </div>
+                    <div class="video-controls">
+                        <button class="control-btn" onclick="toggleMute(event, this)" title="Mute/Unmute">
+                            <svg class="control-icon mute-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M11 5L6 9H2v6h4l5 4V5z"></path>
+                            </svg>
+                        </button>
+                        <button class="control-btn" onclick="toggleFullscreen(event, this)" title="Fullscreen">
+                            <svg class="control-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hidden Video Card 8 -->
+           
+            <div class="video-card hidden-video" onclick="playVideo(8)" onmouseenter="playVideoOnHover(this)" onmouseleave="pauseVideoOnLeave(this)">
+                <div class="video-container">
+                    <div class="video-bg" style="background: linear-gradient(135deg, #D04713, #B8390A);"></div>
+                    <video class="video-element" muted loop preload="metadata" onerror="this.style.display='none'; this.alt='Video failed to load';">
+                        <source src="https://cdn.shopify.com/videos/c/o/v/6561a7c7fd1c4dafb1ac26d54a0debf1.mp4" type="video/mp4">
+                    </video>
+                    <div class="play-button">
+                        <svg class="play-icon" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                    </div>
+                    <div class="video-controls">
+                        <button class="control-btn" onclick="toggleMute(event, this)" title="Mute/Unmute">
+                            <svg class="control-icon mute-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M11 5L6 9H2v6h4l5 4V5z"></path>
+                            </svg>
+                        </button>
+                        <button class="control-btn" onclick="toggleFullscreen(event, this)" title="Fullscreen">
+                            <svg class="control-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="video-card hidden-video" onclick="playVideo(8)" onmouseenter="playVideoOnHover(this)" onmouseleave="pauseVideoOnLeave(this)">
+                <div class="video-container">
+                    <div class="video-bg" style="background: linear-gradient(135deg, #D04713, #B8390A);"></div>
+                    <video class="video-element" muted loop preload="metadata" onerror="this.style.display='none'; this.alt='Video failed to load';">
+                        <source src="https://cdn.shopify.com/videos/c/o/v/e5798ec2060a4ea480a92845b167d72d.mp4" type="video/mp4">
+                    </video>
+                    <div class="play-button">
+                        <svg class="play-icon" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                    </div>
+                    <div class="video-controls">
+                        <button class="control-btn" onclick="toggleMute(event, this)" title="Mute/Unmute">
+                            <svg class="control-icon mute-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M11 5L6 9H2v6h4l5 4V5z"></path>
+                            </svg>
+                        </button>
+                        <button class="control-btn" onclick="toggleFullscreen(event, this)" title="Fullscreen">
+                            <svg class="control-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
         </div>
-    </section>
+
+        <!-- Load More Button -->
+        <div class="text-center">
+            <button id="loadMoreBtn" onclick="loadMoreVideos()" class="load-more-btn">
+                <svg class="btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                </svg>
+                Load More Videos
+            </button>
+        </div>
+    </div>
+   </section>
 
     <!-- Photo Gallery Section -->
-    <section id="gallery" class="py-16 bg-black">
+    <section id="gallery" class="py-16 bg-black "style="padding-top:0px;">
         <div class="container mx-auto px-4">
             <h2 class="text-4xl font-bold text-center text-white mb-12">
-                <i class="fas fa-images text-green-600 mr-3"></i>
+                <i class="fas fa-images text-green-600 mr-3" style="margin-top:90px;"></i>
                 Photo Gallery
             </h2>
 
             <!-- Photo Filter Buttons -->
-            <div class="flex flex-wrap justify-center gap-4 mb-8">
-                <button onclick="filterPhotos('all')" class="filter-btn active px-6 py-3 rounded-full bg-gray-200 text-gray-700 font-medium transition">
-                    All Photos
-                </button>
-                <button onclick="filterPhotos('football')" class="filter-btn px-6 py-3 rounded-full bg-gray-200 text-gray-700 font-medium transition">
-                    <i class="fas fa-futbol mr-2"></i>Football
-                </button>
-                <button onclick="filterPhotos('basketball')" class="filter-btn px-6 py-3 rounded-full bg-gray-200 text-gray-700 font-medium transition">
-                    <i class="fas fa-basketball-ball mr-2"></i>Basketball
-                </button>
-                <button onclick="filterPhotos('cricket')" class="filter-btn px-6 py-3 rounded-full bg-gray-200 text-gray-700 font-medium transition">
-                    <i class="fas fa-baseball-ball mr-2"></i>Cricket
-                </button>
-                <button onclick="filterPhotos('tennis')" class="filter-btn px-6 py-3 rounded-full bg-gray-200 text-gray-700 font-medium transition">
-                    <i class="fas fa-table-tennis mr-2"></i>Tennis
-                </button>
-                <button onclick="filterPhotos('action')" class="filter-btn px-6 py-3 rounded-full bg-gray-200 text-gray-700 font-medium transition">
-                    <i class="fas fa-running mr-2"></i>Action Shots
-                </button>
-            </div>
-
+          
             <!-- Photos Grid -->
             <div id="photosGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 <!-- Football Photos -->
-                <div class="media-item card-hover bg-white rounded-xl overflow-hidden shadow-lg cursor-pointer" data-category="football" data-type="photo" onclick="openFullscreen(this)">
+                <div class="media-item card-hover bg-black rounded-xl overflow-hidden shadow-lg cursor-pointer" data-category="football" data-type="photo" onclick="openFullscreen(this)">
                     <div class="aspect-square relative overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=600&h=600&fit=crop" 
+                        <img src="  https://cdn.shopify.com/s/files/1/0636/5226/6115/files/WhatsApp_Image_2025-08-28_at_7.16.45_PM_1.jpg?v=1756448712" 
                              alt="Football Stadium" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300">
-                        <div class="absolute top-2 right-2 bg-green-600 text-white px-2 py-1 rounded text-sm">
-                            <i class="fas fa-image mr-1"></i>Photo
-                        </div>
+                         
                         <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-0 hover:bg-opacity-30 transition-all duration-300">
                             <i class="fas fa-expand text-white text-2xl opacity-0 hover:opacity-100 transition-opacity duration-300"></i>
                         </div>
                     </div>
-                    <div class="p-4">
-                        <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">Football</span>
-                    </div>
+                  
                 </div>
 
                 <!-- Basketball Photos -->
-                <div class="media-item card-hover bg-white rounded-xl overflow-hidden shadow-lg cursor-pointer" data-category="basketball" data-type="photo" onclick="openFullscreen(this)">
+                <div class="media-item card-hover bg-black rounded-xl overflow-hidden shadow-lg cursor-pointer" data-category="basketball" data-type="photo" onclick="openFullscreen(this)">
                     <div class="aspect-square relative overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?w=600&h=600&fit=crop" 
+                        <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/WhatsApp_Image_2025-08-28_at_7.17.37_PM.jpg?v=1756448712" 
                              alt="Basketball Court" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300">
-                        <div class="absolute top-2 right-2 bg-green-600 text-white px-2 py-1 rounded text-sm">
-                            <i class="fas fa-image mr-1"></i>Photo
-                        </div>
+                         
                         <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-0 hover:bg-opacity-30 transition-all duration-300">
                             <i class="fas fa-expand text-white text-2xl opacity-0 hover:opacity-100 transition-opacity duration-300"></i>
                         </div>
                     </div>
-                    <div class="p-4">
-                        <span class="bg-orange-100 text-orange-800 px-2 py-1 rounded-full text-xs">Basketball</span>
-                    </div>
+                   
                 </div>
 
                 <!-- Cricket Photos -->
-                <div class="media-item card-hover bg-white rounded-xl overflow-hidden shadow-lg cursor-pointer" data-category="cricket" data-type="photo" onclick="openFullscreen(this)">
+                <div class="media-item card-hover bg-black rounded-xl overflow-hidden shadow-lg cursor-pointer" data-category="cricket" data-type="photo" onclick="openFullscreen(this)">
                     <div class="aspect-square relative overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=600&h=600&fit=crop" 
+                        <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/WhatsApp_Image_2025-08-28_at_7.16.46_PM.jpg?v=1756448712" 
                              alt="Cricket Match" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300">
-                        <div class="absolute top-2 right-2 bg-green-600 text-white px-2 py-1 rounded text-sm">
-                            <i class="fas fa-image mr-1"></i>Photo
-                        </div>
+                         
                         <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-0 hover:bg-opacity-30 transition-all duration-300">
                             <i class="fas fa-expand text-white text-2xl opacity-0 hover:opacity-100 transition-opacity duration-300"></i>
                         </div>
                     </div>
-                    <div class="p-4">
-                        <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs">Cricket</span>
-                    </div>
+                
                 </div>
 
                 <!-- Tennis Photos -->
-                <div class="media-item card-hover bg-white rounded-xl overflow-hidden shadow-lg cursor-pointer" data-category="tennis" data-type="photo" onclick="openFullscreen(this)">
+                <div class="media-item card-hover bg-black  rounded-xl overflow-hidden shadow-lg cursor-pointer" data-category="tennis" data-type="photo" onclick="openFullscreen(this)">
                     <div class="aspect-square relative overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=600&h=600&fit=crop" 
+                        <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/WhatsApp_Image_2025-08-28_at_7.17.36_PM.jpg?v=1756448711" 
                              alt="Tennis Player" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300">
-                        <div class="absolute top-2 right-2 bg-green-600 text-white px-2 py-1 rounded text-sm">
-                            <i class="fas fa-image mr-1"></i>Photo
-                        </div>
+                         
                         <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-0 hover:bg-opacity-30 transition-all duration-300">
                             <i class="fas fa-expand text-white text-2xl opacity-0 hover:opacity-100 transition-opacity duration-300"></i>
                         </div>
                     </div>
-                    <div class="p-4">
-                        <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded-full text-xs">Tennis</span>
-                    </div>
+                   
                 </div>
 
                 <!-- Action Shots -->
-                <div class="media-item card-hover bg-white rounded-xl overflow-hidden shadow-lg cursor-pointer" data-category="action" data-type="photo" onclick="openFullscreen(this)">
+                <div class="media-item card-hover bg-black rounded-xl overflow-hidden shadow-lg cursor-pointer" data-category="action" data-type="photo" onclick="openFullscreen(this)">
                     <div class="aspect-square relative overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=600&fit=crop" 
+                        <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/WhatsApp_Image_2025-08-28_at_7.16.46_PM_1.jpg?v=1756448711" 
                              alt="Running Track" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300">
-                        <div class="absolute top-2 right-2 bg-green-600 text-white px-2 py-1 rounded text-sm">
-                            <i class="fas fa-image mr-1"></i>Photo
-                        </div>
+                         
                         <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-0 hover:bg-opacity-30 transition-all duration-300">
                             <i class="fas fa-expand text-white text-2xl opacity-0 hover:opacity-100 transition-opacity duration-300"></i>
                         </div>
                     </div>
-                    <div class="p-4">
-                        <span class="bg-red-100 text-red-800 px-2 py-1 rounded-full text-xs">Action</span>
-                    </div>
+                   
                 </div>
 
                 <!-- More Football Photos -->
-                <div class="media-item card-hover bg-white rounded-xl overflow-hidden shadow-lg cursor-pointer" data-category="football" data-type="photo" onclick="openFullscreen(this)">
+                <div class="media-item card-hover bg-black rounded-xl overflow-hidden shadow-lg cursor-pointer" data-category="football" data-type="photo" onclick="openFullscreen(this)">
                     <div class="aspect-square relative overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1553778263-73a83bab9b0c?w=600&h=600&fit=crop" 
+                        <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/WhatsApp_Image_2025-08-28_at_7.17.37_PM_1.jpg?v=1756448711" 
                              alt="Football Goal" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300">
-                        <div class="absolute top-2 right-2 bg-green-600 text-white px-2 py-1 rounded text-sm">
-                            <i class="fas fa-image mr-1"></i>Photo
-                        </div>
+                         
                         <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-0 hover:bg-opacity-30 transition-all duration-300">
                             <i class="fas fa-expand text-white text-2xl opacity-0 hover:opacity-100 transition-opacity duration-300"></i>
                         </div>
                     </div>
-                    <div class="p-4">
-                        <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">Football</span>
-                    </div>
+                 
                 </div>
 
                 <!-- More Basketball Photos -->
-                <div class="media-item card-hover bg-white rounded-xl overflow-hidden shadow-lg cursor-pointer" data-category="basketball" data-type="photo" onclick="openFullscreen(this)">
+                <div class="media-item card-hover bg-black rounded-xl overflow-hidden shadow-lg cursor-pointer" data-category="basketball" data-type="photo" onclick="openFullscreen(this)">
                     <div class="aspect-square relative overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1608245449230-4ac19066d2d0?w=600&h=600&fit=crop" 
+                        <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/WhatsApp_Image_2025-08-28_at_7.16.45_PM.jpg?v=1756448711" 
                              alt="Basketball Dunk" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300">
-                        <div class="absolute top-2 right-2 bg-green-600 text-white px-2 py-1 rounded text-sm">
-                            <i class="fas fa-image mr-1"></i>Photo
-                        </div>
+                         
                         <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-0 hover:bg-opacity-30 transition-all duration-300">
                             <i class="fas fa-expand text-white text-2xl opacity-0 hover:opacity-100 transition-opacity duration-300"></i>
                         </div>
                     </div>
-                    <div class="p-4">
-                        <span class="bg-orange-100 text-orange-800 px-2 py-1 rounded-full text-xs">Basketball</span>
-                    </div>
+                    
                 </div>
 
                 <!-- More Action Shots -->
-                <div class="media-item card-hover bg-white rounded-xl overflow-hidden shadow-lg cursor-pointer" data-category="action" data-type="photo" onclick="openFullscreen(this)">
+                <div class="media-item card-hover bg-black rounded-xl overflow-hidden shadow-lg cursor-pointer" data-category="action" data-type="photo" onclick="openFullscreen(this)">
                     <div class="aspect-square relative overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&h=600&fit=crop" 
+                        <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/sports-team-girl-soccer-and-kick-ball-on-field-in-2025-04-05-19-15-16-utc.jpg?v=1756195215" 
                              alt="Swimming" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300">
-                        <div class="absolute top-2 right-2 bg-green-600 text-white px-2 py-1 rounded text-sm">
-                            <i class="fas fa-image mr-1"></i>Photo
-                        </div>
+                       
                         <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-0 hover:bg-opacity-30 transition-all duration-300">
                             <i class="fas fa-expand text-white text-2xl opacity-0 hover:opacity-100 transition-opacity duration-300"></i>
                         </div>
                     </div>
-                    <div class="p-4">
-                        <span class="bg-red-100 text-red-800 px-2 py-1 rounded-full text-xs">Action</span>
-                    </div>
+                 
                 </div>
             </div>
 
@@ -665,7 +906,7 @@
             <!-- Social Media Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
                 <!-- Instagram -->
-                <a href="https://instagram.com/sportsgallery" target="_blank" 
+                <a href="https://www.instagram.com/colab_platforms/" target="_blank" 
                    class="social-link bg-gradient-to-br from-pink-500 to-orange-500 text-white p-5 rounded-xl text-center hover:shadow-xl transform hover:-translate-y-1 flex flex-col justify-center items-center min-h-[150px] min-w-[220px] md:min-w-[260px]">
                     <i class="fab fa-instagram text-4xl mb-2"></i>
                     <h3 class="text-lg font-bold mb-1">Instagram</h3>
@@ -674,30 +915,30 @@
                 </a>
 
                 <!-- YouTube -->
-                <a href="https://youtube.com/sportsgallery" target="_blank" 
+                <a href="https://www.youtube.com/@ColabPlatformsLimited" target="_blank" 
                    class="social-link bg-red-600 text-white p-5 rounded-xl text-center hover:shadow-xl transform hover:-translate-y-1 flex flex-col justify-center items-center min-h-[150px] min-w-[220px] md:min-w-[260px]">
                     <i class="fab fa-youtube text-4xl mb-2"></i>
                     <h3 class="text-lg font-bold mb-1">YouTube</h3>
-                    <p class="text-xs opacity-90">Sports Gallery</p>
-                    <p class="text-xs mt-1 opacity-75">89K Subscribers</p>
+                    <p class="text-xs opacity-90">Colab Platform</p>
+                  
                 </a>
 
                 <!-- Facebook -->
-                <a href="https://facebook.com/sportsgallery" target="_blank" 
+                <a href="https://www.facebook.com/profile.php?id=61558652640097" target="_blank" 
                    class="social-link bg-blue-600 text-white p-5 rounded-xl text-center hover:shadow-xl transform hover:-translate-y-1 flex flex-col justify-center items-center min-h-[150px] min-w-[220px] md:min-w-[260px]">
                     <i class="fab fa-facebook text-4xl mb-2"></i>
                     <h3 class="text-lg font-bold mb-1">Facebook</h3>
-                    <p class="text-xs opacity-90">Sports Gallery</p>
-                    <p class="text-xs mt-1 opacity-75">67K Likes</p>
+                    <p class="text-xs opacity-90">Colab Platforms</p>
+                   
                 </a>
 
                 <!-- Twitter -->
-                <a href="https://twitter.com/sportsgallery" target="_blank" 
+                <a href="https://x.com/ColabLtd" target="_blank" 
                    class="social-link bg-blue-400 text-white p-5 rounded-xl text-center hover:shadow-xl transform hover:-translate-y-1 flex flex-col justify-center items-center min-h-[150px] min-w-[220px] md:min-w-[260px]">
                     <i class="fab fa-twitter text-4xl mb-2"></i>
                     <h3 class="text-lg font-bold mb-1">Twitter</h3>
-                    <p class="text-xs opacity-90">@sportsgallery</p>
-                    <p class="text-xs mt-1 opacity-75">45K Followers</p>
+                    <p class="text-xs opacity-90">@colabplatforms</p>
+                    
                 </a>
             </div>
 
@@ -716,7 +957,7 @@
                                 <i class="fab fa-instagram text-white text-xl"></i>
                             </div>
                             <div class="ml-3">
-                                <p class="font-semibold text-gray-800">@sportsgallery</p>
+                                <p class="font-semibold text-gray-800">@colabplatforms</p>
                                 <p class="text-gray-500 text-sm">2 hours ago</p>
                             </div>
                         </div>
@@ -752,7 +993,7 @@
                                 <i class="fab fa-twitter text-white text-xl"></i>
                             </div>
                             <div class="ml-3">
-                                <p class="font-semibold text-gray-800">@sportsgallery</p>
+                                <p class="font-semibold text-gray-800">@colabplatforms</p>
                                 <p class="text-gray-500 text-sm">3 hours ago</p>
                             </div>
                         </div>
@@ -960,46 +1201,79 @@ document.head.appendChild(style);
  <script>
         // Background media slideshow (videos and images alternating)
         const backgroundMedia = [
-            { type: 'video', src: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4' },
+            { type: 'video', src: 'https://cdn.shopify.com/videos/c/o/v/9ac5bef4ffab4a09ba3924a1c817f648.mp4' },
             { type: 'image', src: 'https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=1920&h=1080&fit=crop' },
-            { type: 'video', src: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4' },
+            { type: 'video', src: 'https://cdn.shopify.com/videos/c/o/v/c74cfe51a92e418fb1c3db5e7bf8cb67.mp4' },
             { type: 'image', src: 'https://images.unsplash.com/photo-1546519638-68e109498ffc?w=1920&h=1080&fit=crop' },
-            { type: 'video', src: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4' },
+            { type: 'video', src: 'https://cdn.shopify.com/videos/c/o/v/5295acf8794a4b159f438cd70e6a0d3c.mp4' },
             { type: 'image', src: 'https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=1920&h=1080&fit=crop' }
         ];
 
         let currentMediaIndex = 0;
+let isTransitioning = false;
 
-        // Background media slideshow functionality
-        function updateBackgroundMediaSlideshow() {
-            const slideshow = document.getElementById('backgroundMediaSlideshow');
-            if (slideshow) {
-                const allMedia = slideshow.children;
-                
-                // Hide all media
-                for (let i = 0; i < allMedia.length; i++) {
-                    allMedia[i].style.display = 'none';
-                    allMedia[i].style.opacity = '0';
-                }
-                
-                // Show current media with fade effect
-                setTimeout(() => {
-                    allMedia[currentMediaIndex].style.display = 'block';
-                    allMedia[currentMediaIndex].style.opacity = '0.6';
-                    
-                    // If it's a video, restart it
-                    if (allMedia[currentMediaIndex].tagName === 'VIDEO') {
-                        allMedia[currentMediaIndex].currentTime = 0;
-                        allMedia[currentMediaIndex].play();
-                    }
-                    
-                    currentMediaIndex = (currentMediaIndex + 1) % allMedia.length;
-                }, 500);
+function updateBackgroundMediaSlideshow() {
+    if (isTransitioning) return;
+    
+    const slideshow = document.getElementById('backgroundMediaSlideshow');
+    if (!slideshow) return;
+    
+    const allMedia = slideshow.children;
+    if (allMedia.length === 0) return;
+    
+    isTransitioning = true;
+    const nextIndex = (currentMediaIndex + 1) % allMedia.length;
+    
+    // Fade out current media
+    allMedia[currentMediaIndex].style.opacity = '0';
+    
+    // After fade out completes
+    setTimeout(() => {
+        allMedia[currentMediaIndex].style.display = 'none';
+        
+        // Show and fade in next media
+        allMedia[nextIndex].style.display = 'block';
+        setTimeout(() => {
+            allMedia[nextIndex].style.opacity = '0.6';
+            
+            // If it's a video, handle it
+            if (allMedia[nextIndex].tagName === 'VIDEO') {
+                allMedia[nextIndex].currentTime = 0;
+                allMedia[nextIndex].play().catch(e => console.log('Video play error:', e));
+            }
+            
+            currentMediaIndex = nextIndex;
+            isTransitioning = false;
+        }, 10);
+    }, 100); // Match this with CSS transition time
+}
+
+// Initialize the slideshow
+document.addEventListener('DOMContentLoaded', function() {
+    const slideshow = document.getElementById('backgroundMediaSlideshow');
+    if (slideshow) {
+        // Set initial state
+        const allMedia = slideshow.children;
+        for (let i = 0; i < allMedia.length; i++) {
+            allMedia[i].style.opacity = '0';
+            allMedia[i].style.display = 'none';
+        }
+        
+        // Show first item
+        if (allMedia.length > 0) {
+            allMedia[0].style.display = 'block';
+            allMedia[0].style.opacity = '0.6';
+            if (allMedia[0].tagName === 'VIDEO') {
+                allMedia[0].play().catch(e => console.log('Initial video play error:', e));
             }
         }
+        
+        // Start slideshow
+        setInterval(updateBackgroundMediaSlideshow, 5000);
+    }
+});
 
-        // Start media slideshow
-        setInterval(updateBackgroundMediaSlideshow, 5000); // Change every 5 seconds
+       
 
         // Filter functions for videos
         function filterVideos(category) {
@@ -1134,7 +1408,7 @@ document.head.appendChild(style);
         // Create video element
         function createVideoElement(video) {
             const div = document.createElement('div');
-            div.className = 'media-item card-hover bg-white rounded-xl overflow-hidden shadow-lg';
+            div.className = 'media-item card-hover bg-black rounded-xl overflow-hidden shadow-lg';
             div.setAttribute('data-category', video.category);
             div.setAttribute('data-type', video.type);
             
@@ -1166,20 +1440,19 @@ document.head.appendChild(style);
         // Create photo element
         function createPhotoElement(photo) {
             const div = document.createElement('div');
-            div.className = 'media-item card-hover bg-white rounded-xl overflow-hidden shadow-lg';
+            div.className = 'media-item card-hover bg-black rounded-xl overflow-hidden shadow-lg';
             div.setAttribute('data-category', photo.category);
             div.setAttribute('data-type', 'photo');
             
             div.innerHTML = `
                 <div class="aspect-square relative overflow-hidden">
                     <img src="${photo.image}" alt="${photo.title}" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300">
-                    <div class="absolute top-2 right-2 bg-green-600 text-white px-2 py-1 rounded text-sm">
-                        <i class="fas fa-image mr-1"></i>Photo
+                    
+                    <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-0 hover:bg-opacity-30 transition-all duration-300">
+                        <i class="fas fa-expand text-white text-2xl opacity-0 hover:opacity-100 transition-opacity duration-300"></i>
                     </div>
                 </div>
-                <div class="p-4">
-                    <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs capitalize">${photo.category}</span>
-                </div>
+                
             `;
             
             return div;
@@ -1404,7 +1677,7 @@ document.head.appendChild(style);
                         <div class="row">
                           <div class="footer__copyright">
                             <div class="col-12">
-                              <p>© 2025 Colab Platforms Ltd.</p>
+                              <p> 2025 Colab Platforms Ltd.</p>
                             </div>
                           </div>
                         </div>
@@ -1560,19 +1833,15 @@ document.head.appendChild(style);
                 // Filter items
                 galleryItems.forEach(item => {
                     const category = item.getAttribute('data-category');
-                    if (filter === 'all' || category === filter) {
-                        item.classList.remove('hidden-item');
-                        setTimeout(() => {
-                            item.style.opacity = '1';
-                            item.style.transform = 'scale(1)';
-                        }, 100);
-                    } else {
-                        item.style.opacity = '0';
-                        item.style.transform = 'scale(0.8)';
-                        setTimeout(() => {
-                            item.classList.add('hidden-item');
-                        }, 300);
+                    const isHiddenInitially = item.classList.contains('hidden-item');
+                    
+                    // Skip processing if item is hidden by default and not expanded
+                    if (isHiddenInitially && !isExpanded) {
+                        return;
                     }
+                    
+                    const shouldShow = filter === 'all' || category === filter;
+                    toggleVideoVisibility(item, shouldShow);
                 });
 
                 // Update counts
@@ -1686,10 +1955,9 @@ document.head.appendChild(style);
             currentVideoPlaying = videoId;
             
             const progressBar = container.querySelector('.progress-bar');
-            let progress = 0;
             
             videoTimers[videoId] = setInterval(() => {
-                progress += 1;
+                const progress = (container.querySelector('video').currentTime / container.querySelector('video').duration) * 100;
                 progressBar.style.width = progress + '%';
                 
                 if (progress >= 100) {
@@ -1719,13 +1987,12 @@ document.head.appendChild(style);
                 const imageElement = this.querySelector('[data-image]');
                 const imageId = imageElement.getAttribute('data-image');
                 const backgroundImage = imageElement.style.backgroundImage;
-                const fileUrl = imageElement.getAttribute('data-file-url');
                 const title = this.querySelector('h3, h4').textContent;
                 const description = this.querySelector('p').textContent;
                 
                 // Extract URL from background-image style if it's a stock image
-                let downloadUrl = fileUrl;
-                if (!downloadUrl && backgroundImage) {
+                let downloadUrl = '';
+                if (backgroundImage) {
                     const urlMatch = backgroundImage.match(/url\(['"]?(.*?)['"]?\)/);
                     if (urlMatch) {
                         downloadUrl = urlMatch[1];
@@ -1977,12 +2244,12 @@ document.head.appendChild(style);
                             <div class="text-center text-white z-20 relative">
                                 <div class="play-button w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform">
                                     <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
-                                        <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"/>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"/>
                                     </svg>
                                 </div>
-                                <div class="pause-button w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mb-4 mx-auto">
+                                <div class="pause-button w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
                                     <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
-                                        <path d="M5.5 3.5A1.5 1.5 0 017 2h6a1.5 1.5 0 011.5 1.5v13A1.5 1.5 0 0113 18H7a1.5 1.5 0 01-1.5-1.5v-13z"/>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.5 3.5A1.5 1.5 0 017 2h6a1.5 1.5 0 011.5 1.5v13A1.5 1.5 0 0113 18H7a1.5 1.5 0 01-1.5-1.5v-13z"/>
                                     </svg>
                                 </div>
                                 <h3 class="font-semibold text-lg">${fileName}</h3>
@@ -2039,7 +2306,6 @@ document.head.appendChild(style);
             newPhoto.innerHTML = `
                 <div class="image-card rounded-xl overflow-hidden h-48 relative group" data-image="${fileName}" data-file-url="${fileURL}">
                     <img src="${fileURL}" alt="${fileName}" class="w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-10 transition-all duration-300"></div>
                     <div class="absolute top-3 right-3 z-10">
                         <span class="bg-green-500 text-white px-2 py-1 rounded-full text-xs">New</span>
                     </div>
@@ -2110,7 +2376,6 @@ document.head.appendChild(style);
                     <video class="w-full h-full object-cover" muted>
                         <source src="${fileURL}" type="${file.type}">
                     </video>
-                    <div class="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-10 transition-all duration-300"></div>
                     <div class="absolute top-3 right-3 z-10">
                         <span class="bg-green-500 text-white px-2 py-1 rounded-full text-xs">New</span>
                     </div>
@@ -2121,7 +2386,7 @@ document.head.appendChild(style);
                     <div class="absolute inset-0 flex items-center justify-center">
                         <div class="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
                             <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"/>
                             </svg>
                         </div>
                     </div>
@@ -2151,7 +2416,6 @@ document.head.appendChild(style);
             newItem.innerHTML = `
                 <div class="image-card rounded-xl overflow-hidden h-48 relative group" data-image="${fileName}" data-file-url="${fileURL}">
                     <img src="${fileURL}" alt="${fileName}" class="w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-10 transition-all duration-300"></div>
                     <div class="absolute top-3 right-3 z-10">
                         <span class="bg-green-500 text-white px-2 py-1 rounded-full text-xs">New</span>
                     </div>
@@ -2221,6 +2485,10 @@ document.head.appendChild(style);
             videoElement.addEventListener('timeupdate', function() {
                 const progress = (this.currentTime / this.duration) * 100;
                 progressBar.style.width = progress + '%';
+                
+                if (progress >= 100) {
+                    pauseVideo(container, videoId);
+                }
             });
             
             videoElement.addEventListener('ended', function() {
@@ -2405,5 +2673,114 @@ document.head.appendChild(style);
     });
 </script>
 
+
+
+
+<script>
+    let videosLoaded = false;
+
+    function playVideoOnHover(card) {
+        const video = card.querySelector('.video-element');
+        if (video) {
+            video.currentTime = 0;
+            video.play().catch(e => console.log('Video play failed:', e));
+        }
+    }
+
+    function pauseVideoOnLeave(card) {
+        const video = card.querySelector('.video-element');
+        if (video) {
+            video.pause();
+            video.currentTime = 0;
+        }
+    }
+
+    function toggleMute(event, button) {
+        event.stopPropagation();
+        const card = button.closest('.video-card');
+        const video = card.querySelector('.video-element');
+        const muteIcon = button.querySelector('.mute-icon');
+        
+        if (video.muted) {
+            video.muted = false;
+            muteIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M11 5L6 9H2v6h4l5 4V5z"></path>';
+        } else {
+            video.muted = true;
+            muteIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" clip-rule="evenodd"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2"></path>';
+        }
+    }
+
+    function toggleFullscreen(event, button) {
+        event.stopPropagation();
+        const card = button.closest('.video-card');
+        const video = card.querySelector('.video-element');
+        
+        if (video.requestFullscreen) {
+            video.requestFullscreen();
+        } else if (video.webkitRequestFullscreen) {
+            video.webkitRequestFullscreen();
+        } else if (video.msRequestFullscreen) {
+            video.msRequestFullscreen();
+        }
+    }
+
+    function loadMoreVideos() {
+        const hiddenVideos = document.querySelectorAll('.hidden-video');
+        const loadMoreBtn = document.getElementById('loadMoreBtn');
+        
+        if (!videosLoaded) {
+            // Show hidden videos with animation
+            hiddenVideos.forEach((video, index) => {
+                setTimeout(() => {
+                    video.style.display = 'block';
+                    setTimeout(() => {
+                        video.classList.add('show-video');
+                    }, 50);
+                }, index * 150);
+            });
+            
+            // Update button
+            setTimeout(() => {
+                loadMoreBtn.innerHTML = `
+                    <svg class="btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
+                    </svg>
+                    Show Less Videos
+                `;
+            }, 800);
+            
+            videosLoaded = true;
+        } else {
+            // Hide videos
+            hiddenVideos.forEach((video, index) => {
+                setTimeout(() => {
+                    video.classList.remove('show-video');
+                    setTimeout(() => {
+                        video.style.display = 'none';
+                    }, 500);
+                }, index * 100);
+            });
+            
+            // Update button
+            loadMoreBtn.innerHTML = `
+                <svg class="btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                </svg>
+                Load More Videos
+            `;
+            
+            videosLoaded = false;
+            
+            // Scroll back to top of video section
+            document.getElementById('videoGrid').scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+
+    function playVideo(videoId) {
+        // Simulate video play
+        alert(`Playing video ${videoId}! In a real implementation, this would open the video player.`);
+    }
+</script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97646110f54a002d',t:'MTc1NjM5MDA5MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
 </body>
 </html>
