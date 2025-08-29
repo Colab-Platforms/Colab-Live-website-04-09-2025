@@ -82,6 +82,57 @@
 <!-- Main Style -->
 <link rel="stylesheet" href="assests/css/style.css">
 <link rel="stylesheet" href="all.min.css">  <!-- First inclusion -->
+
+<style>
+    /* Banner Styles */
+    .banner-section {
+        margin-top: 90px;
+        overflow: hidden;
+    }
+    
+    .desktop-banner,
+    .mobile-banner {
+        width: 100%;
+        height: auto;
+    }
+    
+    .desktop-banner img,
+    .mobile-banner img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+    
+    /* Adjust heights for different screen sizes */
+    .desktop-banner {
+        /* height: 70vh; */
+        min-height: 500px;
+    }
+    
+    .mobile-banner {
+        height: 70vh;
+        min-height: 300px;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 991.98px) {
+        .desktop-banner {
+            height: 50vh;
+            min-height: 400px;
+        }
+    }
+    
+    @media (max-width: 767.98px) {
+        .banner-section {
+            margin-top: 70px;
+        }
+        
+        .mobile-banner {
+            height: 70vh;
+            min-height: 250px;
+        }
+    }
+</style>
 <style>
     #preloader {
         position: fixed;
@@ -321,15 +372,21 @@
             <!--End Header Upper-->
         </header>
 
-        <!-- Banner Section Start -->
-        <section class="banner-area py-256" style="background-image: url(https://cdn.shopify.com/s/files/1/0636/5226/6115/files/Colab_E-Sports_Banner_-_Without_Logo.jpg?v=1756201527); margin-top: 90px;">
-            <div class="container text-center">
-                <div class="row align-items-center justify-content-between">
-                   
-                </div>
-            </div>
-        </section>
-        <!-- Banner Section End -->
+       <!-- Banner Section Start -->
+<section class="banner-section">
+    <!-- Desktop Banner (visible on larger screens) -->
+    <div class="desktop-banner d-none d-md-block">
+        <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/Colab_E-Sports_Banner_-_Without_Logo.jpg?v=1756201527" 
+             alt="Esports Banner" class="w-100">
+    </div>
+    
+    <!-- Mobile Banner (visible on small screens) -->
+    <div class="mobile-banner d-block d-md-none">
+        <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/WEB_banner_mobile_view_-_3.jpg?v=1756462736" 
+             alt="Esports Mobile Banner" class="w-100">
+    </div>
+</section>
+
 
         <!-- Projects Area start -->
         <section class="project-details py-128 black-100-bg">          
@@ -424,6 +481,7 @@
                             <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/professional-training-for-junior-football-team-at-2024-11-26-12-22-17-utc.jpg?v=1755758245" alt="Timeline">
                             <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/Sports.jpg?v=1755758531" alt="Timeline">
                             <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/DOERS_Author_Portfolio___Freepik_1.jpg?v=1755758532" alt="Timeline">
+                            <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/esports-tournament.jpg?v=1756201205" alt="Timeline">
                         </div>
                     </div>
                     <div class=" col-md-12 col-lg-6" style="margin-top: -190px;">
@@ -487,6 +545,16 @@
                                         <span class="       "><i class="         "></i></span>
                                     </div>
                                     <p class="description">At Colab, we don't just build facilities, we create ecosystems where athletes, communities, and sports thrive. From high-performance training centers to multi-sport arenas, our infrastructure solutions are designed to inspire excellence and foster engagement.</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="icon"></div>
+                                <div class="content">
+                                    <div class="wprocess-title">
+                                        <span class="h4 title">7. Esports</span>
+                                        <span class="       "><i class="         "></i></span>
+                                    </div>
+                                    <p class="description">At Colab Esports, we are committed to shaping the next generation of esports in India and beyond. Our vision is to create a thriving ecosystem where gamers and esports athletes can not only compete but also grow, learn, and showcase their talent on bigger stages</p>
                                 </div>
                             </div>
                         </div>
