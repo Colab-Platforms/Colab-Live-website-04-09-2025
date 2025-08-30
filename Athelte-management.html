@@ -51,6 +51,219 @@
 <link rel="stylesheet" href="assests/css/style.css">
 <link rel="stylesheet" href="all.min.css">  <!-- First inclusion -->
 <style>
+    
+    /* Desktop container1 visible by default */
+    .container1 {
+      max-width: 1480px;
+      margin: 0 auto 3rem;
+      padding: 0 1rem;
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      gap: 15rem;
+      margin-top:90px;
+    }
+
+    /* Hide mobile wrapper by default */
+    .scroll-wrapper {
+      display: none;
+    }
+
+    .image-wrapper {
+    flex: 1 1 60%;  /* Increased from 50% to 60% */
+  max-width: 60%;  /* Increased from 48% to 60% */
+  position: relative;
+  cursor: default;
+}
+.image-wrapper img {
+    height: 60vh;
+    border-radius: 6px;
+    display: block;
+    box-shadow: 0 3px 15px rgba(255, 140, 0, 0.4);
+    user-select: none;
+    object-fit: cover;
+}
+
+/* New class for bigger width */
+.image-wrapper.img-wide img {
+    width: 2500% !important; /* or any bigger width you need */
+}
+
+  .content-wrapper {
+    flex: 1 1 40%;
+  max-width: 40%;  /* Reduced from 68% to 40% */
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
+  align-items: flex-start;
+  user-select: none;
+}
+    /* Left side: vertical timeline dots and line */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4.2rem;
+      position: relative;
+      padding-top: 0.5rem;
+      min-width: 36px;
+      flex-shrink: 0;
+    }
+    .timeline::after {
+      content: "";
+      position: absolute;
+      top: 1.5rem;
+      bottom: 1.5rem;
+      left: 50%;
+      width: 2px;
+      background-color: #ff4d2d;
+      transform: translateX(-50%);
+      z-index: 0;
+    }
+    .dot {
+      width: 20px;
+      height: 20px;
+      background-color: #121312;
+      border: 3px solid #ff4d2d;
+      border-radius: 50%;
+      position: relative;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      z-index: 1;
+    }
+    .dot.active,
+    .dot:hover {
+      background-color: #ff4d2d;
+    }
+    /* Right side: clickable headings and content */
+    .list {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+      max-width: 150%;
+      overflow: hidden;
+    }
+    .list-heading {
+      font-weight: 300;
+      font-size: 1.8rem;
+      border-bottom: 1px solid #333;
+      padding-bottom: 8px;
+      cursor: pointer;
+      color: #fff;
+      position: relative;
+      transition: color 0.3s ease;
+      width:400px;
+    }
+    .list-heading:hover {
+      color: #ff4d2d;
+    }
+    .list-heading.active {
+      color: #ff4d2d;
+      border-bottom: 2px solid #ff4d2d;
+    }
+    .dropdown-content {
+      display: none;
+      margin-top: 0.8rem;
+      font-weight: 400;
+      font-size: 1rem;
+      line-height: 1.4;
+      color: #ccc;
+    }
+    .dropdown-content.open {
+      display: block;
+      font-size: 1.2rem;
+    }
+    /* Contact Button */
+    .contact-btn {
+      position: fixed;
+      top: 1.75rem;
+      right: 1.5rem;
+      padding: 0.6rem 1.3rem;
+      background-color: #c64718;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      font-weight: 500;
+      font-size: 1rem;
+      cursor: pointer;
+      user-select: none;
+      box-shadow: 0 3px 10px rgba(198,71,24,0.7);
+      transition: background-color 0.25s ease;
+      z-index: 100;
+    }
+    .contact-btn:hover,
+    .contact-btn:focus {
+      background-color: #e65e2f;
+      outline: none;
+    }
+
+    /* Mobile view */
+    @media (max-width: 768px) {
+      h2 {
+        font-size: 2.5rem;
+        padding: 0 0.8rem;
+      }
+      /* Hide desktop on mobile */
+      .container1 {
+        display: none;
+      }
+      /* Show mobile cards */
+      .scroll-wrapper {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 1rem;
+        padding: 0.75rem 1rem 3rem;
+      }
+      .scroll-wrapper::-webkit-scrollbar {
+        height: 8px;
+      }
+      .scroll-wrapper::-webkit-scrollbar-thumb {
+        background: #ff4d2d;
+        border-radius: 4px;
+      }
+      .scroll-wrapper::-webkit-scrollbar-track {
+        background: #2a2a2a;
+        border-radius: 4px;
+      }
+      .card {
+        background-color: #1a1a19;
+        border-radius: 8px;
+        padding: 1.3rem 1.5rem;
+        min-width: 80vw;
+        max-width: 85vw;
+        flex: 0 0 auto;
+        scroll-snap-align: start;
+        box-shadow: 0 3px 12px rgba(255, 77, 45, 0.4);
+        color: #eee;
+        position: relative;
+      }
+      .card-image-wrapper {
+        width: 100%;
+        margin-bottom: 1rem;
+      }
+      .card-image-wrapper img {
+        width: 100%;
+        border-radius: 6px;
+        height: auto;
+        user-select: none;
+      }
+      .card-heading {
+        font-weight: 700;
+        font-size: 1.25rem;
+        margin-bottom: 0.6rem;
+        letter-spacing: 1.5px; /* adds space between letters */
+        color:#D04713;
+      }
+      .card-content {
+        font-size: 18px;       /* increased font size */
+    letter-spacing: 1.5px; /* adds space between letters */
+    line-height: 1.6; 
+      }
+    }
+  </style>
+<style>
     #preloader {
         position: fixed;
         top: 0;
@@ -232,7 +445,7 @@
                             <div class="navbar-header py-10">
                                 <div class="mobile-logo">
                                     <a href="index.html">
-                                        <img src="https://cdn.shopify.com/s/files/1/0653/9830/9053/files/minimal-logo-effect-for-footer-unscreen-ezgif.com-crop_1.gif?v=1744289888" alt="Logo" title="Logo" style = "width: 100px;">
+                                        <img src="https://cdn.shopify.com/s/files/1/0653/9830/9053/files/minimal-logo-effect-for-footer-unscreen-ezgif.com-crop_1.gif?v=1744289888" alt="Logo" title="Logo" style = "width: 80px;">
                                     </a>
                                 </div>
 
@@ -258,7 +471,7 @@
                                             <li><a href="sports-ip.html">Sports Ip</a></li>
                                             <li><a href="Sports-marketing.html">Sports Marketing</a></li>
                                             <li><a href="Athelte-management.html">Athelte Management</a></li>
-											  <li><a href="Esports.html">Esports</a></li>
+                                            <li><a href="Esports.html">Esports</a></li>
                                         </ul>
                                     </li>
                                     <!-- <li class="dropdown"><a href="#">pages</a>
@@ -422,242 +635,282 @@
                 </div> -->
             </div>  
         </section>
-          <!-- Timeline Area start -->
-          <section class="timeline-area py-128 black-110">
-            <div class="container">
-                <div class="row section-heading mb-96">
-                    <div class="section-title col-sm-7 col-lg-7">
-                        <h2 class="wow fadeInUp delay-0-2s">Seven Ways to Power Your Game – One Place for Every Service.</h2>
-                    </div>
-                    <div class="button col-sm-5 col-lg-5">
-                        <a class="theme-btn" href="contact.html">Contact Us</a>
-                    </div>
-                </div>
-               <div class="row gap-64 align-items-center">
-                    <div class=" col-md-12 col-lg-6">
-                        <div class="timeline-images wow fadeInLeft delay-0-2s">
-                            <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/modern-gaming-accessories-and-keyboard-on-desk-2025-03-11-08-44-53-utc.jpg?v=1755758536" alt="Timeline">
-                            <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/man-and-woman-standing-next-to-tennis-rackets-in-h-2025-03-05-21-06-36-utc.jpg?v=1755758245" alt="Timeline">
-                            <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/little-unrecognizable-boy-playing-soccer-2025-02-16-09-26-21-utc.jpg?v=1755690577" alt="Timeline">
-                            <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/professional-training-for-junior-football-team-at-2024-11-26-12-22-17-utc.jpg?v=1755758245" alt="Timeline">
-                            <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/Sports.jpg?v=1755758531" alt="Timeline">
-                            <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/DOERS_Author_Portfolio___Freepik_1.jpg?v=1755758532" alt="Timeline">
-                            <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/esports-tournament.jpg?v=1756201205" alt="Timeline">
-                        </div>
-                    </div>
-                    <div class=" col-md-12 col-lg-6" style="margin-top: -190px;">
-                        <div class="timeline-content wow fadeInRight delay-0-2s">
-                            <div class="timeline-item">
-                                <div class="icon"></div>
-                                <div class="content">
-                                    <div class="wprocess-title">
-                                        <span class="h4 title">1. Sports Technology</span>
-                                        <span class="       "><i class="         "></i></span>
-                                    </div>
-                                    <p class="description">The Sports Ecosystem Marketplace is a one-stop platform where athletes and sports lovers can Learn, Play, and Shop all in one place. Book top coaches and academies to level up your game, play by finding and booking turfs, stadiums, and other sports infrastructure nearby, and shop for high-quality gear, accessories, and nutrition from trusted brands. It’s your all-in-one hub to train, compete, and gear up with ease.</p>
-                                </div>
-                            </div>
-                            <div class="timeline-item">
-                                <div class="icon"></div>
-                                <div class="content">
-                                    <div class="wprocess-title">
-                                        <span class="h4 title">2. Sports IP</span>
-                                        <span class="       "><i class="         "></i></span>
-                                    </div>
-                                    <p class="description">Colab is actively developing and managing impactful sports IPs that span multiple formats and audiences, combining competitive excellence with strong market appeal. Our flagship IPs include Northern Challengers in the Big Cricket League, Australian Champions in the World League of Legends, and Punjab De Sher in the Celebrity Cricket League. Each IP is designed with a unique identity, catering to distinct fanbases and market segments. </p>
-                                </div>
-                            </div>
-                            <div class="timeline-item">
-                                <div class="icon"></div>
-                                <div class="content">
-                                    <div class="wprocess-title">
-                                        <span class="h4 title">3. Sports Content</span>
-                                        <span class="       "><i class="         "></i></span>
-                                    </div>
-                                    <p class="description">Colab delivers dynamic and engaging sports content that keeps fans, athletes, and organizations connected and informed. From live match updates, highlights, and behind-the-scenes stories to athlete features and expert insights, we create immersive experiences that bring the sports world to life. Our platform offers high-quality sports news, in-depth analysis, blogs, and multimedia content along with match insights, expert commentary, and performance analytics.</p>
-                                </div>
-                            </div>
-                            <div class="timeline-item">
-                                <div class="icon"></div>
-                                <div class="content">
-                                    <div class="wprocess-title">
-                                        <span class="h4 title">4. Athlete management</span>
-                                        <span class="       "><i class="         "></i></span>
-                                    </div>
-                                    <p class="description">At Colab, our athlete management program is designed to nurture emerging sports stars while supporting established talent. We focus on identifying and developing promising athletes by providing them with expert guidance, performance tracking, and opportunities to compete at higher levels. From training and mentorship to branding and career planning, we offer end-to-end support empowering rising athletes to showcase their potential and helping professionals manage their growth, visibility, and success on and off the field.</p>
-                                </div>
-                            </div>
-                            <div class="timeline-item">
-                                <div class="icon"></div>
-                                <div class="content">
-                                    <div class="wprocess-title">
-                                        <span class="h4 title">5. Sports Marketing</span>
-                                        <span class="       "><i class="         "></i></span>
-                                    </div>
-                                    <p class="description">Sports marketing at Colab goes beyond promotion it's about building meaningful connections between athletes, brands, and fans. We leverage data-driven strategies, influencer engagement, and immersive digital campaigns to amplify visibility, drive fan loyalty, and unlock new revenue streams. Whether it's Field events or global leagues, Colab creates powerful narratives that elevate the reach and impact of every sport.</p>
-                                </div>
-                            </div>
-
-                            <div class="timeline-item">
-                                <div class="icon"></div>
-                                <div class="content">
-                                    <div class="wprocess-title">
-                                        <span class="h4 title">6. Sports Infrastructure</span>
-                                        <span class="       "><i class="         "></i></span>
-                                    </div>
-                                    <p class="description">At Colab, we don't just build facilities, we create ecosystems where athletes, communities, and sports thrive. From high-performance training centers to multi-sport arenas, our infrastructure solutions are designed to inspire excellence and foster engagement.</p>
-                                </div>
-                            </div>
-                            <div class="timeline-item">
-                                <div class="icon"></div>
-                                <div class="content">
-                                    <div class="wprocess-title">
-                                        <span class="h4 title">7. Esports</span>
-                                        <span class="       "><i class="         "></i></span>
-                                    </div>
-                                    <p class="description">At Colab Esports, we are committed to shaping the next generation of esports in India and beyond. Our vision is to create a thriving ecosystem where gamers and esports athletes can not only compete but also grow, learn, and showcase their talent on bigger stages</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Projects Area end -->
-
+        <section>
        
-      <style>
-        @media screen and (min-width: 768px) {
-          .img-footer {
-            height: 160px;
-          }
-    
-          .footer {
-            position: relative;
-            height: 90vh;
-            overflow: hidden;
-          }
-    
-          .footer-video {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -1;
-          }
-    
-          .txt {
-            color: white;
-            font-size: 5rem;
-            margin-bottom: 30px;
-            letter-spacing: -4px;
-          }
-        }
-    
-        @media screen and (max-width: 768px) {
-          .txt {
-            color: white;
-            font-size: 3.2rem;
-            margin-bottom: 20px;
-            letter-spacing: -4px;
-          }
-    
-          .img-footer {
-            height: 70px;
-          }
-    
-          .footer {
-            position: relative;
-            height: 90vh;
-            overflow: hidden;
-          }
-    
-          .footer-video {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -1;
-          }
-        }
-    </style>
-    
-    
-                    <style>
+            <h2 style="margin-top: 90px;  text-align: center;">
+                Seven Ways to Power Your Game – One Place for Every Service.
+              </h2>
+              
+          
+            <section class="container1" aria-label="Service interactive section">
+              <div class="image-wrapper" aria-live="polite" aria-atomic="true">
+                <img
+                  src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2fbd31e8-f4d2-4fbb-8838-3a38c7ca7a34.png"
+                  alt="Overhead view of a VR headset, keyboard, wireless mouse, and headphones placed on a desk with warm lighting"
+                  id="mainImage"
+                  draggable="false"
+                />
+              </div>
+              <div class="content-wrapper">
+                <nav class="timeline" aria-label="Service selection timeline">
+                  <button class="dot active" data-index="0"></button>
+                  <button class="dot" data-index="1"></button>
+                  <button class="dot" data-index="2"></button>
+                  <button class="dot" data-index="3"></button>
+                  <button class="dot" data-index="4"></button>
+                  <button class="dot" data-index="5"></button>
+                  <button class="dot" data-index="6"></button>
+                </nav>
+                <ul class="list" role="list">
+                  <li>
+                    <div class="list-heading" data-index="0">1. Sports Technology</div>
+                    <div class="dropdown-content">Leveraging cutting-edge sports technology solutions to optimize performance, training, and analytics for athletes and teams.</div>
+                  </li>
+                  <li>
+                    <div class="list-heading" data-index="1">2. Sports IP</div>
+                    <div class="dropdown-content">Exclusive Properties: Design and own leagues, tournaments, and branded sports events.</div>
+                  </li>
+                  <li>
+                    <div class="list-heading" data-index="2">3. Sports Content</div>
+                    <div class="dropdown-content">Streamline league-wide processes and track player, personnel and team activity from day-to-day activities to broad-based planning across the entire season.</div>
+                  </li>
+                  <li>
+                    <div class="list-heading" data-index="3">4. Athlete management</div>
+                    <div class="dropdown-content">Empowering athletes with right gameplan and kit to manage and grow their careers, secure sponsorships, showcase achievements, and plan for long-term success through data-driven marketing insights and strategic opportunities.</div>
+                  </li>
+                  <li>
+                    <div class="list-heading" data-index="3">5. Sports Marketing</div>
+                    <div class="dropdown-content">Maximizing brand partnerships with targeted marketing strategies and fan-centric campaigns, amplifying visibility for athletes, teams, and events.</div>
+                  </li>
+                  <li>
+                    <div class="list-heading" data-index="3">6. Esports</div>
+                    <div class="dropdown-content">We believe esports is more than just gaming—it’s a career, a passion, and a path to excellence. At Colab Esports, we nurture athletes by offering them access to the right resources, mentorship, and competitive opportunities.</div>
+                  </li>
+                  <li>
+                    <div class="list-heading" data-index="3">7. Sports Infrastructure</div>
+                    <div class="dropdown-content">Building world-class sports facilities with turnkey solutions, from design to execution. We create modern, tech-enabled environments for athletes, schools, communities, and professional franchises, driving grassroots growth and elite performance across India.</div>
+                  </li>
+                </ul>
+              </div>
+            </section>
+          
+            <!-- Mobile horizontal scroll container1 -->
+            <section class="scroll-wrapper" aria-label="Mobile horizontal cards">
+                
+                <article class="card">
+                    <div class="card-image-wrapper">
+                      <img
+                        src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6d2ed041-29f3-4cce-8f9a-a8c0700b39b6.png"
+                        alt="Athlete management with agents, coaches, and health stats displayed"
+                        draggable="false"
+                      />
+                    </div>
+                    <h3 class="card-heading">1. Sports Infrastructure</h3>
+                    <p class="card-content">Building world-class sports facilities with turnkey solutions, from design to execution. We create modern, tech-enabled environments for athletes, schools, communities, and professional franchises, driving grassroots growth and elite performance across India.</p>
+                  </article>
+              
+              <article class="card">
+                <div class="card-image-wrapper">
+                  <img
+                    src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/fb185349-9b45-434e-bf7c-34e4bfdd0155.png"
+                    alt="Visual representation of sports intellectual property with legal icons and branding"
+                    draggable="false"
+                  />
+                </div>
+                <h3 class="card-heading">2. Sports IP</h3>
+                <p class="card-content">Managing intellectual property rights related to sports, including licensing, branding, and digital assets.</p>
+              </article>
+              <article class="card">
+                <div class="card-image-wrapper">
+                  <img
+                    src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2eda32bc-6e2a-43bb-8939-ccfd10de9dee.png"
+                    alt="Dynamic sports content with fans watching games on multiple screens and media"
+                    draggable="false"
+                  />
+                </div>
+                <h3 class="card-heading">3. Sports Content</h3>
+                <p class="card-content">Creating and distributing engaging sports content that connects fans, athletes, and brands through multimedia experiences.</p>
+              </article>
+              <article class="card">
+                <div class="card-image-wrapper">
+                  <img
+                    src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2088e114-2acb-4e06-9a78-4c58eeefc76a.png"
+                    alt="Athlete management with agents, coaches, and health stats displayed"
+                    draggable="false"
+                  />
+                </div>
+                <h3 class="card-heading">4. Athlete management</h3>
+                <p class="card-content">Providing comprehensive athlete management services including career guidance, health monitoring, and sponsorship negotiations.</p>
+              </article>
+              <article class="card">
+                <div class="card-image-wrapper">
+                  <img
+                    src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2088e114-2acb-4e06-9a78-4c58eeefc76a.png"
+                    alt="Athlete management with agents, coaches, and health stats displayed"
+                    draggable="false"
+                  />
+                </div>
+                <h3 class="card-heading">5. Sports Marketing</h3>
+                <p class="card-content">Maximizing brand partnerships with targeted marketing strategies and fan-centric campaigns, amplifying visibility for athletes, teams, and events.</p>
+              </article>
+              <article class="card">
+                <div class="card-image-wrapper">
+                  <img
+                    src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/smiling-female-tennis-players-shaking-hands-with-c-2024-12-02-03-50-15-utc.jpg?v=1755758245"
+                    alt="Athlete management with agents, coaches, and health stats displayed"
+                    draggable="false"
+                  />
+                </div>
+                <h3 class="card-heading">6. Esports</h3>
+                <p class="card-content">We believe esports is more than just gaming—it’s a career, a passion, and a path to excellence. At Colab Esports, we nurture athletes by offering them access to the right resources, mentorship, and competitive opportunities.</p>
+              </article>
+            
+              <article class="card">
+                <div class="card-image-wrapper">
+                  <img
+                    src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/20be583e-0e15-46cd-b957-dafba8764bff.png"
+                    alt="Visualization of sports technology including sensors and data analytics graphics"
+                    draggable="false"
+                  />
+                </div>
+                <h3 class="card-heading">7. Sports Technology</h3>
+                <p class="card-content">Leveraging cutting-edge sports technology solutions to optimize performance, training, and analytics for athletes and teams.</p>
+              </article>
+            </section>
+         </section>
+
+     <style>
+    @media screen and (min-width: 768px) {
+      .img-footer {
+        height: 160px;
+      }
+
+      .footer {
+        position: relative;
+        height: 90vh;
+        overflow: hidden;
+      }
+
+      .footer-video {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+      }
+
+      .txt {
+        color: white;
+        font-size: 5rem;
+        margin-bottom: 30px;
+        letter-spacing: -4px;
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      .txt {
+        color: white;
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        letter-spacing: 4px;
+      }
+
+      .img-footer {
+        height: 70px;
+      }
+
+      .footer {
+        position: relative;
+        height: 90vh;
+        overflow: hidden;
+      }
+
+      .footer-video {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+      }
+    }
+</style>
+
+
+                <style>
+                    .mobile-banners {
+                        display: none;
+                    }
+                    @media (max-width: 767px) {
                         .mobile-banners {
-                            display: none;
+                            display: flex;
+                            flex-direction: column;
+                            gap: 16px;
+                            padding: 16px;
                         }
-                        @media (max-width: 767px) {
-                            .mobile-banners {
-                                display: flex;
-                                flex-direction: column;
-                                gap: 16px;
-                                padding: 16px;
-                            }
-                            .banner-item {
-                                background: #f5f5f5;
-                                border-radius: 8px;
-                                box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-                                padding: 24px;
-                                text-align: center;
-                                font-size: 1.2em;
-                                font-weight: 600;
-                                color: #333;
-                            }
+                        .banner-item {
+                            background: #f5f5f5;
+                            border-radius: 8px;
+                            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+                            padding: 24px;
+                            text-align: center;
+                            font-size: 1.2em;
+                            font-weight: 600;
+                            color: #333;
                         }
-                    </style>
-            
-              <footer class="footer">
-            
-                <div style="z-index: 1;
-                          position: absolute;
-                          bottom: 10%;
-                          right: 4%;"> <img class="img-footer"
-                    src="https://cdn.shopify.com/s/files/1/0653/9830/9053/files/minimal-logo-effect-for-footer-unscreen-ezgif.com-crop_1.gif?v=1744289888" />
-                </div>
-                <video autoplay muted loop playsinline class="footer-video">
-                    <source src="https://cdn.shopify.com/videos/c/o/v/10cdcbe34c9648ee9acf46547238664c.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <div class="footer__top" style="position: absolute; bottom: 80px;">
-                  <div class="container">
-                    <div class="row">
-            
-            
-                      <div class="col-12 col-md d-flex " style="justify-content: start !important;
-                                        align-items: start;
-                                        flex-direction: column;">
-                        <h2 class="txt">LET'S CONNECT</h2>
-                        <a href="/contact.html" class="btn btn-blue" style="margin-bottom: 20px; background-color: #fdd301;">Contact Us</a>
-                        <div class="footer__legal">
-                          <div class="menu-legal-links-container">
-                            <ul id="menu-legal-links" class="menu">
-                              <li id="menu-item-165" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-165">
-                                <a href="/Services.html">Services</a></li>
-                              <li id="menu-item-46"
-                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-46">
-                                <a rel="privacy-policy" href="/investor.html">Investor</a></li>
-                              <li id="menu-item-166" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-166">
-                                <a href="/contact.html">Contact Us</a></li>
-                            </ul>
-                          </div>
-                        </div>
+                    }
+                </style>
+        
+          <footer class="footer">
+        
+            <div style="z-index: 1;
+                      position: absolute;
+                      bottom: 10%;
+                      right: 4%;"> <img class="img-footer"
+                src="https://cdn.shopify.com/s/files/1/0653/9830/9053/files/minimal-logo-effect-for-footer-unscreen-ezgif.com-crop_1.gif?v=1744289888" />
+            </div>
+            <video autoplay muted loop playsinline class="footer-video">
+                <source src="https://cdn.shopify.com/videos/c/o/v/10cdcbe34c9648ee9acf46547238664c.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="footer__top" style="position: absolute; bottom: 80px;">
+              <div class="container">
+                <div class="row">
+        
+        
+                  <div class="col-12 col-md d-flex " style="justify-content: start !important;
+                                    align-items: start;
+                                    flex-direction: column;">
+                    <h2 class="txt">LET'S CONNECT</h2>
+                    <a href="/contact.html" class="btn btn-blue" style="margin-bottom: 20px; background-color: #D04713;">Contact Us</a>
+                    <div class="footer__legal">
+                      <div class="menu-legal-links-container">
+                        <ul id="menu-legal-links" class="menu">
+                          <li id="menu-item-165" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-165">
+                            <a href="/Services.html">Services</a></li>
+                          <li id="menu-item-46"
+                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-46">
+                            <a rel="privacy-policy" href="/investor.html">Investor</a></li>
+                          <li id="menu-item-166" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-166">
+                            <a href="/contact.html">Contact Us</a></li>
+                        </ul>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="footer__bottom" style="position: absolute;bottom: 10px;width: 100%;">
-                  <div class="container">
-                    <div class="row">
-                      <div class="footer__copyright">
-                        <div class="col-12">
-                          <p>© 2025 Colab Platforms Ltd.</p>
-                        </div>
-                      </div>
+              </div>
+            </div>
+            <div class="footer__bottom" style="position: absolute;bottom: 10px;width: 100%;">
+              <div class="container">
+                <div class="row">
+                  <div class="footer__copyright">
+                    <div class="col-12">
+                      <p>© 2025 Colab Platforms Ltd.</p>
                     </div>
                   </div>
                 </div>
-              </footer>
+              </div>
+            </div>
+          </footer>
         
         
         <!-- Scroll Top Button -->
@@ -717,5 +970,48 @@
             }, 3000);
         });
     </script>
+    <script>
+        (function() {
+          'use strict';
+    
+          const headings = document.querySelectorAll('.list-heading');
+          const dots = document.querySelectorAll('.timeline .dot');
+          const mainImageEl = document.getElementById('mainImage');
+    
+          const data = [
+            { imageDesktop: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/e46d8fbd-74f5-41e7-855d-4dbc443ab390.png" },
+            { imageDesktop: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/cfa29725-1520-4c44-bf81-10d0006488e1.png" },
+            { imageDesktop: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/8892ddfe-8f23-44f1-8fce-182b2231b22c.png" },
+            { imageDesktop: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6d2ed041-29f3-4cce-8f9a-a8c0700b39b6.png" },
+            { imageDesktop: "https://cdn.shopify.com/s/files/1/0636/5226/6115/files/smiling-female-tennis-players-shaking-hands-with-c-2024-12-02-03-50-15-utc.jpg?v=1755758245" },
+            { imageDesktop: "https://cdn.shopify.com/s/files/1/0636/5226/6115/files/esports-tournament.jpg?v=1756201205"},
+            { imageDesktop: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6d2ed041-29f3-4cce-8f9a-a8c0700b39b6.png" }
+          ];
+    
+          headings.forEach((heading, i) => {
+            heading.addEventListener('click', () => {
+              const content = heading.nextElementSibling;
+              const isOpen = content.classList.contains('open');
+    
+              document.querySelectorAll('.dropdown-content').forEach(c => c.classList.remove('open'));
+              document.querySelectorAll('.list-heading').forEach(h => h.classList.remove('active'));
+              document.querySelectorAll('.dot').forEach(d => d.classList.remove('active'));
+    
+              if (!isOpen) {
+                content.classList.add('open');
+                heading.classList.add('active');
+                dots[i].classList.add('active');
+                mainImageEl.src = data[i].imageDesktop;
+              }
+            });
+          });
+    
+          dots.forEach((dot, i) => {
+            dot.addEventListener('click', () => {
+              headings[i].click();
+            });
+          });
+        })();
+      </script>
 </body>
 </html>
