@@ -71,6 +71,133 @@ type="image/x-icon">
 <link rel="stylesheet" href="assests/css/style.css">
 <link rel="stylesheet" href="all.min.css">  <!-- First inclusion -->
 <style>
+     .cards-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      gap: 80px;
+      max-width: 3000px;
+      width: 100%;
+      overflow-x: visible;
+      scroll-behavior: smooth;
+    }
+
+    /* Scroll container on mobile with horizontal scroll */
+    @media (max-width: 768px) {
+      body {
+        padding: 20px 0;
+      }
+      .cards-container {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        gap: 24px;
+        padding-bottom: 8px;
+        scrollbar-width: thin;
+        scrollbar-color: #555 transparent;
+      }
+      .cards-container::-webkit-scrollbar {
+        height: 8px;
+      }
+      .cards-container::-webkit-scrollbar-thumb {
+        background-color: #555;
+        border-radius: 4px;
+      }
+    }
+
+    .card {
+      flex: 0 0 320px;
+      background: #141414;
+      border-radius: 8px;
+      padding: 24px 20px 40px 20px;
+      text-align: center;
+      box-sizing: border-box;
+      cursor: pointer;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      color: #d3d3d3; /* original color */
+      user-select: none;
+      outline: none;
+    }
+
+    .card:focus,
+    .card:focus-visible {
+      outline: none;
+      background-color: #000000;
+      color: #d3d3d3; /* text color remains for readability */
+      box-shadow: 0 0 8px 2px #666;
+    }
+
+    .card h2 {
+      margin: 0 0 20px 0;
+      font-size: 1.9rem;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    .card img {
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+      margin-bottom: 20px;
+      filter: grayscale(100%);
+    }
+
+    .card p {
+      font-weight: 100;
+      font-size: 1.1rem;
+      line-height: 1.5;
+      margin: 0;
+      word-wrap: break-word;
+    }
+  </style>
+<style>
+    /* Mobile view: turn tabs into horizontal scroll cards */
+@media (max-width: 768px) {
+  .tab-style-one {
+    display: flex;
+    overflow-x: auto;
+    gap: 1rem;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 0.5rem 0;
+  }
+
+  .tab-style-one::-webkit-scrollbar {
+    display: none; /* hide scrollbar for clean look */
+  }
+
+  .tab-style-one .nav-item {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+  }
+
+  .tab-style-one .nav-link {
+    display: block;
+    background: #1a1a19;
+    border-radius: 10px;
+    padding: 1rem 1.5rem;
+    font-weight: 600;
+    color: #fff;
+    white-space: nowrap;
+    box-shadow: 0 3px 10px rgba(255, 77, 45, 0.4);
+    transition: background 0.3s ease;
+  }
+
+  .tab-style-one .nav-link.active {
+    background: #ff4d2d;
+    color: #fff;
+  }
+
+  /* Make tab content more readable on mobile */
+  .tab-content p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-top: 1rem;
+    text-align: center;
+  }
+}
+
+</style>
+<style>
     #preloader {
         position: fixed;
         top: 0;
@@ -260,70 +387,34 @@ type="image/x-icon">
         </section>
         <!-- Contact Form Area end -->
 
-        <!-- Studio Area start -->
-        <section class="studio-area black-100-bg py-128">
-            <div class="container">
-                <div class="rel z-1 justify-content-center text-center">
-                    <div class="text-center mb-96 wow fadeInUp delay-0-2s">
-                        <h2>Passion, Purpose & Partnership</h2> 
-                    </div>         
-                </div>  
-                <div class="row gap-30 project-active">
-                    <div class="col-md-4 item text-center">
-                        <div class="item-bg">
-                            <h4 class="mb-32">About the Company</h4>
-                            <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/smiling-female-tennis-players-shaking-hands-with-c-2024-12-02-03-50-15-utc.jpg?v=1755758245" alt="team image">
-                            <div class="mt-32">                           
-                                <p>At Colab Platforms, we are dedicated to transforming the global sports and entertainment ecosystem. From managing world-class sports IPs and athlete partnerships to developing sports,  esports, sports tech, and infrastructure, our mission is to build a connected platform where opportunities thrive. We bring together athletes, fans, brands, and innovators to create an ecosystem that nurtures talent, inspires engagement, and drives sustainable growth.</p>                                
-                                <!-- <p>Email: <a href="mailto:newyork@arinde.com"> newyork@arinde.com</a></p> 
-                                <p>Phone: <a href="tel:(+91) 123 456">(+91) 123 456</a></p>  -->
-                            </div>
-                        </div> 
-                    </div>
-                    <div class="col-md-4 item text-center">
-                        <div class="item-bg">
-                            <h4 class="mb-32">Why Contact Us</h4>
-                            <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/pre-game-prep-2025-04-05-23-43-39-utc.jpg?v=1755758243" alt="team image">
-                            <div class="mt-32">                           
-                                <p>Colab Platforms is more than just a company; we are a collaborative hub for sports excellence. Whether you are an athlete seeking growth, a brand looking for impactful partnerships, or a federation exploring ecosystem solutions, we ensure transparency and innovation at every step. With expertise across sports management, esports, content, and commerce, our doors are always open for meaningful collaborations that create long-term value.</p>
-                                <!-- <p>Email: <a href="mailto:pariswe@arinde.com"> pariswe@arinde.com</a></p> 
-                                <p>Phone: <a href="tel:(+91) 123 456">(+91) 123 456</a></p>  -->
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 item text-center">
-                        <div class="item-bg">
-                            <h4 class="mb-32"> Commitment to Service</h4>
-                            <img src="https://cdn.shopify.com/s/files/1/0653/9830/9053/files/content_1.jpg?v=1744638915" alt="team image">
-                            <div class="mt-32">                           
-                                <p>We believe in building strong, lasting relationships with athletes, fans, and partners worldwide. From ideation to execution, our team ensures reliability, innovation, and impact across every vertical we operate in. At Colab Platforms, we are committed to delivering excellence whether it’s managing iconic sports teams, creating digital-first fan engagement, or developing grassroots talent pathways—while keeping passion and purpose at the core of everything we do.</p>
-                                <!-- <p>Email: <a href="mailto:londone@arinde.com"> londone@arinde.com</a></p> 
-                                <p>Phone: <a href="tel:(+91) 123 456">(+91) 123 456</a></p>  -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Studio Area end -->
+ <section>
+    <div class="cards-container" role="list">
+        <div class="card" tabindex="0" role="listitem" aria-label="About the company card">
+          <h2>About the Company</h2>
+          <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/smiling-female-tennis-players-shaking-hands-with-c-2024-12-02-03-50-15-utc.jpg?v=1755758245" alt="Close-up black and white photo showing two athletes shaking hands on a sports field" onerror="this.style.display='none'" />
+          <p>
+            At Colab Platforms, we are dedicated to transforming the global sports and entertainment ecosystem. From managing world-class sports IPs and athlete partnerships to developing sports,  esports, sports tech, and infrastructure, our mission is to build a connected platform where opportunities thrive. We bring together athletes, fans, brands, and innovators to create an ecosystem that nurtures talent, inspires engagement, and drives sustainable growth.
+          </p>
+        </div>
+    
+        <div class="card" tabindex="0" role="listitem" aria-label="Why contact us card">
+          <h2>Why Contact Us</h2>
+          <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/pre-game-prep-2025-04-05-23-43-39-utc.jpg?v=1755758243" alt="Black and white image of a young athlete holding a soccer ball and looking at a smartphone, smiling with headphones on" onerror="this.style.display='none'" />
+          <p>
+            Colab Platforms is more than just a company; we are a collaborative hub for sports excellence. Whether you are an athlete seeking growth, a brand looking for impactful partnerships, or a federation exploring ecosystem solutions, we ensure transparency and innovation at every step. With expertise across sports management, esports, content, and commerce, our doors are always open for meaningful collaborations that create long-term value.
+          </p>
+        </div>
+    
+        <div class="card" tabindex="0" role="listitem" aria-label="Commitment to service card">
+          <h2>Commitment to Service</h2>
+          <img src="https://cdn.shopify.com/s/files/1/0653/9830/9053/files/content_1.jpg?v=1744638915" alt="Black and white photograph showing a team of three athletes and a coach engaged in a discussion with a clipboard" onerror="this.style.display='none'" />
+          <p>
+            We believe in building strong, lasting relationships with athletes, fans, and partners worldwide. From ideation to execution, our team ensures reliability, innovation, and impact across every vertical we operate in. At Colab Platforms, we are committed to delivering excellence whether it’s managing iconic sports teams, creating digital-first fan engagement, or developing grassroots talent pathways—while keeping passion and purpose at the core of everything we do.
+          </p>
+        </div>
+      </div>
+ </section>
 
-        <section class="map-area">
-            <div class="container-fluid">
-                <!-- Location Map Area Start -->
-                <!-- <div class="contact-page-map wow fadeInUp delay-0-2s">
-                    <iframe style="width: 100%;" src="https://www.google.com/maps/d/embed?mid=1obSrnMGLfF6eBhOZd-MFiEou91IrPqc&ehbc=2E312F" width="640" height="480"></iframe>
-                    <div style="margin-top: 19px; text-align: center; color: white;">
-                     Innov8 CP2 44, Backary Portion, Regal Building, New Delhi, Delhi, 110001
-                     <br>
-                    
-                     <br>
-                     <br>
-                     Email: business@colabplatforms.com
-                    </div>
-                </div> -->
-                <!-- Location Map Area End -->
-            </div>
-        </section>
         
             
         <style>
