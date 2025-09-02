@@ -32,6 +32,87 @@
 <!-- Font Awesome 7.0.0 Local -->
 <link rel="stylesheet" href="fontawesome-free-7.0.0-web (1)/fontawesome-free-7.0.0-web/css/all.min.css">
 <style>
+  
+    /* Section Styles */
+    .section {
+        padding: 80px 0;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .section-title {
+        font-size: 3rem;
+        text-align: center;
+        margin-bottom: 50px;
+        color: white;
+        position: relative;
+		font-weight:300;
+    }
+
+    .section-title::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 3px;
+        background: #D04713;
+    }
+     /* Press Release Cards */
+     .press-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 25px;
+    }
+
+    .press-card {
+        background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+        padding: 30px;
+        border-radius: 15px;
+        border-left: 5px solid #D04713;
+        transition: all 0.3s ease;
+    }
+
+    .press-card:hover {
+        transform: translateX(10px);
+        box-shadow: 0 10px 30px rgba(208, 71, 19, 0.2);
+    }
+
+    .press-date {
+        color: #D04713;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .press-title {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+        color: #fff;
+        letter-spacing: 2px;
+        font-weight:1 !important;
+    }
+
+    .press-excerpt {
+        color: #ccc;
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
+
+    .press-link {
+        color: #D04713;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+
+    .press-link:hover {
+        color: #ff6b35;
+    }
+</style>
+<style>
   #preloader {
       position: fixed;
       top: 0;
@@ -421,9 +502,9 @@
                                     <ul class="navigation clearfix">
                                        <li ><a href="index.html">Home</a></li>
                                         <li><a href="about.html">About</a></li>
-                                                                                 <li class="dropdown"><a href="#">Services</a>
+                                        <li class="dropdown"><a href="#">Services</a>
                                             <ul>
-                                                <li><a href="Services.html" > All Services</a></li>
+                                                <li><a href="Services.html">Services</a></li>
                                                 <li><a href="Sports technology.html">Sports technology</a></li>
                                                 <li><a href="sports-content.html">Sports Content</a></li>
                                                 <li><a href="Sports-infrastructure.html">Sports Infrastructure</a></li>
@@ -438,8 +519,7 @@
                                                 <li><a href="404.html">404 Error</a></li>
                                             </ul>
                                         </li> -->
-                                        <li><a href="contact.html">Contact</a></li>
-                                             
+                                       
                                           <li><a href="investor.html">Investor</a></li>
                                           <li><a href="career.html">Career</a></li>
                                           <li><a href="gallery.html">Gallery</a></li>
@@ -600,8 +680,8 @@
       <p style="text-align: left;">Listed on BSE | BSE Code: 539528 <br>  Building India's first end-to-end sports innovation ecosystem across tech, data, athlete management, e-commerce, and immersive content.
       </p>
       <div class="btn-f">
-      <a href="#report" class="btn">Investor Relations</a>
-      <a href="https://www.screener.in/company/542866/" class="btn" target="_blank"> Stock Details</a>
+      <a href="#report" class="btn">View Investor Relations</a>
+      <a href="https://www.screener.in/company/542866/" class="btn" target="_blank"> View Stock Details</a>
     </div>
     </div>
   
@@ -638,7 +718,36 @@
       </div>
     </div>
   </div>
- 
+  <!-- Press Release Section -->
+  <section id="press" class="section">
+    <h2 class="section-title">Press Releases</h2>
+    <div class="press-grid">
+        <div class="press-card">
+            <div class="press-date">December 15, 2024</div>
+            <h3 class="press-title">Championship Tournament Announced</h3>
+            <p class="press-excerpt">We're excited to announce the upcoming championship tournament featuring top teams from around the world. The event will showcase incredible talent and competitive spirit.</p>
+            <a href="#" class="press-link">Read Full Release →</a>
+        </div>
+        <div class="press-card">
+            <div class="press-date">December 10, 2024</div>
+            <h3 class="press-title">New Training Facility Opens</h3>
+            <p class="press-excerpt">Our state-of-the-art training facility is now open, featuring cutting-edge equipment and world-class coaching staff to develop the next generation of athletes.</p>
+            <a href="#" class="press-link">Read Full Release →</a>
+        </div>
+        <div class="press-card">
+            <div class="press-date">December 5, 2024</div>
+            <h3 class="press-title">Partnership with Local Schools</h3>
+            <p class="press-excerpt">We've partnered with local schools to provide sports programs and equipment, helping young athletes develop their skills and passion for sports.</p>
+            <a href="#" class="press-link">Read Full Release →</a>
+        </div>
+        <div class="press-card">
+            <div class="press-date">November 28, 2024</div>
+            <h3 class="press-title">Season Recap and Awards</h3>
+            <p class="press-excerpt">Looking back at an incredible season with outstanding performances, record-breaking achievements, and memorable moments that will be remembered for years to come.</p>
+            <a href="#" class="press-link">Read Full Release →</a>
+        </div>
+    </div>
+</section>
    
 
       <div id="report" class="reports">
@@ -995,7 +1104,8 @@
             <div style="z-index: 1;
                       position: absolute;
                       bottom: 10%;
-                      right: 4%;"> 
+                      right: 4%;"> <img class="img-footer"
+                src="https://cdn.shopify.com/s/files/1/0653/9830/9053/files/minimal-logo-effect-for-footer-unscreen-ezgif.com-crop_1.gif?v=1744289888" />
             </div>
             <video autoplay muted loop playsinline class="footer-video">
                 <source src="https://cdn.shopify.com/videos/c/o/v/10cdcbe34c9648ee9acf46547238664c.mp4" type="video/mp4">
@@ -1021,6 +1131,9 @@
                             <a rel="privacy-policy" href="/investor.html">Investor</a></li>
                           <li id="menu-item-166" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-166">
                             <a href="/contact.html">Contact Us</a></li>
+                            <li id="menu-item-166" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-166">
+                              <a href="/blog.html">Blog</a></li>
+                              
                         </ul>
                       </div>
                     </div>
