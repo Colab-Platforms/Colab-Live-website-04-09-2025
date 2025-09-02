@@ -43,6 +43,84 @@ type="image/x-icon">
 <!-- Main Style -->
 <link rel="stylesheet" href="assests/css/style.css">
 <link rel="stylesheet" href="all.min.css">  <!-- First inclusion -->
+<style>
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    .scroll-container::-webkit-scrollbar {
+        display: none;
+    }
+    
+    /* Hide scrollbar for IE, Edge and Firefox */
+    .scroll-container {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+    }
+    
+    /* Smooth auto-scroll animation */
+    @keyframes scroll {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(calc(-800px * 3 - 90px)); } /* 3 images * width + (gap * 3) */
+    }
+    
+    .scroll-container .d-flex {
+        animation: scroll 30s linear infinite;
+        width: max-content;
+    }
+    
+    .scroll-container:hover .d-flex {
+        animation-play-state: paused;
+    }
+    
+    .scroll-container .d-flex > div {
+        transition: transform 0.3s ease;
+    }
+    
+    .scroll-container .d-flex > div:hover {
+        transform: scale(1.02);
+    }
+
+    /* Mobile Responsive Styles */
+    @media (max-width: 991.98px) {
+        .scroll-container.desktop-version {
+            display: none; /* hide desktop version on mobile */
+        }
+        .scroll-container-mobile {
+            display: block;
+        }
+    }
+
+    @media (min-width: 992px) {
+        .scroll-container.desktop-version {
+            display: block;
+        }
+        .scroll-container-mobile {
+            display: none; /* hide mobile version on desktop */
+        }
+    }
+
+    /* Mobile-specific styling */
+    .scroll-container-mobile {
+        overflow-x: auto;
+        white-space: nowrap;
+        padding: 20px 0;
+        scrollbar-width: none;  /* Firefox */
+        -ms-overflow-style: none;  /* IE and Edge */
+    }
+
+    .scroll-container-mobile::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Opera */
+    }
+
+    .scroll-container-mobile img {
+        width: 90%;
+        max-width: 350px;
+        height: auto;
+        border-radius: 10px;
+        margin: 0 10px;
+        display: inline-block;
+        object-fit: cover;
+    }
+</style>
+
 
 <style>
     
@@ -1576,134 +1654,63 @@ From personalized athlete development to large-scale sports management, Colab is
                     <h2>OUR IP'S</h2>
                 </div>
                 
-                <div class="scroll-container" style="overflow: hidden; padding: 40px 0;">
-                    <div class="d-flex" style="gap: 30px;">
-                        <!-- First Image -->
-                       
-                        <div class="flex-shrink-0" style="width: 800px; height: 500px;">
-                            <a href="about.html">
-                                <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/IP_s_Northern_Challengers.jpg?v=1755685245" 
-                                     alt="Northern Challengers" style="width: 100%; height: 130%; object-fit: cover; border-radius: 10px;">
-                            </a>
-                        </div>
-                        <!-- Second Image -->
-                        <div class="flex-shrink-0" style="width: 800px; height: 500px;">
-                            <a href="about.html">
-                                <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/IP_s_Australian_Champion.jpg?v=1755685244" 
-                                     alt="Astralia" style="width: 100%; height: 130%; object-fit: cover; border-radius: 10px;">
-                            </a>
-                        </div>
-                        <div class="flex-shrink-0" style="width: 800px; height: 500px;">
-                            <a href="about.html">
-                                <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/IP_s_Northern_Challengers.jpg?v=1755685245" 
-                                     alt="Northern Challengers" style="width: 100%; height: 130%; object-fit: cover; border-radius: 10px;">
-                            </a>
-                        </div>
-                        
-                        <!-- Third Image -->
-                        <div class="flex-shrink-0" style="width: 800px; height: 500px;">
-                            <a href="about.html">
-                                <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/IP_s_Australian_Champion.jpg?v=1755685244" 
-                                     alt="Astralia" style="width: 100%; height: 130%; object-fit: cover; border-radius: 10px;">
-                            </a>
-                        </div>
+             <!-- Desktop Version (your original unchanged) -->
+<div class="scroll-container desktop-version" style="overflow: hidden; padding: 40px 0;">
+    <div class="d-flex" style="gap: 30px;">
+        <!-- First Image -->
+        <div class="flex-shrink-0" style="width: 800px; height: 500px;">
+            <a href="about.html">
+                <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/IP_s_Northern_Challengers.jpg?v=1755685245" 
+                     alt="Northern Challengers" style="width: 100%; height: 130%; object-fit: cover; border-radius: 10px;">
+            </a>
+        </div>
+        <!-- Second Image -->
+        <div class="flex-shrink-0" style="width: 800px; height: 500px;">
+            <a href="about.html">
+                <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/IP_s_Australian_Champion.jpg?v=1755685244" 
+                     alt="Astralia" style="width: 100%; height: 130%; object-fit: cover; border-radius: 10px;">
+            </a>
+        </div>
+        <div class="flex-shrink-0" style="width: 800px; height: 500px;">
+            <a href="about.html">
+                <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/IP_s_Northern_Challengers.jpg?v=1755685245" 
+                     alt="Northern Challengers" style="width: 100%; height: 130%; object-fit: cover; border-radius: 10px;">
+            </a>
+        </div>
+        <!-- Third Image -->
+        <div class="flex-shrink-0" style="width: 800px; height: 500px;">
+            <a href="about.html">
+                <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/IP_s_Australian_Champion.jpg?v=1755685244" 
+                     alt="Astralia" style="width: 100%; height: 130%; object-fit: cover; border-radius: 10px;">
+            </a>
+        </div>
+        <!-- Duplicate images for seamless looping -->
+        <div class="flex-shrink-0" style="width: 800px; height: 500px;">
+            <a href="about.html">
+                <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/IP_s_Northern_Challengers.jpg?v=1755685245" 
+                     alt="Northern Challengers" style="width: 100%; height: 130%; object-fit: cover; border-radius: 10px;">
+            </a>
+        </div>
+    </div>
+</div>
 
-                        <!-- Duplicate images for seamless looping -->
-                        <div class="flex-shrink-0" style="width: 800px; height: 500px;">
-                            <a href="about.html">
-                                <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/IP_s_Northern_Challengers.jpg?v=1755685245" 
-                                     alt="Northern Challengers" style="width: 100%; height: 130%; object-fit: cover; border-radius: 10px;">
-                            </a>
-                        </div>
-                        
-                       
-                    </div>
-                </div>
+<!-- Mobile Version (new added) -->
+<div class="scroll-container-mobile">
+    <a href="about.html">
+        <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/IP_s_Northern_Challengers.jpg?v=1755685245" alt="Northern Challengers">
+    </a>
+    <a href="about.html">
+        <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/IP_s_Australian_Champion.jpg?v=1755685244" alt="Astralia">
+    </a>
+    <a href="about.html">
+        <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/IP_s_Northern_Challengers.jpg?v=1755685245" alt="Northern Challengers">
+    </a>
+    <a href="about.html">
+        <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/IP_s_Australian_Champion.jpg?v=1755685244" alt="Astralia">
+    </a>
+</div>
             </div>
-            
-            <style>
-                /* Hide scrollbar for Chrome, Safari and Opera */
-                .scroll-container::-webkit-scrollbar {
-                    display: none;
-                }
-                
-                /* Hide scrollbar for IE, Edge and Firefox */
-                .scroll-container {
-                    -ms-overflow-style: none;  /* IE and Edge */
-                    scrollbar-width: none;  /* Firefox */
-                }
-                
-                /* Smooth auto-scroll animation */
-                @keyframes scroll {
-                    0% { transform: translateX(0); }
-                    100% { transform: translateX(calc(-800px * 3 - 90px)); } /* 3 images * width + (gap * 3) */
-                }
-                
-                .scroll-container .d-flex {
-                    animation: scroll 30s linear infinite;
-                    width: max-content;
-                }
-                
-                .scroll-container:hover .d-flex {
-                    animation-play-state: paused;
-                }
-                
-                .scroll-container .d-flex > div {
-                    transition: transform 0.3s ease;
-                }
-                
-                .scroll-container .d-flex > div:hover {
-                    transform: scale(1.02);
-                }
-                /* Mobile Responsive Styles */
-                @media (max-width: 991.98px) {
-                    .col-md-12.col-lg-6 {
-                        width: 100%;
-                        padding: 0 15px;
-                        margin-top: 0 !important; /* Remove any negative margin on mobile */
-                    }
-                    
-                    .timeline-images {
-                        margin-bottom: 30px;
-                        display: flex;
-                        flex-wrap: wrap;
-                        gap: 15px;
-                        justify-content: center;
-                    }
-                    
-                    .timeline-images img {
-                        width: calc(50% - 10px);
-                        height: auto;
-                        border-radius: 8px;
-                        margin-bottom: 15px;
-                        object-fit: cover;
-                    }
-                    
-                    .timeline-content {
-                        padding: 0 15px;
-                    }
-                    
-                    .timeline-item {
-                        margin-bottom: 30px;
-                    }
-                }
-                
-                /* Extra small devices (portrait phones, less than 576px) */
-                @media (max-width: 575.98px) {
-                    .timeline-images img {
-                        width: 100%;
-                    }
-                    
-                    .timeline-content .wprocess-title .title {
-                        font-size: 1.25rem;
-                    }
-                    
-                    .timeline-content .description {
-                        font-size: 0.9rem;
-                        line-height: 1.5;
-                    }
-                }
-            </style>
+  
         </section>
         <!-- Interior Services Section End -->
 
@@ -2026,10 +2033,11 @@ From personalized athlete development to large-scale sports management, Colab is
                     <div class="col-md-4 item">
                         <div class="blog-item wow fadeInUp delay-0-2s black-120-bg ">
                             <div class="content ">
-                                <h6><a href="blog.html"></a></h6>
+                             
                                 <div class="image">
                                     <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/122793172.avif?v=1753854801" alt="Blog">
-                                    <a class="hover-btn" href="blog.html">Read More</a>
+                                    <a class="hover-btn" href="blog.html?id=11">Read More</a>
+                                    <h6><a href="blog.html?id=11">Praggnanandhaa vs Magnus Carlsen</a></h6> <!-- Added heading text -->
                                 </div>
                                 <!-- <ul class="blog-meta mb-16">
                                     <li>
@@ -2046,10 +2054,11 @@ From personalized athlete development to large-scale sports management, Colab is
                     <div class="col-md-4 item">
                         <div class="blog-item wow fadeInUp delay-0-2s black-120-bg ">
                             <div class="content ">
-                                <h6><a href="blog.html"></a></h6>
+                                <h6><a href="blog.html?id=6"></a></h6>
                                 <div class="image">
                                     <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/123099217.jpg?v=1754399116" alt="Blog">
-                                    <a class="hover-btn" href="blog.html">Read More</a>
+                                    <a class="hover-btn" href="blog.html?id=6">Read More</a>
+                                    <h6><a href="blog.html?id=6">India Script Historic Win at The Oval to Level Series 2-2 Against England</a></h6> 
                                 </div>
                                 <!-- <ul class="blog-meta mb-16">
                                     <li>
@@ -2069,7 +2078,8 @@ From personalized athlete development to large-scale sports management, Colab is
                                 <!-- <h6><a href="project-details.html">Interior Design Trending Now</a></h6> -->
                                 <div class="image">
                                     <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/wcl_cancelled_1752983392939_1752983397396_1753894692031.webp?v=1754398917" alt="Blog">
-                                    <a class="hover-btn" href="blog.html">Read More</a>
+                                    <a class="hover-btn" href="blog.html?id=7">Read More</a>
+                                    <h6><a href="blog.html?id=7">India Champions Withdraw From WCL Semifinal Against Pakistan</a></h6> 
                                 </div>
                                 <!-- <ul class="blog-meta mb-16">
                                     <li>
