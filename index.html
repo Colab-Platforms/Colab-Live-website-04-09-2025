@@ -44,6 +44,25 @@ type="image/x-icon">
 <link rel="stylesheet" href="assests/css/style.css">
 <link rel="stylesheet" href="all.min.css">  <!-- First inclusion -->
 <style>
+    /* Fade/Blink cycle effect for right-side image */
+    .fade-cycle {
+        animation: fadeImages 12s infinite;
+        transition: opacity 1s ease-in-out;
+    }
+    
+    @keyframes fadeImages {
+        0%, 33% {
+            content: url('https://cdn.shopify.com/s/files/1/0636/5226/6115/files/stump.jpg?v=1756892711');
+        }
+        34%, 66% {
+            content: url('https://cdn.shopify.com/s/files/1/0636/5226/6115/files/1_2.jpg?v=1756888329');
+        }
+        67%, 100% {
+            content: url('https://cdn.shopify.com/s/files/1/0636/5226/6115/files/2_1.jpg?v=1756888328');
+        }
+    }
+    </style>
+<style>
     /* Hide scrollbar for Chrome, Safari and Opera */
     .scroll-container::-webkit-scrollbar {
         display: none;
@@ -1019,11 +1038,9 @@ type="image/x-icon">
                                         <li><a href="index.html">Home</a></li>
                                         <li><a href="about.html">About</a></li>
                                       <li class="dropdown"><a href="#">Services</a>
-                                           <ul>
+                                            <ul>
                                                 <li><a href="Services.html">All Services</a></li>
-                                                <li><a href=".html"></a></li>
-												 <li><a href="	https://colabsports.in/">Sports Marketplace</a></li>
-											
+                                                <li><a href="https://colabsports.in/">Sports Marketplace</a></li>
                                                 <li><a href="sports-content.html">Sports Content</a></li>
                                                 <li><a href="Sports-infrastructure.html">Sports Infrastructure</a></li>
                                                 <li><a href="sports-ip.html">Sports Ip</a></li>
@@ -1069,7 +1086,7 @@ type="image/x-icon">
                 <div class="carousel slide" id="recipeCarousel" data-bs-ride="carousel">
                 <div class="carousel-inner" role="listbox">
                     <div class="carousel-item active"
-                        style="background-image: url(https://cdn.shopify.com/s/files/1/0653/9830/9053/files/New_Banner_Design.jpg?v=1746249619);">
+                        style="background-image: url(https://cdn.shopify.com/s/files/1/0636/5226/6115/files/3_2.jpg?v=1756891665);">
                         <div class="container pt-64 pb-64">
                             <!-- <p class="text-white category-line category-hero">DESGIN</p>
                             <h1 class="col-lg-10 text-white">Interior And Architecture Design From Colab Patform Limited</h1> -->
@@ -1097,7 +1114,7 @@ type="image/x-icon">
                         </div>
                     </div>
                      <div class="carousel-item"
-                        style="background-image: url(https://cdn.shopify.com/s/files/1/0653/9830/9053/files/hero_bannner_size.jpg?v=1744461812);">
+                        style="background-image: url(https://cdn.shopify.com/s/files/1/0636/5226/6115/files/1_5.jpg?v=1756891660);">
                         <div class="container pt-64 pb-64">
                             <!-- <p class="text-white category-line category-hero">MODERN</p>
                             <h1 class="col-lg-10 text-white">Architecture And Interior Design From Colab Patform Limited</h1> -->
@@ -1125,7 +1142,7 @@ type="image/x-icon">
                         </div>
                     </div>
                     <div class="carousel-item"
-                        style="background-image: url(https://cdn.shopify.com/s/files/1/0636/5226/6115/files/WEB_Banner_For_CP.jpg?v=1751627695);">
+                        style="background-image: url(https://cdn.shopify.com/s/files/1/0636/5226/6115/files/2_3.jpg?v=1756891628);">
                         <div class="container pt-64 pb-64">
                             <!-- <p class="text-white category-line category-hero">MODERN</p>
                             <h1 class="col-lg-10 text-white">Architecture And Interior Design From Colab Patform Limited</h1> -->
@@ -1390,15 +1407,19 @@ type="image/x-icon">
                             <h2 class="col-md-6">One Unified Ecosystem  Boundless Impacts</h2>
                         </div>
                         <div class="row pt-96 pb-64">
-                            <p class="col-md-6 col-lg-3 text">At Colab Platforms, we are revolutionizing the sports industry with a unified digital ecosystem that blends innovation, performance, and community. Our platform empowers athletes, coaches, organizations, and fans by seamlessly integrating training, commerce, marketing, and engagement bridging grassroots talent with global opportunities.
-From personalized athlete development to large-scale sports management, Colab is the ultimate destination for everything sports, enabling dreams to thrive and talent to rise.</p>
+                            <p class="col-md-6 col-lg-3 text" style="font-size:1.2rem;">
+                                At Colab Platforms, we are revolutionizing the sports industry with a unified digital ecosystem that blends innovation, performance, and community. Our platform empowers athletes, coaches, organizations, and fans by seamlessly integrating training, commerce, marketing, and engagement bridging grassroots talent with global opportunities.
+                                From personalized athlete development to large-scale sports management, Colab is the ultimate destination for everything sports, enabling dreams to thrive and talent to rise.
+                            </p>
                             <img class="small-image col-md-6 col-lg-5 wow zoomIn"
                                 src="https://cdn.shopify.com/s/files/1/0674/9614/9171/files/Colab_Esport_Logo_On_Teshirt_-_New_Size.jpg?v=1752586205"
                                 alt="about image" title="about image">
                         </div>
                     </div>
-                    <img class="col-sm-12 col-md-6 right-image wow zoomIn"
-                        src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/ChatGPT_Image_Aug_26_2025_01_39_36_PM.png?v=1756195823"
+                
+                    <!-- Right-side ZoomIn Card with 3-image fade effect -->
+                    <img class="col-sm-12 col-md-6 right-image wow zoomIn fade-cycle"
+                        src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/stump.jpg?v=1756892711"
                         alt="about image" title="about image">
                 </div>
             </div>
