@@ -133,7 +133,7 @@ type="image/x-icon">
         width: 90%;
         max-width: 350px;
         height: auto;
-        border-radius: 10px;
+       
         margin: 0 10px;
         display: inline-block;
         object-fit: cover;
@@ -355,112 +355,6 @@ type="image/x-icon">
     }
   </style>
     <style>
-        /* Carousel transition settings */
-        .carousel-item {
-            transition: transform 1.5s ease-in-out !important; /* Increased from default 0.6s */
-        }
-        
-        /* Override Bootstrap's transition duration */
-        .carousel-fade .carousel-item {
-            transition: opacity 1.5s ease-in-out !important; /* For fade effect */
-        }
-        
-        /* Faster transitions for all other elements */
-        *:not(.carousel-item) {
-            -webkit-transition-duration: 0.2s !important;
-            -o-transition-duration: 0.2s !important;
-            -moz-transition-duration: 0.2s !important;
-            transition-duration: 0.2s !important;
-            -webkit-transition-delay: 0s !important;
-            -o-transition-delay: 0s !important;
-            -moz-transition-delay: 0s !important;
-            transition-delay: 0s !important;
-        }
-        
-        /* Custom hero banner height */
-        .hero-area {
-            min-height: 90vh !important;
-            width:100%;
-            position: relative;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            /* display: flex; */
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .hero-area .carousel-item {
-            min-height: 110vh !important;
-            width: 100%;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-        
-        /* Adjust content positioning */
-        .hero-area .container {
-            position: relative;
-            z-index: 2;
-            /* height: 120vh; */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-        
-        /* Responsive adjustments */
-        @media (max-width: 1199px) {
-            .hero-area,
-            .hero-area .carousel-item {
-                min-height: 80vh !important;
-            }
-        }
-        
-        @media (max-width: 991px) {
-            .hero-area,
-            .hero-area .carousel-item {
-                min-height: 70vh !important;
-            }
-        }
-        
-        @media (max-width: 767px) {
-            .hero-area,
-            .hero-area .carousel-item {
-                min-height: 60vh !important;
-            }
-            
-            /* Adjust content positioning on mobile */
-            .hero-area .pt-32[style*="margin-top"] {
-                margin-top: 200px !important; /* Adjust this value as needed */
-            }
-        }
-        
-        @media (max-width: 575px) {
-            .hero-area,
-            .hero-area .carousel-item {
-                min-height: 50vh !important;
-            }
-            
-            .hero-area .pt-32[style*="margin-top"] {
-                margin-top: 650px !important;
-            }
-        }
-        
-        /* Ensure images cover the area properly */
-        .hero-area .carousel-item {
-            background-size: cover !important;
-            background-position: center !important;
-        }
-        
-        /* Maintain aspect ratio for the small image */
-        .small-img img {
-            max-width: 100%;
-            /* height: 60vh; */
-            object-fit: cover;
-        }
-    </style>
-
-    <style>
          .gallery-section {
             /* max-width: 1200px; */
             margin: 0 auto;
@@ -633,7 +527,7 @@ type="image/x-icon">
         }
 
         .control-btn {
-            background: rgba(0,0,0,0.7);
+            background: rgba(0, 0, 0, 0.7);
             color: white;
             border: none;
             width: 35px;
@@ -1082,124 +976,111 @@ type="image/x-icon">
         <!-- Hero Section Start -->
         <section class="hero-area black-120-bg position-relative">
             <!-- Desktop Banner (visible on larger screens) -->
-            <div class="desktop-banner d-none d-md-block">
+            <style>
+                .carousel-item img {
+                  width: 100%;
+                  height: auto;
+                  object-fit: contain; /* makes sure image is never cut */
+                }
+              
+                .carousel-flex {
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  gap: 15px;
+                  position: absolute;
+                  bottom: 30px; /* place buttons at bottom of banner */
+                  left: 50%;
+                  transform: translateX(-50%);
+                }
+              
+                .carousel-buttons {
+                  display: flex;
+                  gap: 15px;
+                }
+              
+                .carousel-buttons button {
+                  background: rgba(0, 0, 0, 0.4);
+                  border: none;
+                  cursor: pointer;
+                  padding: 10px 15px;
+                  border-radius: 50%;
+                }
+              
+                .carousel-buttons i {
+                  font-size: 20px;
+                  color: #fff;
+                }
+              </style>
+              
+              <div class="desktop-banner">
                 <div class="carousel slide" id="recipeCarousel" data-bs-ride="carousel">
-                <div class="carousel-inner" role="listbox">
-                    <div class="carousel-item active"
-                        style="background-image: url(https://cdn.shopify.com/s/files/1/0636/5226/6115/files/WEB_Banner_For_CP_2.jpg?v=1756896561);">
-                        <div class="container pt-64 pb-64">
-                            <!-- <p class="text-white category-line category-hero">DESGIN</p>
-                            <h1 class="col-lg-10 text-white">Interior And Architecture Design From Colab Patform Limited</h1> -->
-                            <div class="row pt-32" style ="margin-top: 340px;">
-                                <div class="carousel-buttons col-6">
-                                    <button class="prev" type="button" data-bs-target="#recipeCarousel"
-                                        data-bs-slide="prev">
-                                        <span class="carousel-control-prev-icon" aria-hidden="true"><i
-                                                class="fas fa-arrow-left"></i></span>
-                                    </button>
-                                    <button class="" type="button" data-bs-target="#recipeCarousel"
-                                        data-bs-slide="next">
-                                        <span class="carousel-control-next-icon" aria-hidden="true"><i
-                                                class="fas fa-arrow-right"></i></span>
-                                    </button>
-                                </div>
-                                <div class="small-img col-6">
-                                    <a href="project-details.html">
-                                        <img class="hero-img wow zoomIn" style="display: none;"
-                                            src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/Screenshot_2025-08-20_160136.png?v=1755756555"
-                                            alt="hero image" title="hero image">
-                                    </a>
-                                </div>
-                            </div>
+                  <div class="carousel-inner">
+              
+                    <!-- Slide 1 -->
+                    <div class="carousel-item active">
+                      <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/3_3.jpg?v=1756903345" alt="banner 1">
+                      <div class="carousel-flex">
+                        <div class="carousel-buttons">
+                          <button class="prev" type="button" data-bs-target="#recipeCarousel" data-bs-slide="prev">
+                            <i class="fas fa-arrow-left"></i>
+                          </button>
+                          <button type="button" data-bs-target="#recipeCarousel" data-bs-slide="next">
+                            <i class="fas fa-arrow-right"></i>
+                          </button>
                         </div>
+                      </div>
                     </div>
-                     <div class="carousel-item"
-                        style="background-image: url(https://cdn.shopify.com/s/files/1/0636/5226/6115/files/1_5.jpg?v=1756891660);">
-                        <div class="container pt-64 pb-64">
-                            <!-- <p class="text-white category-line category-hero">MODERN</p>
-                            <h1 class="col-lg-10 text-white">Architecture And Interior Design From Colab Patform Limited</h1> -->
-                            <div class="row pt-32" style ="margin-top: 340px;">
-                                <div class="carousel-buttons col-6">
-                                    <button class="prev" type="button" data-bs-target="#recipeCarousel"
-                                        data-bs-slide="prev">
-                                        <span class="carousel-control-prev-icon" aria-hidden="true"><i
-                                                class="fas fa-arrow-left"></i></span>
-                                    </button>
-                                    <button class="" type="button" data-bs-target="#recipeCarousel"
-                                        data-bs-slide="next">
-                                        <span class="carousel-control-next-icon" aria-hidden="true"><i
-                                                class="fas fa-arrow-right"></i></span>
-                                    </button>
-                                </div>
-                                <div class="small-img col-6">
-                                    <a href="project-details.html">
-                                        <img class="hero-img wow zoomIn" style="display: none;"
-                                            src="https://cdn.shopify.com/s/files/1/0653/9830/9053/files/hero_bannner_size.jpg?v=1744461812"
-                                            alt="hero image" title="hero image">
-                                    </a>
-                                </div>
-                            </div>
+              
+                    <!-- Slide 2 -->
+                    <div class="carousel-item">
+                      <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/1_7.jpg?v=1756903345" alt="banner 2">
+                      <div class="carousel-flex">
+                        <div class="carousel-buttons">
+                          <button class="prev" type="button" data-bs-target="#recipeCarousel" data-bs-slide="prev">
+                            <i class="fas fa-arrow-left"></i>
+                          </button>
+                          <button type="button" data-bs-target="#recipeCarousel" data-bs-slide="next">
+                            <i class="fas fa-arrow-right"></i>
+                          </button>
                         </div>
+                      </div>
                     </div>
-                    <div class="carousel-item"
-                        style="background-image: url(https://cdn.shopify.com/s/files/1/0636/5226/6115/files/2_3.jpg?v=1756891628);">
-                        <div class="container pt-64 pb-64">
-                            <!-- <p class="text-white category-line category-hero">MODERN</p>
-                            <h1 class="col-lg-10 text-white">Architecture And Interior Design From Colab Patform Limited</h1> -->
-                            <div class="row pt-32" style ="margin-top: 340px;">
-                                <div class="carousel-buttons col-6">
-                                    <button class="prev" type="button" data-bs-target="#recipeCarousel"
-                                        data-bs-slide="prev">
-                                        <span class="carousel-control-prev-icon" aria-hidden="true"><i
-                                                class="fas fa-arrow-left"></i></span>
-                                    </button>
-                                    <button class="" type="button" data-bs-target="#recipeCarousel"
-                                        data-bs-slide="next">
-                                        <span class="carousel-control-next-icon" aria-hidden="true"><i
-                                                class="fas fa-arrow-right"></i></span>
-                                    </button>
-                                </div>
-                                <div class="small-img col-6">
-                                    <a href="project-details.html">
-                                        <img class="hero-img wow zoomIn"style="display: none;"
-                                            src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/WEB_Banner_For_CP.jpg?v=1751627695"
-                                            alt="hero image" title="hero image">
-                                    </a>
-                                </div>
-                            </div>
+              
+                    <!-- Slide 3 -->
+                    <div class="carousel-item">
+                      <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/2_5.jpg?v=1756903344" alt="banner 3">
+                      <div class="carousel-flex">
+                        <div class="carousel-buttons">
+                          <button class="prev" type="button" data-bs-target="#recipeCarousel" data-bs-slide="prev">
+                            <i class="fas fa-arrow-left"></i>
+                          </button>
+                          <button type="button" data-bs-target="#recipeCarousel" data-bs-slide="next">
+                            <i class="fas fa-arrow-right"></i>
+                          </button>
                         </div>
+                      </div>
                     </div>
-                     <div class="carousel-item"
-                        style="background-image: url(https://cdn.shopify.com/s/files/1/0636/5226/6115/files/Home_tech_banner_desk_3.jpg?v=1756894758);">
-                        <div class="container pt-64 pb-64">
-                            <!-- <p class="text-white category-line category-hero">MODERN</p>
-                            <h1 class="col-lg-10 text-white">Architecture And Interior Design From Colab Patform Limited</h1> -->
-                            <div class="row pt-32" style ="margin-top: 340px;">
-                                <div class="carousel-buttons col-6">
-                                    <button class="prev" type="button" data-bs-target="#recipeCarousel"
-                                        data-bs-slide="prev">
-                                        <span class="carousel-control-prev-icon" aria-hidden="true"><i
-                                                class="fas fa-arrow-left"></i></span>
-                                    </button>
-                                    <button class="" type="button" data-bs-target="#recipeCarousel"
-                                        data-bs-slide="next">
-                                        <span class="carousel-control-next-icon" aria-hidden="true"><i
-                                                class="fas fa-arrow-right"></i></span>
-                                    </button>
-                                </div>
-                                <div class="small-img col-6">
-                                    <a href="project-details.html">
-                                        <img class="hero-img wow zoomIn" style="display: none;"
-                                            src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/home_banner_1_aa0cebd2-3034-4adf-b0dd-03d081319faa.jpg?v=1755326593"
-                                            alt="hero image" title="hero image">
-                                    </a>
-                                </div>
-                            </div>
+              
+                    <!-- Slide 4 -->
+                    <div class="carousel-item">
+                      <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/2_6.jpg?v=1756903639" alt="banner 4">
+                      <div class="carousel-flex">
+                        <div class="carousel-buttons">
+                          <button class="prev" type="button" data-bs-target="#recipeCarousel" data-bs-slide="prev">
+                            <i class="fas fa-arrow-left"></i>
+                          </button>
+                          <button type="button" data-bs-target="#recipeCarousel" data-bs-slide="next">
+                            <i class="fas fa-arrow-right"></i>
+                          </button>
                         </div>
+                      </div>
                     </div>
+              
+                  </div>
                 </div>
-            </div>
-            </div>
+              </div>
+              
             
             <!-- Mobile Banner (visible on small screens) -->
             <div class="mobile-banner d-block d-md-none">
@@ -1315,7 +1196,6 @@ type="image/x-icon">
                             </div>
                         </div>
                     </div>
-                </div>
                         </div>
                     </div>
                 </div>
@@ -1391,9 +1271,7 @@ type="image/x-icon">
                     display: none !important;
                 }
                 
-                .hero-area {
-                    min-height: 90vh;
-                }
+              
             }
         </style>
 
@@ -1593,7 +1471,7 @@ type="image/x-icon">
                     <button class="control-btn mute-btn" title="Mute/Unmute">🔊</button>
                     <button class="control-btn fullscreen-btn" title="Fullscreen">⛶</button>
                 </div>
-
+                <div class="media-type">Video</div>
             </div>
 
             <div class="media-item" data-type="video">
@@ -1606,7 +1484,7 @@ type="image/x-icon">
                     <button class="control-btn mute-btn" title="Mute/Unmute">🔊</button>
                     <button class="control-btn fullscreen-btn" title="Fullscreen">⛶</button>
                 </div>
-
+                <div class="media-type">Video</div>
             </div>
             <div class="media-item" data-type="video">
                
@@ -1618,7 +1496,7 @@ type="image/x-icon">
                     <button class="control-btn mute-btn" title="Mute/Unmute">🔊</button>
                     <button class="control-btn fullscreen-btn" title="Fullscreen">⛶</button>
                 </div>
-
+                <div class="media-type">Video</div>
             </div>
 
   <!-- Photo Items -->
@@ -1627,7 +1505,7 @@ type="image/x-icon">
     <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/WhatsApp_Image_2025-09-03_at_12.12.31_PM.jpg?v=1756882322" alt="Football action" onerror="this.src=''; this.alt='Sports image failed to load'; this.style.display='none';">
     <div class="media-controls">
     </div>
-
+    <div class="media-type">Photo</div>
 </div>
 
             <!-- Photo Items -->
@@ -1636,7 +1514,7 @@ type="image/x-icon">
                 <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/WhatsApp_Image_2025-08-28_at_7.16.45_PM_1.jpg?v=1756448712" alt="Football action" onerror="this.src=''; this.alt='Sports image failed to load'; this.style.display='none';">
                 <div class="media-controls">
                 </div>
-
+                <div class="media-type">Photo</div>
             </div>
 
             <div class="media-item" data-type="photo">
@@ -1644,21 +1522,21 @@ type="image/x-icon">
                 <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/054538e4-2464-4bf9-8238-904c13a1e358.jpg?v=1756881751" alt="Basketball game" onerror="this.src=''; this.alt='Sports image failed to load'; this.style.display='none';">
                 <div class="media-controls">
                 </div>
-
+                <div class="media-type">Photo</div>
             </div>
             <div class="media-item" data-type="photo">
                 
                 <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/c85c8c6f-d1b1-42ee-9179-8563bdbfeeb7.jpg?v=1756881751" alt="Football action" onerror="this.src=''; this.alt='Sports image failed to load'; this.style.display='none';">
                 <div class="media-controls">
                 </div>
-
+                <div class="media-type">Photo</div>
             </div>
             <div class="media-item" data-type="photo">
                 
                 <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/ea9a4643-ef42-4ae1-810b-4568dc189d97.jpg?v=1756881750" alt="Football action" onerror="this.src=''; this.alt='Sports image failed to load'; this.style.display='none';">
                 <div class="media-controls">
                 </div>
-
+                <div class="media-type">Photo</div>
             </div>
 
           
@@ -1751,7 +1629,7 @@ type="image/x-icon">
      <section>
        
         <h2 style="margin-top: 40px;  text-align: center;">
-         An Integrated Platform Powering the Future of Sports.
+            An Integrated Platform Powering the Future of Sports.
           </h2>
           
       
@@ -1847,7 +1725,7 @@ type="image/x-icon">
           <article class="card">
             <div class="card-image-wrapper">
               <img
-                src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/Artboard_3_1.jpg?v=1756818785"
+                src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2088e114-2acb-4e06-9a78-4c58eeefc76a.png"
                 alt="Athlete management with agents, coaches, and health stats displayed"
                 draggable="false"
               />
@@ -1896,130 +1774,31 @@ type="image/x-icon">
         <!-- <section class="reviews-area py-128 black-100-bg"
             style="background-image: url(assets/images/background/testimonials.png);">
             <div class="container">
-                <div class="d-flex section-heading mb-96">
-                    <div class="section-title">
-                        <p class="category-line">TESTIMONIALS</p>
-                        <h2 class="wow fadeInUp delay-0-2s">What Our Clients Say</h2>
-                    </div>
-                    <div class="carousel-buttons buttons-vertical">
-                        <button class="prev" type="button" data-bs-target="#testiCarousel" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"><i
-                                    class="fa fa-long-arrow-left"></i></span>
-                        </button>
-                        <button class="" type="button" data-bs-target="#testiCarousel" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"><i
-                                    class="fa fa-long-arrow-right"></i></span>
-                        </button>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12 col-lg-5 left">
-                        <div class="mobile-mb black-100-bg">
-                            <div class="counter-text-wrap wow fadeInUp delay-0-2s">
-                                <div class="d-flex justify-content-center">
-                                    <h4 class="count-text mb-16" data-speed="3000" data-stop="80">0</h4><span
-                                        class="h4">%</span>
-                                </div>
-                                <p class="counter-title">Returning Clients</p>
-                            </div>
+                <div class="row align-items-center">
+                    <div class="col-sm-12 col-lg-6 left wow fadeInUp delay-0-2s">
+                        <div class="section-title">
+                            <p class="category-line">TESTIMONIALS</p>
+                            <h2 class="wow fadeInUp delay-0-2s">What Our Clients Say</h2>
                         </div>
-                        <div class="mobile-mb white-bg">
-                            <div class="counter-text-wrap wow fadeInUp delay-0-4s">
-                                <div class="d-flex justify-content-center">
-                                    <h4 class="text-black count-text mb-16" data-speed="3000" data-stop="5">0</h4>
-                                    <span><i class="fa fa-star"></i></span>
-                                </div>
-                                <p class="text-black counter-title">Average Rating</p>
-                            </div>
-                        </div>
-                        <div class="mobile-mb primary-bg">
-                            <div class="counter-text-wrap wow fadeInUp delay-0-2s">
-                                <div class="d-flex justify-content-center">
-                                    <h4 class="count-text mb-16" data-speed="3000" data-stop="250">0</h4><span
-                                        class="h4">K+</span>
-                                </div>
-                                <p class="counter-title">Happy Clients</p>
-                            </div>
-                        </div>
+                        <p class="mt-96">Join our email list for design tips, news & more!</p>
+                        <form class="cta-form" action="#">
+                            <input type="text" required placeholder="Your Email Address">
+                            <button type="submit" class="theme-btn">Subscribe</button>
+                        </form>
                     </div>
-                    <div id="testiCarousel"
-                        class="col-md-12 col-lg-7 testimonials-slider carousel slide wow fadeInUp delay-0-4s"
-                        data-bs-ride="carousel">
-                        <div class="carousel-inner" role="listbox">
-                            <div class="row carousel-item active ">
-                                <div class="testimonial-item">
-                                    <div class="section-title mb-32 wow fadeInUp delay-0-2s">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </div>
-                                    <div class="h5 author-text mb-32">“I loved this company! Because not only the
-                                        finished project is beautiful, it’s also exactly what we hoped. I give 5 out of
-                                        5 stars to the project and highly recommend.”</div>
-                                    <div class="d-flex">
-                                        <img class="testi-img" src="assets/images/testimonials/author-1.jpg"
-                                            alt="review author image">
-                                        <div class="testi-author">
-                                            <h5 class="text-white">Olivia Dunham</h5>
-                                            <p class="designations">Model at VS</p>
-                                        </div>
-                                        <i class="fas fa-quote-right"></i>
-                                    </div>
-                                </div>
+                    <div class="col-sm-12 col-lg-6 right wow fadeInUp delay-0-2s">
+                        <div class="row">
+                            <div class="col-sm-6 wow fadeInUp delay-0-2s pt-96">
+                                <img src="assets/images/cta/cta-1.png" alt="Timeline">
                             </div>
-                            <div class="row carousel-item">
-                                <div class="testimonial-item">
-                                    <div class="section-title mb-32 wow fadeInUp delay-0-2s">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </div>
-                                    <div class="h5 author-text mb-32">“I loved this company! And give the project 5 out
-                                        of 5 stars and strongly recommend. Because the finished project not only
-                                        beautiful but also exactly what we hoped. ”</div>
-                                    <div class="d-flex">
-                                        <img class="testi-img" src="assets/images/testimonials/author-2.jpg"
-                                            alt="review author image">
-                                        <div class="testi-author">
-                                            <h5 class="text-white">David John</h5>
-                                            <p class="designations">Business analyst at Apple</p>
-                                        </div>
-                                        <i class="fas fa-quote-right"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row carousel-item">
-                                <div class="testimonial-item">
-                                    <div class="section-title mb-32 wow fadeInUp delay-0-2s">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </div>
-                                    <div class="h5 author-text mb-32">“Love love love this company! I give the project 5
-                                        out of 5 stars and strongly recommend. Because the finished project not only
-                                        beautiful but also exactly what we hoped. ”</div>
-                                    <div class="d-flex">
-                                        <img class="testi-img" src="assets/images/testimonials/author-3.jpg"
-                                            alt="review author image">
-                                        <div class="testi-author">
-                                            <h5 class="text-white">Paul Smith</h5>
-                                            <p class="designations">Model at VS</p>
-                                        </div>
-                                        <i class="fas fa-quote-right"></i>
-                                    </div>
-                                </div>
+                            <div class="col-sm-6 wow fadeInUp delay-0-2s">
+                                <img src="assets/images/cta/cta-2.png" alt="Timeline">
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
         <!-- Reviews Area end -->
 
         <!-- CTA Area start -->
@@ -2160,7 +1939,7 @@ type="image/x-icon">
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
     }
     
     .timeline-item .h4.title {
@@ -2241,30 +2020,52 @@ type="image/x-icon">
     }
 </style>
 
-
-                <style>
-                    .mobile-banners {
-                        display: none;
-                    }
-                    @media (max-width: 767px) {
-                        .mobile-banners {
-                            display: flex;
-                            flex-direction: column;
-                            gap: 16px;
-                            padding: 16px;
-                        }
-                        .banner-item {
-                            background: #f5f5f5;
-                            border-radius: 8px;
-                            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-                            padding: 24px;
-                            text-align: center;
-                            font-size: 1.2em;
-                            font-weight: 600;
-                            color: #333;
-                        }
-                    }
-                </style>
+<style>
+    /* Add play icon for video items */
+    .media-item[data-type="video"] {
+        position: relative;
+        cursor: pointer;
+    }
+    
+    .media-item[data-type="video"]::after {
+        content: '\f04b'; /* Font Awesome play icon */
+        font-family: 'Font Awesome 5 Free';
+        font-weight: 900;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-size: 40px;
+        text-shadow: 0 0 15px rgba(0,0,0,0.7);
+        opacity: 0.9;
+        transition: all 0.3s ease;
+        pointer-events: none;
+        z-index: 2;
+    }
+    
+    .media-item[data-type="video"]:hover::after {
+        transform: translate(-50%, -50%) scale(1.1);
+        opacity: 1;
+    }
+    
+    .media-item[data-type="video"]::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0,0,0,0.3);
+        opacity: 0.5;
+        transition: opacity 0.3s ease;
+        z-index: 1;
+    }
+    
+    .media-item[data-type="video"]:hover::before {
+        opacity: 0.7;
+    }
+</style>
         
           <footer class="footer">
         
@@ -2526,6 +2327,43 @@ type="image/x-icon">
       });
     })();
   </script>
+  <script>
+    // Add click handler for video items
+    document.addEventListener('DOMContentLoaded', function() {
+        const videoItems = document.querySelectorAll('.media-item[data-type="video"]');
+        
+        videoItems.forEach(item => {
+            item.style.cursor = 'pointer';
+            
+            item.addEventListener('click', function(e) {
+                // Don't trigger if clicking on controls
+                if (e.target.closest('.media-controls')) {
+                    return;
+                }
+                
+                const video = this.querySelector('video');
+                if (video) {
+                    if (video.paused) {
+                        video.play();
+                    } else {
+                        video.pause();
+                    }
+                    
+                    // Toggle fullscreen
+                    if (video.requestFullscreen) {
+                        if (!document.fullscreenElement) {
+                            video.requestFullscreen().catch(err => {
+                                console.error(`Error attempting to enable fullscreen: ${err.message}`);
+                            });
+                        } else {
+                            document.exitFullscreen();
+                        }
+                    }
+                }
+            });
+        });
+    });
+</script>
 </body>
 
 </html>
