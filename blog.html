@@ -99,6 +99,13 @@
   <link rel="stylesheet" href="assests/css/slick.min.css">
   <!-- Main Style -->
   <link rel="stylesheet" href="assests/css/style.css">
+  <style>
+    /* Ye arrow remove karega jo bar-bar dikh raha hai */
+.navbar .dropdown > a::after {
+    content: none !important;
+}
+
+  </style>
 
   <!-- Preloader CSS -->
   <style>
@@ -287,20 +294,20 @@
                     <ul class="navigation clearfix">
                       <li><a href="index.html">Home</a></li>
                       <li><a href="about.html">About</a></li>
-                                          <li class="dropdown"><a href="#">Services</a>
-                                            <ul>
-                                                <li><a href="Services.html">All Services</a></li>
-                                                <li><a href=".html"></a></li>
-												 <li><a href="	https://colabsports.in/">Sports Marketplace</a></li>
-											
-                                                <li><a href="sports-content.html">Sports Content</a></li>
-                                                <li><a href="Sports-infrastructure.html">Sports Infrastructure</a></li>
-                                                <li><a href="sports-ip.html">Sports Ip</a></li>
-                                                <li><a href="Sports-marketing.html">Sports Marketing</a></li>
-                                                <li><a href="Athelte-management.html">Athelte Management</a></li>
-                                                <li><a href="Esports.html">Esports</a></li>
-                                            </ul>
-                                        </li>
+                                        <li class="dropdown">
+    <a href="#">Services</a>
+    <ul>
+        <li><a href="Services.html">All Services</a></li>
+        <li><a href="https://colabsports.in/">Sports Marketplace</a></li>
+        <li><a href="sports-content.html">Sports Content</a></li>
+        <li><a href="Sports-infrastructure.html">Sports Infrastructure</a></li>
+        <li><a href="sports-ip.html">Sports Ip</a></li>
+        <li><a href="Sports-marketing.html">Sports Marketing</a></li>
+        <li><a href="Athelte-management.html">Athlete Management</a></li>
+        <li><a href="Esports.html">Esports</a></li>
+    </ul>
+</li>
+
                     
 
                      
@@ -332,10 +339,27 @@
             background-color: black;
           }
 
-          .page-content {
+      .page-content {
+    padding-top: 80px;
+    /* margin: -70px; */
+}
+
+/* Mobile view (screens up to 768px) */
+@media (max-width: 768px) {
+    .page-content {
+        padding-top: 50px;   /* chhoti screen ke liye kam padding */
+        margin: -30px;       /* margin bhi kam kar diya */
+    }
+}
+
+/* Very small mobile (screens up to 480px) */
+@media (max-width: 480px) {
+    .page-content {
             padding-top: 100px;
-            margin: -70px;
-          }
+        margin: -75px;
+    }
+}
+
 
           .blog-detail-container {
 
