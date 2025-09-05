@@ -6226,7 +6226,7 @@ blockquote cite.name {
     line-height: 1.6;
     text-align: left;
     margin-bottom: 20px;
-    margin-top: -80px;
+    /* margin-top: -80px; */
     padding-top: -90px;
     width: 590px;
 }
@@ -6299,6 +6299,7 @@ blockquote cite.name {
         text-align: left;
         padding: 0 10px;
         width: 790px;
+        /* margin-top:-80px; */
   }
 
   .right-image {
