@@ -44,22 +44,17 @@ type="image/x-icon">
 <link rel="stylesheet" href="assests/css/style.css">
 <link rel="stylesheet" href="all.min.css">  <!-- First inclusion -->
 <style>
-    /* Fade/Blink cycle effect for right-side image */
     .fade-cycle {
-        animation: fadeImages 12s infinite;
-        transition: opacity 1s ease-in-out;
+      width: 100%;
+      /* height: 85vh; */
+      transition: opacity 1s ease-in-out;
+      margin-top: -150px;
     }
-    
-    @keyframes fadeImages {
-        0%, 33% {
-            content: url('https://cdn.shopify.com/s/files/1/0636/5226/6115/files/About_Us_images_-_3_Cricket.png?v=1757074459');
-        }
-        34%, 66% {
-            content: url('https://cdn.shopify.com/s/files/1/0636/5226/6115/files/About_Us_images_-_1_Badminton.png?v=1757074459');
-        }
-        67%, 100% {
-            content: url('https://cdn.shopify.com/s/files/1/0636/5226/6115/files/About_Us_images_-_2_Football.png?v=1757074459');
-        }
+    .fade-out {
+      opacity: 0;
+    }
+    .fade-in {
+      opacity: 1;
     }
     </style>
 <style>
@@ -1249,7 +1244,7 @@ type="image/x-icon">
                     <!-- Right-side ZoomIn Card with 3-image fade effect -->
                     <div class="col-sm-12 col-md-6 right-image wow zoomIn">
                         <img class="fade-cycle" 
-                             src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/About_Us_images_-_3_Cricket.png?v=1757074459"
+                             src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/About_Us_images-3.png?v=1757079788"
                              alt="about image" 
                              title="about image">
                     </div>
@@ -1266,9 +1261,9 @@ type="image/x-icon">
                 
                 // Array of image URLs to cycle through
                 const imageUrls = [
-                    'https://cdn.shopify.com/s/files/1/0636/5226/6115/files/About_Us_images_-_3_Cricket.png?v=1757074459',
-                    'https://cdn.shopify.com/s/files/1/0636/5226/6115/files/About_Us_images_-_1_Badminton.png?v=1757074459',
-                    'https://cdn.shopify.com/s/files/1/0636/5226/6115/files/About_Us_images_-_2_Football.png?v=1757074459'
+                    'https://cdn.shopify.com/s/files/1/0636/5226/6115/files/About_Us_images-3.png?v=1757079788',
+                    'https://cdn.shopify.com/s/files/1/0636/5226/6115/files/About_Us_images-4_1.png?v=1757081897',
+                    'https://cdn.shopify.com/s/files/1/0636/5226/6115/files/About_Us_images-2.png?v=1757079788'
                 ];
                 
                 fadeCycleImages.forEach(container => {
