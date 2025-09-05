@@ -6222,7 +6222,7 @@ blockquote cite.name {
 
 /* Paragraph */
 .content .text {
-      font-size: 1.6rem;
+      font-size: 1.45rem;
     line-height: 1.6;
     text-align: left;
     margin-bottom: 20px;
@@ -6295,7 +6295,7 @@ blockquote cite.name {
   }
 
   .content .text {
-           font-size: 1.2rem;
+           font-size: 1.45rem;
         text-align: left;
         padding: 0 10px;
         width: 790px;
@@ -6335,4 +6335,4 @@ blockquote cite.name {
       margin-bottom: 20px;
     }
   }
-  
+ 
