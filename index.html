@@ -44,24 +44,175 @@ type="image/x-icon">
 <link rel="stylesheet" href="assests/css/style.css">
 <link rel="stylesheet" href="all.min.css">  <!-- First inclusion -->
 <style>
-    /* Fade/Blink cycle effect for right-side image */
-    .fade-cycle {
-        animation: fadeImages 12s infinite;
-        transition: opacity 1s ease-in-out;
-    }
+    .container3 {
+    max-width: 1700px; /* Bigger container */
+    margin: 2rem auto 4rem;
+    /* padding: 0 1.25rem; */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem; /* more spacing */
+  }
+
+  .info-section {
+    flex: 1 1 400px;
+    min-width: 350px;
+    padding: 3.5rem 2.5rem;
+    background: url("https://cdn.shopify.com/s/files/1/0636/5226/6115/files/Screenshot_2025-09-06_162707.png?v=1757156245") no-repeat center/cover;
+   
     
-    @keyframes fadeImages {
-        0%, 33% {
-            content: url('https://cdn.shopify.com/s/files/1/0636/5226/6115/files/stump.jpg?v=1756892711');
-        }
-        34%, 66% {
-            content: url('https://cdn.shopify.com/s/files/1/0636/5226/6115/files/1_2.jpg?v=1756888329');
-        }
-        67%, 100% {
-            content: url('https://cdn.shopify.com/s/files/1/0636/5226/6115/files/2_1.jpg?v=1756888328');
-        }
-    }
-    </style>
+    color: #eee;
+    transition: background-image 0.4s ease-in-out;
+  }
+ 
+  .cards-grid {
+    flex: 2 1 800px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 per row */
+    gap: 1.5rem;
+  }
+
+  .card-flip-container3 { perspective: 1200px; }
+  .card-flip {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 5; /* Taller card */
+    text-align: center;
+    color: #D04713;
+    background-color: #111;
+   
+    box-shadow: 0 8px 16px rgba(208,71,19,0.4);
+    transform-style: preserve-3d;
+    transition: transform 0.8s;
+    cursor: pointer;
+  }
+
+  /* Flip on hover */
+  .card-flip-container3:hover .card-flip {
+    transform: rotateY(180deg);
+  }
+
+  .card-front, .card-back {
+    position: absolute;
+    inset: 0;
+    padding: 1.8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    backface-visibility: hidden;
+    border-radius: 14px;
+  }
+
+  .card-front { gap: 1.2rem; }
+  .card-icon { font-size: 3.8rem; margin-bottom: 0.5rem;     width: 1000px; }
+  .card-front-text { font-weight: 600; font-size: 1.2rem; }
+
+  .card-back {
+    background-color: #1a1a1a;
+    color: #ccc;
+    transform: rotateY(180deg);
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+  /* Responsive fixes */
+@media (max-width: 1024px) {
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 cards per row on tablets */
+  }
+}
+
+@media (max-width: 768px) {
+  .cards-grid {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 1rem;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .card-flip-container3 {
+    flex: 0 0 75%; /* Show one card nicely on mobile */
+    scroll-snap-align: start;
+  }
+  .info-section {
+    flex: 1 1 400px;
+    min-width: 350px;
+    padding: 3.5rem 2.5rem;
+    background: url("https://cdn.shopify.com/s/files/1/0636/5226/6115/files/About_Us_images_-_3_Cricket.png?v=1757074459") no-repeat center/cover;
+    border-radius: 12px;
+    box-shadow: inset 0 0 0 1000px rgba(0,0,0,0.7);
+    color: #eee;
+    transition: background-image 0.4s ease-in-out;
+  }
+}
+
+@media (max-width: 480px) {
+  .card-flip-container3 {
+    flex: 0 0 85%; /* Bigger card in small mobile */
+  }
+  .info-section {
+    flex: 1 1 400px;
+    min-width: 350px;
+    padding: 3.5rem 2.5rem;
+    background: url("https://cdn.shopify.com/s/files/1/0636/5226/6115/files/About_Us_images_-_3_Cricket.png?v=1757074459") no-repeat center/cover;
+    border-radius: 12px;
+    box-shadow: inset 0 0 0 1000px rgba(0,0,0,0.7);
+    color: #eee;
+    transition: background-image 0.4s ease-in-out;
+    height:40vh;
+  }
+
+  .container3 {
+    max-width: 1400px;
+    margin: 2rem auto 4rem;
+    /* padding: 0 1.25rem; */
+    display: flex
+;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.card-flip {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    text-align: center;
+    color: #D04713;
+    background-color: #111;
+    border-radius: 14px;
+    box-shadow: 0 8px 16px rgba(208, 71, 19, 0.4);
+    transform-style: preserve-3d;
+    transition: transform 0.8s;
+    cursor: pointer;
+    height: 30vh;
+}
+}
+
+</style>
+<style>
+    .fade-cycle {
+  width: 100%;
+  /* height: 85vh; */
+  transition: opacity 1s ease-in-out;
+  margin-top: -150px;
+}
+
+.fade-out {
+  opacity: 0;
+}
+
+.fade-in {
+  opacity: 1;
+}
+
+/* Hide on mobile devices */
+@media (max-width: 768px) {
+  .fade-cycle {
+    display: none;
+  }
+}
+
+</style>
 <style>
     /* Hide scrollbar for Chrome, Safari and Opera */
     .scroll-container::-webkit-scrollbar {
@@ -440,7 +591,7 @@ type="image/x-icon">
             transform: translateY(30px);
             animation: fadeInUp 0.8s ease forwards;
             width: 100%;
-            height:40vh;
+         
         }
 
         .media-item img,
@@ -1015,69 +1166,50 @@ type="image/x-icon">
               
               <div class="desktop-banner">
                 <div class="carousel slide" id="recipeCarousel" data-bs-ride="carousel">
-                  <div class="carousel-inner">
-              
-                    <!-- Slide 1 -->
-                    <div class="carousel-item active">
-                      <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/3_3.jpg?v=1756903345" alt="banner 1">
-                      <div class="carousel-flex">
-                        <div class="carousel-buttons">
-                          <button class="prev" type="button" data-bs-target="#recipeCarousel" data-bs-slide="prev">
-                            <i class="fas fa-arrow-left"></i>
-                          </button>
-                          <button type="button" data-bs-target="#recipeCarousel" data-bs-slide="next">
-                            <i class="fas fa-arrow-right"></i>
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-              
-                    <!-- Slide 2 -->
-                    <div class="carousel-item">
-                      <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/1_7.jpg?v=1756903345" alt="banner 2">
-                      <div class="carousel-flex">
-                        <div class="carousel-buttons">
-                          <button class="prev" type="button" data-bs-target="#recipeCarousel" data-bs-slide="prev">
-                            <i class="fas fa-arrow-left"></i>
-                          </button>
-                          <button type="button" data-bs-target="#recipeCarousel" data-bs-slide="next">
-                            <i class="fas fa-arrow-right"></i>
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-              
-                    <!-- Slide 3 -->
-                    <div class="carousel-item">
-                      <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/2_5.jpg?v=1756903344" alt="banner 3">
-                      <div class="carousel-flex">
-                        <div class="carousel-buttons">
-                          <button class="prev" type="button" data-bs-target="#recipeCarousel" data-bs-slide="prev">
-                            <i class="fas fa-arrow-left"></i>
-                          </button>
-                          <button type="button" data-bs-target="#recipeCarousel" data-bs-slide="next">
-                            <i class="fas fa-arrow-right"></i>
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-              
-                    <!-- Slide 4 -->
-                    <div class="carousel-item">
-                      <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/2_6.jpg?v=1756903639" alt="banner 4">
-                      <div class="carousel-flex">
-                        <div class="carousel-buttons">
-                          <button class="prev" type="button" data-bs-target="#recipeCarousel" data-bs-slide="prev">
-                            <i class="fas fa-arrow-left"></i>
-                          </button>
-                          <button type="button" data-bs-target="#recipeCarousel" data-bs-slide="next">
-                            <i class="fas fa-arrow-right"></i>
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-              
-                  </div>
+              <div class="carousel-inner">
+  
+  <!-- Slide 1 -->
+  <div class="carousel-item active">
+    <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/3_3.jpg?v=1756903345" alt="banner 1">
+    <div class="carousel-flex">
+     
+    </div>
+  </div>
+
+  <!-- Slide 2 -->
+  <div class="carousel-item">
+    <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/1_7.jpg?v=1756903345" alt="banner 2">
+    <div class="carousel-flex">
+   
+    </div>
+  </div>
+
+  <!-- Slide 3 -->
+  <div class="carousel-item">
+    <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/2_5.jpg?v=1756903344" alt="banner 3">
+    <div class="carousel-flex">
+    
+    </div>
+  </div>
+
+  <!-- Slide 4 -->
+  <div class="carousel-item">
+    <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/2_6.jpg?v=1756903639" alt="banner 4">
+    <div class="carousel-flex">
+      
+    </div>
+  </div>
+
+</div>
+
+<!-- ✅ Added Carousel Dots (Indicators) -->
+<div class="carousel-indicators">
+  <button type="button" data-bs-target="#recipeCarousel" data-bs-slide-to="0" class="active"></button>
+  <button type="button" data-bs-target="#recipeCarousel" data-bs-slide-to="1"></button>
+  <button type="button" data-bs-target="#recipeCarousel" data-bs-slide-to="2"></button>
+  <button type="button" data-bs-target="#recipeCarousel" data-bs-slide-to="3"></button>
+</div>
+
                 </div>
               </div>
               
@@ -1256,25 +1388,69 @@ type="image/x-icon">
                         <div class="row pt-32">
                             <h2 class="col-md-6">One Unified Ecosystem  Boundless Impacts</h2>
                         </div>
-                        <div class="row pt-96 pb-64">
-                            <p class="col-md-6 col-lg-3 text" style="font-size:1.2rem;">
+                        <div class="row pt-9 ">
+                            <p class="col-md-6 col-lg-3 text" >
                                 At Colab Platforms, we are revolutionizing the sports industry with a unified digital ecosystem that blends innovation, performance, and community. Our platform empowers athletes, coaches, organizations, and fans by seamlessly integrating training, commerce, marketing, and engagement bridging grassroots talent with global opportunities.
                                 From personalized athlete development to large-scale sports management, Colab is the ultimate destination for everything sports, enabling dreams to thrive and talent to rise.
                             </p>
-                            <img class="small-image col-md-6 col-lg-5 wow zoomIn"
-                                src="https://cdn.shopify.com/s/files/1/0674/9614/9171/files/Colab_Esport_Logo_On_Teshirt_-_New_Size.jpg?v=1752586205"
-                                alt="about image" title="about image">
+                           
                         </div>
                     </div>
                 
                     <!-- Right-side ZoomIn Card with 3-image fade effect -->
-                    <img class="col-sm-12 col-md-6 right-image wow zoomIn fade-cycle"
-                        src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/stump.jpg?v=1756892711"
-                        alt="about image" title="about image">
+                    <div class="col-sm-12 col-md-6 right-image wow zoomIn">
+                        <img class="fade-cycle" 
+                             src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/About_Us_images-3.png?v=1757079788"
+                             alt="about image" 
+                             title="about image">
+                    </div>
                 </div>
             </div>
         </section>
         <!-- About Area end -->
+         
+
+        <script>
+            // Image cycling functionality
+            document.addEventListener('DOMContentLoaded', function() {
+                const fadeCycleImages = document.querySelectorAll('.fade-cycle');
+                
+                // Array of image URLs to cycle through
+                const imageUrls = [
+                    'https://cdn.shopify.com/s/files/1/0636/5226/6115/files/About_Us_images-3.png?v=1757079788',
+                    'https://cdn.shopify.com/s/files/1/0636/5226/6115/files/About_Us_images-4_2.png?v=1757140142',
+                    'https://cdn.shopify.com/s/files/1/0636/5226/6115/files/About_Us_images-2.png?v=1757079788'
+                ];
+                
+                fadeCycleImages.forEach(container => {
+                    let currentIndex = 0;
+                    const imgElement = container;
+                    
+                    // Function to change image with fade effect
+                    function changeImage() {
+                        // Fade out
+                        imgElement.style.opacity = '0';
+                        
+                        // After fade out, change image and fade in
+                        setTimeout(() => {
+                            currentIndex = (currentIndex + 1) % imageUrls.length;
+                            imgElement.src = imageUrls[currentIndex];
+                            
+                            // Fade in
+                            setTimeout(() => {
+                                imgElement.style.opacity = '1';
+                            }, 50);
+                        }, 500); // Half second for fade out
+                    }
+                    
+                    // Initial fade in
+                    imgElement.style.transition = 'opacity 0.5s ease-in-out';
+                    
+                    // Start cycling images every 3 seconds
+                    setInterval(changeImage, 3000);
+                });
+            });
+        </script>
 
         <!-- Service Section Start -->
         <section class="service-area black-120-bg py-128 justify-content-center">
@@ -1449,7 +1625,7 @@ type="image/x-icon">
             <div class="media-item" data-type="video">
                
                 <video muted loop>
-                    <source src="https://cdn.shopify.com/videos/c/o/v/a7ad24403a43479faca129526b2b99c4.mp4" type="video/mp4">
+                    <source src="https://cdn.shopify.com/videos/c/o/v/f9b610f5cd934ed3ae732c258a357719.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
                 <div class="media-controls">
@@ -1461,7 +1637,7 @@ type="image/x-icon">
             <div class="media-item" data-type="video">
                
                 <video muted loop>
-                    <source src="https://cdn.shopify.com/videos/c/o/v/06097788b2de4ea0a5db49479a0da0c3.mp4" type="video/mp4">
+                    <source src="https://cdn.shopify.com/videos/c/o/v/521ce6f8295149369862ae34fc002dde.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
                 <div class="media-controls">
@@ -1474,7 +1650,7 @@ type="image/x-icon">
   <!-- Photo Items -->
   <div class="media-item" data-type="photo">
                 
-    <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/WhatsApp_Image_2025-09-03_at_12.12.31_PM.jpg?v=1756882322" alt="Football action" onerror="this.src=''; this.alt='Sports image failed to load'; this.style.display='none';">
+    <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/WhatsApp_Image_2025-09-06_at_1.06.54_PM.jpg?v=1757154487" alt="Football action" onerror="this.src=''; this.alt='Sports image failed to load'; this.style.display='none';">
     <div class="media-controls">
     </div>
       
@@ -1491,26 +1667,32 @@ type="image/x-icon">
 
             <div class="media-item" data-type="photo">
               
-                <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/054538e4-2464-4bf9-8238-904c13a1e358.jpg?v=1756881751" alt="Basketball game" onerror="this.src=''; this.alt='Sports image failed to load'; this.style.display='none';">
+                <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/Screenshot_2025-09-06_160107.png?v=1757154699" alt="Basketball game" onerror="this.src=''; this.alt='Sports image failed to load'; this.style.display='none';">
                 <div class="media-controls">
                 </div>
                   
             </div>
             <div class="media-item" data-type="photo">
                 
-                <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/c85c8c6f-d1b1-42ee-9179-8563bdbfeeb7.jpg?v=1756881751" alt="Football action" onerror="this.src=''; this.alt='Sports image failed to load'; this.style.display='none';">
+                <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/Screenshot_2025-09-06_160007.png?v=1757154630" alt="Football action" onerror="this.src=''; this.alt='Sports image failed to load'; this.style.display='none';">
                 <div class="media-controls">
                 </div>
                   
             </div>
             <div class="media-item" data-type="photo">
                 
-                <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/ea9a4643-ef42-4ae1-810b-4568dc189d97.jpg?v=1756881750" alt="Football action" onerror="this.src=''; this.alt='Sports image failed to load'; this.style.display='none';">
+                <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/Screenshot_2025-09-06_160118.png?v=1757154700" alt="Football action" onerror="this.src=''; this.alt='Sports image failed to load'; this.style.display='none';">
                 <div class="media-controls">
                 </div>
                   
             </div>
-
+            <div class="media-item" data-type="photo">
+                
+                <img src="  https://cdn.shopify.com/s/files/1/0636/5226/6115/files/WhatsApp_Image_2025-09-06_at_1.01.50_PM.jpg?v=1757162370" alt="Football action" onerror="this.src=''; this.alt='Sports image failed to load'; this.style.display='none';">
+                <div class="media-controls">
+                </div>
+                  
+            </div>
           
 
          
@@ -1535,7 +1717,7 @@ type="image/x-icon">
         <section class="interior-area black-120-bg py-128">
             <div class="container-fluid px-0">
                 <div class="text-center mb-5 wow fadeInUp delay-0-2s">
-                    <h2>OUR IP'S</h2>
+                    <h2>Meet the Legends</h2>
                 </div>
                 
              <!-- Desktop Version (your original unchanged) -->
@@ -1544,35 +1726,35 @@ type="image/x-icon">
         <!-- First Image -->
         <div class="flex-shrink-0" style="width: 800px; height: 500px;">
             <a href="about.html">
-                <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/IP_s_Northern_Challengers.jpg?v=1755685245" 
-                     alt="Northern Challengers" style="width: 100%; height: 130%; object-fit: cover; border-radius: 10px;">
+                <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/About_Us_banner_NC.png?v=1757073516" 
+                     alt="Northern Challengers" style="width: 100%;  object-fit: cover; border-radius: 10px;">
             </a>
         </div>
         <!-- Second Image -->
         <div class="flex-shrink-0" style="width: 800px; height: 500px;">
             <a href="about.html">
-                <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/IP_s_Australian_Champion.jpg?v=1755685244" 
-                     alt="Astralia" style="width: 100%; height: 130%; object-fit: cover; border-radius: 10px;">
+                <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/About_Us_banner_CA.png?v=1757073515" 
+                     alt="Astralia" style="width: 100%;  object-fit: cover; border-radius: 10px;">
             </a>
         </div>
         <div class="flex-shrink-0" style="width: 800px; height: 500px;">
             <a href="about.html">
-                <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/IP_s_Northern_Challengers.jpg?v=1755685245" 
-                     alt="Northern Challengers" style="width: 100%; height: 130%; object-fit: cover; border-radius: 10px;">
+                <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/About_Us_banner_NC.png?v=1757073516" 
+                     alt="Northern Challengers" style="width: 100%;  object-fit: cover; border-radius: 10px;">
             </a>
         </div>
         <!-- Third Image -->
         <div class="flex-shrink-0" style="width: 800px; height: 500px;">
             <a href="about.html">
-                <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/IP_s_Australian_Champion.jpg?v=1755685244" 
-                     alt="Astralia" style="width: 100%; height: 130%; object-fit: cover; border-radius: 10px;">
+                <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/About_Us_banner_CA.png?v=1757073515" 
+                     alt="Astralia" style="width: 100%;  object-fit: cover; border-radius: 10px;">
             </a>
         </div>
         <!-- Duplicate images for seamless looping -->
         <div class="flex-shrink-0" style="width: 800px; height: 500px;">
             <a href="about.html">
-                <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/IP_s_Northern_Challengers.jpg?v=1755685245" 
-                     alt="Northern Challengers" style="width: 100%; height: 130%; object-fit: cover; border-radius: 10px;">
+                <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/About_Us_banner_NC.png?v=1757073516" 
+                     alt="Northern Challengers" style="width: 100%;  object-fit: cover; border-radius: 10px;">
             </a>
         </div>
     </div>
@@ -1581,16 +1763,16 @@ type="image/x-icon">
 <!-- Mobile Version (new added) -->
 <div class="scroll-container-mobile">
     <a href="about.html">
-        <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/IP_s_Northern_Challengers.jpg?v=1755685245" alt="Northern Challengers">
+        <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/About_Us_banner_NC.png?v=1757073516" alt="Northern Challengers">
     </a>
     <a href="about.html">
-        <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/IP_s_Australian_Champion.jpg?v=1755685244" alt="Astralia">
+        <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/About_Us_banner_CA.png?v=1757073515" alt="Astralia">
     </a>
     <a href="about.html">
-        <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/IP_s_Northern_Challengers.jpg?v=1755685245" alt="Northern Challengers">
+        <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/About_Us_banner_NC.png?v=1757073516" alt="Northern Challengers">
     </a>
     <a href="about.html">
-        <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/IP_s_Australian_Champion.jpg?v=1755685244" alt="Astralia">
+        <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/About_Us_banner_CA.png?v=1757073515" alt="Astralia">
     </a>
 </div>
             </div>
@@ -1604,142 +1786,113 @@ type="image/x-icon">
             An Integrated Platform Powering the Future of Sports.
           </h2>
           
-      
-        <section class="container1" aria-label="Service interactive section">
-          <div class="image-wrapper" aria-live="polite" aria-atomic="true">
-            <img
-              src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2fbd31e8-f4d2-4fbb-8838-3a38c7ca7a34.png"
-              alt="Overhead view of a VR headset, keyboard, wireless mouse, and headphones placed on a desk with warm lighting"
-              id="mainImage"
-              draggable="false"
-            />
-          </div>
-          <div class="content-wrapper">
-            <nav class="timeline" aria-label="Service selection timeline">
-              <button class="dot active" data-index="0"></button>
-              <button class="dot" data-index="1"></button>
-              <button class="dot" data-index="2"></button>
-              <button class="dot" data-index="3"></button>
-              <button class="dot" data-index="4"></button>
-              <button class="dot" data-index="5"></button>
-              <button class="dot" data-index="6"></button>
-            </nav>
-            <ul class="list" role="list">
-              <li>
-                <div class="list-heading" data-index="0">1. Sports Technology</div>
-                <div class="dropdown-content">Leveraging cutting-edge sports technology solutions to optimize performance, training, and analytics for athletes and teams.</div>
-              </li>
-              <li>
-                <div class="list-heading" data-index="1">2. Sports IP</div>
-                <div class="dropdown-content">Exclusive Properties: Design and own leagues, tournaments, and branded sports events.</div>
-              </li>
-              <li>
-                <div class="list-heading" data-index="2">3. Sports Content</div>
-                <div class="dropdown-content">Streamline league-wide processes and track player, personnel and team activity from day-to-day activities to broad-based planning across the entire season.</div>
-              </li>
-              <li>
-                <div class="list-heading" data-index="3">4. Athlete management</div>
-                <div class="dropdown-content">Empowering athletes with right gameplan and kit to manage and grow their careers, secure sponsorships, showcase achievements, and plan for long-term success through data-driven marketing insights and strategic opportunities.</div>
-              </li>
-              <li>
-                <div class="list-heading" data-index="3">5. Sports Marketing</div>
-                <div class="dropdown-content">Maximizing brand partnerships with targeted marketing strategies and fan-centric campaigns, amplifying visibility for athletes, teams, and events.</div>
-              </li>
-              <li>
-                <div class="list-heading" data-index="3">6. Esports</div>
-                <div class="dropdown-content">We believe esports is more than just gaming—it’s a career, a passion, and a path to excellence. At Colab Esports, we nurture athletes by offering them access to the right resources, mentorship, and competitive opportunities.</div>
-              </li>
-              <li>
-                <div class="list-heading" data-index="3">7. Sports Infrastructure</div>
-                <div class="dropdown-content">Building world-class sports facilities with turnkey solutions, from design to execution. We create modern, tech-enabled environments for athletes, schools, communities, and professional franchises, driving grassroots growth and elite performance across India.</div>
-              </li>
-            </ul>
-          </div>
-        </section>
-      
-        <!-- Mobile horizontal scroll container1 -->
-        <section class="scroll-wrapper" aria-label="Mobile horizontal cards">
-            
-            <article class="card">
-                <div class="card-image-wrapper">
-                  <img
-                    src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6d2ed041-29f3-4cce-8f9a-a8c0700b39b6.png"
-                    alt="Athlete management with agents, coaches, and health stats displayed"
-                    draggable="false"
-                  />
-                </div>
-                <h3 class="card-heading">1. Sports Infrastructure</h3>
-                <p class="card-content">Building world-class, tech-enabled sports facilities with turnkey solutions that drive grassroots growth and elite performance across India.</p>
-              </article>
-          
-          <article class="card">
-            <div class="card-image-wrapper">
-              <img
-                src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/fb185349-9b45-434e-bf7c-34e4bfdd0155.png"
-                alt="Visual representation of sports intellectual property with legal icons and branding"
-                draggable="false"
-              />
-            </div>
-            <h3 class="card-heading">2. Sports IP</h3>
-            <p class="card-content">Managing intellectual property rights related to sports, including licensing, branding, and digital assets.</p>
-          </article>
-          <article class="card">
-            <div class="card-image-wrapper">
-              <img
-                src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2eda32bc-6e2a-43bb-8939-ccfd10de9dee.png"
-                alt="Dynamic sports content with fans watching games on multiple screens and media"
-                draggable="false"
-              />
-            </div>
-            <h3 class="card-heading">3. Sports Content</h3>
-            <p class="card-content">Creating and distributing engaging sports content that connects fans, athletes, and brands through multimedia experiences.</p>
-          </article>
-          <article class="card">
-            <div class="card-image-wrapper">
-              <img
-                src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/Artboard_3_1.jpg?v=1756818785"
-                alt="Athlete management with agents, coaches, and health stats displayed"
-                draggable="false"
-              />
-            </div>
-            <h3 class="card-heading">4. Athlete management</h3>
-            <p class="card-content">Providing comprehensive athlete management services including career guidance, health monitoring, and sponsorship negotiations.</p>
-          </article>
-          <article class="card">
-            <div class="card-image-wrapper">
-              <img
-                src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2088e114-2acb-4e06-9a78-4c58eeefc76a.png"
-                alt="Athlete management with agents, coaches, and health stats displayed"
-                draggable="false"
-              />
-            </div>
-            <h3 class="card-heading">5. Sports Marketing</h3>
-            <p class="card-content">Maximizing brand partnerships with targeted marketing strategies and fan-centric campaigns, amplifying visibility for athletes, teams, and events.</p>
-          </article>
-          <article class="card">
-            <div class="card-image-wrapper">
-              <img
-                src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/Artboard_8.jpg?v=1756818508"
-                alt="Athlete management with agents, coaches, and health stats displayed"
-                draggable="false"
-              />
-            </div>
-            <h3 class="card-heading">6. Esports</h3>
-            <p class="card-content">We believe esports is more than just gaming—it’s a career, a passion, and a path to excellence. At Colab Esports, we nurture athletes by offering them access to the right resources, mentorship, and competitive opportunities.</p>
-          </article>
+          <div class="container3">
+            <section class="info-section" id="infoSection">
+
+              
+           
+            </section>
         
-          <article class="card">
-            <div class="card-image-wrapper">
-              <img
-                src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/20be583e-0e15-46cd-b957-dafba8764bff.png"
-                alt="Visualization of sports technology including sensors and data analytics graphics"
-                draggable="false"
-              />
-            </div>
-            <h3 class="card-heading">7. Sports Technology</h3>
-            <p class="card-content">Leveraging cutting-edge sports technology solutions to optimize performance, training, and analytics for athletes and teams.</p>
-          </article>
-        </section>
+            <section class="cards-grid">
+              <!-- Service 1 -->
+              <div class="card-flip-container3" data-image="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/aerial-view-grass-field-hockey.jpg?v=1757139353">
+                <div class="card-flip">
+                    <div class="card-front">
+                        <img class="card-icon" src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/Screenshot_2025-09-06_152346.png?v=1757152494" alt="Sports Infrastructure" />
+                        <div class="card-front-text">Sports Infrastructure</div>
+                      </div>
+                      
+                  <div class="card-back">
+                    Building world-class sports facilities with turnkey solutions, from design to execution. We create modern, tech-enabled environments for athletes, schools, communities, and professional franchises, driving grassroots growth and elite performance across India.
+                    <a href="Sports technology.html" style="color: #D04713; text-decoration: none; font-weight: 500; margin-left: 5px;">
+                        Read More
+                      </a> 
+                </div>
+                </div>
+              </div>
+        
+              <!-- Service 2 -->
+              <div class="card-flip-container3" data-image="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/steptodown.com370868.jpg?v=1757139350">
+                <div class="card-flip">
+                  <div class="card-front">
+                    <img class="card-icon" src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/Screenshot_2025-09-06_152011.png?v=1757152494" alt="Sports Infrastructure" />
+                    <div class="card-front-text">Sports IP</div>
+                  </div>
+                  <div class="card-back">
+                    Exclusive Properties: Design and own leagues, tournaments, and branded sports events.
+                    <a href="sports-ip.html" style="color: #D04713; text-decoration: none; font-weight: 500; margin-left: 5px;">
+                        Read More
+                      </a>
+                  </div>
+                </div>
+              </div>
+        
+              <!-- Service 3 -->
+              <div class="card-flip-container3" data-image="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/10_Must-Know_Football_Skills_for_Every_Player.jpg?v=1755758533">
+                <div class="card-flip">
+                  <div class="card-front">
+                    <img class="card-icon" src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/Orange_1.png?v=1757156815" alt="Sports Infrastructure" />
+                    <div class="card-front-text">Athlete Management</div>
+                  </div>
+                  <div class="card-back">
+                    Empowering athletes with right gameplan and kit to manage and grow their careers, secure sponsorships, showcase achievements, and plan for long-term success through data-driven marketing insights and strategic opportunities.
+                    <a href="Athelte-management.html" style="color: #D04713; text-decoration: none; font-weight: 500; margin-left: 5px;">
+                        Read More
+                      </a>
+                  </div>
+                </div>
+              </div>
+        
+              <!-- Service 4 -->
+              <div class="card-flip-container3" data-image="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/steptodown.com899933.jpg?v=1757139350">
+                <div class="card-flip">
+                  <div class="card-front">
+                    <img class="card-icon" src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/Screenshot_2025-09-06_154325.png?v=1757153678" alt="Sports Infrastructure" />
+                    <div class="card-front-text">Sports Content</div>
+                  </div>
+                  <div class="card-back">
+                    Streamline league-wide processes and track player, personnel and team activity from day-to-day activities to broad-based planning across the entire season.
+                    <a href="sports-content.html" style="color: #D04713; text-decoration: none; font-weight: 500; margin-left: 5px;">
+                        Read More
+                      </a>
+                  </div>
+                </div>
+              </div>
+        
+              <!-- Service 5 -->
+              <div class="card-flip-container3" data-image="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/steptodown.com892993.jpg?v=1757139350">
+                <div class="card-flip">
+                  <div class="card-front">
+                    <img class="card-icon" src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/Screenshot_2025-09-06_174938.png?v=1757161204" alt="Sports Infrastructure" />
+                    <div class="card-front-text">Sports Marketing</div>
+                  </div>
+                  <div class="card-back">
+                    Maximizing brand partnerships with targeted marketing strategies and fan-centric campaigns, amplifying visibility for athletes, teams, and events.
+                    <a href="Sports-marketing.html" style="color: #D04713; text-decoration: none; font-weight: 500; margin-left: 5px;">
+                        Read More
+                      </a>
+                  </div>
+                </div>
+              </div>
+        
+              <!-- Service 6 -->
+              <div class="card-flip-container3" data-image="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/Screenshot_2025-09-06_115256.png?v=1757139792">
+                <div class="card-flip">
+                  <div class="card-front">
+                    <img class="card-icon" src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/Screenshot_2025-09-06_181710.png?v=1757162849" alt="Sports Infrastructure" />
+                    <div class="card-front-text">Esports</div>
+                  </div>
+                  <div class="card-back">
+                    We believe esports is more than just gaming—it’s a career, a passion, and a path to excellence. At Colab Esports, we nurture athletes by offering them access to the right resources, mentorship, and competitive opportunities.
+                    <a href="Esports.html" style="color: #D04713; text-decoration: none; font-weight: 500; margin-left: 5px;">
+                        Read More
+                      </a>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+      
      </section>
 
         <!-- Reviews Area start -->
@@ -1804,6 +1957,7 @@ type="image/x-icon">
         <!-- CTA Area end -->
 
         <!-- Blog Area start -->
+         <section>
         <section class="blog-area blog-home py-128 black-100-bg">
             <div class="container" style="margin-bottom: 90px;">
                 <div class="row section-heading mb-96">
@@ -1820,9 +1974,9 @@ type="image/x-icon">
                             <div class="content ">
                              
                                 <div class="image">
-                                    <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/122793172.avif?v=1753854801" alt="Blog">
-                                    <a class="hover-btn" href="blog.html?id=11">Read More</a>
-                                    <h6><a href="blog.html?id=11">Praggnanandhaa vs Magnus Carlsen</a></h6> <!-- Added heading text -->
+                                    <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/INDIAN-WOMENs-HOCKEY-TEAM-1024x576-1.webp?v=1757152037" alt="Blog">
+                                    <a class="hover-btn" href="blog.html?id=0">Read More</a>
+                                    <h6><a href="blog.html?id=0">Asia Cup 2025: Indian Women’s Hockey Team Faces Challenge Without Deepika and Savita</a></h6> <!-- Added heading text -->
                                 </div>
                                 <!-- <ul class="blog-meta mb-16">
                                     <li>
@@ -1841,9 +1995,9 @@ type="image/x-icon">
                             <div class="content ">
                                 <h6><a href="blog.html?id=6"></a></h6>
                                 <div class="image">
-                                    <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/123099217.jpg?v=1754399116" alt="Blog">
-                                    <a class="hover-btn" href="blog.html?id=6">Read More</a>
-                                    <h6><a href="blog.html?id=6">India Script Historic Win at The Oval to Level Series 2-2 Against England</a></h6> 
+                                    <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/00kskc38_shreyas-iyer-afp_625x300_21_August_25.webp?v=1755843388" alt="Blog">
+                                    <a class="hover-btn" href="blog.html?id=1">Read More</a>
+                                    <h6><a href="blog.html?id=1">BCCI Breaks Silence on Shreyas Iyer’s ODI Captaincy Speculation: What’s Really Happening?</a></h6> 
                                 </div>
                                 <!-- <ul class="blog-meta mb-16">
                                     <li>
@@ -1862,9 +2016,9 @@ type="image/x-icon">
                             <div class="content ">
                                 <!-- <h6><a href="project-details.html">Interior Design Trending Now</a></h6> -->
                                 <div class="image">
-                                    <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/wcl_cancelled_1752983392939_1752983397396_1753894692031.webp?v=1754398917" alt="Blog">
-                                    <a class="hover-btn" href="blog.html?id=7">Read More</a>
-                                    <h6><a href="blog.html?id=7">India Champions Withdraw From WCL Semifinal Against Pakistan</a></h6> 
+                                    <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/subham_gill.avif?v=1755843257" alt="Blog">
+                                    <a class="hover-btn" href="blog.html?id=2">Read More</a>
+                                    <h6><a href="blog.html?id=2">Shubman Gill Likely to Miss Out on Asia Cup T20I Squad as Selectors Stick to Core Group</a></h6> 
                                 </div>
                                 <!-- <ul class="blog-meta mb-16">
                                     <li>
@@ -1880,6 +2034,7 @@ type="image/x-icon">
                     </div>
                 </div>
             </div>
+        </section>
         </section>
         <!-- Blog Area end -->
 
@@ -2071,7 +2226,7 @@ type="image/x-icon">
                           <li id="menu-item-166" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-166">
                             <a href="/contact.html">Contact Us</a></li>
 							<li id="menu-item-166" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-166">
-                            <a href="/blog.html">Blog</a></li>
+                            <a href="/blog.html.html">Blog</a></li>
                         </ul>
                       </div>
                     </div>
@@ -2336,6 +2491,20 @@ type="image/x-icon">
         });
     });
 </script>
+
+
+<script>
+    const infoSection = document.getElementById("infoSection");
+    const cards = document.querySelectorAll(".card-flip-container3");
+
+    cards.forEach(card => {
+      card.addEventListener("mouseenter", () => {
+        const img = card.getAttribute("data-image");
+        infoSection.style.backgroundImage = `url('${img}')`;
+      });
+    });
+  </script>
+
 </body>
 
 </html>
