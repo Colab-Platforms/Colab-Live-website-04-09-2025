@@ -44,17 +44,22 @@ type="image/x-icon">
 <link rel="stylesheet" href="assests/css/style.css">
 <link rel="stylesheet" href="all.min.css">  <!-- First inclusion -->
 <style>
+    /* Fade/Blink cycle effect for right-side image */
     .fade-cycle {
-      width: 100%;
-      /* height: 85vh; */
-      transition: opacity 1s ease-in-out;
-      margin-top: -150px;
+        animation: fadeImages 12s infinite;
+        transition: opacity 1s ease-in-out;
     }
-    .fade-out {
-      opacity: 0;
-    }
-    .fade-in {
-      opacity: 1;
+    
+    @keyframes fadeImages {
+        0%, 33% {
+            content: url('https://cdn.shopify.com/s/files/1/0636/5226/6115/files/stump.jpg?v=1756892711');
+        }
+        34%, 66% {
+            content: url('https://cdn.shopify.com/s/files/1/0636/5226/6115/files/1_2.jpg?v=1756888329');
+        }
+        67%, 100% {
+            content: url('https://cdn.shopify.com/s/files/1/0636/5226/6115/files/2_1.jpg?v=1756888328');
+        }
     }
     </style>
 <style>
@@ -1010,50 +1015,69 @@ type="image/x-icon">
               
               <div class="desktop-banner">
                 <div class="carousel slide" id="recipeCarousel" data-bs-ride="carousel">
-              <div class="carousel-inner">
-  
-  <!-- Slide 1 -->
-  <div class="carousel-item active">
-    <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/3_3.jpg?v=1756903345" alt="banner 1">
-    <div class="carousel-flex">
-     
-    </div>
-  </div>
-
-  <!-- Slide 2 -->
-  <div class="carousel-item">
-    <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/1_7.jpg?v=1756903345" alt="banner 2">
-    <div class="carousel-flex">
-   
-    </div>
-  </div>
-
-  <!-- Slide 3 -->
-  <div class="carousel-item">
-    <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/2_5.jpg?v=1756903344" alt="banner 3">
-    <div class="carousel-flex">
-    
-    </div>
-  </div>
-
-  <!-- Slide 4 -->
-  <div class="carousel-item">
-    <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/2_6.jpg?v=1756903639" alt="banner 4">
-    <div class="carousel-flex">
-      
-    </div>
-  </div>
-
-</div>
-
-<!-- ✅ Added Carousel Dots (Indicators) -->
-<div class="carousel-indicators">
-  <button type="button" data-bs-target="#recipeCarousel" data-bs-slide-to="0" class="active"></button>
-  <button type="button" data-bs-target="#recipeCarousel" data-bs-slide-to="1"></button>
-  <button type="button" data-bs-target="#recipeCarousel" data-bs-slide-to="2"></button>
-  <button type="button" data-bs-target="#recipeCarousel" data-bs-slide-to="3"></button>
-</div>
-
+                  <div class="carousel-inner">
+              
+                    <!-- Slide 1 -->
+                    <div class="carousel-item active">
+                      <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/3_3.jpg?v=1756903345" alt="banner 1">
+                      <div class="carousel-flex">
+                        <div class="carousel-buttons">
+                          <button class="prev" type="button" data-bs-target="#recipeCarousel" data-bs-slide="prev">
+                            <i class="fas fa-arrow-left"></i>
+                          </button>
+                          <button type="button" data-bs-target="#recipeCarousel" data-bs-slide="next">
+                            <i class="fas fa-arrow-right"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+              
+                    <!-- Slide 2 -->
+                    <div class="carousel-item">
+                      <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/1_7.jpg?v=1756903345" alt="banner 2">
+                      <div class="carousel-flex">
+                        <div class="carousel-buttons">
+                          <button class="prev" type="button" data-bs-target="#recipeCarousel" data-bs-slide="prev">
+                            <i class="fas fa-arrow-left"></i>
+                          </button>
+                          <button type="button" data-bs-target="#recipeCarousel" data-bs-slide="next">
+                            <i class="fas fa-arrow-right"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+              
+                    <!-- Slide 3 -->
+                    <div class="carousel-item">
+                      <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/2_5.jpg?v=1756903344" alt="banner 3">
+                      <div class="carousel-flex">
+                        <div class="carousel-buttons">
+                          <button class="prev" type="button" data-bs-target="#recipeCarousel" data-bs-slide="prev">
+                            <i class="fas fa-arrow-left"></i>
+                          </button>
+                          <button type="button" data-bs-target="#recipeCarousel" data-bs-slide="next">
+                            <i class="fas fa-arrow-right"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+              
+                    <!-- Slide 4 -->
+                    <div class="carousel-item">
+                      <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/2_6.jpg?v=1756903639" alt="banner 4">
+                      <div class="carousel-flex">
+                        <div class="carousel-buttons">
+                          <button class="prev" type="button" data-bs-target="#recipeCarousel" data-bs-slide="prev">
+                            <i class="fas fa-arrow-left"></i>
+                          </button>
+                          <button type="button" data-bs-target="#recipeCarousel" data-bs-slide="next">
+                            <i class="fas fa-arrow-right"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+              
+                  </div>
                 </div>
               </div>
               
@@ -1232,69 +1256,25 @@ type="image/x-icon">
                         <div class="row pt-32">
                             <h2 class="col-md-6">One Unified Ecosystem  Boundless Impacts</h2>
                         </div>
-                        <div class="row pt-96 ">
-                            <p class="col-md-6 col-lg-3 text" >
+                        <div class="row pt-96 pb-64">
+                            <p class="col-md-6 col-lg-3 text" style="font-size:1.2rem;">
                                 At Colab Platforms, we are revolutionizing the sports industry with a unified digital ecosystem that blends innovation, performance, and community. Our platform empowers athletes, coaches, organizations, and fans by seamlessly integrating training, commerce, marketing, and engagement bridging grassroots talent with global opportunities.
                                 From personalized athlete development to large-scale sports management, Colab is the ultimate destination for everything sports, enabling dreams to thrive and talent to rise.
                             </p>
-                           
+                            <img class="small-image col-md-6 col-lg-5 wow zoomIn"
+                                src="https://cdn.shopify.com/s/files/1/0674/9614/9171/files/Colab_Esport_Logo_On_Teshirt_-_New_Size.jpg?v=1752586205"
+                                alt="about image" title="about image">
                         </div>
                     </div>
                 
                     <!-- Right-side ZoomIn Card with 3-image fade effect -->
-                    <div class="col-sm-12 col-md-6 right-image wow zoomIn">
-                        <img class="fade-cycle" 
-                             src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/About_Us_images-3.png?v=1757079788"
-                             alt="about image" 
-                             title="about image">
-                    </div>
+                    <img class="col-sm-12 col-md-6 right-image wow zoomIn fade-cycle"
+                        src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/stump.jpg?v=1756892711"
+                        alt="about image" title="about image">
                 </div>
             </div>
         </section>
         <!-- About Area end -->
-         
-
-        <script>
-            // Image cycling functionality
-            document.addEventListener('DOMContentLoaded', function() {
-                const fadeCycleImages = document.querySelectorAll('.fade-cycle');
-                
-                // Array of image URLs to cycle through
-                const imageUrls = [
-                    'https://cdn.shopify.com/s/files/1/0636/5226/6115/files/About_Us_images-3.png?v=1757079788',
-                    'https://cdn.shopify.com/s/files/1/0636/5226/6115/files/About_Us_images-4_1.png?v=1757081897',
-                    'https://cdn.shopify.com/s/files/1/0636/5226/6115/files/About_Us_images-2.png?v=1757079788'
-                ];
-                
-                fadeCycleImages.forEach(container => {
-                    let currentIndex = 0;
-                    const imgElement = container;
-                    
-                    // Function to change image with fade effect
-                    function changeImage() {
-                        // Fade out
-                        imgElement.style.opacity = '0';
-                        
-                        // After fade out, change image and fade in
-                        setTimeout(() => {
-                            currentIndex = (currentIndex + 1) % imageUrls.length;
-                            imgElement.src = imageUrls[currentIndex];
-                            
-                            // Fade in
-                            setTimeout(() => {
-                                imgElement.style.opacity = '1';
-                            }, 50);
-                        }, 500); // Half second for fade out
-                    }
-                    
-                    // Initial fade in
-                    imgElement.style.transition = 'opacity 0.5s ease-in-out';
-                    
-                    // Start cycling images every 3 seconds
-                    setInterval(changeImage, 3000);
-                });
-            });
-        </script>
 
         <!-- Service Section Start -->
         <section class="service-area black-120-bg py-128 justify-content-center">
@@ -1564,35 +1544,35 @@ type="image/x-icon">
         <!-- First Image -->
         <div class="flex-shrink-0" style="width: 800px; height: 500px;">
             <a href="about.html">
-                <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/About_Us_banner_NC.png?v=1757073516" 
-                     alt="Northern Challengers" style="width: 100%;  object-fit: cover; border-radius: 10px;">
+                <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/IP_s_Northern_Challengers.jpg?v=1755685245" 
+                     alt="Northern Challengers" style="width: 100%; height: 130%; object-fit: cover; border-radius: 10px;">
             </a>
         </div>
         <!-- Second Image -->
         <div class="flex-shrink-0" style="width: 800px; height: 500px;">
             <a href="about.html">
-                <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/About_Us_banner_CA.png?v=1757073515" 
-                     alt="Astralia" style="width: 100%;  object-fit: cover; border-radius: 10px;">
+                <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/IP_s_Australian_Champion.jpg?v=1755685244" 
+                     alt="Astralia" style="width: 100%; height: 130%; object-fit: cover; border-radius: 10px;">
             </a>
         </div>
         <div class="flex-shrink-0" style="width: 800px; height: 500px;">
             <a href="about.html">
-                <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/About_Us_banner_NC.png?v=1757073516" 
-                     alt="Northern Challengers" style="width: 100%;  object-fit: cover; border-radius: 10px;">
+                <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/IP_s_Northern_Challengers.jpg?v=1755685245" 
+                     alt="Northern Challengers" style="width: 100%; height: 130%; object-fit: cover; border-radius: 10px;">
             </a>
         </div>
         <!-- Third Image -->
         <div class="flex-shrink-0" style="width: 800px; height: 500px;">
             <a href="about.html">
-                <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/About_Us_banner_CA.png?v=1757073515" 
-                     alt="Astralia" style="width: 100%;  object-fit: cover; border-radius: 10px;">
+                <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/IP_s_Australian_Champion.jpg?v=1755685244" 
+                     alt="Astralia" style="width: 100%; height: 130%; object-fit: cover; border-radius: 10px;">
             </a>
         </div>
         <!-- Duplicate images for seamless looping -->
         <div class="flex-shrink-0" style="width: 800px; height: 500px;">
             <a href="about.html">
-                <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/About_Us_banner_NC.png?v=1757073516" 
-                     alt="Northern Challengers" style="width: 100%;  object-fit: cover; border-radius: 10px;">
+                <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/IP_s_Northern_Challengers.jpg?v=1755685245" 
+                     alt="Northern Challengers" style="width: 100%; height: 130%; object-fit: cover; border-radius: 10px;">
             </a>
         </div>
     </div>
@@ -1601,16 +1581,16 @@ type="image/x-icon">
 <!-- Mobile Version (new added) -->
 <div class="scroll-container-mobile">
     <a href="about.html">
-        <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/About_Us_banner_NC.png?v=1757073516" alt="Northern Challengers">
+        <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/IP_s_Northern_Challengers.jpg?v=1755685245" alt="Northern Challengers">
     </a>
     <a href="about.html">
-        <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/About_Us_banner_CA.png?v=1757073515" alt="Astralia">
+        <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/IP_s_Australian_Champion.jpg?v=1755685244" alt="Astralia">
     </a>
     <a href="about.html">
-        <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/About_Us_banner_NC.png?v=1757073516" alt="Northern Challengers">
+        <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/IP_s_Northern_Challengers.jpg?v=1755685245" alt="Northern Challengers">
     </a>
     <a href="about.html">
-        <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/About_Us_banner_CA.png?v=1757073515" alt="Astralia">
+        <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/IP_s_Australian_Champion.jpg?v=1755685244" alt="Astralia">
     </a>
 </div>
             </div>
