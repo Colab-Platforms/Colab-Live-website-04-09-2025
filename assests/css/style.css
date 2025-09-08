@@ -6291,7 +6291,7 @@ blockquote cite.name {
 
   .content h2 {
     font-size: 2rem;
-    text-align: center;
+    text-align: left;
   }
 
   .content .text {
