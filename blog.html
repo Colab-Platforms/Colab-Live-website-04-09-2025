@@ -368,7 +368,7 @@
           }
 
           h1 {
-            font-size: 4rem;
+            font-size: 3rem;
             line-height: normal;
             letter-spacing: 0.3px;
           }
@@ -423,9 +423,9 @@
               </div>
             </div>
             <script>
-
-              const blogData = [
-                 {
+              let blogData = []; // This will now hold combined manual and Firebase data
+              const manualBlogData = [
+              {
   title: "Asia Cup 2025: Indian Women’s Hockey Team Faces Challenge Without Deepika and Savita",
   author: "Sports Desk",
   date: "05 September, 2025",
@@ -464,8 +464,8 @@
   `,
   image: "https://cdn.shopify.com/s/files/1/0636/5226/6115/files/INDIAN-WOMENs-HOCKEY-TEAM-1024x576-1.webp?v=1757152037"
 },
-
-                 {
+   
+              {
   title: "BCCI Breaks Silence on Shreyas Iyer’s ODI Captaincy Speculation: What’s Really Happening?",
   author: "Sports Desk",
   date: "22 August, 2025",
@@ -3196,62 +3196,81 @@ Bumrah then made Konstas pay for his actions. With his signature style, Bumrah s
 `,
                   image: "https://staticimg.amarujala.com/assets/images/2024/12/04/ind-vs-aus-ind-vs-aus-2nd-test-india-vs-australia-adelaide-test-day-night-test-australia-jasp_cb31b2c9821bd0cc608a486e0b77f716.jpeg?w=674&dpr=1.0&q=50"
                 },
-                // Add more blog objects as needed
-              ];
+              ]
               // Get blog ID from URL query parameter
               const urlParams = new URLSearchParams(window.location.search);
-              const blogId = urlParams.get('id');
-
-
+              const blogIdParam = urlParams.get('id'); // ID of the blog to display
+              // We'll use this to find the blog in the combined array
+            
               // Select the container to display blog details or list
-              const blogDetail = document.getElementById('blog-detail');
-
-              // Find the blog by slug
-
-
-              // Render the blog details if the slug exists
-              if (blogId !== null && blogData[blogId]) {
-                const blog = blogData[blogId];
-                blogDetail.innerHTML = `
-<style>
- .blog-header h1,
-  .blog-header h2,
-  {
-    letter-spacing: 3px !important;
-  }
-</style>
-
-<div class="blog-header" style="margin-bottom: 90px">
-  <h1>${blog.title}</h1>
-  <p><strong>By ${blog.author}</strong> | ${blog.date}</p>
-</div>
-<img src="${blog.image}" alt="${blog.title}">
-<div class="blog-content" style="margin-top: 90px">
-  ${blog.content}
-</div>
-
-`
-              } else {
-                // Render all blogs if no specific blog is found
-                blogDetail.innerHTML = `
-<div class="blog-list">
-  ${blogData
-                    .map(
-                      (blog, index) => `
-     <div class="blog-card">
-      <img src="${blog.image}" alt="${blog.title}">
-      <p>${blog.title}</p>
-      <p><strong>By ${blog.author}</strong> | ${blog.date}</p>
-      <p>${blog.content.substring(0, 100)}...</p>
-      <a href="/blog.html?id=${index}" class="read-more">Read More</a>
-    </div>
-  `
-                    )
-                    .join("")}
-</div>
-`;
+              const blogDetail = document.getElementById('blog-detail'); // Assuming this is your main blog content container
+            
+              // Async function to load and display blogs
+              async function loadAndDisplayBlogs() {
+                let firebaseBlogs = [];
+                try {
+                  const querySnapshot = await firebase.firestore().collection('blogs').orderBy('createdAt', 'desc').get();
+                  firebaseBlogs = querySnapshot.docs.map(doc => ({
+                    id: doc.id, // Store Firebase document ID
+                    ...doc.data()
+                  }));
+                } catch (error) {
+                  console.error("Error fetching Firebase blogs:", error);
+                  // Optionally display an error message to the user on the blog page
+                }
+            
+                // Combine manual and Firebase blogs. Ensure Firebase blogs appear first if desired, or sort by date.
+                // For now, let's put Firebase blogs first for newly added content.
+                blogData = [...firebaseBlogs, ...manualBlogData];
+            
+                if (blogIdParam !== null) {
+                  // Logic for single blog post display (inner page)
+                  // Find the blog by ID, assuming the ID is an index for manual blogs, or Firebase ID for Firebase blogs
+                  // A more robust solution would ensure unique IDs across both sets,
+                  // but for now we'll rely on the combined array's index for 'read more' links.
+                  const blog = blogData[parseInt(blogIdParam)]; 
+            
+                  if (blog) {
+                    blogDetail.innerHTML = `
+                         
+                    
+            
+                      <div class="blog-header" style="margin-bottom: 90px">
+                        <h1>${blog.title}</h1>
+                        <p><strong>By ${blog.author}</strong> | ${blog.date}</p>
+                      </div>
+                     <img src="${blog.imageUrl || blog.image}" alt="${blog.title}" style="display: block; margin: 0 auto;  width: auto; height: auto; object-fit: cover;">
+                      <div class="blog-content" style="margin-top: 90px">
+                        ${blog.content}
+                      </div>
+                    `;
+                  } else {
+                    blogDetail.innerHTML = '<p>Blog post not found.</p>';
+                  }
+                } else {
+                  // Render all blogs if no specific blog is found (main blog list page)
+                  blogDetail.innerHTML = `
+                    <div class="blog-list">
+                      ${blogData
+                        .map(
+                          (blog, index) => `
+                          <div class="blog-card">
+                            <img src="${blog.imageUrl || blog.image}" alt="${blog.title}" style="display: block; margin: 0 auto; width: auto; height: auto; object-fit: cover;">
+                            <p>${blog.title}</p>
+                            <p><strong>By ${blog.author}</strong> | ${blog.date}</p>
+                            <p>${blog.content.substring(0, 100)}...</p>
+                            <a href="/blog.html?id=${index}" class="read-more">Read More</a>
+                          </div>
+                        `
+                        )
+                        .join("")}
+                    </div>
+                  `;
+                }
               }
-
+            
+              // Call the function to load and display blogs when the DOM is loaded
+              document.addEventListener('DOMContentLoaded', loadAndDisplayBlogs);
             </script>
 
 
@@ -3612,6 +3631,11 @@ Bumrah then made Konstas pay for his actions. With his signature style, Bumrah s
     <script src="script.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.2.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.2.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.2.0/firebase-firestore-compat.js"></script>
+    <script src="./firebase-init.js"></script>
+
     <script>
 
       document.addEventListener('DOMContentLoaded', function () {
