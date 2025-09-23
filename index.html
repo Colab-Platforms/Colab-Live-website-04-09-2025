@@ -1140,6 +1140,17 @@ type="image/x-icon">
                   left: 50%;
                   transform: translateX(-50%);
                 }
+                .carousel-flex1 {
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  gap: 15px;
+                  position: absolute;
+                  bottom: 130px; /* place buttons at bottom of banner */
+                  left: 50%;
+                  transform: translateX(-50%);
+
+                }
               
                 .carousel-buttons {
                   display: flex;
@@ -1166,7 +1177,7 @@ type="image/x-icon">
   text-decoration: none;
   box-shadow: 0 4px 10px rgba(30, 144, 255, 0.5);
   transition: 0.3s ease;
-  margin-top: -70px;
+  margin-top: -50px;
 }
 
 .center-btn:hover {
@@ -1233,8 +1244,32 @@ type="image/x-icon">
                 <div class="mobile-banner-inner">
                     <div class="carousel slide" id="recipeCarousel" data-bs-ride="carousel">
                         <div class="carousel-inner" role="listbox">
-            
+
                             <div class="carousel-item active"
+                                style="background-image: url(https://cdn.shopify.com/s/files/1/0636/5226/6115/files/New_Mobile_view_siz_1.png?v=1758617133);">
+                                <div class="container pt-64 pb-64" style="height:80vh; background-size:cover; background-position:center;">
+                                    <div class="row pt-32" style="margin-top: 340px;">
+                                        <div class="carousel-buttons col-12" style="display:none;">
+                                           
+                                            <button class="prev" type="button" data-bs-target="#recipeCarousel"
+                                                data-bs-slide="prev">
+                                                <span class="carousel-control-prev-icon" aria-hidden="true"><i
+                                                        class="fas fa-arrow-left"></i></span>
+                                            </button>
+                                            <button type="button" data-bs-target="#recipeCarousel"
+                                                data-bs-slide="next">
+                                                <span class="carousel-control-next-icon" aria-hidden="true"><i
+                                                        class="fas fa-arrow-right"></i></span>
+                                            </button>
+                                        </div>
+                                        <div class="carousel-flex1">
+                                            <a href="article-page.html" class="center-btn">Read More</a>
+                                          </div>
+                                    </div>
+                                </div>
+                            </div>
+            
+                            <div class="carousel-item"
                                 style="background-image: url(https://cdn.shopify.com/s/files/1/0653/9830/9053/files/adak_1.jpg?v=1746431276);">
                                 <div class="container pt-64 pb-64" style="height:80vh; background-size:cover; background-position:center;">
                                     <div class="row pt-32" style="margin-top: 340px;">
