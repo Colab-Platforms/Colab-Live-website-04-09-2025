@@ -108,6 +108,19 @@ type="image/x-icon">
             }
         }
         
+        @media (min-width: 769px) and (max-width: 991px) { /* Laptop view */
+            .banner {
+                padding: 180px 0;
+                margin-top: -90px; /* Adjusted padding for laptop screens */
+            }
+            .banner h1 {
+                font-size: 3.5rem; /* Adjusted for laptop screens */
+            }
+            .banner p.lead {
+                font-size: 1.5rem; /* Adjusted for laptop screens */
+            }
+        }
+        
         @media (max-width: 768px) {
             .banner {
                 padding: 100px 15px; /* Adjusted padding for smaller mobile screens */
@@ -125,22 +138,39 @@ type="image/x-icon">
                 margin-bottom: 1.2rem;
             }
         }
+
+
+        @media (max-width: 1399px) {
+            .banner {
+                padding: 180px 0; /* Adjusted padding for very small mobile screens */
+                height: 90vh;
+                margin-top: -90px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+        }
         
         @media (max-width: 480px) {
             .banner {
-                padding: 80px 10px; 
+                padding: 40px 10px; /* Adjusted padding for very small mobile screens */
                 height: 90vh;
-        margin-top: -60px;
-/* Further adjusted padding for very small mobile screens */
+                margin-top: -60px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
             }
             
             .banner h1 {
-                font-size: 1.6rem; /* Adjusted for very small mobile screens */
-                margin-top: 250px;
+                font-size: 2.2rem; /* Adjusted for very small mobile screens */
+                margin-top: 0; /* Removed fixed margin-top */
             }
             
             .banner p.lead {
-                font-size: 0.9rem; /* Adjusted for very small mobile screens */
+                font-size: 1.3rem; 
+                color: white;/* Adjusted for very small mobile screens */
             }
         }
         
@@ -422,6 +452,7 @@ type="image/x-icon">
         @media (min-width: 1200px) {
             .container.clearfix {
                 max-width: 1140px;
+                margin-top: 10px;
             }
         }
 
