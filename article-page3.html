@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article Page</title>
+     <link rel="shortcut icon"
+    href="https://cdn.shopify.com/s/files/1/0653/9830/9053/files/New_Variation_-_11-3-2025-01_1.png?v=1744091612"
+    type="image/x-icon">
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="shortcut icon"
+href="https://cdn.shopify.com/s/files/1/0653/9830/9053/files/New_Variation_-_11-3-2025-01_1.png?v=1744091612"
+type="image/x-icon">
+<!-- Font Awesome 7.0.0 Local -->
+<link rel="stylesheet" href="assests/css/bootstrap.min.css">
+<!-- Bootstrap -->
+<link rel="stylesheet" href="assests/css/bootstrap.min.css">
+<!-- Magnific Popup -->
+<link rel="stylesheet" href="assests/css/magnific-popup.min.css">
+<!-- Animate -->
+<link rel="stylesheet" href="assests/css/animate.min.css">
+<!-- Slick -->
+<link rel="stylesheet" href="assests/css/slick.min.css">
+<!-- Main Style -->
+<link rel="stylesheet" href="assests/css/style.css">
+    <style>
+
+
+
+                        .bottom-button-container {
+                            display: flex;
+                            justify-content: center;
+                            padding: 20px 0;
+                            margin-top: 20px; /* Add some space above the button */
+                        }
+          
+        /* Global Font Settings */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin-top: 0; /* Ensure no default margin at the top */
+            padding-top: 0; /* Ensure no default padding at the top */
+        }
+        
+        h1, h2, h3, h4, h5, h6,
+        .h1, .h2, .h3, .h4, .h5, .h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: #2c3e50; /* Changed from black to a dark charcoal for softer look */
+        }
+        
+        /* Keep banner heading text white */
+        .banner h1, .banner h2, .banner h3, 
+        .banner h4, .banner h5, .banner h6,
+        .banner .h1, .banner .h2, .banner .h3, 
+        .banner .h4, .banner .h5, .banner .h6 {
+            color: #ffffff;
+        }
+        
+        .display-1, .display-2, .display-3, .display-4, .display-5, .display-6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+        }
+        
+        /* Custom styles */
+        .banner {
+            background: url('https://cdn.shopify.com/s/files/1/0636/5226/6115/files/Theory_of_Mind.jpg?v=1760354206');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            padding: 150px 0; /* Adjusted padding */
+            text-align: center;
+            margin-bottom: 50px; /* Adjusted margin-bottom */
+            position: relative;
+            overflow: hidden;
+            transition: all 0.6s ease-in-out;
+            border-radius: 15px;
+        }
+     
+        .banner h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 3rem; /* Decreased font size */
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            margin-bottom: 1.5rem;
+        }
+        
+        .banner p.lead {
+            font-size: 1.3rem; /* Decreased font size */
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+        
+        /* Responsive adjustments */
+        @media (min-width: 992px) { /* Desktop view */
+            .banner {
+                padding: 280px 0; /* Further increased padding for larger banner height */
+            }
+            .banner h1 {
+                font-size: 4.5rem; /* Adjusted for larger desktop view */
+            }
+            .banner p.lead {
+                font-size: 2rem; /* Adjusted for larger desktop view */
+            }
+        }
+        
+        @media (min-width: 769px) and (max-width: 991px) { /* Laptop view */
+            .banner {
+                padding: 180px 0;
+                margin-top: -90px; /* Adjusted padding for laptop screens */
+            }
+            .banner h1 {
+                font-size: 3.5rem; /* Adjusted for laptop screens */
+            }
+            .banner p.lead {
+                font-size: 1.5rem; /* Adjusted for laptop screens */
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .banner {
+                padding: 100px 15px; /* Adjusted padding for smaller mobile screens */
+                background-attachment: scroll;
+                text-align: center;
+            }
+            
+            .banner h1 {
+                font-size: 2rem; /* Adjusted for mobile view */
+                margin-bottom: 0.8rem;
+            }
+            
+            .banner p.lead {
+                font-size: 1rem; /* Adjusted for mobile view */
+                margin-bottom: 1.2rem;
+            }
+        }
+
+
+        @media (max-width: 1399px) {
+            .banner {
+                padding: 180px 0; /* Adjusted padding for very small mobile screens */
+                height: 90vh;
+                margin-top: -90px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .banner {
+                padding: 40px 10px; /* Adjusted padding for very small mobile screens */
+                height: 90vh;
+                margin-top: -60px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            
+            .banner h1 {
+                font-size: 2.2rem; /* Adjusted for very small mobile screens */
+                margin-top: 0; /* Removed fixed margin-top */
+            }
+            
+            .banner p.lead {
+                font-size: 1.3rem; 
+                color: white;/* Adjusted for very small mobile screens */
+            }
+        }
+        
+        .main-image {
+            width: 100%;
+            height: auto;
+            border-radius: 18px;
+            margin: 40px 0; /* Adjusted margin */
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+        
+        .main-image:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+        
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px; /* Adjusted gap */
+            margin: 50px 0; /* Adjusted margin */
+        }
+        
+        .image-grid img {
+            width: 100%;
+            height: 350px; /* Adjusted height */
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        
+        .image-grid img:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        
+        .content-section {
+            background-color: #ffffff;
+            padding: 50px; /* Adjusted padding */
+            border-radius: 15px; /* Adjusted border-radius */
+            margin: 50px 0; /* Adjusted margin */
+            transition: all 0.4s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .content-section:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        
+        .content-section h2,
+        .content-section h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            letter-spacing: 0.5px; /* Adjusted letter-spacing */
+            color: #2c3e50;
+            font-size: 2rem;
+        }
+        
+        .content-section p {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            line-height: 1.7; /* Adjusted line-height */
+            color: #34495e;
+        }
+        
+        .btn {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            letter-spacing: 0.5px; /* Adjusted letter-spacing */
+            text-transform: uppercase;
+            border-radius: 5px; /* Adjusted border-radius */
+            padding: 10px 20px; /* Adjusted padding */
+            transition: all 0.3s ease;
+        }
+        
+        .btn-blue {
+          
+            color: #ffffff;
+        }
+        
+        .btn-blue:hover {
+            background-color: #2980b9 !important; /* Darker blue on hover */
+            transform: translateY(-1px);
+            box-shadow: 0 2px 8px rgba(0, 118, 186, 0.2);
+        }
+        
+        .card {
+            border: none;
+            border-radius: 10px; /* Adjusted border-radius */
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05); /* Softer shadow */
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        
+        .card-img-top {
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            height: 200px; /* Adjusted height */
+            object-fit: cover;
+        }
+        
+        .card-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem; /* Decreased font size */
+            color: #2c3e50;
+        }
+        
+        .card-text {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            font-size: 0.95rem; /* Slightly decreased font size */
+            color: #34495e;
+            line-height: 1.6;
+        }
+        
+        .list-unstyled li {
+            margin-bottom: 8px; /* Adjusted margin */
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            color: #34495e;
+        }
+        
+        /* Mobile Font Size Adjustments */
+        @media (max-width: 768px) {
+            .content-section {
+                padding: 30px; /* Adjusted padding for content section */
+                margin: 30px 0; /* Adjusted margin */
+            }
+            .main-image {
+                margin: 20px 0; /* Adjusted margin for main image */
+            }
+            .image-grid {
+                grid-template-columns: 1fr; /* Stack images on small screens */
+                gap: 15px; /* Reduced gap */
+                margin: 30px 0; /* Adjusted margin */
+            }
+            .image-grid img {
+                height: 250px; /* Reduced image height */
+            }
+            .card {
+                margin-bottom: 20px; /* Spacing between stacked cards */
+            }
+            .list-unstyled li {
+                margin-bottom: 6px; /* Reduced list item spacing */
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .content-section {
+                padding: 20px; /* Further reduced padding */
+                margin: 20px 0;
+            }
+            .main-image {
+                margin: 15px 0;
+            }
+            .image-grid {
+                gap: 10px;
+                margin: 20px 0;
+            }
+            .image-grid img {
+                height: 180px;
+            }
+            .card {
+                margin-bottom: 15px;
+            }
+            .list-unstyled li {
+                margin-bottom: 4px;
+            }
+        }
+        
+        .list-unstyled li i {
+            color: #3498db; /* Adjusted primary blue for icons */
+            font-size: 1rem;
+            margin-right: 8px;
+        }
+        
+        .text-primary {
+            color: #3498db !important;
+        }
+        
+        /* Application Areas Icons */
+        .p-4.border.rounded.h-100 {
+            border: 1px solid rgba(0,0,0,0.1) !important; /* Softer border */
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .p-4.border.rounded.h-100:hover {
+            transform: translateY(-3px) scale(1.01);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+        
+        .p-4.border.rounded.h-100 i {
+            color: #f1c40f; /* Adjusted accent yellow */
+            transition: color 0.3s ease;
+        }
+        
+        .p-4.border.rounded.h-100:hover i {
+            color: #e6b100;
+        }
+        
+        .p-4.bg-light.rounded.h-100 {
+            background-color: #f8f9fa !important; /* Lighter background for leadership quotes */
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .p-4.bg-light.rounded.h-100:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.06);
+        }
+        
+        .p-4.bg-light.rounded.h-100 i.fa-user-circle {
+            color: #bdc3c7 !important; /* Lighter grey for user icons */
+        }
+        
+        .footer {
+          
+            color: #ecf0f1;
+            padding: 40px 0 15px; /* Re-added adjusted padding */
+        }
+        
+        .footer a {
+            color: #ecf0f1;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer a:hover {
+            color: #f1c40f; /* Yellow hover for links */
+        }
+        
+        .footer__copyright p {
+            color: #aeb6bf;
+            font-size: 0.85em;
+        }
+    </style>
+
+    <style>
+        /* Container Clearfix Styles */
+        .container.clearfix {
+            width: 100%;
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-right: auto;
+            margin-left: auto;
+            margin-top: 16px;
+        }
+
+        @media (min-width: 576px) {
+            .container.clearfix {
+                max-width: 540px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .container.clearfix {
+                max-width: 720px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .container.clearfix {
+                max-width: 960px;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .container.clearfix {
+                max-width: 1140px;
+                margin-top: 10px;
+            }
+        }
+
+        @media (min-width: 1400px) {
+            .container.clearfix {
+                max-width: 1320px;
+                margin-top: -90px;
+            }
+        }
+
+        .clearfix::after {
+            display: block;
+            clear: both;
+            content: "";
+        }
+
+        /* Footer Links Styling */
+        .footer__legal .menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex; /* Display links in a row */
+            gap: 15px; /* Space between links */
+        }
+
+        .footer__legal .menu li a {
+            color: #ecf0f1; /* Ensure visible color */
+            text-decoration: none;
+            font-size: 1em; /* Default font size */
+            transition: color 0.3s ease;
+        }
+
+        .footer__legal .menu li a:hover {
+            color: #f1c40f; /* Yellow hover effect */
+        }
+    </style>
+
+    <style>
+    #preloader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #000;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        transition: opacity 0.5s ease-out;
+    }
+    
+    .preloader-logo {
+        width: 150px;
+        margin-bottom: 30px;
+        animation: pulse 2s infinite;
+    }
+    
+    .loader {
+        width: 50px;
+        height: 50px;
+        border: 5px solid #f3f3f3;
+        border-top: 5px solid #fdd301;
+        border-radius: 50%;
+        animation: spin 1s linear 2;
+        animation-fill-mode: forwards;
+    }
+    
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(720deg); } /* 2 full rotations = 720 degrees */
+    }
+    
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+        100% { transform: scale(1); }
+    }
+</style>
+</head>
+<body>
+   <!-- Preloader -->
+        <div id="preloader">
+            <div class="preloader-logo">
+                <img src="https://cdn.shopify.com/s/files/1/0653/9830/9053/files/minimal-logo-effect-for-footer-unscreen-ezgif.com-crop_1.gif" alt="Colab Platforms Logo">
+            </div>
+
+        </div>
+        <!-- Main header -->
+        <header class="main-header">
+            <!--Header-Upper-->
+            <div class="header-upper black-120-bg">
+                <div class="container clearfix">
+                    <div class="header-inner rel d-flex align-items-center">
+                        <div class="logo-outer">
+                          <div class="logo"><a href="index.html"><img src="https://cdn.shopify.com/s/files/1/0653/9830/9053/files/minimal-logo-effect-for-footer-unscreen-ezgif.com-crop_1.gif?v=1744289888" alt="Logo" title="Logo" style = "width: 100px;"></a></div>
+                        </div>
+
+                        <div class="nav-outer ms-auto clearfix">
+                            <!-- Main Menu -->
+                            <nav class="main-menu navbar-expand-lg">
+                                <div class="navbar-header py-10">
+                                    <div class="mobile-logo">
+                                        <a href="index.html">
+                                            <img src="https://cdn.shopify.com/s/files/1/0653/9830/9053/files/minimal-logo-effect-for-footer-unscreen-ezgif.com-crop_1.gif?v=1744289888" alt="Logo" title="Logo" style = "width: 80px;">
+                                        </a>
+                                    </div>
+
+                                    <!-- Toggle Button -->
+                                    <button type="button" class="navbar-toggle" data-bs-toggle="collapse"
+                                        data-bs-target=".navbar-collapse">
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                </div>
+
+                                <div class="navbar-collapse collapse clearfix">
+                                    <ul class="navigation clearfix">
+                                       <li ><a href="index.html">Home</a></li>
+                                        <li><a href="about.html">About</a></li>
+                                     <li class="dropdown"><a href="#">Services</a>
+                                            <ul>
+                                                <li><a href="Services.html">All Services</a></li>
+                                             
+												 <li><a href="	https://colabsports.in/">Sports Marketplace</a></li>
+											
+                                                <li><a href="sports-content.html">Sports Content</a></li>
+                                                <li><a href="Sports-infrastructure.html">Sports Infrastructure</a></li>
+                                                <li><a href="sports-ip.html">Sports Ip</a></li>
+                                                <li><a href="Sports-marketing.html">Sports Marketing</a></li>
+                                                <li><a href="Athelte-management.html">Athelte Management</a></li>
+                                                <li><a href="Esports.html">Esports</a></li>
+                                            </ul>
+                                        </li>
+                                        <!-- <li class="dropdown"><a href="#">pages</a>
+                                            <ul>
+                                                <li><a href="404.html">404 Error</a></li>
+                                            </ul>
+                                        </li> -->
+                                        
+                                       
+                                        <li><a href="investor.html">Investor</a></li>
+                                        <li><a href="career.html">Career</a></li>
+                                          <li><a href="https://www.colabesports.in/">Esports</a></li>
+                                        <li><a href="gallery.html">Gallery</a></li>
+                                    </ul>
+                                </div>
+
+                            </nav>
+                            <!-- Main Menu End-->
+                        </div>
+                        <!-- Search Button -->
+                           
+                    </div>
+                    <form class="search-project search-form mt-96" id="project-search" action="#">
+                        <input type="search" required placeholder="Type to search...">
+                        <button type="submit"><i class="fas fa-magnifying-glass"></i></button>
+                    </form>
+                </div>
+            </div>
+            <!--End Header Upper-->
+        </header>
+        <!-- End main header -->
+
+ 
+
+  <section class="banner">
+  <div class="container">
+    <h1>COLAB PLATFORMS TO INCORPORATE “COLAB INTELLIGENCE PVT. LTD.”</h1>
+   
+  </div>
+</section>
+
+<div class="container">
+  <!-- Article Content -->
+  <div class="row justify-content-center">
+    <div class="col-lg-10">
+      <div class="content-section">
+        <p
+          class="text-muted mb-4"
+          style="font-size: 1.2rem; color: black;"
+        >
+          Strengthening Presence in USD 200 Billion Artificial Intelligence Sector
+        </p>
+
+        <div class="row align-items-center mb-5">
+          <div class="col-lg-6">
+            <p class="mb-4">
+              Colab Platforms Limited (“Colab” or “the Company”), a diversified
+              technology company, has announced plans to incorporate
+              <strong>Colab Intelligence Pvt. Ltd.</strong>, a wholly owned
+              subsidiary. This strategic move marks a significant milestone in
+              Colab’s long-term vision to strengthen its presence in the rapidly
+              expanding <strong>Artificial Intelligence (AI) sector</strong>,
+              valued at approximately USD 200 billion globally in 2024 and
+              projected to exceed USD 1.8 trillion by 2030, growing at a CAGR of
+              over 30%.
+            </p>
+            <p class="mb-4">
+              The initiative reflects Colab Platforms’ commitment to innovation,
+              digital transformation, and the integration of advanced
+              AI-driven technologies across its business ecosystem. Colab
+              Intelligence will focus on developing cutting-edge solutions such
+              as intelligent automation, predictive analytics, and collaborative
+              AI platforms that enhance decision-making, operational efficiency,
+              and human–machine synergy.
+            </p>
+          </div>
+          <div class="col-lg-6">
+            <img
+              src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/Estrategias_de_social_media_marketing_con_IA_para_destinos_turisticos.jpg?v=1760353657"
+              alt="Artificial Intelligence"
+              class="img-fluid rounded shadow"
+            />
+          </div>
+        </div>
+
+        <p class="mb-4">
+          This move strategically positions Colab Platforms to capture
+          high-growth opportunities across multiple transformative industries.
+          The expansion will diversify its technology portfolio, unlock new
+          revenue streams, and drive sustainable, long-term value for
+          shareholders.
+        </p>
+
+        <!-- Market Potential Section with Image -->
+        <div class="row my-5">
+          <div class="col-md-6 mb-4">
+            <div class="card h-100 border-0 shadow-sm">
+              <img
+                src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/download_26.jpg?v=1760353652"
+                class="card-img-top"
+                alt="AI Market Growth"
+              />
+              <div class="card-body">
+                <h4 class="card-title mb-3">AI Opportunities Across Sectors</h4>
+                <ul class="list-unstyled">
+                  <li class="mb-2">
+                    <i class="fas fa-brain text-primary me-2"></i> Global AI
+                    market projected to exceed USD 1.8 trillion by 2030.
+                  </li>
+                  <li class="mb-2">
+                    <i class="fas fa-gamepad text-primary me-2"></i> Gaming &
+                    Esports AI market to surpass USD 583 billion by 2030.
+                  </li>
+                  <li>
+                    <i class="fas fa-chart-line text-primary me-2"></i> Sports
+                    analytics and AI-driven management forecast to reach USD 19
+                    billion by 2030.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 mb-4">
+            <div class="card h-100 border-0 shadow-sm">
+              <img
+                src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/Living_Intelligence__Preparing_for_the_AI_Future_of_Rental_Decisions.jpg?v=1760353664"
+                class="card-img-top"
+                alt="AI Applications"
+              />
+              <div class="card-body">
+                <h4 class="card-title mb-3">Key Growth Drivers</h4>
+                <ul class="list-unstyled">
+                  <li class="mb-2">
+                    <i class="fas fa-robot text-primary me-2"></i> Intelligent
+                    automation & predictive analytics.
+                  </li>
+                  <li class="mb-2">
+                    <i class="fas fa-users text-primary me-2"></i> Collaborative
+                    AI platforms enhancing decision-making.
+                  </li>
+                  <li>
+                    <i class="fas fa-bolt text-primary me-2"></i> AI integration
+                    across gaming, fintech, and retail for scalable innovation.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Applications Section - Simplified -->
+        <div class="content-section my-5">
+          <h3 class="text-center mb-4">AI Impact Across Industries</h3>
+          <div class="row">
+            <div class="col-md-4 text-center mb-4">
+              <div class="p-4 border rounded h-100">
+                <i class="fas fa-gamepad fa-3x text-primary mb-3"></i>
+                <h5>Gaming & Esports</h5>
+                <p class="mb-0">
+                  Hyper-personalization, immersive gameplay, and predictive
+                  analytics for players and organizers.
+                </p>
+              </div>
+            </div>
+            <div class="col-md-4 text-center mb-4">
+              <div class="p-4 border rounded h-100">
+                <i class="fas fa-chart-bar fa-3x text-primary mb-3"></i>
+                <h5>Sports Analytics</h5>
+                <p class="mb-0">
+                  AI-enhanced performance tracking and fan engagement for
+                  professional sports.
+                </p>
+              </div>
+            </div>
+            <div class="col-md-4 text-center mb-4">
+              <div class="p-4 border rounded h-100">
+                <i class="fas fa-university fa-3x text-primary mb-3"></i>
+                <h5>Financial & Retail</h5>
+                <p class="mb-0">
+                  AI applications projected to surpass USD 100 billion by 2030
+                  with intelligent automation and customer insights.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Leadership Section -->
+        <div class="content-section">
+          <h3 class="text-center mb-4">Leadership Perspective</h3>
+          <div class="row">
+            <div class="col-md-12 mb-4">
+              <div class="p-4 bg-light rounded h-100">
+                <p class="font-italic mb-4">
+                  “This marks a new chapter in the company’s growth journey,
+                  aimed at boosting innovation and market relevance. Colab
+                  Intelligence is central to building a resilient, diversified
+                  business model that captures value from emerging technologies.
+                  By focusing on AI-driven industries, Colab Platforms aims to
+                  unlock new revenue streams and strengthen its position as a
+                  forward-looking leader in India’s tech landscape.”
+                </p>
+                <div class="d-flex align-items-center">
+                  <div class="me-3">
+                    <i class="fas fa-user-circle fa-3x text-secondary"></i>
+                  </div>
+                  <div>
+                    <h6 class="mb-0">Mr. Puneet Singh</h6>
+                    <small class="text-muted"
+                      >Managing Director, Colab Platforms Limited</small
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- About Section with Image -->
+        <div class="content-section">
+          <div class="row align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+              <h3 class="mb-4">About Colab Platforms</h3>
+              <p>
+                Colab Platforms Limited is a diversified technology, sports and
+                digital ventures company focused on building integrated
+                ecosystems spanning esports, physical sports infrastructure,
+                sporting events, influencer collaborations, and digital content
+                delivery. With a vision to strengthen India’s sports and youth
+                economy, Colab is creating sustainable value across multiple
+                verticals.
+              </p>
+              <p class="mb-0">
+                <strong>Website:</strong>
+                <a
+                  href="https://www.colabplatforms.com"
+                  target="_blank"
+                  class="text-decoration-none"
+                  >www.colabplatforms.com</a
+                >
+              </p>
+            </div>
+            <div class="col-lg-6">
+              <img
+                src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80"
+                class="img-fluid rounded shadow"
+                alt="Colab Platforms"
+              />
+            </div>
+          </div>
+        </div>
+
+      
+        <div class="bottom-button-container">
+          <button
+            class="btn btn-primary"
+            style="
+              background-color: #d04713;
+              border-radius: 5px;
+              padding: 10px 20px;
+              color: #fff;
+              font-size: 16px;
+              font-weight: 600;
+              text-decoration: none;
+              cursor: pointer;
+              transition: all 0.3s ease;
+              border: none;
+              outline: none;
+              box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+              margin-bottom: 20px;
+              display: inline-block;
+              text-align: center;
+              width: 100%;
+              max-width: 200px;
+              margin: 0 auto;
+            "
+          >
+            <a
+              href="https://www.bseindia.com/xml-data/corpfiling/AttachLive/a056c6c5-345d-4bd6-9321-3f70ae21519f.pdf"
+              target="_blank"
+              >VIEW PRESS RELEASE</a
+            >
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+        
+ 
+ <style>
+            @media screen and (min-width: 768px) {
+              .img-footer {
+                height: 160px;
+              }
+        
+              .footer {
+                position: relative;
+                height: 90vh; /* Set a fixed height for desktop */
+                overflow: hidden; /* Hide overflowing content */
+              }
+        
+              .footer-video {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                z-index: -1; /* Place video behind content */
+              }
+        
+              .txt {
+                color: white;
+                font-size: 5rem;
+                margin-bottom: 30px;
+                letter-spacing: -4px;
+              }
+            }
+        
+            @media screen and (max-width: 768px) {
+              .txt {
+                color: white;
+                font-size: 2.5rem;
+                margin-bottom: 20px;
+                letter-spacing: 4px;
+              }
+        
+              .img-footer {
+                height: 70px;
+              }
+        
+              .footer {
+                position: relative;
+                height: auto; /* Allow height to adjust based on content */
+                overflow: hidden !important; /* Keep overflow hidden for mobile as well */
+              }
+        
+              .footer-video {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                z-index: -1; /* Place video behind content for mobile */
+                visibility: visible; /* Ensure it's visible */
+              }
+            }
+        </style>
+        
+        
+        <style>
+            .footer-video {
+                z-index: -1; /* Place video behind content */
+                visibility: visible; /* Ensure it's visible */
+            }
+            .footer {
+                overflow: hidden !important; /* Keep overflow hidden */
+            }
+        </style>
+                        <style>
+                            .mobile-banners {
+                                display: none;
+                            }
+                            @media (max-width: 767px) {
+                                .mobile-banners {
+                                    display: flex;
+                                    flex-direction: column;
+                                    gap: 16px;
+                                    padding: 16px;
+                                }
+                                .banner-item {
+                                    background: #f5f5f5;
+                                    border-radius: 8px;
+                                    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+                                    padding: 24px;
+                                    text-align: center;
+                                    font-size: 1.2em;
+                                    font-weight: 600;
+                                    color: #333;
+                                }
+                            }
+                        </style>
+                        <style>
+                            .footer__top {
+                                position: absolute; /* Position absolutely for desktop */
+                                bottom: 10%; /* Adjust as per image */
+                                left: 4%; /* Adjust as per image */
+                                z-index: 10; /* Ensure it's above the video */
+                                width: auto; /* Allow width to adjust */
+                                padding-top: 0; /* Remove extra padding */
+                            }
+                            .footer__bottom {
+                                position: absolute; /* Position absolutely for desktop */
+                                bottom: 1%; /* Adjust as per image, below footer__top */
+                                width: 100%; /* Take full width */
+                                z-index: 10; /* Ensure it's above the video */
+                                padding-bottom: 0; /* Remove extra padding */
+                                margin-top: 0; /* Remove extra margin */
+                            }
+                            .footer .col-12.col-md.d-flex {
+                                justify-content: start !important;
+                                align-items: start;
+                                flex-direction: column;
+                            }
+                            .footer .btn-blue {
+                                margin-bottom: 20px; /* Restore margin for the button */
+                                background-color: #D04713; /* Restore specific background color */
+                            }
+                            @media screen and (max-width: 768px) {
+                                .footer {
+                                    padding: 30px 0 10px;
+                                    height: auto; /* Allow height to adjust based on content */
+                                    overflow: hidden !important;
+                                    height:90vh /* Keep overflow hidden */
+                                }
+                               
+                                .footer__bottom {
+                                    position: relative; /* Remove absolute positioning */
+                                    bottom: auto;
+                                    text-align: center; /* Center copyright text */
+                                    width: auto;
+                                    margin-top: 0; /* Ensure no extra margin */
+                                }
+                                .footer__legal {
+                                    flex-direction: column; /* Stack legal links vertically */
+                                    align-items: center;
+                                    margin-top: 20px;
+                                }
+                                .footer__legal ul.menu {
+                                    flex-direction: row; /* Display links in a row for mobile */
+                                    gap: 10px; /* Space out stacked links */
+                                    text-align: center;
+                                }
+                                .footer__legal ul.menu li {
+                                    padding: 0;
+                                }
+                                .footer__legal ul.menu li a {
+                                    font-size: 1rem;
+                                }
+                                .footer__legal .menu-item-166 {
+                                    margin-left: 0;
+                                }
+                                .footer .btn-blue {
+                                    
+                                    display: block; /* Ensure it takes full width */
+                                    background-color: #D04713; /* Restore specific background color */
+                                }
+                                .footer .col-md-6 {
+                                    text-align: center; /* Center contact info */
+                                }
+                            }
+                        </style>
+                
+                  <footer class="footer">
+                
+                    <div style="z-index: 1;
+                              position: absolute;
+                              bottom: 10%;
+                              right: 4%;">
+                    </div>
+                    <video autoplay muted loop playsinline class="footer-video">
+                        <source src="https://cdn.shopify.com/videos/c/o/v/10cdcbe34c9648ee9acf46547238664c.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="footer__top">
+                      <div class="container">
+                        <div class="row">
+                
+                
+                          <div class="col-12 col-md d-flex ">
+                            <h2 class="txt">LET'S CONNECT</h2>
+                            <a href="/contact.html" class="btn btn-blue" >Contact Us</a>
+                            <div class="footer__legal">
+                              <div class="menu-legal-links-container">
+                                <ul id="menu-legal-links" class="menu">
+                                  <li id="menu-item-165" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-165">
+                                    <a href="/Services.html">Services</a></li>
+                                  <li id="menu-item-46"
+                                    class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-46">
+                                    <a rel="privacy-policy" href="/investor.html">Investor</a></li>
+                                  <li id="menu-item-166" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-166">
+                                    <a href="/contact.html">Contact Us</a></li>
+                                          <li id="menu-item-166" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-166">
+                                    <a href="/blog.html">Blogs</a></li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="footer__bottom">
+                      <div class="container">
+                        <div class="row">
+                          <div class="footer__copyright">
+                            
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </footer>
+        
+        
+        <!-- Scroll Top Button -->
+        <button class="scroll-top scroll-to-target" data-target="html"><span class="fas fa-angle-double-up"></span></button>
+
+   
+    <!-- Jquery -->
+    <script src="jquery-3.7.1.min.js"></script>
+    <!-- Popper -->
+    <script src="popper.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="bootstrap.min.js"></script>
+    <!-- Appear Js -->
+    <script src="appear.min.js"></script>
+    <!-- Slick -->
+    <script src="slick.min.js"></script>
+    <!-- Magnific Popup -->
+    <script src="jquery.magnific-popup.min.js"></script>
+    <!-- Image Loader -->
+    <script src="imagesloaded.pkgd.min.js"></script>
+    <!-- Isotope -->
+    <script src="isotope.pkgd.min.js"></script>
+    <!--  WOW Animation -->
+    <script src="wow.min.js"></script>
+
+    <!-- Custom script -->
+    <script src="script.js"></script>
+    <script>
+        // Preloader functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const preloader = document.getElementById('preloader');
+            
+            // Prevent scrolling while preloader is visible
+            document.body.style.overflow = 'hidden';
+            
+            // Hide preloader after 2 seconds
+            setTimeout(function() {
+                preloader.classList.add('fade-out');
+                
+                // Remove preloader from DOM after fade-out completes
+                setTimeout(function() {
+                    preloader.style.display = 'none';
+                    // Enable scrolling after preloader is hidden
+                    document.body.style.overflow = 'auto';
+                }, 500);
+            }, 2000);
+            
+            // Fallback in case the above doesn't work
+            setTimeout(function() {
+                if (preloader && preloader.style.display !== 'none') {
+                    preloader.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            }, 3000);
+        });
+    </script>
+
+  
+</body>
+</html>
