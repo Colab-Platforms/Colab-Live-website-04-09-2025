@@ -58,7 +58,6 @@
   <!-- Google Fonts and other valid CDN links remain -->
   <!-- Load jQuery locally before script.js -->
   <script src="assests/js/jquery-3.7.1.min.js"></script>
-  <script src="assests/js/script.js"></script>
   <script src="pintra-redirect.js"></script>
   <!-- Google Tag Manager -->
   <script>(function (w, d, s, l, i) {
@@ -100,11 +99,48 @@
   <!-- Main Style -->
   <link rel="stylesheet" href="assests/css/style.css">
   <style>
-    /* Ye arrow remove karega jo bar-bar dikh raha hai */
-.navbar .dropdown > a::after {
-    content: none !important;
-}
-
+    /* Force remove ALL dropdown arrows - nuclear approach */
+    .navigation li.dropdown > a {
+      position: relative !important;
+    }
+    
+    .navigation li.dropdown > a::after,
+    .navigation li.dropdown > a:after,
+    .navigation li.dropdown > a::before,
+    .navigation li.dropdown > a:before {
+      content: "" !important;
+      display: none !important;
+      visibility: hidden !important;
+      opacity: 0 !important;
+    }
+    
+    /* Remove any pseudo elements from all possible selectors */
+    .navbar .dropdown>a::after,
+    .navbar .dropdown>a:after,
+    .main-menu .dropdown>a::after,
+    .main-menu .dropdown>a:after,
+    .dropdown>a::after,
+    .dropdown>a:after,
+    .dropdown-toggle::after,
+    .dropdown-toggle:after,
+    li.dropdown>a::after,
+    li.dropdown>a:after {
+      content: none !important;
+      display: none !important;
+      visibility: hidden !important;
+    }
+    
+    /* Clean the Services text specifically */
+    .navigation li.dropdown > a {
+      font-family: inherit !important;
+      text-decoration: none !important;
+    }
+    
+    /* Override Bootstrap and theme styles */
+    .navigation li.dropdown > a[href="#"] {
+      background: none !important;
+      border: none !important;
+    }
   </style>
 
   <!-- Preloader CSS -->
@@ -166,7 +202,6 @@
   </style>
 
 
-  <script src="assests/js/script.js"></script>
 </head>
 
 <body
@@ -294,27 +329,27 @@
                     <ul class="navigation clearfix">
                       <li><a href="index.html">Home</a></li>
                       <li><a href="about.html">About</a></li>
-                                        <li class="dropdown">
-    <a href="#">Services</a>
-    <ul>
-        <li><a href="Services.html">All Services</a></li>
-        <li><a href="https://colabsports.in/">Sports Marketplace</a></li>
-        <li><a href="sports-content.html">Sports Content</a></li>
-        <li><a href="Sports-infrastructure.html">Sports Infrastructure</a></li>
-        <li><a href="sports-ip.html">Sports Ip</a></li>
-        <li><a href="Sports-marketing.html">Sports Marketing</a></li>
-        <li><a href="Athelte-management.html">Athlete Management</a></li>
-        <li><a href="Esports.html">Esports</a></li>
-    </ul>
-</li>
+                      <li class="dropdown">
+                        <a href="#">Services</a>
+                        <ul>
+                          <li><a href="Services.html">All Services</a></li>
+                          <li><a href="https://colabsports.in/">Sports Marketplace</a></li>
+                          <li><a href="sports-content.html">Sports Content</a></li>
+                          <li><a href="Sports-infrastructure.html">Sports Infrastructure</a></li>
+                          <li><a href="sports-ip.html">Sports Ip</a></li>
+                          <li><a href="Sports-marketing.html">Sports Marketing</a></li>
+                          <li><a href="Athelte-management.html">Athlete Management</a></li>
+                          <li><a href="Esports.html">Esports</a></li>
+                        </ul>
+                      </li>
 
-                    
 
-                     
-                     
+
+
+
                       <li><a href="investor.html">Investor</a></li>
                       <li><a href="career.html">Career</a></li>
-                        <li><a href="https://www.colabesports.in/">Esports</a></li>
+                      <li><a href="https://www.colabesports.in/">Esports</a></li>
                       <li><a href="gallery.html">Gallery</a></li>
                     </ul>
                   </div>
@@ -339,26 +374,28 @@
             background-color: black;
           }
 
-      .page-content {
-    padding-top: 80px;
-    /* margin: -70px; */
-}
+          .page-content {
+            padding-top: 80px;
+            /* margin: -70px; */
+          }
 
-/* Mobile view (screens up to 768px) */
-@media (max-width: 768px) {
-    .page-content {
-        padding-top: 50px;   /* chhoti screen ke liye kam padding */
-        margin: -30px;       /* margin bhi kam kar diya */
-    }
-}
+          /* Mobile view (screens up to 768px) */
+          @media (max-width: 768px) {
+            .page-content {
+              padding-top: 50px;
+              /* chhoti screen ke liye kam padding */
+              margin: -30px;
+              /* margin bhi kam kar diya */
+            }
+          }
 
-/* Very small mobile (screens up to 480px) */
-@media (max-width: 480px) {
-    .page-content {
-            padding-top: 100px;
-        margin: -75px;
-    }
-}
+          /* Very small mobile (screens up to 480px) */
+          @media (max-width: 480px) {
+            .page-content {
+              padding-top: 100px;
+              margin: -75px;
+            }
+          }
 
 
           .blog-detail-container {
@@ -374,8 +411,8 @@
           }
 
           h2 {
-                font-size: 1.7rem;
-    letter-spacing: -1px;
+            font-size: 1.7rem;
+            letter-spacing: -1px;
           }
 
           @media (max-width: 768px) {
@@ -425,12 +462,12 @@
             <script>
               let blogData = []; // This will now hold combined manual and Firebase data
               const manualBlogData = [
-              {
-  title: "Asia Cup 2025: Indian Women’s Hockey Team Faces Challenge Without Deepika and Savita",
-  author: "Sports Desk",
-  date: "05 September, 2025",
-  slug: "asia-cup-2025-indian-womens-hockey-without-savita-deepika",
-  content: `
+                {
+                  title: "Asia Cup 2025: Indian Women’s Hockey Team Faces Challenge Without Deepika and Savita",
+                  author: "Sports Desk",
+                  date: "05 September, 2025",
+                  slug: "asia-cup-2025-indian-womens-hockey-without-savita-deepika",
+                  content: `
     <p>As the Indian women’s hockey team embarks on its <strong>Asia Cup 2025</strong> campaign in Hangzhou, the squad faces a daunting challenge competing without two of its most crucial players: stalwart goalkeeper <strong>Savita Punia</strong> and rising forward–drag-flick specialist <strong>Deepika</strong>. With <strong>World Cup qualification</strong> on the line, this setback comes at a critical time, testing the resilience and depth of the side under head coach <strong>Harendra Singh</strong>.</p>
 
     <h2>Key Absences: A Double Blow</h2>
@@ -462,15 +499,15 @@
     <h2>Conclusion</h2>
     <p>India enters Hangzhou carrying both setbacks and high expectations. With leaders like <strong>Udita</strong>, <strong>Nikki Pradhan</strong>, and <strong>Navneet Kaur</strong> steering the team, and youngsters like <strong>Sangita Kumari</strong> eager to shine, this Asia Cup 2025 could be the defining moment where India proves that pressure truly is a privilege.</p>
   `,
-  image: "https://cdn.shopify.com/s/files/1/0636/5226/6115/files/INDIAN-WOMENs-HOCKEY-TEAM-1024x576-1.webp?v=1757152037"
-},
-   
-              {
-  title: "BCCI Breaks Silence on Shreyas Iyer’s ODI Captaincy Speculation: What’s Really Happening?",
-  author: "Sports Desk",
-  date: "22 August, 2025",
-  slug: "bcci-shreyas-iyer-odi-captaincy",
-  content: `
+                  image: "https://cdn.shopify.com/s/files/1/0636/5226/6115/files/INDIAN-WOMENs-HOCKEY-TEAM-1024x576-1.webp?v=1757152037"
+                },
+
+                {
+                  title: "BCCI Breaks Silence on Shreyas Iyer’s ODI Captaincy Speculation: What’s Really Happening?",
+                  author: "Sports Desk",
+                  date: "22 August, 2025",
+                  slug: "bcci-shreyas-iyer-odi-captaincy",
+                  content: `
     <p>Indian cricket is no stranger to rumours and high-voltage speculation, especially when it comes to leadership transitions in key formats. Over the past few days, the cricketing fraternity has been buzzing with reports suggesting that <strong>Shreyas Iyer</strong> might be the frontrunner to succeed <strong>Rohit Sharma</strong> as India’s next ODI captain. These rumours gained momentum following his exclusion from the <strong>Asia Cup 2025</strong> squad, which left many fans and experts questioning the selectors' decision-making process.</p>
 
     <p>However, the <strong>Board of Control for Cricket in India (BCCI)</strong> has now stepped in to address these claims and the reality may not be what many expected.</p>
@@ -541,16 +578,16 @@
 
     <p>As the Asia Cup unfolds and preparations for future ICC tournaments pick up pace, the leadership debate will likely continue. But one thing remains certain: Shreyas Iyer is not out of the equation he might just be waiting for the perfect moment.</p>
   `,
-  image: "https://cdn.shopify.com/s/files/1/0636/5226/6115/files/00kskc38_shreyas-iyer-afp_625x300_21_August_25.webp?v=1755843388"
-},
+                  image: "https://cdn.shopify.com/s/files/1/0636/5226/6115/files/00kskc38_shreyas-iyer-afp_625x300_21_August_25.webp?v=1755843388"
+                },
 
 
-{
-  title: "Shubman Gill Likely to Miss Out on Asia Cup T20I Squad as Selectors Stick to Core Group",
-  author: "Sports Desk",
-  date: "22 August, 2025",
-  slug: "shubman-gill-asia-cup-squad",
-  content: `
+                {
+                  title: "Shubman Gill Likely to Miss Out on Asia Cup T20I Squad as Selectors Stick to Core Group",
+                  author: "Sports Desk",
+                  date: "22 August, 2025",
+                  slug: "shubman-gill-asia-cup-squad",
+                  content: `
     <p>With the <strong>Asia Cup 2025 T20I tournament</strong> fast approaching, the Indian cricket team selectors are facing a key dilemma whether or not to include Test captain <strong>Shubman Gill</strong> in the squad. Despite Gill's strong recent performances in red-ball cricket and his consistency in the IPL, the selectors and team management appear inclined to maintain the existing squad composition that brought success post the 2024 T20 World Cup.</p>
 
     <p>Sources close to the Board of Control for Cricket in India (BCCI) indicate that Gill is unlikely to be picked in the 15-member squad for the Asia Cup, set to be played from September 9 to 28 in Dubai. The final selection meeting is scheduled for August 19, but early signs point to the selectors favoring continuity over experimentation.</p>
@@ -595,16 +632,16 @@
 
     <p>While Gill remains a generational talent and an integral part of India’s red-ball future, he may need to further evolve his T20 game or wait for an opportunity when the team setup allows for his inclusion. For now, the selectors are sticking with a formula that has worked and they don’t want to fix what isn’t broken.</p>
   `,
-  image: "https://cdn.shopify.com/s/files/1/0636/5226/6115/files/subham_gill.avif?v=1755843257"
-},
+                  image: "https://cdn.shopify.com/s/files/1/0636/5226/6115/files/subham_gill.avif?v=1755843257"
+                },
 
 
-{
-  title: "FC Goa Show Grit and Grace to Secure ACL2 Spot: A Historic Moment for Indian Football",
-  author: "Sports Desk",
-  date: "22 August, 2025",
-  slug: "fc-goa-secure-acl2-spot",
-  content: `
+                {
+                  title: "FC Goa Show Grit and Grace to Secure ACL2 Spot: A Historic Moment for Indian Football",
+                  author: "Sports Desk",
+                  date: "22 August, 2025",
+                  slug: "fc-goa-secure-acl2-spot",
+                  content: `
     <p><strong>In a defining moment for Indian football,</strong> FC Goa defeated Oman’s Al-Seeb 2-1 to qualify for the main round of the Asian Champions League Two (ACL2), joining Mohun Bagan Super Giant in the tournament. This marks the first time two Indian clubs will feature in Asia’s newly formed second-tier continental competition a significant milestone for Indian football on the international stage.</p>
 
     <h2>Rising from the Shadows: A New Dawn for Indian Football</h2>
@@ -658,16 +695,16 @@
     <h2>Final Word</h2>
     <p>In a footballing landscape where success stories are often few and far between, FC Goa’s gritty 2-1 win offers more than just hope it offers proof that Indian clubs belong on the continental stage. As we await the ACL2 group stages, one thing is clear: Indian football is no longer on the sidelines. It's ready for center stage.</p>
   `,
-  image: "https://cdn.shopify.com/s/files/1/0636/5226/6115/files/FC_Goal.jpg?v=1755843149"
-},
+                  image: "https://cdn.shopify.com/s/files/1/0636/5226/6115/files/FC_Goal.jpg?v=1755843149"
+                },
 
 
-{
-  title: "Rising Javelin Star Shivam Lohakare Shines on Senior International Debut",
-  author: "Ritu Sejwal",
-  date: "11 August, 2025",
-  slug: "shivam-lohakare-senior-international-debut",
-  content: `
+                {
+                  title: "Rising Javelin Star Shivam Lohakare Shines on Senior International Debut",
+                  author: "Ritu Sejwal",
+                  date: "11 August, 2025",
+                  slug: "shivam-lohakare-senior-international-debut",
+                  content: `
     <p><strong>India’s javelin scene is witnessing the rise of a new star.</strong> Shivam Lohakare, a 20-year-old from Maharashtra, made a remarkable impression on his senior international debut by clinching a silver medal at the 2025 Indian Open, a World Athletics Continental Tour Bronze-level meet held in Bhubaneswar. With a best throw of 80.73 meters, Shivam has not only confirmed his entry into elite javelin territory but also marked himself as a serious contender in India’s growing field of throwing talent.</p>
 
     <h2>Making a Mark at Bhubaneswar</h2>
@@ -715,16 +752,16 @@
 
     <p>As Shivam sets his sights on 90 meters and beyond, the athletics community and the country will be watching closely. With the right push and continued mentorship, he could very well be India’s next big name in track and field.</p>
   `,
-  image: "https://cdn.shopify.com/s/files/1/0636/5226/6115/files/neeraj.webp?v=1755843012"
-},
+                  image: "https://cdn.shopify.com/s/files/1/0636/5226/6115/files/neeraj.webp?v=1755843012"
+                },
 
 
-{
-  title: "Mohammed Siraj Achieves Career-Best ICC Test Ranking After Heroics at The Oval",
-  author: "Colab Platforms",
-  date: "8 August, 2025",
-  slug: "mohammed-siraj-icc-test-ranking-oval-heroics",
-  content: `
+                {
+                  title: "Mohammed Siraj Achieves Career-Best ICC Test Ranking After Heroics at The Oval",
+                  author: "Colab Platforms",
+                  date: "8 August, 2025",
+                  slug: "mohammed-siraj-icc-test-ranking-oval-heroics",
+                  content: `
     <p><strong>In a thrilling climax to the Anderson-Tendulkar Trophy series</strong>, Indian pacer Mohammed Siraj delivered a spellbinding performance at The Oval, London, helping Team India pull off a narrow yet historic six-run victory over England. His nine-wicket haul across both innings not only sealed the match for India, drawing the series 2-2, but also earned him a career-high position of 15th in the latest ICC Test bowling rankings.</p>
 
     <p>This remarkable leap of 12 spots in the ICC Test rankings signifies a key milestone in Siraj's journey, underlining his emergence as one of the most effective fast bowlers in international cricket today.</p>
@@ -780,8 +817,8 @@
 
     <p>As the dust settles on this gripping Test series, fans and analysts alike will remember Siraj’s fiery spell at The Oval as one of the defining moments in modern Indian cricket. His journey continues to inspire a new generation of cricketers, proving that with grit and determination, anything is possible on the world stage.</p>
   `,
-  image: "https://cdn.shopify.com/s/files/1/0636/5226/6115/files/siraj.jpg?v=1755842819"
-},
+                  image: "https://cdn.shopify.com/s/files/1/0636/5226/6115/files/siraj.jpg?v=1755842819"
+                },
                 {
                   title: "D Gukesh Hails Divya Deshmukh’s World Cup Triumph as ‘Inspiring’ in a Golden Year for Indian Chess",
                   author: "Colab Platforms",
@@ -3201,10 +3238,10 @@ Bumrah then made Konstas pay for his actions. With his signature style, Bumrah s
               const urlParams = new URLSearchParams(window.location.search);
               const blogIdParam = urlParams.get('id'); // ID of the blog to display
               // We'll use this to find the blog in the combined array
-            
+
               // Select the container to display blog details or list
               const blogDetail = document.getElementById('blog-detail'); // Assuming this is your main blog content container
-            
+
               // Async function to load and display blogs
               async function loadAndDisplayBlogs() {
                 let firebaseBlogs = [];
@@ -3218,18 +3255,18 @@ Bumrah then made Konstas pay for his actions. With his signature style, Bumrah s
                   console.error("Error fetching Firebase blogs:", error);
                   // Optionally display an error message to the user on the blog page
                 }
-            
+
                 // Combine manual and Firebase blogs. Ensure Firebase blogs appear first if desired, or sort by date.
                 // For now, let's put Firebase blogs first for newly added content.
                 blogData = [...firebaseBlogs, ...manualBlogData];
-            
+
                 if (blogIdParam !== null) {
                   // Logic for single blog post display (inner page)
                   // Find the blog by ID, assuming the ID is an index for manual blogs, or Firebase ID for Firebase blogs
                   // A more robust solution would ensure unique IDs across both sets,
                   // but for now we'll rely on the combined array's index for 'read more' links.
-                  const blog = blogData[parseInt(blogIdParam)]; 
-            
+                  const blog = blogData[parseInt(blogIdParam)];
+
                   if (blog) {
                     blogDetail.innerHTML = `
                          
@@ -3252,8 +3289,8 @@ Bumrah then made Konstas pay for his actions. With his signature style, Bumrah s
                   blogDetail.innerHTML = `
                     <div class="blog-list">
                       ${blogData
-                        .map(
-                          (blog, index) => `
+                      .map(
+                        (blog, index) => `
                           <div class="blog-card">
                             <img src="${blog.imageUrl || blog.image}" alt="${blog.title}" style="display: block; margin: 0 auto; width: auto; height: auto; object-fit: cover;">
                             <p>${blog.title}</p>
@@ -3262,13 +3299,13 @@ Bumrah then made Konstas pay for his actions. With his signature style, Bumrah s
                             <a href="/blog.html?id=${index}" class="read-more">Read More</a>
                           </div>
                         `
-                        )
-                        .join("")}
+                      )
+                      .join("")}
                     </div>
                   `;
                 }
               }
-            
+
               // Call the function to load and display blogs when the DOM is loaded
               document.addEventListener('DOMContentLoaded', loadAndDisplayBlogs);
             </script>
@@ -3277,141 +3314,151 @@ Bumrah then made Konstas pay for his actions. With his signature style, Bumrah s
       </main>
 
 
-     <style>
-    @media screen and (min-width: 768px) {
-      .img-footer {
-        height: 160px;
-      }
+      <style>
+        @media screen and (min-width: 768px) {
+          .img-footer {
+            height: 160px;
+          }
 
-      .footer {
-        position: relative;
-        height: 90vh;
-        overflow: hidden;
-      }
+          .footer {
+            position: relative;
+            height: 90vh;
+            overflow: hidden;
+          }
 
-      .footer-video {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        z-index: -1;
-      }
+          .footer-video {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+          }
 
-      .txt {
-        color: white;
-        font-size: 5rem;
-        margin-bottom: 30px;
-        letter-spacing: -4px;
-      }
-    }
+          .txt {
+            color: white;
+            font-size: 5rem;
+            margin-bottom: 30px;
+            letter-spacing: -4px;
+          }
+        }
 
-    @media screen and (max-width: 768px) {
-      .txt {
-        color: white;
-        font-size: 3.2rem;
-        margin-bottom: 20px;
-        letter-spacing: -4px;
-      }
+        @media screen and (max-width: 768px) {
+          .txt {
+            color: white;
+            font-size: 3.2rem;
+            margin-bottom: 20px;
+            letter-spacing: -4px;
+          }
 
-      .img-footer {
-        height: 70px;
-      }
+          .img-footer {
+            height: 70px;
+          }
 
-      .footer {
-        position: relative;
-        height: 90vh;
-        overflow: hidden;
-      }
+          .footer {
+            position: relative;
+            height: 90vh;
+            overflow: hidden;
+          }
 
-      .footer-video {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        z-index: -1;
-      }
-    }
-</style>
+          .footer-video {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+          }
+        }
+      </style>
 
 
-                <style>
-                    .mobile-banners {
-                        display: none;
-                    }
-                    @media (max-width: 767px) {
-                        .mobile-banners {
-                            display: flex;
-                            flex-direction: column;
-                            gap: 16px;
-                            padding: 16px;
-                        }
-                        .banner-item {
-                            background: #f5f5f5;
-                            border-radius: 8px;
-                            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-                            padding: 24px;
-                            text-align: center;
-                            font-size: 1.2em;
-                            font-weight: 600;
-                            color: #333;
-                        }
-                    }
-                </style>
-        
-          <footer class="footer">
-        
-            <div style="z-index: 1;
+      <style>
+        .mobile-banners {
+          display: none;
+        }
+
+        @media (max-width: 767px) {
+          .mobile-banners {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            padding: 16px;
+          }
+
+          .banner-item {
+            background: #f5f5f5;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            padding: 24px;
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #333;
+          }
+        }
+      </style>
+
+      <footer class="footer">
+
+        <div style="z-index: 1;
                       position: absolute;
                       bottom: 10%;
-                      right: 4%;"> 
-            </div>
-            <video autoplay muted loop playsinline class="footer-video">
-                <source src="https://cdn.shopify.com/videos/c/o/v/10cdcbe34c9648ee9acf46547238664c.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <div class="footer__top" style="position: absolute; bottom: 80px;">
-              <div class="container">
-                <div class="row">
-        
-        
-                  <div class="col-12 col-md d-flex " style="justify-content: start !important;
+                      right: 4%;">
+        </div>
+        <video autoplay muted loop playsinline class="footer-video">
+          <source src="https://cdn.shopify.com/videos/c/o/v/10cdcbe34c9648ee9acf46547238664c.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div class="footer__top" style="position: absolute; bottom: 80px;">
+          <div class="container">
+            <div class="row">
+
+
+              <div class="col-12 col-md d-flex " style="justify-content: start !important;
                                     align-items: start;
                                     flex-direction: column;">
-                    <h2 class="txt">LET'S CONNECT</h2>
-                    <a href="/contact.html" class="btn btn-blue" style="margin-bottom: 20px; background-color: #D04731;">Contact Us</a>
-                    <div class="footer__legal">
-                      <div class="menu-legal-links-container">
-                        <ul id="menu-legal-links" class="menu">
-                          <li id="menu-item-165" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-165">
-                            <a href="/Services.html">Services</a></li>
-                          <li id="menu-item-46"
-                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-46">
-                            <a rel="privacy-policy" href="/investor.html">Investor</a></li>
-                          <li id="menu-item-166" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-166">
-                            <a href="/contact.html">Contact Us</a></li>
-                             <li id="menu-item-166" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-166">
-                            <a href="/blog.html">Blogs</a></li>
-                        </ul>
-                      </div>
-                    </div>
+                <h2 class="txt">LET'S CONNECT</h2>
+                <a href="/contact.html" class="btn btn-blue"
+                  style="margin-bottom: 20px; background-color: #D04731;">Contact Us</a>
+                <div class="footer__legal">
+                  <div class="menu-legal-links-container">
+                    <ul id="menu-legal-links" class="menu">
+                      <li id="menu-item-165"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-165">
+                        <a href="/Services.html">Services</a>
+                      </li>
+                      <li id="menu-item-46"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-46">
+                        <a rel="privacy-policy" href="/investor.html">Investor</a>
+                      </li>
+                      <li id="menu-item-166"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-166">
+                        <a href="/contact.html">Contact Us</a>
+                      </li>
+                      <li id="menu-item-166"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-166">
+                        <a href="/blog.html">Blogs</a>
+                      </li>
+                    </ul>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="footer__bottom" style="position: absolute;bottom: 10px;width: 100%;">
-              <div class="container">
-                <div class="row">
-                  <div class="footer__copyright">
-                    <div class="col-12">
-                      <p>© 2025 Colab Platforms Ltd.</p>
-                    </div>
-                  </div>
+          </div>
+        </div>
+        <div class="footer__bottom" style="position: absolute;bottom: 10px;width: 100%;">
+          <div class="container">
+            <div class="row">
+              <div class="footer__copyright">
+                <div class="col-12">
+                  <p>© 2025 Colab Platforms Ltd.</p>
                 </div>
               </div>
             </div>
-          </footer>
+          </div>
+        </div>
+      </footer>
 
-    
+
       <div class="modal fade move-body global-hubspot__modal global-hubspot-modal-capture" id="global-hubspot-capture"
         data-form-id="2ecfefc7-e32d-4a38-8592-c1a3729a942c" data-bs-backdrop="static" data-bs-keyboard="false"
         tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
