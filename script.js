@@ -35,7 +35,7 @@
     "use strict";
 
     $(document).ready(function () {
-        
+
         // ## Header Style and Scroll to Top
         function headerStyle() {
             if ($('.main-header').length) {
@@ -91,30 +91,30 @@
         // ## Video Popup
         if ($('.video-play').length) {
             $('.video-play').magnificPopup({
-              type: 'iframe',
-              mainClass: 'mfp-fade',
-              removalDelay: 160,
-              preloader: false,
-              iframe:{
-                patterns:{
-                  youtube:{
-                  index: 'youtube.com',
-                  id: 'v=',
-                  src: 'https://www.youtube.com/embed/%id%'
+                type: 'iframe',
+                mainClass: 'mfp-fade',
+                removalDelay: 160,
+                preloader: false,
+                iframe: {
+                    patterns: {
+                        youtube: {
+                            index: 'youtube.com',
+                            id: 'v=',
+                            src: 'https://www.youtube.com/embed/%id%'
+                        },
+                    },
+                    srcAction: 'iframe_src',
                 },
-              },
-              srcAction:'iframe_src',
-            },
-              fixedContentPos: false
+                fixedContentPos: false
             });
         }
 
 
         // ## Hero Search
-        $(".header-inner .search-btns").on('click', function () {  
+        $(".header-inner .search-btns").on('click', function () {
             if (document.getElementById("project-search").classList.contains("current")) {
                 $(".search-project.search-form").removeClass("current");
-            } else{
+            } else {
                 $(".search-project.search-form").addClass("current");
             }
         });
@@ -129,10 +129,12 @@
                 autoplay: true,
                 prevArrow: '<button class="prev"><span class="carousel-control-prev-icon"><i class="fa fa-long-arrow-left"></i></span></button>',
                 nextArrow: '<button class="next"><span class="carousel-control-next-icon"><i class="fa fa-long-arrow-right"></i></span></button>',
-                autoplaySpeed: 5000,
-                pauseOnHover: false,
+                autoplaySpeed: 4000,
+                pauseOnHover: true,
+                pauseOnFocus: true,
                 slidesToScroll: 1,
                 slidesToShow: 1,
+                speed: 800,
             });
         }
 
@@ -146,7 +148,7 @@
                 $(".project-active").isotope({
                     itemSelector: '.item',
                     filter: selector,
-                }); 
+                });
             });
 
         });
@@ -201,46 +203,46 @@
             let serviceitems = document.querySelectorAll('#servicerecipeCarousel .carousel-item')
             serviceitems.forEach((el) => {
                 const minPerSlide = 4
-                let next = el.nextElementSibling            
-                for (var i=1; i<minPerSlide; i++) {
+                let next = el.nextElementSibling
+                for (var i = 1; i < minPerSlide; i++) {
                     if (!next) {
                         next = serviceitems[0]
-                    }   
+                    }
                     let cloneChild = next.cloneNode(true)
                     el.appendChild(cloneChild.children[0])
                     next = next.nextElementSibling
                 }
             })
         }
-        
+
         if ($('#service2Carousel .carousel-item').length) {
             let items = document.querySelectorAll('#service2Carousel .carousel-item')
             items.forEach((el) => {
                 const minPerSlide = 3
-                let next = el.nextElementSibling            
-                for (var i=1; i<minPerSlide; i++) {
+                let next = el.nextElementSibling
+                for (var i = 1; i < minPerSlide; i++) {
                     if (!next) {
                         next = items[0]
-                    }   
+                    }
                     let cloneChild = next.cloneNode(true)
                     el.appendChild(cloneChild.children[0])
                     next = next.nextElementSibling
                 }
             })
         }
-        
+
         // ## Interior Area Slider
         if ($('.interior-area .carousel-item').length) {
-            let numbernavs = document.getElementsByClassName("interior-nav").length;            
-            for(var d=1;d<=numbernavs;d++){
-                let interitems = document.querySelectorAll('#interiorrecipeCarousel'+d+' .carousel-item')
+            let numbernavs = document.getElementsByClassName("interior-nav").length;
+            for (var d = 1; d <= numbernavs; d++) {
+                let interitems = document.querySelectorAll('#interiorrecipeCarousel' + d + ' .carousel-item')
                 interitems.forEach((el) => {
                     const minPerSlide = 3
-                    let next = el.nextElementSibling            
-                    for (var i=1; i<minPerSlide; i++) {
+                    let next = el.nextElementSibling
+                    for (var i = 1; i < minPerSlide; i++) {
                         if (!next) {
                             next = interitems[0]
-                        }   
+                        }
                         let cloneChild = next.cloneNode(true)
                         el.appendChild(cloneChild.children[0])
                         next = next.nextElementSibling
@@ -254,11 +256,11 @@
             let items = document.querySelectorAll('#teamCarousel .carousel-item')
             items.forEach((el) => {
                 const minPerSlide = 3
-                let next = el.nextElementSibling            
-                for (var i=1; i<minPerSlide; i++) {
+                let next = el.nextElementSibling
+                for (var i = 1; i < minPerSlide; i++) {
                     if (!next) {
                         next = items[0]
-                    }   
+                    }
                     let cloneChild = next.cloneNode(true)
                     el.appendChild(cloneChild.children[0])
                     next = next.nextElementSibling
@@ -272,11 +274,11 @@
             let items = document.querySelectorAll('#testiCarousel .carousel-item')
             items.forEach((el) => {
                 const minPerSlide = 1
-                let next = el.nextElementSibling            
-                for (var i=1; i<minPerSlide; i++) {
+                let next = el.nextElementSibling
+                for (var i = 1; i < minPerSlide; i++) {
                     if (!next) {
                         next = items[0]
-                    }   
+                    }
                     let cloneChild = next.cloneNode(true)
                     el.appendChild(cloneChild.children[0])
                     next = next.nextElementSibling
@@ -287,11 +289,11 @@
             let items = document.querySelectorAll('#testi2Carousel .carousel-item')
             items.forEach((el) => {
                 const minPerSlide = 2
-                let next = el.nextElementSibling            
-                for (var i=1; i<minPerSlide; i++) {
+                let next = el.nextElementSibling
+                for (var i = 1; i < minPerSlide; i++) {
                     if (!next) {
                         next = items[0]
-                    }   
+                    }
                     let cloneChild = next.cloneNode(true)
                     el.appendChild(cloneChild.children[0])
                     next = next.nextElementSibling
@@ -333,15 +335,15 @@
 
         // ## Before and After 
         if ($('.projects-02 .tab-content  .pro-02-images').length) {
-            let pro02items = $('.projects-02 .tab-content  .pro-02-images').length;    
-            for(var cout=1;cout<=pro02items;cout++){
-                let imgcontainer = document.querySelector('.pro-02-images-'+cout);
-                document.querySelector('.buttonslider'+cout).addEventListener('input', (e) => {
-                  imgcontainer.style.setProperty('--position', `${e.target.value}%`);
+            let pro02items = $('.projects-02 .tab-content  .pro-02-images').length;
+            for (var cout = 1; cout <= pro02items; cout++) {
+                let imgcontainer = document.querySelector('.pro-02-images-' + cout);
+                document.querySelector('.buttonslider' + cout).addEventListener('input', (e) => {
+                    imgcontainer.style.setProperty('--position', `${e.target.value}%`);
                 })
             }
         }
-    
+
         // ## Scroll to Top
         if ($('.scroll-to-target').length) {
             $(".scroll-to-target").on('click', function () {
@@ -365,7 +367,7 @@
             });
             wow.init();
         }
-        
+
 
 
     });
@@ -432,7 +434,7 @@
 
 
 
-    
+
 
 
 
