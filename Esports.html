@@ -327,11 +327,72 @@
         min-height: 300px;
     }
     
+    /* Desktop Video Banner Styles */
+    .desktop-video-banner {
+        width: 100%;
+        height: 100vh;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .desktop-banner-video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+    }
+    
+    .video-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(208,71,19,0.4) 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 2;
+    }
+    
+    .video-overlay .banner-content {
+        position: relative;
+        z-index: 3;
+    }
+    
+    .video-overlay .banner-content h1 {
+        font-size: 4rem;
+        font-weight: 800;
+        margin-bottom: 1.5rem;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+    }
+    
+    .video-overlay .banner-content p {
+        font-size: 1.5rem;
+        font-weight: 400;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+    }
+
     /* Responsive adjustments */
     @media (max-width: 991.98px) {
         .desktop-banner {
             height: 50vh;
             min-height: 400px;
+        }
+        
+        .desktop-video-banner {
+            height: 70vh;
+        }
+        
+        .video-overlay .banner-content h1 {
+            font-size: 3rem;
+        }
+        
+        .video-overlay .banner-content p {
+            font-size: 1.3rem;
         }
     }
     
@@ -343,6 +404,24 @@
         .mobile-banner {
             /* height: 70vh; */
             min-height: 250px;
+        }
+        
+        .desktop-video-banner {
+            display: none !important;
+        }
+        
+        .video-overlay .banner-content h1 {
+            font-size: 2.5rem;
+        }
+        
+        .video-overlay .banner-content p {
+            font-size: 1.2rem;
+        }
+    }
+    
+    @media (min-width: 768px) {
+        .mobile-banner {
+            display: none !important;
         }
     }
 </style>
@@ -591,10 +670,22 @@
 
        <!-- Banner Section Start -->
 <section class="banner-section">
-    <!-- Desktop Banner (visible on larger screens) -->
+    <!-- Desktop Video Banner (visible on larger screens) -->
     <div class="desktop-banner d-none d-md-block">
-        <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/Colab_E-Sports_Banner_-_Without_Logo.jpg?v=1756201527" 
-             alt="Esports Banner" class="w-100">
+        <div class="desktop-video-banner">
+            <video class="desktop-banner-video" autoplay muted loop playsinline>
+                <source src="https://cdn.shopify.com/videos/c/o/v/bc2999d737c241fe81c93d83a6994b33.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="video-overlay">
+                <div class="container text-center">
+                    <div class="banner-content">
+                        <h1 class="text-white">Esports Excellence</h1>
+                        <p class="text-white">Next-generation gaming and esports solutions</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     
     <!-- Mobile Banner (visible on small screens) -->
@@ -911,7 +1002,7 @@
                       right: 4%;"> 
             </div>
             <video autoplay muted loop playsinline class="footer-video">
-                <source src="https://cdn.shopify.com/videos/c/o/v/7cd40d23d0e8475b8a04d64936e69987.mp4" type="video/mp4">
+                <source src="https://cdn.shopify.com/videos/c/o/v/b0377f723848466d9662436e2eabdc99.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
             <div class="footer__top" style="position: absolute; bottom: 80px;">
@@ -1058,7 +1149,6 @@
       </script>
 </body>
 </html>
-
 
 
 
