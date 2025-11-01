@@ -2126,45 +2126,43 @@
 
 
         <script>
-            // Image cycling functionality
+            // Video replacement for fade-cycle images
             document.addEventListener('DOMContentLoaded', function () {
                 const fadeCycleImages = document.querySelectorAll('.fade-cycle');
 
-                // Array of image URLs to cycle through
-                const imageUrls = [
+                fadeCycleImages.forEach(imgElement => {
+                    // Create video element to replace image
+                    const videoElement = document.createElement('video');
+                    videoElement.setAttribute('autoplay', '');
+                    videoElement.setAttribute('muted', '');
+                    videoElement.setAttribute('loop', '');
+                    videoElement.setAttribute('playsinline', '');
 
-                    'https://cdn.shopify.com/s/files/1/0636/5226/6115/files/Badminton_2.png?v=1761823732',
-                    'https://cdn.shopify.com/s/files/1/0636/5226/6115/files/portrait-person-playing-cricket-sport_5_1.png?v=1761813326',
-                    'https://cdn.shopify.com/s/files/1/0636/5226/6115/files/Football_-_2.png?v=1761813612'
+                    // Copy styles from original image
+                    videoElement.className = imgElement.className;
+                    videoElement.style.cssText = imgElement.style.cssText;
+                    videoElement.style.width = '100%';
+                    videoElement.style.height = '800px';
+                    videoElement.style.maxHeight = '800px';
+                    videoElement.style.objectFit = 'cover';
 
-                ];
+                    // Add video source
+                    const sourceElement = document.createElement('source');
+                    sourceElement.src = 'https://cdn.shopify.com/videos/c/o/v/a345f730946d4486a69eb472384d550c.mp4';
+                    sourceElement.type = 'video/mp4';
+                    videoElement.appendChild(sourceElement);
 
-                fadeCycleImages.forEach(container => {
-                    let currentIndex = 0;
-                    const imgElement = container;
+                    // Replace image with video
+                    imgElement.parentNode.replaceChild(videoElement, imgElement);
 
-                    // Function to change image with fade effect
-                    function changeImage() {
-                        // Fade out
-                        imgElement.style.opacity = '0';
-
-                        // After fade out, change image and fade in
-                        setTimeout(() => {
-                            currentIndex = (currentIndex + 1) % imageUrls.length;
-                            imgElement.src = imageUrls[currentIndex];
-
-                            // Fade in
-                            setTimeout(() => {
-                                imgElement.style.opacity = '1';
-                            }, 50);
-                        }, 500); // Half second for fade out
-                    }
-
-                    // Initial fade in
-                    imgElement.style.transition = 'opacity 0.5s ease-in-out';
-
-                    // Start cycling images every 3 seconds
-                    setInterval(changeImage, 3000);
+                    // Ensure video plays
+                    videoElement.play().catch(e => {
+                        console.log('Fade-cycle video autoplay failed:', e);
+                        // Fallback: play on user interaction
+                        document.addEventListener('click', () => {
+                            videoElement.play().catch(err => console.log('Fade-cycle video play failed:', err));
+                        }, { once: true });
+                    });
                 });
             });
         </script>
@@ -3541,7 +3539,7 @@
                   right: 4%;">
         </div>
         <video autoplay muted loop playsinline class="footer-video">
-            <source src="https://cdn.shopify.com/videos/c/o/v/7cd40d23d0e8475b8a04d64936e69987.mp4" type="video/mp4">
+            <source src="https://cdn.shopify.com/videos/c/o/v/b0377f723848466d9662436e2eabdc99.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
         <div class="footer__top" style="position: absolute; bottom: 80px;">
