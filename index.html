@@ -49,6 +49,260 @@
     <link rel="stylesheet" href="assests/css/style.css">
     <link rel="stylesheet" href="all.min.css"> <!-- First inclusion -->
     <style>
+        /* Projects Section */
+        .projects-section {
+            padding: 80px 0;
+            background: #000;
+        }
+
+        .section-title12 {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title12 h2 {
+
+            font-weight: 700;
+
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .section-title12 h2:after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            background: #ff5e00;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .projects-grid12 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .project-card12 {
+            position: relative;
+
+            overflow: hidden;
+            width: 100%;
+            max-width: 420px;
+            height: 540px;
+            cursor: pointer;
+            transition: all 0.5s ease;
+            margin: 0 auto;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+
+        .project-overlay12 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 102, 0, 0.9);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            text-align: center;
+            opacity: 0;
+            transition: all 0.4s ease;
+        }
+
+        .project-card12:hover .project-overlay12 {
+            opacity: 1;
+        }
+
+        .project-card12 {
+            transform-origin: left bottom;
+            transform-style: preserve-3d;
+            transition: transform 0.6s ease;
+        }
+
+        .project-card12:hover {
+            transform: perspective(1000px) rotateY(-15deg) rotateX(5deg);
+        }
+
+        .project-card12:hover .project-image {
+            transform: scale(1.05);
+        }
+
+        .project-title12 {
+            color: #000;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            transform: translateY(0);
+            transition: all 0.4s ease;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .project-category12 {
+            color: #333;
+            font-size: 16px;
+            margin: 15px 0;
+            transform: translateY(0);
+            transition: all 0.4s ease 0.1s;
+            line-height: 1.6;
+            max-width: 90%;
+        }
+
+        .project-card12:hover .project-category12 {
+            color: #fff;
+        }
+
+        .project-card12:hover .project-title12 {
+            color: #fff;
+        }
+
+        .read-more {
+            display: inline-block;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            margin-top: 10px;
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(10px);
+        }
+
+        .project-card12:hover .read-more {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .read-more:hover {
+            background: rgba(255, 255, 255, 0.3);
+            color: #fff;
+        }
+
+        .project-card12 .project-title12,
+        .project-card12 .project-category12 {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+
+        .project-card12:hover .project-title12,
+        .project-card12:hover .project-category12 {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .project-card12:hover .project-title12 {
+            color: #fff;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: #fff;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 40px;
+            border-radius: 8px;
+            position: relative;
+            color: #333;
+            animation: modalFadeIn 0.3s ease-out;
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .project-meta {
+            color: #666;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background: #ffd700;
+            color: #000;
+            padding: 10px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background: #ffc107;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 1200px) {
+            .projects-grid12 {
+                grid-template-columns: repeat(2, 1fr);
+                max-width: 900px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .projects-grid12 {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+                gap: 25px;
+            }
+
+            .section-title12 h2 {
+                font-size: 28px;
+                margin-bottom: 30px;
+            }
+
+            .project-card12 {
+                max-width: 100%;
+                height: 500px;
+            }
+        }
+    </style>
+    <style>
         .container3 {
             max-width: 1700px;
             /* Bigger container */
@@ -1742,32 +1996,176 @@
                 .center-btn {
                     display: inline-block;
                     padding: 12px 30px;
-                    background: linear-gradient(90deg, #1e90ff, #87cefa);
+                    background: linear-gradient(90deg, #D04713, #fff);
                     /* blue to light white-blue */
                     color: #fff;
                     font-size: 18px;
                     font-weight: bold;
                     border-radius: 8px;
                     text-decoration: none;
-                    box-shadow: 0 4px 10px rgba(30, 144, 255, 0.5);
+                 
                     transition: 0.3s ease;
                     margin-top: -50px;
                 }
 
                 .center-btn:hover {
-                    background: linear-gradient(90deg, #4682b4, #b0e0e6);
-                    box-shadow: 0 6px 14px rgba(30, 144, 255, 0.6);
+                    background: linear-gradient(90deg, #D04713, #fff);
+                    box-shadow: 0 6px 14px rgba(255, 139, 30, 0.6);
                 }
 
                 .carousel-buttons i {
                     font-size: 20px;
                     color: #000000;
                 }
+
+                /* Social Media Icons Styles */
+                .social-media-banner {
+                    position: absolute;
+                    left: 30px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    z-index: 10;
+                }
+
+                .card {
+                    width: fit-content;
+                    height: fit-content;
+                    background-color: transparent;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 25px 25px;
+                    gap: 20px;
+                    box-shadow: none;
+                    flex-direction: column;
+                }
+
+                /* for all social containers*/
+                .socialContainer {
+                    width: 52px;
+                    height: 52px;
+                    background-color: #000000;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    overflow: hidden;
+                    transition-duration: .3s;
+                    border-radius: 8px;
+                    cursor: pointer;
+                    border: none;
+                    outline: none;
+                }
+
+                /* instagram*/
+                .containerOne:hover {
+                    background-color: #D04713;
+                    transition-duration: .3s;
+                }
+
+                /* twitter*/
+                .containerTwo:hover {
+                    background-color: #D04713;
+                    transition-duration: .3s;
+                }
+
+                /* linkdin*/
+                .containerThree:hover {
+                    background-color: #D04713;
+                    transition-duration: .3s;
+                }
+
+                /* Whatsapp*/
+                .containerFour:hover {
+                    background-color: #D04713;
+                    transition-duration: .3s;
+                }
+
+                .socialContainer:active {
+                    transform: scale(0.9);
+                    transition-duration: .3s;
+                }
+
+                .socialSvg {
+                    width: 17px;
+                }
+
+                .socialSvg path {
+                    fill: rgb(255, 255, 255);
+                }
+
+                .socialContainer:hover .socialSvg {
+                    animation: slide-in-top 0.3s both;
+                }
+
+                @keyframes slide-in-top {
+                    0% {
+                        transform: translateY(-50px);
+                        opacity: 0;
+                    }
+
+                    100% {
+                        transform: translateY(0);
+                        opacity: 1;
+                    }
+                }
+
+                /* Mobile responsive for social icons */
+                @media (max-width: 768px) {
+                    .social-media-banner {
+                        left: 15px;
+                        top: 40%;
+                    }
+
+                    .card {
+                        padding: 15px 15px;
+                        gap: 15px;
+                    }
+
+                    .socialContainer {
+                        width: 45px;
+                        height: 45px;
+                    }
+                }
             </style>
+
+            <!-- Social Media Icons - Left Side Center -->
+            <div class="social-media-banner">
+                <!-- From Uiverse.io by vinodjangid07 -->
+                <div class="card">
+                    <a href="#" class="socialContainer containerOne">
+                        <svg class="socialSvg instagramSvg" viewBox="0 0 16 16">
+                            <path
+                                d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z">
+                            </path>
+                        </svg>
+                    </a>
+                    <a href="#" class="socialContainer containerTwo">
+                        <svg class="socialSvg twitterSvg" viewBox="0 0 16 16">
+                            <path
+                                d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z">
+                            </path>
+                        </svg>
+                    </a>
+                    <a href="#" class="socialContainer containerThree">
+                        <svg class="socialSvg linkdinSvg" viewBox="0 0 448 512">
+                            <path
+                                d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z">
+                            </path>
+                        </svg>
+                    </a>
+                    <a href="#" class="socialContainer containerFour">
+                        <svg class="socialSvg whatsappSvg" viewBox="0 0 16 16">
+                            <path
+                                d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z">
+                            </path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
 
             <div class="desktop-banner">
                 <div class="carousel slide" id="recipeCarousel" data-bs-ride="carousel">
-                    <div class="carousel-inner">
+                    <div class="carousel-inner">""
 
                         <div class="carousel-item active">
                             <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/1_7.jpg?v=1756903345"
@@ -2103,7 +2501,7 @@
             }
 
             .dark-mode .info-section {
-              
+
                 color: #fff !important;
             }
 
@@ -2123,6 +2521,37 @@
 
             .dark-mode .service-area {
                 background: #111 !important;
+            }
+
+            /* Light theme background for projects section */
+            .light-mode .projects-section {
+                background: #ffffff;
+            }
+
+            /* Ensure text remains visible in light theme */
+            .light-mode .section-title12 h2,
+            .light-mode .project-title12,
+            .light-mode .project-category12 {
+                color: #333;
+            }
+
+            .light-mode .project-card12 {
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            }
+
+            .light-mode .project-overlay12 {
+                background: rgba(255, 255, 255, 0.9);
+            }
+
+            .light-mode .project-card12 .project-title12,
+            .light-mode .project-card12 .project-category12 {
+                color: #333;
+            }
+
+            .light-mode .project-card12:hover .project-category12,
+            .light-mode .project-card12:hover .project-title12,
+            .light-mode .project-card12:hover .read-more {
+                color: #000;
             }
 
             /* Light Mode Styles */
@@ -2422,7 +2851,7 @@
 
 
         <script>
-            // Video replacement for fade-cycle images
+            // Video replacement for fade-cycle images - Pure Auto-Play Mode
             document.addEventListener('DOMContentLoaded', function () {
                 const fadeCycleImages = document.querySelectorAll('.fade-cycle');
 
@@ -2444,21 +2873,40 @@
 
                     // Add video source
                     const sourceElement = document.createElement('source');
-                    sourceElement.src = 'https://cdn.shopify.com/videos/c/o/v/a345f730946d4486a69eb472384d550c.mp4';
+                    sourceElement.src = 'https://cdn.shopify.com/videos/c/o/v/2e1eb3630e254e1eb3d63248fffc05a8.mp4';
                     sourceElement.type = 'video/mp4';
                     videoElement.appendChild(sourceElement);
 
                     // Replace image with video
                     imgElement.parentNode.replaceChild(videoElement, imgElement);
 
-                    // Ensure video plays
-                    videoElement.play().catch(e => {
-                        console.log('Fade-cycle video autoplay failed:', e);
-                        // Fallback: play on user interaction
-                        document.addEventListener('click', () => {
-                            videoElement.play().catch(err => console.log('Fade-cycle video play failed:', err));
-                        }, { once: true });
+                    // Enhanced auto-play mechanisms - NO CLICK REQUIRED
+                    // Immediate play attempt
+                    videoElement.play().catch(e => console.log('Initial autoplay attempt:', e));
+
+                    // Play when video data is loaded
+                    videoElement.addEventListener('loadeddata', () => {
+                        videoElement.play().catch(e => console.log('LoadedData play attempt:', e));
                     });
+
+                    // Play when video can start playing
+                    videoElement.addEventListener('canplay', () => {
+                        videoElement.play().catch(e => console.log('CanPlay play attempt:', e));
+                    });
+
+                    // Prevent video from pausing - force continuous playback
+                    videoElement.addEventListener('pause', () => {
+                        setTimeout(() => {
+                            videoElement.play().catch(e => console.log('Resume after pause:', e));
+                        }, 100);
+                    });
+
+                    // Delayed retry mechanism
+                    setTimeout(() => {
+                        if (videoElement.paused) {
+                            videoElement.play().catch(e => console.log('Delayed retry play:', e));
+                        }
+                    }, 500);
                 });
             });
         </script>
@@ -2483,7 +2931,7 @@
                                         alt="service image"></a>
                                 <div class="carousel-caption">
                                     <a href="Sports technology.html">
-                                        <h6 class="text-black">Sports Technology</h6>
+                                        <h6 class="text-black">Sports Marketplace</h6>
                                     </a>
                                     <p class="mb-16">The Sports Ecosystem Marketplace is a one-stop platform where
                                         athletes and sports lovers can Learn, Play.</p>
@@ -2609,6 +3057,131 @@
             </div>
         </section>
         <!-- Services Section End -->
+
+
+
+        <section class="projects-section">
+            <div class="container4">
+                <div class="section-title12">
+                    <h2>Our Projects</h2>
+                </div>
+
+                <div class="projects-grid12">
+                    <!-- Project 1 -->
+                    <div class="project-card12">
+                        <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/close-up-detail-of-blue-computer-circuit-board-2025-04-03-07-14-35-utc.jpg?v=1762255779"
+                            alt="Project 1" class="project-image">
+                        <div class="project-overlay12">
+                            <h3 class="project-title12">Semi Conductor</h3>
+                            <p class="project-category12">Building the Future with Advanced Semiconductor Innovation.
+                            </p>
+                            <a href="#" class="read-more">Read More</a>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="project-card12">
+                        <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/agriculture-drone-flying-on-the-green-tea-field-at-2025-03-15-01-53-43-utc.jpg?v=1762255781"
+                            alt="Project 2" class="project-image">
+                        <div class="project-overlay12">
+                            <h3 class="project-title12">Drone</h3>
+                            <p class="project-category12">Empowering Innovation Through Intelligent Drones.</p>
+                            <a href="article-page.htmll" class="read-more">Read More</a>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="project-card12">
+                        <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/vertical-photo-of-a-man-who-uses-artificial-intell-2024-12-06-07-21-40-utc.jpg?v=1762255779"
+                            alt="Project 3" class="project-image">
+                        <div class="project-overlay12">
+                            <h3 class="project-title12">Artificial Intelligence</h3>
+                            <p class="project-category12">Empowering the Future with Artificial Intelligence</p>
+                            <a href="article-page2.html" class="read-more">Read More</a>
+                        </div>
+                    </div>
+
+                    <!-- Project 4 -->
+                    <div class="project-card12">
+                        <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/vertical-photo-of-a-businessman-analyzing-and-maxi-2024-12-07-03-35-12-utc.jpg?v=1762255779"
+                            alt="Project 4" class="project-image">
+                        <div class="project-overlay12">
+                            <h3 class="project-title12">Fintech</h3>
+                            <p class="project-category12">Empowering Finance Through Innovation.</p>
+                            <a href="#" class="read-more">Read More</a>
+                        </div>
+                    </div>
+
+                    <!-- Project 5 -->
+                    <div class="project-card12">
+                        <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/Screenshot_2025-11-04_162507.png?v=1762253719"
+                            alt="Project 5" class="project-image">
+                        <div class="project-overlay12">
+                            <h3 class="project-title12">Sports </h3>
+                            <p class="project-category12">Your Ultimate Destination for Sports . All the Action. All the
+                                Time.</p>
+                            <a href="Services.html" class="read-more">Read More</a>
+                        </div>
+                    </div>
+
+                    <!-- Project 6 -->
+                    <div class="project-card12">
+                        <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/Screenshot_2025-11-04_170025.png?v=1762255837"
+                            alt="Project 6" class="project-image">
+                        <div class="project-overlay12">
+                            <h3 class="project-title12">Esports</h3>
+                            <p class="project-category12">We believe esports is more than just gaming—it's a career, a
+                                passion, and a path to excellence.</p>
+                            <a href="Esports.html" class="read-more">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Modals -->
+        <div id="modal1" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2>Project Title 1</h2>
+                <p class="project-meta">Category: Category 1</p>
+                <div class="project-details">
+                    <p>Detailed information about Project 1. This section contains more details about the project,
+                        including its objectives, features, and outcomes.</p>
+                    <p>Additional details can be added here to provide more context about the project.</p>
+                    <a href="#" class="btn btn-primary">View Project</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal2" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2>Project Title 2</h2>
+                <p class="project-meta">Category: Category 2</p>
+                <div class="project-details">
+                    <p>Detailed information about Project 2. This section contains more details about the project,
+                        including its objectives, features, and outcomes.</p>
+                    <p>Additional details can be added here to provide more context about the project.</p>
+                    <a href="#" class="btn btn-primary">View Project</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal3" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2>Project Title 3</h2>
+                <p class="project-meta">Category: Category 3</p>
+                <div class="project-details">
+                    <p>Detailed information about Project 3. This section contains more details about the project,
+                        including its objectives, features, and outcomes.</p>
+                    <p>Additional details can be added here to provide more context about the project.</p>
+                    <a href="#" class="btn btn-primary">View Project</a>
+                </div>
+            </div>
+        </div>
+
 
         <!-- Trending Gallery Section -->
         <section class="trending-gallery-section py-80 black-100-bg">
@@ -2779,14 +3352,6 @@
             </div>
     </div>
 
-    <!-- Fullscreen Modal -->
-    <div class="gallery-modal" id="galleryModal"></div>
-    <div class="modal-content">
-        <button class="modal-close">&times;</button>
-        <div class="modal-media"></div>
-    </div>
-    </div>
-    </div>
     </section>
 
     <!-- Interior Services Section Start -->
@@ -4044,6 +4609,42 @@
         window.refreshHomeBlogs = loadAndDisplayHomepageBlogs;
     </script>
 
+
+    <script>
+        // Modal functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            // Get all project cards
+            const projectCards = document.querySelectorAll('.project-card12');
+
+            // Add click event to each project card
+            projectCards.forEach(card => {
+                card.addEventListener('click', function () {
+                    const modalId = this.getAttribute('data-modal');
+                    const modal = document.getElementById(modalId);
+                    modal.style.display = 'block';
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+
+            // Close modal when clicking on X
+            const closeButtons = document.querySelectorAll('.close-modal');
+            closeButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    const modal = this.closest('.modal');
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                });
+            });
+
+            // Close modal when clicking outside the modal content
+            window.addEventListener('click', function (event) {
+                if (event.target.classList.contains('modal')) {
+                    event.target.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
