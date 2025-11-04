@@ -25,29 +25,103 @@
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Colab Platforms">
     <meta property="og:title" content="Colab Platforms - Unlock Human Potential with Sports Tech Solutions" />
-    <!-- Google Fonts -->
+    <!-- Performance Optimizations -->
+    <link rel="dns-prefetch" href="https://cdn.shopify.com">
+    <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+
+    <!-- Google Fonts - Optimized -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+        rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet">
+    </noscript>
 
     <link rel="shortcut icon"
         href="https://cdn.shopify.com/s/files/1/0653/9830/9053/files/New_Variation_-_11-3-2025-01_1.png?v=1744091612"
         type="image/x-icon">
 
-    <!-- Font Awesome 7.0.0 Local -->
-    <link rel="stylesheet" href="fontawesome-free-7.0.0-web (1)/fontawesome-free-7.0.0-web/css/all.min.css">
-    <!-- Bootstrap -->
+    <!-- Critical CSS - Inline for faster loading -->
+    <style>
+        /* Critical CSS for above-the-fold content */
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .hero-area {
+            min-height: 100vh;
+            position: relative;
+            background: #000;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .social-media-banner {
+            position: absolute;
+            left: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+        }
+
+        .socialContainer {
+            width: 52px;
+            height: 52px;
+            background-color: rgb(44, 44, 44);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            cursor: pointer;
+            border: none;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+
+    <!-- Non-critical CSS - Load after -->
     <link rel="stylesheet" href="assests/css/bootstrap.min.css">
-    <!-- Magnific Popup -->
-    <link rel="stylesheet" href="assests/css/magnific-popup.min.css">
-    <!-- Animate -->
-    <link rel="stylesheet" href="assests/css/animate.min.css">
-    <!-- Slick -->
-    <link rel="stylesheet" href="assests/css/slick.min.css">
-    <!-- Main Style -->
     <link rel="stylesheet" href="assests/css/style.css">
-    <link rel="stylesheet" href="all.min.css"> <!-- First inclusion -->
+
+    <!-- Non-critical CSS - Load asynchronously -->
+    <link rel="preload" href="fontawesome-free-7.0.0-web (1)/fontawesome-free-7.0.0-web/css/all.min.css" as="style"
+        onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="assests/css/magnific-popup.min.css" as="style"
+        onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="assests/css/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="assests/css/slick.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+    <!-- Fallback for browsers that don't support preload -->
+    <noscript>
+        <link rel="stylesheet" href="fontawesome-free-7.0.0-web (1)/fontawesome-free-7.0.0-web/css/all.min.css">
+        <link rel="stylesheet" href="assests/css/magnific-popup.min.css">
+        <link rel="stylesheet" href="assests/css/animate.min.css">
+        <link rel="stylesheet" href="assests/css/slick.min.css">
+        <link rel="stylesheet" href="all.min.css">
+    </noscript>
     <style>
         /* Projects Section */
         .projects-section {
@@ -1854,7 +1928,7 @@
         <div id="preloader">
             <div class="preloader-logo">
                 <img src="https://cdn.shopify.com/s/files/1/0653/9830/9053/files/minimal-logo-effect-for-footer-unscreen-ezgif.com-crop_1.gif"
-                    alt="Colab Platforms Logo">
+                    alt="Colab Platforms Logo" loading="lazy" decoding="async">
             </div>
 
         </div>
@@ -2003,7 +2077,7 @@
                     font-weight: bold;
                     border-radius: 8px;
                     text-decoration: none;
-                 
+
                     transition: 0.3s ease;
                     margin-top: -50px;
                 }
@@ -2074,9 +2148,15 @@
                     transition-duration: .3s;
                 }
 
-                /* Whatsapp*/
+                /* Facebook*/
                 .containerFour:hover {
-                    background-color: #D04713;
+                    background-color: #1877F2;
+                    transition-duration: .3s;
+                }
+
+                /* YouTube*/
+                .containerFive:hover {
+                    background-color: #FF0000;
                     transition-duration: .3s;
                 }
 
@@ -2119,6 +2199,7 @@
                     .card {
                         padding: 15px 15px;
                         gap: 15px;
+                        display: none;
                     }
 
                     .socialContainer {
@@ -2132,31 +2213,41 @@
             <div class="social-media-banner">
                 <!-- From Uiverse.io by vinodjangid07 -->
                 <div class="card">
-                    <a href="#" class="socialContainer containerOne">
+                    <a href="https://www.instagram.com/colab_platforms/" class="socialContainer containerOne">
                         <svg class="socialSvg instagramSvg" viewBox="0 0 16 16">
                             <path
                                 d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z">
                             </path>
                         </svg>
                     </a>
-                    <a href="#" class="socialContainer containerTwo">
+                    <a href="https://x.com/ColabLtd" class="socialContainer containerTwo">
                         <svg class="socialSvg twitterSvg" viewBox="0 0 16 16">
                             <path
                                 d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z">
                             </path>
                         </svg>
                     </a>
-                    <a href="#" class="socialContainer containerThree">
+                    <a href="https://www.linkedin.com/company/colabplatformslimited/" target="_blank"
+                        class="socialContainer containerThree">
                         <svg class="socialSvg linkdinSvg" viewBox="0 0 448 512">
                             <path
                                 d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z">
                             </path>
                         </svg>
                     </a>
-                    <a href="#" class="socialContainer containerFour">
-                        <svg class="socialSvg whatsappSvg" viewBox="0 0 16 16">
+                    <a href="https://www.facebook.com/profile.php?id=61558652640097" target="_blank"
+                        class="socialContainer containerFour">
+                        <svg class="socialSvg facebookSvg" viewBox="0 0 16 16">
                             <path
-                                d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z">
+                                d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z">
+                            </path>
+                        </svg>
+                    </a>
+                    <a href="https://www.youtube.com/@ColabPlatformsLimited" target="_blank"
+                        class="socialContainer containerFive">
+                        <svg class="socialSvg youtubeSvg" viewBox="0 0 16 16">
+                            <path
+                                d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z">
                             </path>
                         </svg>
                     </a>
@@ -2165,17 +2256,17 @@
 
             <div class="desktop-banner">
                 <div class="carousel slide" id="recipeCarousel" data-bs-ride="carousel">
-                    <div class="carousel-inner">""
+                    <div class="carousel-inner">
 
                         <div class="carousel-item active">
                             <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/1_7.jpg?v=1756903345"
-                                alt="banner 1">
+                                alt="banner 1" fetchpriority="high" decoding="async">
 
                         </div>
 
                         <div class="carousel-item ">
                             <img src=" https://cdn.shopify.com/s/files/1/0636/5226/6115/files/Diwali_Wishing_Web_Banner_website.jpg?v=1760529650"
-                                alt="banner 1">
+                                alt="banner 1" loading="lazy" decoding="async">
 
 
                         </div>
@@ -2183,7 +2274,7 @@
                         <!-- Slide 2 -->
                         <div class="carousel-item">
                             <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/WhatsApp_Image_2025-10-13_at_1.45.22_PM.jpg?v=1760352309"
-                                alt="banner 2">
+                                alt="banner 2" loading="lazy" decoding="async">
                             <div class="carousel-flex">
                                 <a href="article-page3.html" class="center-btn">Read More</a>
                             </div>
@@ -2193,7 +2284,7 @@
 
                         <div class="carousel-item">
                             <img src=" https://cdn.shopify.com/s/files/1/0636/5226/6115/files/Screenshot_2025-10-03_135246.png?v=1759479789"
-                                alt="banner 2">
+                                alt="banner 2" loading="lazy" decoding="async">
                             <div class="carousel-flex">
                                 <a href="article-page2.html" class="center-btn">Read More</a>
                             </div>
@@ -2202,7 +2293,7 @@
                         <!-- Slide 2 -->
                         <div class="carousel-item">
                             <img src=" https://cdn.shopify.com/s/files/1/0636/5226/6115/files/New_size_-_3.jpg?v=1761739291"
-                                alt="banner 2">
+                                alt="banner 2" loading="lazy" decoding="async">
                             <div class="carousel-flex">
                                 <a href="article-page.html" class="center-btn">Read More</a>
                             </div>
@@ -2212,7 +2303,7 @@
                         <!-- Slide 3 -->
                         <div class="carousel-item">
                             <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/3_3.jpg?v=1756903345"
-                                alt="banner 3">
+                                alt="banner 3" loading="lazy" decoding="async">
                             <div class="carousel-flex">
 
                             </div>
@@ -2221,7 +2312,7 @@
                         <!-- Slide 4 -->
                         <div class="carousel-item">
                             <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/WEB_banner_CP_-_2.png?v=1757509411"
-                                alt="banner 4">
+                                alt="banner 4" loading="lazy" decoding="async">
                             <div class="carousel-flex">
 
                             </div>
@@ -2851,17 +2942,27 @@
 
 
         <script>
-            // Video replacement for fade-cycle images - Pure Auto-Play Mode
+            // Video replacement for fade-cycle images - Enhanced Auto-Play Mode
             document.addEventListener('DOMContentLoaded', function () {
                 const fadeCycleImages = document.querySelectorAll('.fade-cycle');
 
                 fadeCycleImages.forEach(imgElement => {
                     // Create video element to replace image
                     const videoElement = document.createElement('video');
-                    videoElement.setAttribute('autoplay', '');
-                    videoElement.setAttribute('muted', '');
-                    videoElement.setAttribute('loop', '');
-                    videoElement.setAttribute('playsinline', '');
+
+                    // Set all necessary attributes for autoplay
+                    videoElement.autoplay = true;
+                    videoElement.muted = true;
+                    videoElement.loop = true;
+                    videoElement.playsInline = true;
+                    videoElement.controls = false;
+                    videoElement.preload = 'metadata'; // Changed from 'auto' to 'metadata' for faster loading
+
+                    // Set attributes as well for better compatibility
+                    videoElement.setAttribute('autoplay', 'autoplay');
+                    videoElement.setAttribute('muted', 'muted');
+                    videoElement.setAttribute('loop', 'loop');
+                    videoElement.setAttribute('playsinline', 'playsinline');
 
                     // Copy styles from original image
                     videoElement.className = imgElement.className;
@@ -2871,42 +2972,74 @@
                     videoElement.style.maxHeight = '800px';
                     videoElement.style.objectFit = 'cover';
 
-                    // Add video source
+                    // Add video source - using correct URL
                     const sourceElement = document.createElement('source');
-                    sourceElement.src = 'https://cdn.shopify.com/videos/c/o/v/2e1eb3630e254e1eb3d63248fffc05a8.mp4';
+                    sourceElement.src = 'https://cdn.shopify.com/videos/c/o/v/a345f730946d4486a69eb472384d550c.mp4';
                     sourceElement.type = 'video/mp4';
                     videoElement.appendChild(sourceElement);
 
                     // Replace image with video
                     imgElement.parentNode.replaceChild(videoElement, imgElement);
 
-                    // Enhanced auto-play mechanisms - NO CLICK REQUIRED
+                    // Multiple auto-play attempts with different strategies
+                    const playVideo = () => {
+                        const playPromise = videoElement.play();
+                        if (playPromise !== undefined) {
+                            playPromise
+                                .then(() => {
+                                    console.log('Video autoplay successful');
+                                })
+                                .catch(error => {
+                                    console.log('Autoplay failed:', error);
+                                    // Force play after a short delay
+                                    setTimeout(() => {
+                                        videoElement.play().catch(e => console.log('Retry failed:', e));
+                                    }, 1000);
+                                });
+                        }
+                    };
+
                     // Immediate play attempt
-                    videoElement.play().catch(e => console.log('Initial autoplay attempt:', e));
+                    playVideo();
+
+                    // Play when video metadata is loaded
+                    videoElement.addEventListener('loadedmetadata', playVideo);
 
                     // Play when video data is loaded
-                    videoElement.addEventListener('loadeddata', () => {
-                        videoElement.play().catch(e => console.log('LoadedData play attempt:', e));
-                    });
+                    videoElement.addEventListener('loadeddata', playVideo);
 
                     // Play when video can start playing
-                    videoElement.addEventListener('canplay', () => {
-                        videoElement.play().catch(e => console.log('CanPlay play attempt:', e));
-                    });
+                    videoElement.addEventListener('canplay', playVideo);
+
+                    // Play when video can play through
+                    videoElement.addEventListener('canplaythrough', playVideo);
 
                     // Prevent video from pausing - force continuous playback
                     videoElement.addEventListener('pause', () => {
-                        setTimeout(() => {
-                            videoElement.play().catch(e => console.log('Resume after pause:', e));
-                        }, 100);
+                        if (!videoElement.ended) {
+                            setTimeout(() => {
+                                playVideo();
+                            }, 100);
+                        }
                     });
 
-                    // Delayed retry mechanism
-                    setTimeout(() => {
-                        if (videoElement.paused) {
-                            videoElement.play().catch(e => console.log('Delayed retry play:', e));
-                        }
-                    }, 500);
+                    // Additional retry mechanisms
+                    setTimeout(playVideo, 500);
+                    setTimeout(playVideo, 1000);
+                    setTimeout(playVideo, 2000);
+
+                    // Intersection Observer for when video comes into view
+                    if ('IntersectionObserver' in window) {
+                        const observer = new IntersectionObserver((entries) => {
+                            entries.forEach(entry => {
+                                if (entry.isIntersecting) {
+                                    playVideo();
+                                }
+                            });
+                        }, { threshold: 0.1 });
+
+                        observer.observe(videoElement);
+                    }
                 });
             });
         </script>
@@ -3070,7 +3203,7 @@
                     <!-- Project 1 -->
                     <div class="project-card12">
                         <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/close-up-detail-of-blue-computer-circuit-board-2025-04-03-07-14-35-utc.jpg?v=1762255779"
-                            alt="Project 1" class="project-image">
+                            alt="Project 1" class="project-image" loading="lazy" decoding="async">
                         <div class="project-overlay12">
                             <h3 class="project-title12">Semi Conductor</h3>
                             <p class="project-category12">Building the Future with Advanced Semiconductor Innovation.
@@ -3082,7 +3215,7 @@
                     <!-- Project 2 -->
                     <div class="project-card12">
                         <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/agriculture-drone-flying-on-the-green-tea-field-at-2025-03-15-01-53-43-utc.jpg?v=1762255781"
-                            alt="Project 2" class="project-image">
+                            alt="Project 2" class="project-image" loading="lazy" decoding="async">
                         <div class="project-overlay12">
                             <h3 class="project-title12">Drone</h3>
                             <p class="project-category12">Empowering Innovation Through Intelligent Drones.</p>
@@ -3093,7 +3226,7 @@
                     <!-- Project 3 -->
                     <div class="project-card12">
                         <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/vertical-photo-of-a-man-who-uses-artificial-intell-2024-12-06-07-21-40-utc.jpg?v=1762255779"
-                            alt="Project 3" class="project-image">
+                            alt="Project 3" class="project-image" loading="lazy" decoding="async">
                         <div class="project-overlay12">
                             <h3 class="project-title12">Artificial Intelligence</h3>
                             <p class="project-category12">Empowering the Future with Artificial Intelligence</p>
@@ -3104,7 +3237,7 @@
                     <!-- Project 4 -->
                     <div class="project-card12">
                         <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/vertical-photo-of-a-businessman-analyzing-and-maxi-2024-12-07-03-35-12-utc.jpg?v=1762255779"
-                            alt="Project 4" class="project-image">
+                            alt="Project 4" class="project-image" loading="lazy" decoding="async">
                         <div class="project-overlay12">
                             <h3 class="project-title12">Fintech</h3>
                             <p class="project-category12">Empowering Finance Through Innovation.</p>
@@ -3115,7 +3248,7 @@
                     <!-- Project 5 -->
                     <div class="project-card12">
                         <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/Screenshot_2025-11-04_162507.png?v=1762253719"
-                            alt="Project 5" class="project-image">
+                            alt="Project 5" class="project-image" loading="lazy" decoding="async">
                         <div class="project-overlay12">
                             <h3 class="project-title12">Sports </h3>
                             <p class="project-category12">Your Ultimate Destination for Sports . All the Action. All the
@@ -3127,7 +3260,7 @@
                     <!-- Project 6 -->
                     <div class="project-card12">
                         <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/Screenshot_2025-11-04_170025.png?v=1762255837"
-                            alt="Project 6" class="project-image">
+                            alt="Project 6" class="project-image" loading="lazy" decoding="async">
                         <div class="project-overlay12">
                             <h3 class="project-title12">Esports</h3>
                             <p class="project-category12">We believe esports is more than just gaming—it's a career, a
@@ -3211,7 +3344,7 @@
                     <!-- Large Featured Video -->
                     <div class="gallery-item featured-large" data-type="video">
                         <div class="gallery-content">
-                            <video muted loop autoplay>
+                            <video muted loop preload="none" loading="lazy">
                                 <source src="https://cdn.shopify.com/videos/c/o/v/9668436b2d8540beb90a3decf5881a53.mp4"
                                     type="video/mp4">
                             </video>
@@ -3231,7 +3364,7 @@
                     <!-- Medium Video -->
                     <div class="gallery-item medium" data-type="video">
                         <div class="gallery-content">
-                            <video muted loop>
+                            <video muted loop preload="none" loading="lazy">
                                 <source src="https://cdn.shopify.com/videos/c/o/v/f9b610f5cd934ed3ae732c258a357719.mp4"
                                     type="video/mp4">
                             </video>
@@ -3249,7 +3382,7 @@
                     <!-- Small Video -->
                     <div class="gallery-item small" data-type="video">
                         <div class="gallery-content">
-                            <video muted loop>
+                            <video muted loop preload="none" loading="lazy">
                                 <source src="https://cdn.shopify.com/videos/c/o/v/521ce6f8295149369862ae34fc002dde.mp4"
                                     type="video/mp4">
                             </video>
@@ -3268,7 +3401,7 @@
                     <div class="gallery-item medium" data-type="photo">
                         <div class="gallery-content">
                             <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/WhatsApp_Image_2025-09-06_at_1.06.54_PM.jpg?v=1757154487"
-                                alt="Sports Action">
+                                alt="Sports Action" loading="lazy" decoding="async">
                             <div class="gallery-overlay">
                                 <div class="gallery-info">
                                     <span class="gallery-type">Photo</span>
@@ -3281,7 +3414,7 @@
                     <div class="gallery-item small" data-type="photo">
                         <div class="gallery-content">
                             <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/WhatsApp_Image_2025-08-28_at_7.16.45_PM_1.jpg?v=1756448712"
-                                alt="Sports Moment">
+                                alt="Sports Moment" loading="lazy" decoding="async">
                             <div class="gallery-overlay">
                                 <div class="gallery-info">
                                     <span class="gallery-type">Photo</span>
@@ -3293,7 +3426,7 @@
                     <div class="gallery-item large" data-type="photo">
                         <div class="gallery-content">
                             <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/Screenshot_2025-09-06_160107.png?v=1757154699"
-                                alt="Basketball Game">
+                                alt="Basketball Game" loading="lazy" decoding="async">
                             <div class="gallery-overlay">
                                 <div class="gallery-info">
                                     <span class="gallery-type">Photo</span>
@@ -3306,7 +3439,7 @@
                     <div class="gallery-item small" data-type="photo">
                         <div class="gallery-content">
                             <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/Screenshot_2025-09-06_160007.png?v=1757154630"
-                                alt="Sports Event">
+                                alt="Sports Event" loading="lazy" decoding="async">
                             <div class="gallery-overlay">
                                 <div class="gallery-info">
                                     <span class="gallery-type">Photo</span>
@@ -3318,7 +3451,7 @@
                     <div class="gallery-item large" data-type="photo">
                         <div class="gallery-content">
                             <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/Screenshot_2025-09-06_160118.png?v=1757154700"
-                                alt="Team Victory">
+                                alt="Team Victory" loading="lazy" decoding="async">
                             <div class="gallery-overlay">
                                 <div class="gallery-info">
                                     <span class="gallery-type">Photo</span>
@@ -3331,7 +3464,7 @@
                     <div class="gallery-item small" data-type="photo">
                         <div class="gallery-content">
                             <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/WhatsApp_Image_2025-09-06_at_1.01.50_PM.jpg?v=1757162370"
-                                alt="Sports Achievement">
+                                alt="Sports Achievement" loading="lazy" decoding="async">
                             <div class="gallery-overlay">
                                 <div class="gallery-info">
                                     <span class="gallery-type">Photo</span>
@@ -4437,7 +4570,7 @@
                   bottom: 10%;
                   right: 4%;">
         </div>
-        <video autoplay muted loop playsinline class="footer-video">
+        <video autoplay muted loop playsinline class="footer-video" preload="none" loading="lazy">
             <source src="https://cdn.shopify.com/videos/c/o/v/b0377f723848466d9662436e2eabdc99.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
@@ -4644,6 +4777,104 @@
                 }
             });
         });
+    </script>
+
+    <!-- Performance Optimization Scripts -->
+    <script>
+        // Preload critical resources
+        const preloadResources = [
+            'https://cdn.shopify.com/s/files/1/0636/5226/6115/files/1_7.jpg?v=1756903345',
+            'https://cdn.shopify.com/videos/c/o/v/a345f730946d4486a69eb472384d550c.mp4'
+        ];
+
+        preloadResources.forEach(url => {
+            const link = document.createElement('link');
+            link.rel = 'preload';
+            link.as = url.includes('.mp4') ? 'video' : 'image';
+            link.href = url;
+            document.head.appendChild(link);
+        });
+
+        // Enhanced lazy loading for images and videos
+        if ('IntersectionObserver' in window) {
+            const mediaObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const element = entry.target;
+
+                        // Handle images with data-src
+                        if (element.tagName === 'IMG' && element.dataset.src) {
+                            element.src = element.dataset.src;
+                            element.removeAttribute('data-src');
+                        }
+
+                        // Handle videos with preload="none"
+                        if (element.tagName === 'VIDEO' && element.preload === 'none') {
+                            element.preload = 'metadata';
+                            element.load();
+                        }
+
+                        observer.unobserve(element);
+                    }
+                });
+            }, {
+                rootMargin: '50px 0px',
+                threshold: 0.1
+            });
+
+            // Observe all lazy-loadable media
+            document.querySelectorAll('img[data-src], video[preload="none"]').forEach(element => {
+                mediaObserver.observe(element);
+            });
+
+            // Observe About Us scroll images
+            document.querySelectorAll('.flex-shrink-0 img, .scroll-container-mobile img').forEach(img => {
+                if (!img.hasAttribute('loading')) {
+                    img.setAttribute('loading', 'lazy');
+                    img.setAttribute('decoding', 'async');
+                }
+            });
+        }
+
+        // Optimize carousel performance
+        document.addEventListener('DOMContentLoaded', function () {
+            const carousel = document.querySelector('#recipeCarousel');
+            if (carousel) {
+                // Preload next carousel image
+                const activeItem = carousel.querySelector('.carousel-item.active img');
+                const nextItem = carousel.querySelector('.carousel-item:not(.active) img');
+                if (nextItem && !nextItem.complete) {
+                    const preloadImg = new Image();
+                    preloadImg.src = nextItem.src;
+                }
+            }
+        });
+
+        // Footer video lazy loading
+        const footerVideo = document.querySelector('.footer-video');
+        if (footerVideo && 'IntersectionObserver' in window) {
+            const footerObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        footerVideo.preload = 'auto';
+                        footerVideo.load();
+                        footerVideo.play().catch(e => console.log('Footer video play failed:', e));
+                        footerObserver.unobserve(footerVideo);
+                    }
+                });
+            }, { threshold: 0.25 });
+
+            footerObserver.observe(footerVideo);
+        }
+
+        // Service Worker for caching (if supported)
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function () {
+                navigator.serviceWorker.register('/sw.js').catch(function () {
+                    // Service worker registration failed, continue without it
+                });
+            });
+        }
     </script>
 </body>
 
