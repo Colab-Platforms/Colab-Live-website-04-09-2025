@@ -54,7 +54,7 @@
         }
 
         .hero-area {
-            min-height: 100vh;
+
             position: relative;
             background: #000;
         }
@@ -98,6 +98,37 @@
             display: flex;
             align-items: center;
             justify-content: center;
+        }
+
+        /* Blog section mobile force visibility - Critical Fix */
+        .blog-area,
+        .blog-home {
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+        }
+
+        @media (max-width: 768px) {
+
+            .blog-area,
+            .blog-home {
+                display: block !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+            }
+
+            .blog-item,
+            .blog-home .blog-item {
+                display: block !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+            }
+
+            #dynamic-blog-container {
+                display: flex !important;
+                flex-wrap: wrap !important;
+                visibility: visible !important;
+            }
         }
     </style>
 
