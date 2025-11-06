@@ -391,9 +391,21 @@
 
         @media (max-width: 768px) {
             .projects-grid12 {
-                grid-template-columns: 1fr;
-                max-width: 500px;
-                gap: 25px;
+                display: flex;
+                overflow-x: hidden;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+                gap: 0;
+                max-width: 100%;
+                position: relative;
+            }
+
+            .project-card12 {
+                flex: 0 0 100%;
+                max-width: 100%;
+                height: 500px;
+                scroll-snap-align: start;
+                transition: transform 0.5s ease;
             }
 
             .section-title12 h2 {
@@ -401,9 +413,75 @@
                 margin-bottom: 30px;
             }
 
-            .project-card12 {
-                max-width: 100%;
-                height: 500px;
+            /* Mobile slider indicators */
+            .mobile-slider-indicators {
+                display: flex;
+                justify-content: center;
+                gap: 8px;
+                margin-top: 20px;
+            }
+
+            .slider-dot {
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.3);
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
+
+            .slider-dot.active {
+                background: #ff5e00;
+                transform: scale(1.2);
+            }
+
+            /* Auto-slide animation */
+            .projects-grid12.auto-slide .project-card12 {
+                animation: slideProjects 18s infinite;
+            }
+
+            @keyframes slideProjects {
+
+                0%,
+                16.66% {
+                    transform: translateX(0%);
+                }
+
+                16.67%,
+                33.33% {
+                    transform: translateX(-100%);
+                }
+
+                33.34%,
+                50% {
+                    transform: translateX(-200%);
+                }
+
+                50.01%,
+                66.66% {
+                    transform: translateX(-300%);
+                }
+
+                66.67%,
+                83.33% {
+                    transform: translateX(-400%);
+                }
+
+                83.34%,
+                100% {
+                    transform: translateX(-500%);
+                }
+            }
+        }
+
+        /* Hide mobile indicators on desktop */
+        .mobile-slider-indicators {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-slider-indicators {
+                display: flex;
             }
         }
     </style>
@@ -2032,9 +2110,15 @@
                         </div>
                         <!-- Dark Mode Toggle Button -->
                         <div class="theme-toggle-wrapper">
-                            <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Dark Mode">
-                                <i class="fas fa-moon" id="theme-icon"></i>
-                            </button>
+                            <div class="theme-toggle-switch" id="theme-toggle">
+                                <div class="toggle-track">
+                                    <div class="toggle-icons">
+                                        <i class="fas fa-sun sun-icon"></i>
+                                        <i class="fas fa-moon moon-icon"></i>
+                                    </div>
+                                    <div class="toggle-slider" id="toggle-slider"></div>
+                                </div>
+                            </div>
                         </div>
 
                     </div>
@@ -2294,16 +2378,28 @@
 
                         <div class="carousel-item active">
                             <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/1_7.jpg?v=1756903345"
-                                alt="banner 1" fetchpriority="high" decoding="async">
+                                alt="banner 1" fetchpriority="high" decoding="async" loading="eager">
 
                         </div>
 
-                        <div class="carousel-item ">
-                            <img src=" https://cdn.shopify.com/s/files/1/0636/5226/6115/files/Diwali_Wishing_Web_Banner_website.jpg?v=1760529650"
-                                alt="banner 1" loading="lazy" decoding="async">
-
+                        <div class="carousel-item">
+                            <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/Press_Release_Img_1.1.png?v=1762413427"
+                                alt="banner 2" loading="lazy" decoding="async">
+                            <div class="carousel-flex">
+                                <a href="article-page5.html" class="center-btn">Read More</a>
+                            </div>
 
                         </div>
+                        <div class="carousel-item">
+                            <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/Press_Release_Img_4_1.jpg?v=1762426700"
+                                alt="banner 2" loading="lazy" decoding="async">
+                            <div class="carousel-flex">
+                                <a href="article-page4.html" class="center-btn">Read More</a>
+                            </div>
+
+                        </div>
+
+
 
                         <!-- Slide 2 -->
                         <div class="carousel-item">
@@ -2364,6 +2460,8 @@
                         <button type="button" data-bs-target="#recipeCarousel" data-bs-slide-to="4"></button>
                         <button type="button" data-bs-target="#recipeCarousel" data-bs-slide-to="5"></button>
                         <button type="button" data-bs-target="#recipeCarousel" data-bs-slide-to="6"></button>
+                        <button type="button" data-bs-target="#recipeCarousel" data-bs-slide-to="7"></button>
+                        <button type="button" data-bs-target="#recipeCarousel" data-bs-slide-to="8"></button>
                     </div>
 
                 </div>
@@ -2377,10 +2475,49 @@
 
 
                             <div class="carousel-item active"
-                                style="background-image: url(https://cdn.shopify.com/s/files/1/0636/5226/6115/files/Screenshot_2025-10-15_175917.png?v=1760531747);">
+                                style="background-image: url(https://cdn.shopify.com/s/files/1/0636/5226/6115/files/Mobile_View_-_1.png?v=1762413427);">
                                 <div class="container pt-64 pb-64"
                                     style="height:80vh; background-size:cover; background-position:center;">
+                                    <div class="row pt-32" style="margin-top: 340px;">
+                                        <div class="carousel-buttons col-12" style="display:none;">
 
+                                            <button class="prev" type="button" data-bs-target="#recipeCarousel"
+                                                data-bs-slide="prev">
+                                                <span class="carousel-control-prev-icon" aria-hidden="true"><i
+                                                        class="fas fa-arrow-left"></i></span>
+                                            </button>
+                                            <button type="button" data-bs-target="#recipeCarousel" data-bs-slide="next">
+                                                <span class="carousel-control-next-icon" aria-hidden="true"><i
+                                                        class="fas fa-arrow-right"></i></span>
+                                            </button>
+                                        </div>
+                                        <div class="carousel-flex1">
+                                            <a href="article-page5.html" class="center-btn">Read More</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item"
+                                style="background-image: url(https://cdn.shopify.com/s/files/1/0636/5226/6115/files/Mobile_View_-_4.2_2.jpg?v=1762428144);">
+                                <div class="container pt-64 pb-64"
+                                    style="height:80vh; background-size:cover; background-position:center;">
+                                    <div class="row pt-32" style="margin-top: 340px;">
+                                        <div class="carousel-buttons col-12" style="display:none;">
+
+                                            <button class="prev" type="button" data-bs-target="#recipeCarousel"
+                                                data-bs-slide="prev">
+                                                <span class="carousel-control-prev-icon" aria-hidden="true"><i
+                                                        class="fas fa-arrow-left"></i></span>
+                                            </button>
+                                            <button type="button" data-bs-target="#recipeCarousel" data-bs-slide="next">
+                                                <span class="carousel-control-next-icon" aria-hidden="true"><i
+                                                        class="fas fa-arrow-right"></i></span>
+                                            </button>
+                                        </div>
+                                        <div class="carousel-flex1">
+                                            <a href="article-page4.html" class="center-btn">Read More</a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
@@ -2568,30 +2705,111 @@
                 height: 100%;
             }
 
-            /* Dark Mode Toggle Button */
+            /* Theme Toggle Switch */
             .theme-toggle-wrapper {
-                margin-left: 20px;
-            }
-
-            .theme-toggle-btn {
-                width: 50px;
-                height: 50px;
-                border-radius: 50%;
-                border: 2px solid #D04713;
-                background: linear-gradient(135deg, #D04713, #ff6b35);
-                color: white;
-                cursor: pointer;
-                transition: all 0.3s ease;
+                margin-left: 120px;
                 display: flex;
                 align-items: center;
-                justify-content: center;
-                font-size: 1.2rem;
-                box-shadow: 0 4px 15px rgba(208, 71, 19, 0.3);
             }
 
-            .theme-toggle-btn:hover {
-                transform: scale(1.1);
-                box-shadow: 0 6px 20px rgba(208, 71, 19, 0.5);
+            .theme-toggle-switch {
+                cursor: pointer;
+                user-select: none;
+            }
+
+            .toggle-track {
+                width: 70px;
+                height: 35px;
+                background: #e0e0e0;
+                border-radius: 25px;
+                position: relative;
+                transition: all 0.3s ease;
+                box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+
+            .toggle-icons {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 0 8px;
+                z-index: 1;
+            }
+
+            .sun-icon,
+            .moon-icon {
+                font-size: 14px;
+                transition: all 0.3s ease;
+            }
+
+            .sun-icon {
+                color: #ffa500;
+            }
+
+            .moon-icon {
+                color: #6c757d;
+            }
+
+            .toggle-slider {
+                width: 27px;
+                height: 27px;
+                background: #D04713;
+                border-radius: 50%;
+                position: absolute;
+                top: 4px;
+                left: 4px;
+                transition: all 0.3s ease;
+                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+                z-index: 2;
+            }
+
+            /* Dark Mode State */
+            .dark-mode .toggle-track {
+                background: #2c2c2c;
+            }
+
+            .dark-mode .toggle-slider {
+                transform: translateX(35px);
+                background: #D04713;
+            }
+
+            .dark-mode .sun-icon {
+                color: #666;
+            }
+
+            .dark-mode .moon-icon {
+                color: #fff;
+            }
+
+            /* Light Mode State */
+            .light-mode .toggle-track {
+                background: #e0e0e0;
+            }
+
+            .light-mode .toggle-slider {
+                transform: translateX(0px);
+                background: #ffa500;
+            }
+
+            .light-mode .sun-icon {
+                color: #ffa500;
+            }
+
+            .light-mode .moon-icon {
+                color: #6c757d;
+            }
+
+            /* Hover Effects */
+            .theme-toggle-switch:hover .toggle-track {
+                box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 0 0 3px rgba(74, 91, 204, 0.1);
+            }
+
+            .theme-toggle-switch:hover .toggle-slider {
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
             }
 
             /* Dark Mode Styles */
@@ -2877,16 +3095,35 @@
                 color: #fff !important;
             }
 
-            /* Mobile Responsive for Toggle */
+            /* Mobile Responsive for Toggle Switch */
             @media (max-width: 768px) {
                 .theme-toggle-wrapper {
                     margin-left: 10px;
                 }
 
-                .theme-toggle-btn {
-                    width: 40px;
-                    height: 40px;
-                    font-size: 1rem;
+                .toggle-track {
+                    width: 60px;
+                    height: 30px;
+                }
+
+                .toggle-slider {
+                    width: 22px;
+                    height: 22px;
+                    top: 4px;
+                    left: 4px;
+                }
+
+                .dark-mode .toggle-slider {
+                    transform: translateX(30px);
+                }
+
+                .sun-icon,
+                .moon-icon {
+                    font-size: 12px;
+                }
+
+                .toggle-icons {
+                    padding: 0 6px;
                 }
             }
 
@@ -2915,6 +3152,7 @@
 
                 align-items: center;
             }
+
 
             /* Responsive Adjustments */
             @media (max-width: 767px) {
@@ -3303,6 +3541,16 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Mobile Slider Indicators -->
+                <div class="mobile-slider-indicators">
+                    <div class="slider-dot active" data-slide="0"></div>
+                    <div class="slider-dot" data-slide="1"></div>
+                    <div class="slider-dot" data-slide="2"></div>
+                    <div class="slider-dot" data-slide="3"></div>
+                    <div class="slider-dot" data-slide="4"></div>
+                    <div class="slider-dot" data-slide="5"></div>
+                </div>
             </div>
         </section>
 
@@ -3399,7 +3647,7 @@
                     <div class="gallery-item medium" data-type="video">
                         <div class="gallery-content">
                             <video muted loop preload="none" loading="lazy">
-                                <source src="https://cdn.shopify.com/videos/c/o/v/f9b610f5cd934ed3ae732c258a357719.mp4"
+                                <source src="https://cdn.shopify.com/videos/c/o/v/c105920bf9f9434aafe61cc4a6d12532.mp4"
                                     type="video/mp4">
                             </video>
                             <div class="gallery-overlay">
@@ -4383,10 +4631,9 @@
             });
         });
 
-        // Dark Mode Toggle Functionality
+        // Theme Toggle Switch Functionality
         document.addEventListener('DOMContentLoaded', function () {
             const themeToggle = document.getElementById('theme-toggle');
-            const themeIcon = document.getElementById('theme-icon');
             const body = document.body;
 
             // Check for saved theme preference or default to dark mode
@@ -4396,26 +4643,22 @@
             if (currentTheme === 'dark') {
                 body.classList.add('dark-mode');
                 body.classList.remove('light-mode');
-                themeIcon.className = 'fas fa-sun';
             } else {
                 body.classList.add('light-mode');
                 body.classList.remove('dark-mode');
-                themeIcon.className = 'fas fa-moon';
             }
 
-            // Toggle theme on button click
+            // Toggle theme on switch click
             themeToggle.addEventListener('click', function () {
                 if (body.classList.contains('dark-mode')) {
                     // Switch to light mode
                     body.classList.remove('dark-mode');
                     body.classList.add('light-mode');
-                    themeIcon.className = 'fas fa-moon';
                     localStorage.setItem('theme', 'light');
                 } else {
                     // Switch to dark mode
                     body.classList.remove('light-mode');
                     body.classList.add('dark-mode');
-                    themeIcon.className = 'fas fa-sun';
                     localStorage.setItem('theme', 'dark');
                 }
             });
@@ -4909,6 +5152,114 @@
                 });
             });
         }
+    </script>
+
+    <!-- Mobile Projects Slider JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Mobile Projects Slider Functionality
+            if (window.innerWidth <= 768) {
+                const projectsGrid = document.querySelector('.projects-grid12');
+                const projectCards = document.querySelectorAll('.project-card12');
+                const sliderDots = document.querySelectorAll('.slider-dot');
+                let currentSlide = 0;
+                let autoSlideInterval;
+
+                // Function to show specific slide
+                function showSlide(slideIndex) {
+                    // Remove active class from all dots
+                    sliderDots.forEach(dot => dot.classList.remove('active'));
+
+                    // Add active class to current dot
+                    if (sliderDots[slideIndex]) {
+                        sliderDots[slideIndex].classList.add('active');
+                    }
+
+                    // Move to the slide
+                    projectCards.forEach((card, index) => {
+                        card.style.transform = `translateX(-${slideIndex * 100}%)`;
+                    });
+
+                    currentSlide = slideIndex;
+                }
+
+                // Function to go to next slide
+                function nextSlide() {
+                    currentSlide = (currentSlide + 1) % projectCards.length;
+                    showSlide(currentSlide);
+                }
+
+                // Auto-slide functionality
+                function startAutoSlide() {
+                    autoSlideInterval = setInterval(nextSlide, 3000); // Change slide every 3 seconds
+                }
+
+                function stopAutoSlide() {
+                    clearInterval(autoSlideInterval);
+                }
+
+                // Add click event to dots
+                sliderDots.forEach((dot, index) => {
+                    dot.addEventListener('click', () => {
+                        stopAutoSlide();
+                        showSlide(index);
+                        setTimeout(startAutoSlide, 5000); // Restart auto-slide after 5 seconds
+                    });
+                });
+
+                // Touch/swipe functionality
+                let startX = 0;
+                let endX = 0;
+
+                projectsGrid.addEventListener('touchstart', (e) => {
+                    startX = e.touches[0].clientX;
+                    stopAutoSlide();
+                });
+
+                projectsGrid.addEventListener('touchmove', (e) => {
+                    endX = e.touches[0].clientX;
+                });
+
+                projectsGrid.addEventListener('touchend', () => {
+                    const threshold = 50;
+                    const diff = startX - endX;
+
+                    if (Math.abs(diff) > threshold) {
+                        if (diff > 0) {
+                            // Swipe left - next slide
+                            nextSlide();
+                        } else {
+                            // Swipe right - previous slide
+                            currentSlide = currentSlide === 0 ? projectCards.length - 1 : currentSlide - 1;
+                            showSlide(currentSlide);
+                        }
+                    }
+
+                    setTimeout(startAutoSlide, 5000); // Restart auto-slide after 5 seconds
+                });
+
+                // Pause auto-slide when user hovers over the section
+                projectsGrid.addEventListener('mouseenter', stopAutoSlide);
+                projectsGrid.addEventListener('mouseleave', startAutoSlide);
+
+                // Start auto-slide
+                startAutoSlide();
+
+                // Initialize first slide
+                showSlide(0);
+            }
+
+            // Handle window resize
+            window.addEventListener('resize', function () {
+                if (window.innerWidth > 768) {
+                    // Reset styles for desktop view
+                    const projectCards = document.querySelectorAll('.project-card12');
+                    projectCards.forEach(card => {
+                        card.style.transform = '';
+                    });
+                }
+            });
+        });
     </script>
 </body>
 
