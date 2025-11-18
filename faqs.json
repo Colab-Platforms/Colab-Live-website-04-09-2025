@@ -953,11 +953,17 @@
           "head": "Financial-Results-31-03-2025",
           "link": "https://cdn.shopify.com/s/files/1/0653/9830/9053/files/Financial-Results-31-03-2025.pdf?v=1748588354"
         },
+          {
+          "id": 212,
+          "head": "Financial Results_30.06.2025",
+         "link":"https://cdn.shopify.com/s/files/1/0636/5226/6115/files/Financial_Results_30.06.2025.pdf?v=1763464612"
+        },
          {
           "id": 210,
           "head": "Financial Results_30.09.2025",
          "link":"/Financial Results_30.09.2025.pdf"
         }
+      
         
       ]
     }
@@ -1074,6 +1080,11 @@
           "id": 76,
           "head": "Colab_-Board_Evaluation_Policy",
           "link": "https://cdn.shopify.com/s/files/1/0653/9830/9053/files/Colab_-Board_Evaluation_Policy.pdf?v=1745052110"
+        },
+           {
+          "id": 77,
+          "head": "Criteria of making Payment to Non-Executive Directors",
+          "link": "https://cdn.shopify.com/s/files/1/0636/5226/6115/files/Criteria_of_making_Payment_to_Non-Executive_Directors_338ad0f1-9b74-4a46-b75e-e43aee47b6f4.pdf?v=1763464819"
         }
         
       ]
@@ -2116,6 +2127,20 @@
          
           "head": "Covering_Letter_Record_date_Intimation",
           "link": "https://cdn.shopify.com/s/files/1/0653/9830/9053/files/Covering_Letter_Record_date_Intimation.pdf?v=1747205875"
+        },
+        {
+          "id": 58,
+         
+         
+          "head": "Regulation 42_Intimation of Record Date of 2nd interim Dividend",
+          "link": "https://cdn.shopify.com/s/files/1/0636/5226/6115/files/Regulation_42_Intimation_of_Record_Date_of_2nd_interim_Dividend.pdf?v=1763464214"
+        },
+        {
+          "id": 59,
+         
+         
+          "head": "Intimation of Record Date for 36th Annual general Meeting",
+          "link": "https://cdn.shopify.com/s/files/1/0636/5226/6115/files/Intimation_of_Record_Date_for_36th_Annual_general_Meeting.pdf?v=1763464214"
         }
       ]
     }
