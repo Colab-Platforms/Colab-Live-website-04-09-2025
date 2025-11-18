@@ -1192,12 +1192,23 @@
 "id": 209,
 "head": "Newspaper_Adv-AFR-31.03.2024",
 "link": "https://cdn.shopify.com/s/files/1/0653/9830/9053/files/Newspaper_Adv-AFR-31.03.2024.pdf?v=1745047612"
-}
-,
+},
+
+        {
+"id": 230,
+"head": "Newspaper Advt_AFR_31.03.2025",
+"link": "https://cdn.shopify.com/s/files/1/0653/9830/9053/files/Newspaper_adv_Notice_of_EOGM_07.04.2025.pdf?v=1745047600"
+},
+
 {
 "id": 210,
 "head": "Newspaper_adv_Notice_of_EOGM_07.04.2025",
 "link": "https://cdn.shopify.com/s/files/1/0653/9830/9053/files/Newspaper_adv_Notice_of_EOGM_07.04.2025.pdf?v=1745047600"
+},
+         {
+"id": 219,
+"head": "Newspaper Advt_AGM_06-09-2025",
+"link": "https://cdn.shopify.com/s/files/1/0636/5226/6115/files/Newspaer_adv_UFR__30.09.2025.pdf?v=1763124249"
 },
         {
 "id": 211,
@@ -1491,9 +1502,46 @@
         }
         ,
         {
-          "id": 12,
+          "id": 32,
           "head": "PR_Colab_Platforms_Acellerator_Program ",
           "link": "https://cdn.shopify.com/s/files/1/0653/9830/9053/files/PR_Colab_Platforms_Acellerator_Program.pdf?v=1745327260"
+        },
+
+
+
+   {
+          "id": 19,
+          "head":  "Press Release-AFR-29.05.2025",
+          "link": "https://cdn.shopify.com/s/files/1/0653/9830/9053/files/PR_Colab_Platforms_Acellerator_Program.pdf?v=1745327260"
+        },
+
+       
+          {
+          "id": 22,
+          "head": "Press Release-20.06.2025",
+          "link": "https://cdn.shopify.com/s/files/1/0636/5226/6115/files/Press_Release-20.06.2025_5070ad47-a1b5-438e-81e4-8974d5dee723.pdf?v=1763462529"
+        },
+
+  {
+          "id": 12,
+          "head": "Press Release-13.08.2025",
+          "link": "https://cdn.shopify.com/s/files/1/0636/5226/6115/files/Press_Release-13.08.2025_36cc7a51-968a-4e5c-971c-8b08140d394b.pdf?v=1763462529"
+        },    
+
+ {
+          "id": 17,
+          "head": "Press Release-AFR-23.08.2025",
+          "link": "https://cdn.shopify.com/s/files/1/0636/5226/6115/files/Press_Release-AFR-23.08.2025_fdd8be97-a3a2-447c-a0ce-3279ba6250fe.pdf?v=1763462529"
+        },
+  {
+          "id": 29,
+          "head": "Press Release-AFR-30.08.2025",
+          "link": "https://cdn.shopify.com/s/files/1/0636/5226/6115/files/Press_Release-AFR-30.08.2025.pdf?v=1763462529"
+        },
+        {
+          "id": 20,
+          "head": "Press Release-AFR-06.09.2025",
+          "link": "https://cdn.shopify.com/s/files/1/0636/5226/6115/files/Press_Release-AFR-06.09.2025.pdf?v=1763462529"
         },
           {
           "id": 13,
@@ -1989,19 +2037,35 @@
         "link": "https://cdn.shopify.com/s/files/1/0636/5226/6115/files/BM_Outcome-23.08.2025.pdf?v=1756362967"
       },
       {
+        "id": 126,
+        "head": "BM Outcome-30.08.2025",
+        "link": "https://cdn.shopify.com/s/files/1/0636/5226/6115/files/BM_Outcome-30.08.2025.pdf?v=1763461410"
+      },
+      {
         "id": 127,
         "head": "Colab Outcome_01.09.2025",
         "link": "https://cdn.shopify.com/s/files/1/0636/5226/6115/files/Colab_Outcome_01.09.2025.pdf?v=1756877666"
+      },
+         {
+        "id": 128,
+        "head": "BM Outcome-06.09.2025",
+        "link": "https://cdn.shopify.com/s/files/1/0636/5226/6115/files/BM_Outcome-06.09.2025.pdf?v=1763461411"
       },
       {
         "id": 128,
         "head": "BM Outcome PR_01.10.2025",
         "link": "https://cdn.shopify.com/s/files/1/0636/5226/6115/files/BM_Outcome_PR_01.10.2025.pdf?v=1759476024"
       },
+     
        {
         "id": 129,
         "head": "BM Outcome_03.10.2025",
         "link": "https://cdn.shopify.com/s/files/1/0636/5226/6115/files/BM_Outcome_03.10.2025__resignation_upload.pdf?v=1759573336"
+      },
+       {
+        "id": 130,
+        "head": " BM Outcome-12.11.2025",
+        "link": "https://cdn.shopify.com/s/files/1/0636/5226/6115/files/BM_Outcome-12.11.2025.pdf?v=1763461413"
       }
     ]
   },
